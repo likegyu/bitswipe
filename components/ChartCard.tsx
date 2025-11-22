@@ -6,10 +6,11 @@ import { TradingChart } from './TradingChart';
 import { useGameStore } from '@/store/gameStore';
 import { TimeframeSelector } from './TimeframeSelector';
 import { AdMockup } from './AdMockup';
+import { LoadingIndicator } from './LoadingIndicator';
 import clsx from 'clsx';
 
 export const ChartCard = () => {
-    const { placeBet, status, history, isGameStarted } = useGameStore();
+    const { placeBet, status, history, isGameStarted, isLoading, settings } = useGameStore();
     const controls = useAnimation();
     const [overlay, setOverlay] = useState<'long' | 'short' | null>(null);
 
@@ -33,8 +34,11 @@ export const ChartCard = () => {
                 animate={controls}
                 className="w-full h-full bg-card-bg rounded-3xl overflow-hidden card-shadow border border-gray-100 relative z-10"
             >
+                {/* Loading Indicator */}
+                {isLoading && <LoadingIndicator timeframe={settings.timeframe} />}
+
                 {/* Start Screen Overlay */}
-                {!isGameStarted && (
+                {!isGameStarted && !isLoading && (
                     <div className="absolute inset-0 z-50 bg-white">
                         <TimeframeSelector />
                     </div>

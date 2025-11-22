@@ -30,6 +30,7 @@ interface GameState {
     settings: GameSettings;
     status: 'IDLE' | 'PLAYING' | 'REVEALING' | 'RESULT' | 'AD' | 'FINISHED';
     isGameStarted: boolean;
+    isLoading: boolean;
 
     // Data
     allCandles: CandleData[];
@@ -67,6 +68,7 @@ export const useGameStore = create<GameState>((set, get) => ({
     },
     status: 'IDLE',
     isGameStarted: false,
+    isLoading: false,
     allCandles: [],
     warmupCandles: [],
     currentCandles: [],
@@ -78,24 +80,32 @@ export const useGameStore = create<GameState>((set, get) => ({
         set((state) => ({ settings: { ...state.settings, ...newSettings } })),
 
     initializeGame: async () => {
-        const { settings } = get();
-        const allData = await fetchCandleData(settings.timeframe);
+        set({ isLoading: true });
 
-        // Randomize start point for the first round? 
-        // The user wants 50 rounds. We need enough data.
-        // Let's just pick a random start index that allows for 50 rounds * (visible + prediction)
-        // For now, let's just load data and set status to PLAYING
+        try {
+            const { settings } = get();
+            const allData = await fetchCandleData(settings.timeframe);
 
-        set({
-            allCandles: allData,
-            status: 'IDLE',
-            round: 1,
-            history: [],
-            balance: 1000,
-            isGameStarted: true
-        });
+            // Randomize start point for the first round? 
+            // The user wants 50 rounds. We need enough data.
+            // Let's just pick a random start index that allows for 50 rounds * (visible + prediction)
+            // For now, just load data and set status to PLAYING
 
-        get().nextRound();
+            set({
+                allCandles: allData,
+                status: 'IDLE',
+                round: 1,
+                history: [],
+                balance: 1000,
+                isGameStarted: true,
+                isLoading: false
+            });
+
+            get().nextRound();
+        } catch (error) {
+            console.error('Failed to initialize game:', error);
+            set({ isLoading: false });
+        }
     },
 
     placeBet: (position) => {
