@@ -7,7 +7,7 @@ import { ChartCard } from './ChartCard';
 import { Controls } from './Controls';
 import { SettingsModal } from './SettingsModal';
 import { ResultModal } from './ResultModal';
-import { AdMockup } from './AdMockup';
+import { Ad } from './Ad';
 import { TimeframeSelector } from './TimeframeSelector';
 import { Footer } from './Footer';
 import { motion, AnimatePresence } from 'framer-motion';

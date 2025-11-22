@@ -5,7 +5,7 @@ import { motion, useAnimation } from 'framer-motion';
 import { TradingChart } from './TradingChart';
 import { useGameStore } from '@/store/gameStore';
 import { TimeframeSelector } from './TimeframeSelector';
-import { AdMockup } from './AdMockup';
+import { Ad } from './Ad';
 import { LoadingIndicator } from './LoadingIndicator';
 import clsx from 'clsx';
 
@@ -47,7 +47,7 @@ export const ChartCard = () => {
                 {/* Ad Overlay */}
                 {status === 'AD' && (
                     <div className="absolute inset-0 z-50 bg-white">
-                        <AdMockup />
+                        <Ad />
                     </div>
                 )}
 

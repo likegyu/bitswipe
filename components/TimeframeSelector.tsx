@@ -62,6 +62,12 @@ export const TimeframeSelector = () => {
                     );
                 })}
             </div>
+
+            <div className="mt-6 p-4">
+                <p className="text-sm text-gray-500 text-center">
+                    Win rate statistics by position will be shown after 30 rounds
+                </p>
+            </div>
         </div>
     );
 };
