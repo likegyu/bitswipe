@@ -21,6 +21,15 @@ export interface RoundResult {
     exitPrice: number;
 }
 
+export interface ChartState {
+    id: string;
+    candles: CandleData[]; // Visible candles
+    warmupCandles: CandleData[];
+    futureCandles: CandleData[]; // Candles to be revealed
+    entryPrice: number | null;
+    currentPosition: 'long' | 'short' | 'hold' | null;
+}
+
 interface GameState {
     balance: number;
     initialBalance: number;
@@ -34,11 +43,10 @@ interface GameState {
 
     // Data
     allCandles: CandleData[];
-    warmupCandles: CandleData[];
-    currentCandles: CandleData[];
-    futureCandles: CandleData[]; // Candles to be revealed
-    entryPrice: number | null;
-    currentPosition: 'long' | 'short' | 'hold' | null;
+
+    // Dual Chart System
+    frontChart: ChartState | null;
+    backChart: ChartState | null;
 
     // Actions
     setSettings: (settings: Partial<GameSettings>) => void;
@@ -51,11 +59,35 @@ interface GameState {
     skipAd: () => void;
 }
 
+const generateChartData = (allCandles: CandleData[], timeframe: Timeframe): ChartState | null => {
+    const config = TIMEFRAME_CONFIG[timeframe];
+    const totalNeeded = config.visible + config.prediction;
+    const warmupNeeded = 50;
+
+    if (allCandles.length < totalNeeded + warmupNeeded) return null;
+
+    const maxStartIndex = allCandles.length - (totalNeeded + warmupNeeded);
+    const startIndex = Math.floor(Math.random() * maxStartIndex);
+
+    const warmupSlice = allCandles.slice(startIndex, startIndex + warmupNeeded);
+    const visibleSlice = allCandles.slice(startIndex + warmupNeeded, startIndex + warmupNeeded + config.visible);
+    const futureSlice = allCandles.slice(startIndex + warmupNeeded + config.visible, startIndex + warmupNeeded + totalNeeded);
+
+    return {
+        id: Math.random().toString(36).substring(7),
+        candles: visibleSlice,
+        warmupCandles: warmupSlice,
+        futureCandles: futureSlice,
+        entryPrice: null,
+        currentPosition: null,
+    };
+};
+
 export const useGameStore = create<GameState>((set, get) => ({
     balance: 1000,
     initialBalance: 1000,
     round: 1,
-    maxRounds: 25,
+    maxRounds: 30,
     history: [],
     settings: {
         leverage: 1,
@@ -70,11 +102,9 @@ export const useGameStore = create<GameState>((set, get) => ({
     isGameStarted: false,
     isLoading: false,
     allCandles: [],
-    warmupCandles: [],
-    currentCandles: [],
-    futureCandles: [],
-    entryPrice: null,
-    currentPosition: null,
+
+    frontChart: null,
+    backChart: null,
 
     setSettings: (newSettings) =>
         set((state) => ({ settings: { ...state.settings, ...newSettings } })),
@@ -86,10 +116,8 @@ export const useGameStore = create<GameState>((set, get) => ({
             const { settings } = get();
             const allData = await fetchCandleData(settings.timeframe);
 
-            // Randomize start point for the first round? 
-            // The user wants 50 rounds. We need enough data.
-            // Let's just pick a random start index that allows for 50 rounds * (visible + prediction)
-            // For now, just load data and set status to PLAYING
+            const frontChart = generateChartData(allData, settings.timeframe);
+            const backChart = generateChartData(allData, settings.timeframe);
 
             set({
                 allCandles: allData,
@@ -98,10 +126,13 @@ export const useGameStore = create<GameState>((set, get) => ({
                 history: [],
                 balance: 1000,
                 isGameStarted: true,
-                isLoading: false
+                isLoading: false,
+                frontChart,
+                backChart,
             });
 
-            get().nextRound();
+            // Start the game immediately
+            set({ status: 'PLAYING' });
         } catch (error) {
             console.error('Failed to initialize game:', error);
             set({ isLoading: false });
@@ -109,33 +140,43 @@ export const useGameStore = create<GameState>((set, get) => ({
     },
 
     placeBet: (position) => {
-        const { currentCandles } = get();
-        const entryPrice = currentCandles[currentCandles.length - 1].close;
-        set({ status: 'REVEALING', currentPosition: position, entryPrice });
+        const { frontChart, status } = get();
+        if (status !== 'PLAYING' || !frontChart) return;
+
+        const entryPrice = frontChart.candles[frontChart.candles.length - 1].close;
+
+        set({
+            status: 'REVEALING',
+            frontChart: {
+                ...frontChart,
+                currentPosition: position,
+                entryPrice
+            }
+        });
     },
 
     completeRound: () => {
-        const { currentCandles, currentPosition, entryPrice, balance, settings, round, history, initialBalance } = get();
+        const { frontChart, balance, settings, round, history } = get();
 
-        if (!entryPrice || !currentPosition) return;
+        if (!frontChart || !frontChart.entryPrice || !frontChart.currentPosition) return;
 
-        const exitPrice = currentCandles[currentCandles.length - 1].close;
-        const priceChange = (exitPrice - entryPrice) / entryPrice;
+        const exitPrice = frontChart.candles[frontChart.candles.length - 1].close;
+        const priceChange = (exitPrice - frontChart.entryPrice) / frontChart.entryPrice;
+        const currentPosition = frontChart.currentPosition;
 
         // Handle hold position
         if (currentPosition === 'hold') {
             const result: RoundResult = {
                 round,
                 position: 'hold',
-                win: null, // Neutral - no win or loss
+                win: null,
                 profitPercent: 0,
-                entryPrice,
+                entryPrice: frontChart.entryPrice,
                 exitPrice
             };
 
             set({
                 history: [...history, result],
-                // Balance stays the same
             });
             return;
         }
@@ -144,18 +185,8 @@ export const useGameStore = create<GameState>((set, get) => ({
         if (currentPosition === 'long' && priceChange > 0) win = true;
         if (currentPosition === 'short' && priceChange < 0) win = true;
 
-        // Calculate profit
-        // Simple model: Bet 10% of balance? Or fixed amount?
-        // User didn't specify bet amount. Let's assume 100 units or 10% of balance.
-        // Let's say we bet 10% of current balance.
         const betAmount = balance * 0.1;
         const leverage = settings.leverage;
-
-        // Profit = Bet * Change * Leverage
-        // If win, we add profit. If loss, we subtract.
-        // Actually, for binary options style (win/loss), usually it's fixed return.
-        // But the user mentioned "profit percent" and "leverage".
-        // So let's do PnL based on price movement.
 
         let pnl = 0;
         if (currentPosition === 'long') {
@@ -171,75 +202,69 @@ export const useGameStore = create<GameState>((set, get) => ({
             position: currentPosition,
             win,
             profitPercent,
-            entryPrice,
+            entryPrice: frontChart.entryPrice,
             exitPrice
         };
 
         set({
             balance: newBalance,
             history: [...history, result],
-            // status: 'IDLE' // Don't reset status here, let the UI handle the transition
         });
     },
 
     nextRound: () => {
-        const { allCandles, round, settings, maxRounds, history } = get();
+        const { allCandles, backChart, round, maxRounds, settings, history } = get();
 
-        // If we have history, it means we just finished a round, so increment
         const nextRoundNum = history.length + 1;
 
         if (nextRoundNum > maxRounds) {
-            set({ status: 'FINISHED' });
+            set({
+                status: 'FINISHED',
+                frontChart: null,
+                backChart: null
+            });
             return;
         }
 
-        // Logic to pick a slice of candles for this round
-        // This is a simplified logic. In a real app, we'd track the current index in allCandles.
-        // Let's assume we pick random segments or sequential segments.
-        // Sequential is better for "simulation".
-        // Let's start from a random point and move forward? Or just random points?
-        // Random points are better for "training" so you don't memorize the chart.
+        // Move back chart to front
+        const newFrontChart = backChart;
 
-        const config = TIMEFRAME_CONFIG[settings.timeframe];
-        const totalNeeded = config.visible + config.prediction;
-        const warmupNeeded = 50; // Enough for BB (20) + RSI (14)
+        // Generate new back chart (unless it's the last round)
+        let newBackChart: ChartState | null = null;
+        if (nextRoundNum < maxRounds) {
+            newBackChart = generateChartData(allCandles, settings.timeframe);
+        }
 
-        // Ensure we have enough data
-        if (allCandles.length < totalNeeded + warmupNeeded) return;
-
-        const maxStartIndex = allCandles.length - (totalNeeded + warmupNeeded);
-        const startIndex = Math.floor(Math.random() * maxStartIndex);
-
-        const warmupSlice = allCandles.slice(startIndex, startIndex + warmupNeeded);
-        const visibleSlice = allCandles.slice(startIndex + warmupNeeded, startIndex + warmupNeeded + config.visible);
-        const futureSlice = allCandles.slice(startIndex + warmupNeeded + config.visible, startIndex + warmupNeeded + totalNeeded);
+        // Show Ad every 8 rounds (e.g., start of round 9, 17, 25...)
+        // (nextRoundNum - 1) because we just finished round 8, so nextRoundNum is 9.
+        // If we want ad AFTER round 8, we check if (nextRoundNum - 1) % 8 === 0.
+        const showAd = (nextRoundNum - 1) > 0 && (nextRoundNum - 1) % 8 === 0;
 
         set({
-            warmupCandles: warmupSlice,
-            currentCandles: visibleSlice,
-            futureCandles: futureSlice,
-            status: 'PLAYING',
+            frontChart: newFrontChart,
+            backChart: newBackChart,
+            status: showAd ? 'AD' : 'PLAYING',
             round: nextRoundNum,
-            currentPosition: null,
-            entryPrice: null
         });
     },
 
     revealNextCandle: () => {
-        const { currentCandles, futureCandles, status } = get();
-        if (status !== 'REVEALING') return false;
+        const { frontChart, status } = get();
+        if (status !== 'REVEALING' || !frontChart) return false;
 
-        if (futureCandles.length === 0) {
-            // End of round logic should be triggered here or by the component
+        if (frontChart.futureCandles.length === 0) {
             return false;
         }
 
-        const nextCandle = futureCandles[0];
-        const remainingFuture = futureCandles.slice(1);
+        const nextCandle = frontChart.futureCandles[0];
+        const remainingFuture = frontChart.futureCandles.slice(1);
 
         set({
-            currentCandles: [...currentCandles, nextCandle],
-            futureCandles: remainingFuture,
+            frontChart: {
+                ...frontChart,
+                candles: [...frontChart.candles, nextCandle],
+                futureCandles: remainingFuture,
+            }
         });
 
         return remainingFuture.length > 0;
@@ -251,12 +276,13 @@ export const useGameStore = create<GameState>((set, get) => ({
             round: 1,
             history: [],
             status: 'IDLE',
-            isGameStarted: false
+            isGameStarted: false,
+            frontChart: null,
+            backChart: null,
         });
     },
 
     skipAd: () => {
         set({ status: 'PLAYING' });
-        get().nextRound();
     }
 }));

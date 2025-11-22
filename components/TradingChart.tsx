@@ -2,10 +2,19 @@
 
 import React, { useEffect, useRef } from 'react';
 import { createChart, ColorType, IChartApi, ISeriesApi, Time, CandlestickSeries, LineSeries, IPriceLine } from 'lightweight-charts';
-import { useGameStore } from '@/store/gameStore';
+import { CandleData } from '@/lib/data';
 import { calculateSMA, calculateBollingerBands, calculateRSI } from '@/lib/indicators';
+import { GameSettings } from '@/store/gameStore';
 
-export const TradingChart = () => {
+interface TradingChartProps {
+    candles: CandleData[];
+    warmupCandles: CandleData[];
+    entryPrice: number | null;
+    settings: GameSettings;
+    height?: string;
+}
+
+export const TradingChart = ({ candles, warmupCandles, entryPrice, settings, height = '100%' }: TradingChartProps) => {
     const chartContainerRef = useRef<HTMLDivElement>(null);
     const rsiContainerRef = useRef<HTMLDivElement>(null);
 
@@ -18,8 +27,6 @@ export const TradingChart = () => {
     const bbLowerRef = useRef<ISeriesApi<"Line"> | null>(null);
     const rsiSeriesRef = useRef<ISeriesApi<"Line"> | null>(null);
     const entryLineRef = useRef<IPriceLine | null>(null);
-
-    const { currentCandles, warmupCandles, settings, status, entryPrice } = useGameStore();
 
     // Main Chart Initialization
     useEffect(() => {
@@ -201,24 +208,24 @@ export const TradingChart = () => {
 
     // Data Update
     useEffect(() => {
-        if (!candleSeriesRef.current || currentCandles.length === 0) return;
+        if (!candleSeriesRef.current || candles.length === 0) return;
 
         // Combine warmup and current for calculation
-        const fullData = [...warmupCandles, ...currentCandles];
+        const fullData = [...warmupCandles, ...candles];
 
         // Update Main Chart
-        candleSeriesRef.current.setData(currentCandles as any);
+        candleSeriesRef.current.setData(candles as any);
 
         if (settings.indicators.ma && maSeriesRef.current) {
             const smaData = calculateSMA(fullData, 20);
             // Filter to show only current visible range
-            const visibleSma = smaData.filter(d => currentCandles.some(c => c.time === d.time));
+            const visibleSma = smaData.filter(d => candles.some(c => c.time === d.time));
             maSeriesRef.current.setData(visibleSma as any);
         }
 
         if (settings.indicators.bb && bbUpperRef.current && bbLowerRef.current) {
             const bbData = calculateBollingerBands(fullData);
-            const visibleBb = bbData.filter(d => currentCandles.some(c => c.time === d.time));
+            const visibleBb = bbData.filter(d => candles.some(c => c.time === d.time));
             bbUpperRef.current.setData(visibleBb.map(d => ({ time: d.time, value: d.upper })) as any);
             bbLowerRef.current.setData(visibleBb.map(d => ({ time: d.time, value: d.lower })) as any);
         }
@@ -230,7 +237,7 @@ export const TradingChart = () => {
         // Update RSI Chart
         if (settings.indicators.rsi && rsiSeriesRef.current && rsiChartRef.current) {
             const rsiData = calculateRSI(fullData, 14);
-            const visibleRsi = rsiData.filter(d => currentCandles.some(c => c.time === d.time));
+            const visibleRsi = rsiData.filter(d => candles.some(c => c.time === d.time));
             rsiSeriesRef.current.setData(visibleRsi as any);
             rsiChartRef.current.timeScale().fitContent();
 
@@ -245,15 +252,10 @@ export const TradingChart = () => {
             });
         }
 
-    }, [currentCandles, warmupCandles, settings.indicators]);
+    }, [candles, warmupCandles, settings.indicators]);
 
     return (
-        <div className="w-full h-full flex flex-col relative">
-            {/* Interaction Blocker during Reveal */}
-            {status === 'REVEALING' && (
-                <div className="absolute inset-0 z-40 bg-transparent" />
-            )}
-
+        <div className="w-full h-full flex flex-col relative pointer-events-none">
             <div ref={chartContainerRef} className={`w-full ${settings.indicators.rsi ? 'h-[70%]' : 'h-full'}`} />
 
             {settings.indicators.rsi && (
