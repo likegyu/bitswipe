@@ -39,6 +39,8 @@
   --color-error: var(--error);
 
   --font-sans: 'Inter', sans-serif;
+
+  --breakpoint-xs: 475px;
 }
 
 body {

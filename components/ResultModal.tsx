@@ -38,24 +38,24 @@ export const ResultModal = () => {
 
 
     return (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-md z-[80] flex items-center justify-center p-4">
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-md z-[80] flex items-center justify-center p-2 sm:p-4">
             <motion.div
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
-                className="bg-white rounded-3xl p-6 w-full max-w-md shadow-2xl max-h-[90vh] overflow-y-auto"
+                className="bg-white rounded-3xl p-4 sm:p-6 w-full max-w-md shadow-2xl max-h-[90vh] overflow-y-auto"
             >
-                <h2 className="text-3xl font-bold text-center mb-6 text-gray-800">Game Result</h2>
+                <h2 className="text-2xl sm:text-3xl font-bold text-center mb-4 sm:mb-6 text-gray-800">Game Result</h2>
 
                 {/* Main Win Rate */}
-                <div className="flex flex-col items-center mb-8">
-                    <h3 className="text-lg font-medium text-gray-500 mb-2">Total Win Rate</h3>
-                    <div className="w-64 h-64 relative">
+                <div className="flex flex-col items-center mb-6 sm:mb-8">
+                    <h3 className="text-base sm:text-lg font-medium text-gray-500 mb-2">Total Win Rate</h3>
+                    <div className="w-48 h-48 sm:w-64 sm:h-64 relative">
                         <ResponsiveContainer width="100%" height="100%">
                             <PieChart>
                                 <Pie
                                     data={[data[0]]}
-                                    innerRadius={70}
-                                    outerRadius={98} // Larger for Wins
+                                    innerRadius={60}
+                                    outerRadius={85} // Larger for Wins
                                     startAngle={90}
                                     endAngle={90 - (360 * (data[0].value / (data[0].value + data[1].value)))}
                                     dataKey="value"
@@ -65,8 +65,8 @@ export const ResultModal = () => {
                                 </Pie>
                                 <Pie
                                     data={[data[1]]}
-                                    innerRadius={70}
-                                    outerRadius={90} // Standard for Losses
+                                    innerRadius={60}
+                                    outerRadius={78} // Standard for Losses
                                     startAngle={90 - (360 * (data[0].value / (data[0].value + data[1].value)))}
                                     endAngle={-270}
                                     dataKey="value"
@@ -78,7 +78,7 @@ export const ResultModal = () => {
                             </PieChart>
                         </ResponsiveContainer>
                         <div className="absolute inset-0 flex items-center justify-center flex-col">
-                            <span className="text-3xl font-bold" style={{ color: winRate >= 50 ? COLORS[0] : COLORS[1] }}>
+                            <span className="text-2xl sm:text-3xl font-bold" style={{ color: winRate >= 50 ? COLORS[0] : COLORS[1] }}>
                                 {Math.round(winRate)}%
                             </span>
                         </div>
@@ -86,30 +86,30 @@ export const ResultModal = () => {
                 </div>
 
                 {/* Sub Stats */}
-                <div className="grid grid-cols-2 gap-4 mb-8">
-                    <div className="bg-gray-50 p-4 rounded-2xl text-center">
-                        <h4 className="text-sm text-gray-500 mb-1">Long Win Rate</h4>
-                        <span className="text-xl font-bold text-success">{Math.round(longWinRate)}%</span>
+                <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8">
+                    <div className="bg-gray-50 p-3 sm:p-4 rounded-2xl text-center">
+                        <h4 className="text-xs sm:text-sm text-gray-500 mb-1">Long Win Rate</h4>
+                        <span className="text-lg sm:text-xl font-bold text-success">{Math.round(longWinRate)}%</span>
                         <div className="text-xs text-gray-400 mt-1">{longWins}/{longBets.length}</div>
                     </div>
-                    <div className="bg-gray-50 p-4 rounded-2xl text-center">
-                        <h4 className="text-sm text-gray-500 mb-1">Short Win Rate</h4>
-                        <span className="text-xl font-bold text-error">{Math.round(shortWinRate)}%</span>
+                    <div className="bg-gray-50 p-3 sm:p-4 rounded-2xl text-center">
+                        <h4 className="text-xs sm:text-sm text-gray-500 mb-1">Short Win Rate</h4>
+                        <span className="text-lg sm:text-xl font-bold text-error">{Math.round(shortWinRate)}%</span>
                         <div className="text-xs text-gray-400 mt-1">{shortWins}/{shortBets.length}</div>
                     </div>
                 </div>
 
                 {/* Final Profit */}
-                <div className="text-center mb-8">
-                    <h3 className="text-lg font-medium text-gray-500 mb-2">Total Return</h3>
-                    <span className={`text-4xl font-bold ${profit >= 0 ? 'text-success' : 'text-error'}`}>
+                <div className="text-center mb-6 sm:mb-8">
+                    <h3 className="text-base sm:text-lg font-medium text-gray-500 mb-2">Total Return</h3>
+                    <span className={`text-3xl sm:text-4xl font-bold ${profit >= 0 ? 'text-success' : 'text-error'}`}>
                         {profit >= 0 ? '+' : ''}{profitPercent}%
                     </span>
                 </div>
 
                 <button
                     onClick={resetGame}
-                    className="cursor-pointer w-full py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary-hover transition-colors shadow-lg shadow-orange-200"
+                    className="cursor-pointer w-full py-3 sm:py-4 bg-primary text-white font-bold text-sm sm:text-base rounded-xl hover:bg-primary-hover transition-colors shadow-lg shadow-orange-200"
                 >
                     Play Again
                 </button>

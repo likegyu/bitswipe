@@ -12,15 +12,15 @@ export const Header = ({ onOpenSettings }: { onOpenSettings: () => void }) => {
     const isProfit = profit >= 0;
 
     return (
-        <header className="w-full max-w-md flex items-center justify-between p-4 z-50">
+        <header className="w-full max-w-md flex items-center justify-between p-2 sm:p-4 z-50">
             <div className="flex flex-col">
-                <div className="flex items-center gap-2">
-                    <Trophy className={isProfit ? "text-success" : "text-error"} size={20} />
-                    <span className={`text-xl font-bold ${isProfit ? "text-success" : "text-error"}`}>
+                <div className="flex items-center gap-1 sm:gap-2">
+                    <Trophy className={isProfit ? "text-success" : "text-error"} size={18} />
+                    <span className={`text-lg sm:text-xl font-bold ${isProfit ? "text-success" : "text-error"}`}>
                         {isProfit ? "+" : ""}{profitPercent}%
                     </span>
                 </div>
-                <span className="text-sm text-gray-400 font-medium">
+                <span className="text-xs sm:text-sm text-gray-400 font-medium">
                     Round {round}/{maxRounds}
                 </span>
             </div>

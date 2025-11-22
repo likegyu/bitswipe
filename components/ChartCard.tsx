@@ -77,7 +77,7 @@ export const ChartCard = () => {
     ].filter(c => c.data !== null);
 
     return (
-        <div className="relative w-full max-w-md h-[60vh] perspective-1000 flex items-center justify-center">
+        <div className="relative w-full max-w-md min-h-[50vh] sm:h-[60vh] perspective-1000 flex items-center justify-center">
 
             {/* Pre-Game / Loading State */}
             {(!isGameStarted || isLoading) && (
@@ -161,7 +161,7 @@ export const ChartCard = () => {
                             )}
 
                             {/* Chart Component */}
-                            <div className="w-full h-full p-4 relative">
+                            <div className="w-full h-full p-2 sm:p-4 relative">
                                 <TradingChart
                                     candles={card.data!.candles}
                                     warmupCandles={card.data!.warmupCandles}
