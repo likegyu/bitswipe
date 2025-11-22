@@ -35,9 +35,9 @@ export const Ad = () => {
             exit={{ y: '100%', opacity: 0 }}
             className="absolute inset-0 z-40 flex justify-center"
         >
-            <div className="bg-white w-full h-full max-w-md rounded-3xl shadow-2xl flex flex-col">
+            <div className="bg-white w-full h-full max-w-md rounded-3xl flex flex-col">
                 {/* Header */}
-                <div className="bg-white p-4 flex justify-end items-center flex-shrink-0">
+                <div className="p-4 flex justify-end items-center flex-shrink-0">
                     <button
                         onClick={skipAd}
                         className="cursor-pointer p-1.5 bg-white rounded-full shadow-sm hover:bg-gray-50 transition-colors"
@@ -59,7 +59,7 @@ export const Ad = () => {
                 </div>
 
                 {/* Footer */}
-                <div className="bg-white py-1 px-4 text-center border-t border-gray-200">
+                <div className="py-1 px-4 text-center border-t border-gray-200">
                     <span className="text-xs font-medium text-gray-500 uppercase tracking-wider">Advertisement</span>
                 </div>
             </div>

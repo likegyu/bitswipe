@@ -46,7 +46,7 @@ export const ChartCard = () => {
 
                 {/* Ad Overlay */}
                 {status === 'AD' && (
-                    <div className="absolute inset-0 z-50 bg-white">
+                    <div className="absolute inset-0 z-50">
                         <Ad />
                     </div>
                 )}
