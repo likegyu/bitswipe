@@ -106,7 +106,7 @@ export const TimeframeSelector = () => {
                                         <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider">{section.title}</h3>
                                     </div>
 
-                                    <div className={`grid ${section.options.length === 3 ? 'grid-cols-3 sm:grid-cols-1' : section.options.length === 2 ? 'grid-cols-2 sm:grid-cols-1' : 'grid-cols-1'} gap-2 sm:gap-2 flex-1`}>
+                                    <div className={`grid ${section.options.length === 3 ? 'grid-cols-3 sm:grid-cols-1' : section.options.length === 2 ? 'grid-cols-2 sm:grid-cols-1' : 'grid-cols-1'} gap-2 sm:gap-4 flex-1`}>
                                         {section.options.map((opt) => {
                                             const config = TIMEFRAME_CONFIG[opt.value as Timeframe];
                                             const isMultiOption = section.options.length > 1;
@@ -114,7 +114,7 @@ export const TimeframeSelector = () => {
                                                 <button
                                                     key={opt.value}
                                                     onClick={() => handleTimeframeSelect(opt.value as Timeframe)}
-                                                    className={`cursor-pointer group relative flex flex-col items-center sm:justify-center p-2 sm:p-3 bg-white rounded-2xl shadow-sm border border-gray-100 ${section.border} hover:shadow-xl hover:-translate-y-1 transition-all duration-300 active:scale-95 overflow-hidden`}
+                                                    className={`cursor-pointer group relative flex flex-col items-center sm:justify-center p-2 sm:p-3 bg-white rounded-2xl shadow-xs border border-gray-100 ${section.border} hover:shadow-xl hover:-translate-y-1 transition-all duration-300 active:scale-95 overflow-hidden`}
                                                 >
                                                     {/* Background Decoration */}
                                                     <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${section.bg}`} />
@@ -125,10 +125,10 @@ export const TimeframeSelector = () => {
                                                             {opt.icon}
                                                         </div>
                                                         <div className={`text-center ${isMultiOption ? 'sm:text-left sm:flex-1' : 'sm:text-center'}`}>
-                                                            <div className={`text-base ${isMultiOption ? 'sm:text-base' : 'sm:text-xl'} font-black text-gray-800 group-hover:text-gray-900`}>
+                                                            <div className={`text-base ${isMultiOption ? 'sm:text-lg' : 'sm:text-2xl'} font-black text-gray-800 group-hover:text-gray-900`}>
                                                                 {opt.label}
                                                             </div>
-                                                            <div className="text-[10px] sm:text-[9px] font-bold text-gray-400 uppercase tracking-wide group-hover:text-gray-500">
+                                                            <div className="text-[10px] sm:text-xs font-bold text-gray-400 uppercase tracking-wide group-hover:text-gray-500">
                                                                 {opt.sub}
                                                             </div>
                                                         </div>
