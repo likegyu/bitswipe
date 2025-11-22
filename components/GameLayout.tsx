@@ -62,7 +62,7 @@ export const GameLayout = () => {
                 // For now, we just proceed to next round which updates the data
                 // Ideally, we'd have a 'SWIPING' state in store to coordinate
 
-                if (round % 2 === 0) {
+                if (round % 8 === 0) {
                     useGameStore.setState({ status: 'AD' });
                 } else {
                     nextRound();

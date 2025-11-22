@@ -12,7 +12,7 @@ import clsx from 'clsx';
 export const ChartCard = () => {
     const { placeBet, status, history, isGameStarted, isLoading, settings } = useGameStore();
     const controls = useAnimation();
-    const [overlay, setOverlay] = useState<'long' | 'short' | null>(null);
+    const [overlay, setOverlay] = useState<'long' | 'short' | 'hold' | null>(null);
 
     // Handle swipe animation when round finishes
     useEffect(() => {
@@ -22,7 +22,7 @@ export const ChartCard = () => {
         }
     }, [status, controls]);
 
-    const handleInteraction = (position: 'long' | 'short') => {
+    const handleInteraction = (position: 'long' | 'short' | 'hold') => {
         if (status !== 'PLAYING') return;
         setOverlay(position);
         placeBet(position);
@@ -56,15 +56,23 @@ export const ChartCard = () => {
                     <>
                         <div
                             onClick={() => handleInteraction('short')}
-                            className="absolute left-0 top-0 w-1/2 h-full z-30 cursor-pointer hover:bg-error/10 transition-colors group"
+                            className="absolute left-0 top-0 w-1/3 h-full z-30 cursor-pointer hover:bg-error/10 transition-colors group"
                         >
                             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                                 <span className="text-error font-bold text-4xl -rotate-12">SHORT</span>
                             </div>
                         </div>
                         <div
+                            onClick={() => handleInteraction('hold')}
+                            className="absolute left-1/3 top-0 w-1/3 h-full z-30 cursor-pointer hover:bg-gray-500/10 transition-colors group"
+                        >
+                            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                <span className="text-gray-500 font-bold text-4xl">HOLD</span>
+                            </div>
+                        </div>
+                        <div
                             onClick={() => handleInteraction('long')}
-                            className="absolute right-0 top-0 w-1/2 h-full z-30 cursor-pointer hover:bg-success/10 transition-colors group"
+                            className="absolute right-0 top-0 w-1/3 h-full z-30 cursor-pointer hover:bg-success/10 transition-colors group"
                         >
                             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                                 <span className="text-success font-bold text-4xl rotate-12">LONG</span>
@@ -77,6 +85,11 @@ export const ChartCard = () => {
                 {overlay === 'short' && (
                     <div className="absolute inset-0 bg-error/20 z-20 flex items-center justify-center pointer-events-none">
                         <span className="text-error font-bold text-6xl -rotate-12">SHORT</span>
+                    </div>
+                )}
+                {overlay === 'hold' && (
+                    <div className="absolute inset-0 bg-gray-500/20 z-20 flex items-center justify-center pointer-events-none">
+                        <span className="text-gray-500 font-bold text-6xl">HOLD</span>
                     </div>
                 )}
                 {overlay === 'long' && (

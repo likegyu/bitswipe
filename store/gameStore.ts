@@ -55,7 +55,7 @@ export const useGameStore = create<GameState>((set, get) => ({
     balance: 1000,
     initialBalance: 1000,
     round: 1,
-    maxRounds: 10,
+    maxRounds: 25,
     history: [],
     settings: {
         leverage: 1,

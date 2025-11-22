@@ -17,7 +17,7 @@ export const Controls = () => {
                 disabled={disabled}
                 className={clsx(
                     "flex-1 py-4 rounded-2xl flex items-center justify-center gap-2 font-bold text-white transition-all transform active:scale-95 cursor-pointer shadow-lg",
-                    disabled ? "bg-gray-300 cursor-not-allowed opacity-50" : "bg-rose-400 hover:bg-rose-500 cursor-pointer shadow-rose-100"
+                    disabled ? "bg-gray-300 cursor-not-allowed opacity-50" : "bg-error hover:bg-error/90 cursor-pointer shadow-error/40"
                 )}
             >
                 <ArrowDown size={24} />
@@ -29,7 +29,7 @@ export const Controls = () => {
                 disabled={disabled}
                 className={clsx(
                     "flex-1 py-4 rounded-2xl flex items-center justify-center gap-2 font-bold text-white transition-all transform active:scale-95 shadow-lg",
-                    disabled ? "bg-gray-300 cursor-not-allowed opacity-50" : "bg-blue-400 hover:bg-blue-500 cursor-pointer shadow-blue-100"
+                    disabled ? "bg-gray-300 cursor-not-allowed opacity-50" : "bg-gray-500 hover:bg-gray-600 cursor-pointer shadow-gray-500/40"
                 )}
             >
                 <Eye size={24} />
@@ -41,7 +41,7 @@ export const Controls = () => {
                 disabled={disabled}
                 className={clsx(
                     "flex-1 py-4 rounded-2xl flex items-center justify-center gap-2 font-bold text-white transition-all transform active:scale-95 shadow-lg",
-                    disabled ? "bg-gray-300 cursor-not-allowed opacity-50" : "bg-emerald-400 hover:bg-emerald-500 cursor-pointer shadow-emerald-100"
+                    disabled ? "bg-gray-300 cursor-not-allowed opacity-50" : "bg-success hover:bg-success/90 cursor-pointer shadow-success/40"
                 )}
             >
                 <ArrowUp size={24} />

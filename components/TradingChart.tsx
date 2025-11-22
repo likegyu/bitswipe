@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
-import { createChart, ColorType, IChartApi, ISeriesApi, Time, CandlestickSeries, LineSeries } from 'lightweight-charts';
+import { createChart, ColorType, IChartApi, ISeriesApi, Time, CandlestickSeries, LineSeries, IPriceLine } from 'lightweight-charts';
 import { useGameStore } from '@/store/gameStore';
 import { calculateSMA, calculateBollingerBands, calculateRSI } from '@/lib/indicators';
 
@@ -17,8 +17,9 @@ export const TradingChart = () => {
     const bbUpperRef = useRef<ISeriesApi<"Line"> | null>(null);
     const bbLowerRef = useRef<ISeriesApi<"Line"> | null>(null);
     const rsiSeriesRef = useRef<ISeriesApi<"Line"> | null>(null);
+    const entryLineRef = useRef<IPriceLine | null>(null);
 
-    const { currentCandles, warmupCandles, settings, status } = useGameStore();
+    const { currentCandles, warmupCandles, settings, status, entryPrice } = useGameStore();
 
     // Main Chart Initialization
     useEffect(() => {
@@ -174,6 +175,29 @@ export const TradingChart = () => {
             chart.remove();
         };
     }, [settings.indicators.rsi]);
+
+    // Entry Price Line
+    useEffect(() => {
+        if (!candleSeriesRef.current) return;
+
+        // Remove existing line if any
+        if (entryLineRef.current) {
+            candleSeriesRef.current.removePriceLine(entryLineRef.current);
+            entryLineRef.current = null;
+        }
+
+        // Add new line if entry price exists
+        if (entryPrice !== null) {
+            entryLineRef.current = candleSeriesRef.current.createPriceLine({
+                price: entryPrice,
+                color: '#5692f3ff', // Blue color
+                lineWidth: 1,
+                lineStyle: 2, // Dashed
+                axisLabelVisible: true,
+                title: 'ENTRY',
+            });
+        }
+    }, [entryPrice]);
 
     // Data Update
     useEffect(() => {
