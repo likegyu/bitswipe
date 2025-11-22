@@ -109,7 +109,7 @@ export const ResultModal = () => {
 
                 <button
                     onClick={resetGame}
-                    className="w-full py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary-hover transition-colors shadow-lg shadow-orange-200"
+                    className="cursor-pointer w-full py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary-hover transition-colors shadow-lg shadow-orange-200"
                 >
                     Play Again
                 </button>

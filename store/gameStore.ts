@@ -222,9 +222,9 @@ export const useGameStore = create<GameState>((set, get) => ({
             balance: 1000,
             round: 1,
             history: [],
-            status: 'IDLE'
+            status: 'IDLE',
+            isGameStarted: false
         });
-        get().initializeGame();
     },
 
     skipAd: () => {
