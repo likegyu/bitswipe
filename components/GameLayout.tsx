@@ -68,7 +68,7 @@ export const GameLayout = () => {
     };
 
     return (
-        <div className="min-h-screen w-full flex flex-col items-center bg-background relative overflow-hidden">
+        <div className="h-[100dvh] w-full flex flex-col items-center bg-background relative overflow-hidden">
 
             <Header onOpenSettings={() => setIsSettingsOpen(true)} />
 
