@@ -35,7 +35,7 @@ export const Ad = () => {
             exit={{ y: '100%', opacity: 0 }}
             className="absolute inset-0 z-40 flex justify-center"
         >
-            <div className="bg-white w-full h-full max-w-md rounded-3xl flex flex-col">
+            <div className="bg-white w-full h-full max-w-md sm:max-w-4xl rounded-3xl flex flex-col">
                 {/* Header */}
                 <div className="p-4 flex justify-end items-center flex-shrink-0">
                     <button
