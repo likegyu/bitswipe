@@ -90,9 +90,6 @@ export const ChartCard = () => {
                     <TradingChart />
                 </div>
             </motion.div>
-
-            {/* Background cards stack effect */}
-            <div className="absolute inset-0 bg-white rounded-3xl transform scale-95 translate-y-4 -z-10 opacity-50 shadow-lg" />
         </div>
     );
 };
