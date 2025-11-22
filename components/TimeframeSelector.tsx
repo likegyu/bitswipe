@@ -53,8 +53,8 @@ export const TimeframeSelector = () => {
                             </div>
                             <div className="flex-1 min-w-0">
                                 <div className="font-bold text-sm sm:text-lg text-gray-800">{opt.label}</div>
-                                <div className="text-xs sm:text-sm text-gray-400 hidden sm:block">{opt.desc}</div>
-                                <div className="text-xs text-gray-300 mt-1 hidden sm:block">
+                                <div className="text-xs sm:text-sm text-gray-400">{opt.desc}</div>
+                                <div className="text-xs text-gray-300 mt-1">
                                     Visible: {config.visible} | Prediction: {config.prediction}
                                 </div>
                             </div>
