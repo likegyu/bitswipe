@@ -27,7 +27,7 @@ export const Header = ({ onOpenSettings }: { onOpenSettings: () => void }) => {
 
             <button
                 onClick={onOpenSettings}
-                className="cursor-pointer p-2 rounded-full hover:bg-gray-100 transition-colors text-gray-600"
+                className="cursor-pointer p-3 sm:p-2 rounded-full hover:bg-gray-100 transition-colors text-gray-600"
             >
                 <Settings size={24} />
             </button>

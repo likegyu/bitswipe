@@ -40,7 +40,7 @@ export const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
                     >
                         <div className="flex items-center justify-between mb-4 sm:mb-6">
                             <h2 className="text-xl sm:text-2xl font-bold text-gray-800">Settings</h2>
-                            <button onClick={onClose} className="cursor-pointer p-2 bg-gray-100 rounded-full">
+                            <button onClick={onClose} className="cursor-pointer p-3 sm:p-2 bg-gray-100 rounded-full">
                                 <X size={20} />
                             </button>
                         </div>
@@ -88,7 +88,7 @@ export const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
                                         { id: 'ma', label: 'MA (Moving Average)' },
                                         { id: 'bb', label: 'Bollinger Bands' },
                                     ].map((indicator) => (
-                                        <div key={indicator.id} className="flex items-center justify-between">
+                                        <div key={indicator.id} className="flex items-center justify-between py-1">
                                             <span className="text-sm sm:text-base text-gray-700">{indicator.label}</span>
                                             <button
                                                 onClick={() => setSettings({
@@ -97,13 +97,13 @@ export const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
                                                         [indicator.id]: !settings.indicators[indicator.id as keyof typeof settings.indicators]
                                                     }
                                                 })}
-                                                className={`w-12 h-6 rounded-full transition-colors relative cursor-pointer ${settings.indicators[indicator.id as keyof typeof settings.indicators]
+                                                className={`w-14 h-7 sm:w-12 sm:h-6 rounded-full transition-colors relative cursor-pointer ${settings.indicators[indicator.id as keyof typeof settings.indicators]
                                                     ? 'bg-primary'
                                                     : 'bg-gray-200'
                                                     }`}
                                             >
-                                                <div className={`absolute top-1 w-4 h-4 bg-white rounded-full transition-transform ${settings.indicators[indicator.id as keyof typeof settings.indicators]
-                                                    ? 'left-7'
+                                                <div className={`absolute top-1 w-5 h-5 sm:w-4 sm:h-4 bg-white rounded-full transition-transform ${settings.indicators[indicator.id as keyof typeof settings.indicators]
+                                                    ? 'left-8 sm:left-7'
                                                     : 'left-1'
                                                     }`} />
                                             </button>
