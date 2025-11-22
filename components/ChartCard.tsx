@@ -15,11 +15,11 @@ const variants: Variants = {
         y: 0,
         opacity: 1,
         rotate: 0,
-        transition: { type: 'spring', stiffness: 300, damping: 30 }
+        transition: { type: 'spring', stiffness: 300, damping: 50 }
     },
     back: {
         zIndex: 10,
-        scale: 0.90,
+        scale: 0.95,
         y: -70, // Peeking out from top (adjusted for bottom transform origin)
         opacity: 0.6,
         rotate: 0,
@@ -35,7 +35,7 @@ const variants: Variants = {
     }),
     enter: {
         zIndex: 5,
-        scale: 0.92,
+        scale: 0.9,
         y: -200,
         opacity: 0,
     }
@@ -72,8 +72,8 @@ export const ChartCard = () => {
     }, [frontChart?.id]);
 
     const cards = [
-        { type: 'front', data: frontChart },
-        { type: 'back', data: backChart }
+        { type: 'back', data: backChart },
+        { type: 'front', data: frontChart }
     ].filter(c => c.data !== null);
 
     return (
@@ -90,88 +90,89 @@ export const ChartCard = () => {
                 </div>
             )}
 
-            <AnimatePresence custom={{ direction: exitDirection }} mode='popLayout'>
-                {cards.map((card) => (
-                    <motion.div
-                        key={card.data!.id}
-                        layoutId={card.data!.id}
-                        custom={{ direction: exitDirection }}
-                        variants={variants}
-                        initial="enter"
-                        animate={card.type === 'front' ? 'front' : 'back'}
-                        exit="exit"
-                        className="absolute w-full h-full bg-card-bg rounded-3xl overflow-hidden card-shadow border border-gray-100"
-                        style={{
-                            transformOrigin: 'bottom center',
-                            boxShadow: '0 20px 50px rgba(0,0,0,0.1)'
-                        }}
-                    >
-                        {/* Ad Overlay - Only on front */}
-                        {card.type === 'front' && status === 'AD' && (
-                            <div className="absolute inset-0 z-50">
-                                <Ad />
-                            </div>
-                        )}
-
-                        {/* Interaction Layer - Only on Front Card */}
-                        {card.type === 'front' && status === 'PLAYING' && !overlay && (
-                            <>
-                                <div
-                                    onClick={() => handleInteraction('short')}
-                                    className="absolute left-0 top-0 w-1/3 h-full z-30 cursor-pointer hover:bg-error/5 transition-colors group"
-                                >
-                                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                        <span className="text-error font-bold text-4xl -rotate-12">SHORT</span>
-                                    </div>
+            {isGameStarted && !isLoading && (
+                <AnimatePresence custom={{ direction: exitDirection }} mode='popLayout'>
+                    {cards.map((card) => (
+                        <motion.div
+                            key={card.data!.id}
+                            custom={{ direction: exitDirection, type: card.type }}
+                            variants={variants}
+                            initial="enter"
+                            animate={card.type === 'front' ? 'front' : 'back'}
+                            exit="exit"
+                            className="absolute w-full h-full bg-card-bg rounded-3xl overflow-hidden card-shadow border border-gray-100"
+                            style={{
+                                transformOrigin: 'bottom center',
+                                boxShadow: '0 20px 50px rgba(0,0,0,0.1)'
+                            }}
+                        >
+                            {/* Ad Overlay - Only on front */}
+                            {card.type === 'front' && status === 'AD' && (
+                                <div className="absolute inset-0 z-50">
+                                    <Ad />
                                 </div>
-                                <div
-                                    onClick={() => handleInteraction('hold')}
-                                    className="absolute left-1/3 top-0 w-1/3 h-full z-30 cursor-pointer hover:bg-gray-500/5 transition-colors group"
-                                >
-                                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                        <span className="text-gray-500 font-bold text-4xl">HOLD</span>
-                                    </div>
-                                </div>
-                                <div
-                                    onClick={() => handleInteraction('long')}
-                                    className="absolute right-0 top-0 w-1/3 h-full z-30 cursor-pointer hover:bg-success/5 transition-colors group"
-                                >
-                                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                        <span className="text-success font-bold text-4xl rotate-12">LONG</span>
-                                    </div>
-                                </div>
-                            </>
-                        )}
+                            )}
 
-                        {/* Result Overlays - Only on Front Card */}
-                        {card.type === 'front' && overlay === 'short' && (
-                            <div className="absolute inset-0 bg-error/10 z-20 flex items-center justify-center pointer-events-none">
-                                <span className="text-error font-bold text-6xl -rotate-12">SHORT</span>
-                            </div>
-                        )}
-                        {card.type === 'front' && overlay === 'hold' && (
-                            <div className="absolute inset-0 bg-gray-500/10 z-20 flex items-center justify-center pointer-events-none">
-                                <span className="text-gray-500 font-bold text-6xl">HOLD</span>
-                            </div>
-                        )}
-                        {card.type === 'front' && overlay === 'long' && (
-                            <div className="absolute inset-0 bg-success/10 z-20 flex items-center justify-center pointer-events-none">
-                                <span className="text-success font-bold text-6xl rotate-12">LONG</span>
-                            </div>
-                        )}
+                            {/* Interaction Layer - Only on Front Card */}
+                            {card.type === 'front' && status === 'PLAYING' && !overlay && (
+                                <>
+                                    <div
+                                        onClick={() => handleInteraction('short')}
+                                        className="absolute left-0 top-0 w-1/3 h-full z-30 cursor-pointer hover:bg-error/5 transition-colors group"
+                                    >
+                                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                            <span className="text-error font-bold text-4xl -rotate-12">SHORT</span>
+                                        </div>
+                                    </div>
+                                    <div
+                                        onClick={() => handleInteraction('hold')}
+                                        className="absolute left-1/3 top-0 w-1/3 h-full z-30 cursor-pointer hover:bg-gray-500/5 transition-colors group"
+                                    >
+                                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                            <span className="text-gray-500 font-bold text-4xl">HOLD</span>
+                                        </div>
+                                    </div>
+                                    <div
+                                        onClick={() => handleInteraction('long')}
+                                        className="absolute right-0 top-0 w-1/3 h-full z-30 cursor-pointer hover:bg-success/5 transition-colors group"
+                                    >
+                                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                            <span className="text-success font-bold text-4xl rotate-12">LONG</span>
+                                        </div>
+                                    </div>
+                                </>
+                            )}
 
-                        {/* Chart Component */}
-                        <div className="w-full h-full p-4 relative">
-                            <TradingChart
-                                candles={card.data!.candles}
-                                warmupCandles={card.data!.warmupCandles}
-                                entryPrice={card.data!.entryPrice}
-                                settings={settings}
-                            />
-                        </div>
-                    </motion.div>
-                ))}
-            </AnimatePresence>
+                            {/* Result Overlays - Only on Front Card */}
+                            {card.type === 'front' && overlay === 'short' && (
+                                <div className="absolute inset-0 bg-error/10 z-20 flex items-center justify-center pointer-events-none">
+                                    <span className="text-error font-bold text-6xl -rotate-12">SHORT</span>
+                                </div>
+                            )}
+                            {card.type === 'front' && overlay === 'hold' && (
+                                <div className="absolute inset-0 bg-gray-500/10 z-20 flex items-center justify-center pointer-events-none">
+                                    <span className="text-gray-500 font-bold text-6xl">HOLD</span>
+                                </div>
+                            )}
+                            {card.type === 'front' && overlay === 'long' && (
+                                <div className="absolute inset-0 bg-success/10 z-20 flex items-center justify-center pointer-events-none">
+                                    <span className="text-success font-bold text-6xl rotate-12">LONG</span>
+                                </div>
+                            )}
+
+                            {/* Chart Component */}
+                            <div className="w-full h-full p-4 relative">
+                                <TradingChart
+                                    candles={card.data!.candles}
+                                    warmupCandles={card.data!.warmupCandles}
+                                    entryPrice={card.data!.entryPrice}
+                                    settings={settings}
+                                />
+                            </div>
+                        </motion.div>
+                    ))}
+                </AnimatePresence>
+            )}
         </div>
     );
 };
