@@ -13,8 +13,31 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('http://bitswipe.xyz'),
   title: "Bitswipe",
-  description: "Test your crypto trading skills",
+  description: "Test your crypto trading skills with past price charts. Predict Bitcoin price movements and master the art of trading!",
+  openGraph: {
+    title: "Bitswipe - Bitcoin Trading Game",
+    description: "Test your crypto trading skills with past price charts. Predict Bitcoin price movements and master the art of trading!",
+    url: "https://bitswipe.xyz", // Update with your actual domain
+    siteName: "Bitswipe",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Bitswipe - Bitcoin Trading Game",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Bitswipe - Bitcoin Trading Game",
+    description: "Test your crypto trading skills with past price charts. Predict Bitcoin price movements and master the art of trading!",
+    images: ["/og-image.png"],
+  },
 };
 
 export default function RootLayout({
