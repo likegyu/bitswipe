@@ -14,8 +14,8 @@ export interface GameSettings {
 
 export interface RoundResult {
     round: number;
-    position: 'long' | 'short';
-    win: boolean;
+    position: 'long' | 'short' | 'hold';
+    win: boolean | null; // null for hold position
     profitPercent: number;
     entryPrice: number;
     exitPrice: number;
@@ -38,12 +38,12 @@ interface GameState {
     currentCandles: CandleData[];
     futureCandles: CandleData[]; // Candles to be revealed
     entryPrice: number | null;
-    currentPosition: 'long' | 'short' | null;
+    currentPosition: 'long' | 'short' | 'hold' | null;
 
     // Actions
     setSettings: (settings: Partial<GameSettings>) => void;
     initializeGame: () => Promise<void>;
-    placeBet: (position: 'long' | 'short') => void;
+    placeBet: (position: 'long' | 'short' | 'hold') => void;
     completeRound: () => void;
     nextRound: () => void;
     resetGame: () => void;
@@ -55,7 +55,7 @@ export const useGameStore = create<GameState>((set, get) => ({
     balance: 1000,
     initialBalance: 1000,
     round: 1,
-    maxRounds: 30,
+    maxRounds: 10,
     history: [],
     settings: {
         leverage: 1,
@@ -121,6 +121,24 @@ export const useGameStore = create<GameState>((set, get) => ({
 
         const exitPrice = currentCandles[currentCandles.length - 1].close;
         const priceChange = (exitPrice - entryPrice) / entryPrice;
+
+        // Handle hold position
+        if (currentPosition === 'hold') {
+            const result: RoundResult = {
+                round,
+                position: 'hold',
+                win: null, // Neutral - no win or loss
+                profitPercent: 0,
+                entryPrice,
+                exitPrice
+            };
+
+            set({
+                history: [...history, result],
+                // Balance stays the same
+            });
+            return;
+        }
 
         let win = false;
         if (currentPosition === 'long' && priceChange > 0) win = true;

@@ -23,7 +23,7 @@ export const GameLayout = () => {
     } = useGameStore();
 
     const [isSettingsOpen, setIsSettingsOpen] = useState(false);
-    const [showEmoji, setShowEmoji] = useState<'win' | 'loss' | null>(null);
+    const [showEmoji, setShowEmoji] = useState<'win' | 'loss' | 'hold' | null>(null);
 
     // Game Loop: Reveal candles
     useEffect(() => {
@@ -47,7 +47,12 @@ export const GameLayout = () => {
         const lastResult = useGameStore.getState().history[useGameStore.getState().history.length - 1];
 
         if (lastResult) {
-            setShowEmoji(lastResult.win ? 'win' : 'loss');
+            // Determine emoji based on position and result
+            if (lastResult.position === 'hold') {
+                setShowEmoji('hold');
+            } else {
+                setShowEmoji(lastResult.win ? 'win' : 'loss');
+            }
 
             // Wait for emoji, then swipe/next
             setTimeout(() => {
@@ -85,7 +90,7 @@ export const GameLayout = () => {
                                 className="absolute inset-0 flex items-center justify-center z-50 pointer-events-none"
                             >
                                 <span className="text-9xl filter drop-shadow-lg">
-                                    {showEmoji === 'win' ? '🤑' : '💸'}
+                                    {showEmoji === 'win' ? '🤑' : showEmoji === 'loss' ? '💸' : '👀'}
                                 </span>
                             </motion.div>
                         )}
