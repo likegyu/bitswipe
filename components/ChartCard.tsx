@@ -77,7 +77,7 @@ export const ChartCard = () => {
     ].filter(c => c.data !== null);
 
     return (
-        <div className="relative w-full max-w-md min-h-[50vh] sm:h-[60vh] perspective-1000 flex items-center justify-center">
+        <div className="relative w-full max-w-md min-h-[60vh] sm:h-[60vh] perspective-1000 flex items-center justify-center">
 
             {/* Pre-Game / Loading State */}
             {(!isGameStarted || isLoading) && (

@@ -72,7 +72,7 @@ export const GameLayout = () => {
 
             <Header onOpenSettings={() => setIsSettingsOpen(true)} />
 
-            <main className="flex-1 w-full flex flex-col items-center justify-center relative z-10 px-2 sm:px-4">
+            <main className="flex-1 w-full flex flex-col items-center justify-start pt-4 sm:justify-center sm:pt-0 relative z-10 px-2 sm:px-4">
                 <div className="relative w-full max-w-md flex justify-center">
                     <ChartCard />
 
