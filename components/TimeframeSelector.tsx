@@ -64,7 +64,7 @@ export const TimeframeSelector = () => {
             </div>
 
             <div className="mt-4 sm:mt-6 p-2 sm:p-4">
-                <p className="text-[10px] sm:text-sm text-gray-500 text-center">
+                <p className="text-[11px] sm:text-sm text-gray-500 text-center">
                     Win rate statistics by position will be shown after 30 rounds
                 </p>
             </div>
