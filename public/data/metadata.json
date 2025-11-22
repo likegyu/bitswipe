@@ -1,0 +1,56 @@
+{
+  "1m": {
+    "chunks": 12,
+    "files": [
+      "1m_1.json",
+      "1m_2.json",
+      "1m_3.json",
+      "1m_4.json",
+      "1m_5.json",
+      "1m_6.json",
+      "1m_7.json",
+      "1m_8.json",
+      "1m_9.json",
+      "1m_10.json",
+      "1m_11.json",
+      "1m_12.json"
+    ]
+  },
+  "5m": {
+    "chunks": 5,
+    "files": [
+      "5m_1.json",
+      "5m_2.json",
+      "5m_3.json",
+      "5m_4.json",
+      "5m_5.json"
+    ]
+  },
+  "15m": {
+    "chunks": 3,
+    "files": [
+      "15m_1.json",
+      "15m_2.json",
+      "15m_3.json"
+    ]
+  },
+  "30m": {
+    "chunks": 2,
+    "files": [
+      "30m_1.json",
+      "30m_2.json"
+    ]
+  },
+  "1h": {
+    "chunks": 1,
+    "files": [
+      "1h_1.json"
+    ]
+  },
+  "1d": {
+    "chunks": 1,
+    "files": [
+      "1d_1.json"
+    ]
+  }
+}

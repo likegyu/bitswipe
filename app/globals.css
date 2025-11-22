@@ -1,26 +1,84 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fdfbf7;
+  /* Warm off-white */
+  --foreground: #4a4a4a;
+  /* Soft dark gray */
+
+  --primary: #ff9f87;
+  /* Soft coral/salmon */
+  --primary-hover: #ff8a6d;
+
+  --secondary: #a3d9c9;
+  /* Soft mint */
+  --secondary-hover: #8ccfb9;
+
+  --accent: #ffd68a;
+  /* Soft yellow */
+
+  --card-bg: #ffffff;
+  --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
+
+  --success: #88d8b0;
+  /* Pastel green */
+  --error: #ff6b6b;
+  /* Pastel red */
 }
 
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-secondary: var(--secondary);
+  --color-secondary-hover: var(--secondary-hover);
+  --color-accent: var(--accent);
+  --color-card-bg: var(--card-bg);
+  --color-success: var(--success);
+  --color-error: var(--error);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: 'Inter', sans-serif;
+
+  --breakpoint-xs: 475px;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e0e0e0;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d0d0d0;
+}
+
+.card-shadow {
+  box-shadow: var(--card-shadow);
+}
+
+/* Hide Lightweight Charts Logo */
+a[href^="https://www.tradingview.com/"] {
+  display: none !important;
+  visibility: hidden !important;
+  width: 0 !important;
+  height: 0 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }
