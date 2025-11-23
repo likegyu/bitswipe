@@ -163,7 +163,7 @@ export const ResultModal = () => {
                 <div className="flex flex-col gap-3 sm:gap-4">
                     <button
                         onClick={() => setShowAnalysis(true)}
-                        className="cursor-pointer w-full py-2 sm:py-3 bg-gray-800 text-white font-bold text-sm sm:text-base rounded-xl hover:bg-gray-700 transition-colors shadow-sm flex items-center justify-center gap-2"
+                        className="cursor-pointer w-full py-3 sm:py-4 bg-gray-800 text-white font-bold text-sm sm:text-base rounded-xl hover:bg-gray-700 transition-colors shadow-sm flex items-center justify-center gap-2"
                     >
                         View Trading Analysis
                     </button>
@@ -171,7 +171,7 @@ export const ResultModal = () => {
                     <div className="flex gap-3 sm:gap-4">
                         <button
                             onClick={handleShare}
-                            className={`cursor-pointer flex-1 py-2 sm:py-3 font-bold text-sm sm:text-base rounded-xl transition-all shadow-md ${isCopied
+                            className={`cursor-pointer flex-1 py-3 sm:py-4 font-bold text-sm sm:text-base rounded-xl transition-all shadow-md ${isCopied
                                 ? 'bg-green-500 text-white hover:bg-green-600'
                                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                                 }`}
@@ -180,7 +180,7 @@ export const ResultModal = () => {
                         </button>
                         <button
                             onClick={resetGame}
-                            className="cursor-pointer flex-[2] py-2 sm:py-3 bg-primary text-white font-bold text-sm sm:text-base rounded-xl hover:bg-primary-hover transition-colors shadow-md shadow-orange-200"
+                            className="cursor-pointer flex-[2] py-3 sm:py-4 bg-primary text-white font-bold text-sm sm:text-base rounded-xl hover:bg-primary-hover transition-colors shadow-md shadow-orange-200"
                         >
                             Play Again
                         </button>

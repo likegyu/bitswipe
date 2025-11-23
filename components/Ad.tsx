@@ -11,17 +11,22 @@ export const Ad = () => {
 
     useEffect(() => {
         if (status === 'AD' && !adInitialized.current) {
-            try {
-                // @ts-ignore
-                (window.adsbygoogle = window.adsbygoogle || []).push({});
-                adInitialized.current = true;
-            } catch (err) {
-                console.error('AdSense error:', err);
-            }
+            // Delay to ensure DOM is fully rendered
+            const timer = setTimeout(() => {
+                try {
+                    // @ts-ignore
+                    (window.adsbygoogle = window.adsbygoogle || []).push({});
+                    adInitialized.current = true;
+                } catch (err) {
+                    console.error('AdSense error:', err);
+                }
+            }, 100);
+
+            return () => clearTimeout(timer);
         }
 
         // Reset when leaving AD status
-        if (status !== 'AD') {
+        if (status !== 'AD' && adInitialized.current) {
             adInitialized.current = false;
         }
     }, [status]);
@@ -48,9 +53,9 @@ export const Ad = () => {
                 </div>
 
                 {/* Ad Content */}
-                <div className="flex-1 flex flex-col items-center justify-center p-4 overflow-hidden">
+                <div className="flex-1 flex flex-col items-center justify-center p-4 overflow-hidden min-h-[250px]">
                     <ins className="adsbygoogle"
-                        style={{ display: 'block', textAlign: 'center' }}
+                        style={{ display: 'block', textAlign: 'center', minWidth: '300px', minHeight: '250px' }}
                         data-ad-layout="in-article"
                         data-ad-format="fluid"
                         data-ad-client="ca-pub-3860360352476148"

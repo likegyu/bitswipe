@@ -94,7 +94,7 @@ export const GameLayout = () => {
                 </div>
 
                 {/* Controls moved closer to card */}
-                <div className="mt-2 sm:mt-4 w-full max-w-md sm:max-w-4xl">
+                <div className="my-auto sm:my-0 sm:mt-4 w-full max-w-md sm:max-w-4xl">
                     <Controls />
                 </div>
             </main>

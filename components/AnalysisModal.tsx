@@ -16,13 +16,23 @@ export const AnalysisModal = ({ history, onClose }: AnalysisModalProps) => {
 
     React.useEffect(() => {
         if (showAd && !adInitialized.current) {
-            try {
-                // @ts-ignore
-                (window.adsbygoogle = window.adsbygoogle || []).push({});
-                adInitialized.current = true;
-            } catch (err) {
-                console.error('AdSense error:', err);
-            }
+            // Delay to ensure DOM is fully rendered
+            const timer = setTimeout(() => {
+                try {
+                    // @ts-ignore
+                    (window.adsbygoogle = window.adsbygoogle || []).push({});
+                    adInitialized.current = true;
+                } catch (err) {
+                    console.error('AdSense error:', err);
+                }
+            }, 100);
+
+            return () => clearTimeout(timer);
+        }
+
+        // Reset when ad is closed
+        if (!showAd && adInitialized.current) {
+            adInitialized.current = false;
         }
     }, [showAd]);
 
@@ -111,9 +121,9 @@ export const AnalysisModal = ({ history, onClose }: AnalysisModalProps) => {
 
                 {showAd ? (
                     <div className="flex flex-col h-[400px]">
-                        <div className="flex-1 flex flex-col items-center justify-center mt-6 overflow-hidden bg-gray-50">
+                        <div className="flex-1 flex flex-col items-center justify-center mt-6 overflow-hidden bg-gray-50 min-h-[250px]">
                             <ins className="adsbygoogle"
-                                style={{ display: 'block', textAlign: 'center' }}
+                                style={{ display: 'block', textAlign: 'center', minWidth: '300px', minHeight: '250px' }}
                                 data-ad-layout="in-article"
                                 data-ad-format="fluid"
                                 data-ad-client="ca-pub-3860360352476148"
