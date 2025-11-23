@@ -10,6 +10,7 @@ import { ResultModal } from './ResultModal';
 import { Ad } from './Ad';
 import { TimeframeSelector } from './TimeframeSelector';
 import { Footer } from './Footer';
+import { RoundResultOverlay } from './RoundResultOverlay';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export const GameLayout = () => {
@@ -77,20 +78,7 @@ export const GameLayout = () => {
                     <ChartCard />
 
                     {/* Emoji Feedback */}
-                    <AnimatePresence>
-                        {showEmoji && (
-                            <motion.div
-                                initial={{ scale: 0, opacity: 0 }}
-                                animate={{ scale: 1, opacity: 1 }}
-                                exit={{ scale: 0, opacity: 0 }}
-                                className="absolute inset-0 flex items-center justify-center z-50 pointer-events-none"
-                            >
-                                <span className="text-9xl filter drop-shadow-lg">
-                                    {showEmoji === 'win' ? '🤑' : showEmoji === 'loss' ? '💸' : '👀'}
-                                </span>
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
+                    <RoundResultOverlay type={showEmoji} />
                 </div>
 
                 {/* Controls moved closer to card */}

@@ -163,7 +163,7 @@ export const ResultModal = () => {
                 <div className="flex flex-col gap-3 sm:gap-4">
                     <button
                         onClick={() => setShowAnalysis(true)}
-                        className="cursor-pointer w-full py-3 sm:py-4 bg-gray-800 text-white font-bold text-sm sm:text-base rounded-xl hover:bg-gray-700 transition-colors shadow-sm flex items-center justify-center gap-2"
+                        className="cursor-pointer w-full py-3 sm:py-4 bg-gray-500 text-white font-bold text-sm sm:text-base rounded-xl hover:bg-gray-700 transition-colors shadow-sm flex items-center justify-center gap-2"
                     >
                         View Trading Analysis
                     </button>
