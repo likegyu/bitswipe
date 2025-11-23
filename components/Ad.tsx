@@ -50,7 +50,7 @@ export const Ad = () => {
                 {/* Ad Content */}
                 <div className="flex-1 flex flex-col items-center justify-center p-4 overflow-hidden">
                     <ins className="adsbygoogle"
-                        style={{ display: 'block', textAlign: 'center', width: '100%', height: '100%' }}
+                        style={{ display: 'block', textAlign: 'center' }}
                         data-ad-layout="in-article"
                         data-ad-format="fluid"
                         data-ad-client="ca-pub-3860360352476148"
