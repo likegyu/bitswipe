@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { useGameStore } from '@/store/gameStore';
 import { Timeframe, TIMEFRAME_CONFIG } from '@/lib/data';
-import { Zap, TrendingUp, Sun, Clock, BarChart2, Calendar, ArrowLeft, Target, Trophy, Medal, Eye, ArrowRight } from 'lucide-react';
+import { Zap, TrendingUp, Sun, Clock, BarChart2, Calendar, ArrowLeft, Target, Trophy, Medal, Eye, ArrowRight, Timer } from 'lucide-react';
 
 type Step = 'timeframe' | 'rounds';
 
@@ -38,7 +38,7 @@ export const TimeframeSelector = () => {
             border: 'group-hover:border-rose-200',
             options: [
                 { value: '1m', label: '1m', sub: 'Turbo', icon: <Zap className="w-4 h-4 sm:w-6 sm:h-6" /> },
-                { value: '5m', label: '5m', sub: 'Blitz', icon: <Clock className="w-4 h-4 sm:w-6 sm:h-6" /> },
+                { value: '5m', label: '5m', sub: 'Blitz', icon: <Timer className="w-4 h-4 sm:w-6 sm:h-6" /> },
                 { value: '15m', label: '15m', sub: 'Rapid', icon: <TrendingUp className="w-4 h-4 sm:w-6 sm:h-6" /> },
             ] as const
         },
@@ -82,8 +82,8 @@ export const TimeframeSelector = () => {
                     {step === 'timeframe' ? (
                         <>
                             {/* Header for timeframe step */}
-                            <div className="relative text-center mb-6 sm:mb-8 flex-shrink-0">
-                                <h2 className="text-xl sm:text-3xl font-black text-foreground tracking-tight mb-1 sm:mb-2">
+                            <div className="relative text-center mb-4 sm:mb-8 flex-shrink-0">
+                                <h2 className="text-lg sm:text-3xl font-black text-foreground tracking-tight sm:mb-2">
                                     Select Pace
                                 </h2>
                                 <p className="text-xs sm:text-base text-gray-400 font-medium">
@@ -91,10 +91,10 @@ export const TimeframeSelector = () => {
                                 </p>
                             </div>
 
-                            <div className="space-y-4 sm:space-y-0 sm:grid sm:grid-cols-3 sm:gap-4">
+                            <div className="space-y-2 sm:space-y-0 sm:grid sm:grid-cols-3 sm:gap-4">
                                 {timeframeSections.map((section) => (
                                     <div key={section.title} className="space-y-2 sm:space-y-2 flex flex-col">
-                                        <div className={`flex items-center gap-2 ${section.color} opacity-80 ml-1 sm:justify-center sm:mb-3`}>
+                                        <div className={`hidden sm:flex items-center gap-2 ${section.color} opacity-80 ml-1 sm:justify-center sm:mb-3`}>
                                             {section.icon}
                                             <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider">{section.title}</h3>
                                         </div>
@@ -107,36 +107,29 @@ export const TimeframeSelector = () => {
                                                     <button
                                                         key={opt.value}
                                                         onClick={() => handleTimeframeSelect(opt.value as Timeframe)}
-                                                        className={`cursor-pointer group relative flex flex-col items-center sm:justify-center p-2 sm:p-3 bg-white rounded-2xl shadow-xs border border-gray-100 ${section.border} hover:shadow-xl hover:-translate-y-1 transition-all duration-300 active:scale-95 overflow-hidden`}
+                                                        className={`cursor-pointer group relative flex flex-col items-center justify-center p-3 sm:p-4 bg-white rounded-2xl shadow-xs border border-gray-100 ${section.border} hover:shadow-md hover:-translate-y-1 transition-all duration-300 active:scale-95 overflow-hidden`}
                                                     >
                                                         {/* Background Decoration */}
                                                         <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${section.bg}`} />
 
-                                                        {/* Main content area with icon and text */}
-                                                        <div className={`relative z-10 flex flex-col ${isMultiOption ? 'sm:flex-row' : 'sm:flex-col'} items-center gap-1 sm:gap-3 w-full ${isMultiOption ? '' : 'sm:mb-2'}`}>
-                                                            <div className={`${isMultiOption ? 'p-2' : 'p-3'} rounded-full bg-gray-50 group-hover:bg-white/80 transition-colors ${section.color} flex-shrink-0`}>
-                                                                {opt.icon}
-                                                            </div>
-                                                            <div className={`text-center ${isMultiOption ? 'sm:text-left sm:flex-1' : 'sm:text-center'}`}>
-                                                                <div className={`text-base ${isMultiOption ? 'sm:text-lg' : 'sm:text-2xl'} font-black text-gray-800 group-hover:text-gray-900`}>
-                                                                    {opt.label}
-                                                                </div>
-                                                                <div className="text-[10px] sm:text-xs font-bold text-gray-400 uppercase tracking-wide group-hover:text-gray-500">
-                                                                    {opt.sub}
-                                                                </div>
-                                                            </div>
+                                                        {/* Visible Candles Badge (Desktop Only) */}
+                                                        <div className="hidden sm:flex absolute top-3 right-3 items-center gap-1.5 opacity-40 group-hover:opacity-100 transition-all duration-300">
+                                                            <Eye className="w-3.5 h-3.5 text-gray-400 group-hover:text-gray-600" />
+                                                            <span className="text-xs font-bold text-gray-400 group-hover:text-gray-600">{config.visible}</span>
                                                         </div>
 
-                                                        {/* Desktop Stats Bar - Inside button */}
-                                                        <div className="hidden sm:flex relative z-10 items-center justify-between w-full px-3 py-1.5 mt-2 text-[9px] text-gray-500">
-                                                            <div className="flex items-center gap-1">
-                                                                <Eye size={10} />
-                                                                <span className="font-semibold">{config.visible}</span>
+                                                        {/* Main content area */}
+                                                        <div className={`relative z-10 flex flex-col items-center gap-2 w-full`}>
+                                                            <div className={`p-2.5 sm:p-3 rounded-xl bg-gray-50 group-hover:bg-white/80 transition-colors ${section.color} shadow-sm`}>
+                                                                {opt.icon}
                                                             </div>
-                                                            <div className="w-px h-3 bg-gray-300" />
-                                                            <div className="flex items-center gap-1">
-                                                                <ArrowRight size={10} />
-                                                                <span className="font-semibold">{config.prediction}</span>
+                                                            <div className="text-center">
+                                                                <div className="text-base sm:text-2xl font-black text-gray-800 group-hover:text-gray-900 tracking-tight leading-none mb-1">
+                                                                    {opt.label}
+                                                                </div>
+                                                                <div className="text-[8px] sm:text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-gray-600 transition-colors">
+                                                                    {opt.sub}
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </button>
@@ -170,13 +163,13 @@ export const TimeframeSelector = () => {
                                     <button
                                         key={opt.value}
                                         onClick={() => handleRoundSelect(opt.value)}
-                                        className={`cursor-pointer group relative w-full flex sm:flex-col items-center sm:justify-center p-4 sm:p-6 bg-white rounded-2xl shadow-sm border border-gray-100 ${opt.border} hover:shadow-xl hover:-translate-y-1 transition-all duration-300 active:scale-[0.98] overflow-hidden`}
+                                        className={`cursor-pointer group relative w-full flex sm:flex-col items-center sm:justify-center p-4 sm:p-6 bg-white rounded-2xl shadow-xs border border-gray-100 ${opt.border} hover:shadow-md hover:-translate-y-1 transition-all duration-300 active:scale-[0.98] overflow-hidden`}
                                     >
                                         {/* Background Decoration */}
                                         <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${opt.bg}`} />
 
                                         <div className="relative z-10 flex sm:flex-col items-center w-full gap-4 sm:gap-4">
-                                            <div className={`p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-gray-50 group-hover:bg-white/80 transition-colors ${opt.color}`}>
+                                            <div className={`p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-gray-50 group-hover:bg-white/80 transition-colors ${opt.color} shadow-sm`}>
                                                 {opt.icon}
                                             </div>
                                             <div className="flex-1 text-left sm:text-center">
@@ -187,7 +180,7 @@ export const TimeframeSelector = () => {
                                                     {opt.sub}
                                                 </div>
                                             </div>
-                                            <div className={`text-2xl sm:hidden font-black opacity-10 group-hover:opacity-20 ${opt.color}`}>
+                                            <div className={`text-2xl sm:hidden font-black opacity-30 group-hover:opacity-50 ${opt.color}`}>
                                                 {opt.value}
                                             </div>
                                         </div>
@@ -200,7 +193,7 @@ export const TimeframeSelector = () => {
 
                 {/* Footer */}
                 <div className="mt-auto pt-3 sm:pt-4 text-center flex-shrink-0 opacity-60 hover:opacity-100 transition-opacity">
-                    <p className="text-[10px] sm:text-xs text-gray-400 font-medium">
+                    <p className="text-[10px] sm:text-xs text-gray-400 font-medium hidden sm:block">
                         {step === 'timeframe' ? 'Detailed statistics available after game completion' : `Selected: ${selectedTimeframe?.toUpperCase()} Candle`}
                     </p>
                 </div>

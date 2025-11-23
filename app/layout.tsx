@@ -16,7 +16,6 @@ export const metadata: Metadata = {
   metadataBase: new URL('http://bitswipe.xyz'),
   title: "Bitswipe",
   description: "Test your crypto trading skills with past price charts. Predict Bitcoin price movements and master the art of trading!",
-  viewport: "width=device-width, initial-scale=1, viewport-fit=cover",
   openGraph: {
     title: "Bitswipe - Bitcoin Trading Game",
     description: "Test your crypto trading skills with past price charts. Predict Bitcoin price movements and master the art of trading!",
@@ -39,6 +38,14 @@ export const metadata: Metadata = {
     description: "Test your crypto trading skills with past price charts. Predict Bitcoin price movements and master the art of trading!",
     images: ["/og-image.png"],
   },
+};
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  viewportFit: 'cover',
 };
 
 export default function RootLayout({

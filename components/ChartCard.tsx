@@ -121,7 +121,7 @@ export const ChartCard = () => {
                                         className="absolute left-0 top-0 w-1/3 h-full z-30 cursor-pointer hover:bg-error/5 transition-colors group"
                                     >
                                         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                            <span className="text-error font-bold text-4xl -rotate-12">SHORT</span>
+                                            <span className="text-error font-bold text-2xl -rotate-12">SHORT</span>
                                         </div>
                                     </div>
                                     <div
@@ -129,7 +129,7 @@ export const ChartCard = () => {
                                         className="absolute left-1/3 top-0 w-1/3 h-full z-30 cursor-pointer hover:bg-gray-500/5 transition-colors group"
                                     >
                                         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                            <span className="text-gray-500 font-bold text-4xl">HOLD</span>
+                                            <span className="text-gray-500 font-bold text-2xl">HOLD</span>
                                         </div>
                                     </div>
                                     <div
@@ -137,7 +137,7 @@ export const ChartCard = () => {
                                         className="absolute right-0 top-0 w-1/3 h-full z-30 cursor-pointer hover:bg-success/5 transition-colors group"
                                     >
                                         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                            <span className="text-success font-bold text-4xl rotate-12">LONG</span>
+                                            <span className="text-success font-bold text-2xl rotate-12">LONG</span>
                                         </div>
                                     </div>
                                 </>

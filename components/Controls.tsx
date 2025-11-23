@@ -16,7 +16,7 @@ export const Controls = () => {
                 onClick={() => placeBet('short')}
                 disabled={disabled}
                 className={clsx(
-                    "flex-1 py-3 sm:py-4 rounded-2xl flex items-center justify-center gap-1 sm:gap-2 font-bold text-sm sm:text-base text-white transition-all transform active:scale-95 cursor-pointer shadow-lg",
+                    "flex-1 py-3 sm:py-4 rounded-2xl flex items-center justify-center gap-1 sm:gap-2 font-bold text-sm sm:text-base text-white transition-all transform active:scale-95 shadow-sm",
                     disabled ? "bg-gray-300 cursor-not-allowed opacity-50" : "bg-error hover:bg-error/90 cursor-pointer shadow-error/40"
                 )}
             >
@@ -29,7 +29,7 @@ export const Controls = () => {
                 onClick={() => placeBet('hold')}
                 disabled={disabled}
                 className={clsx(
-                    "flex-1 py-3 sm:py-4 rounded-2xl flex items-center justify-center gap-1 sm:gap-2 font-bold text-sm sm:text-base text-white transition-all transform active:scale-95 shadow-lg",
+                    "flex-1 py-3 sm:py-4 rounded-2xl flex items-center justify-center gap-1 sm:gap-2 font-bold text-sm sm:text-base text-white transition-all transform active:scale-95 shadow-sm",
                     disabled ? "bg-gray-300 cursor-not-allowed opacity-50" : "bg-gray-500 hover:bg-gray-600 cursor-pointer shadow-gray-500/40"
                 )}
             >
@@ -42,7 +42,7 @@ export const Controls = () => {
                 onClick={() => placeBet('long')}
                 disabled={disabled}
                 className={clsx(
-                    "flex-1 py-3 sm:py-4 rounded-2xl flex items-center justify-center gap-1 sm:gap-2 font-bold text-sm sm:text-base text-white transition-all transform active:scale-95 shadow-lg",
+                    "flex-1 py-3 sm:py-4 rounded-2xl flex items-center justify-center gap-1 sm:gap-2 font-bold text-sm sm:text-base text-white transition-all transform active:scale-95 shadow-sm",
                     disabled ? "bg-gray-300 cursor-not-allowed opacity-50" : "bg-success hover:bg-success/90 cursor-pointer shadow-success/40"
                 )}
             >

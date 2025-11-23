@@ -20,6 +20,11 @@ export interface RoundResult {
     profitPercent: number;
     entryPrice: number;
     exitPrice: number;
+    indicators?: {
+        rsi: number;
+        maTrend: 'up' | 'down' | 'flat';
+        bbPosition: 'upper' | 'lower' | 'middle' | 'none';
+    };
 }
 
 export interface ChartState {
@@ -48,6 +53,13 @@ interface GameState {
     // Dual Chart System
     frontChart: ChartState | null;
     backChart: ChartState | null;
+
+    // Analysis Context
+    currentBetContext: {
+        rsi: number;
+        maTrend: 'up' | 'down' | 'flat';
+        bbPosition: 'upper' | 'lower' | 'middle' | 'none';
+    } | null;
 
     // Actions
     setSettings: (settings: Partial<GameSettings>) => void;
@@ -107,6 +119,7 @@ export const useGameStore = create<GameState>((set, get) => ({
 
     frontChart: null,
     backChart: null,
+    currentBetContext: null,
 
     setSettings: (newSettings) =>
         set((state) => ({ settings: { ...state.settings, ...newSettings } })),
@@ -132,6 +145,7 @@ export const useGameStore = create<GameState>((set, get) => ({
                 isLoading: false,
                 frontChart,
                 backChart,
+                currentBetContext: null,
             });
 
             // Start the game immediately
@@ -148,18 +162,54 @@ export const useGameStore = create<GameState>((set, get) => ({
 
         const entryPrice = frontChart.candles[frontChart.candles.length - 1].close;
 
+        // Calculate Indicators for Analysis
+        const fullData = [...frontChart.warmupCandles, ...frontChart.candles];
+
+        // RSI
+        const rsiData = calculateRSI(fullData, 14);
+        const currentRSI = rsiData.length > 0 ? rsiData[rsiData.length - 1].value : 50;
+
+        // MA Trend
+        const maData = calculateSMA(fullData, 20);
+        let maTrend: 'up' | 'down' | 'flat' = 'flat';
+        if (maData.length >= 2) {
+            const currentMA = maData[maData.length - 1].value;
+            const prevMA = maData[maData.length - 2].value;
+            if (currentMA > prevMA) maTrend = 'up';
+            else if (currentMA < prevMA) maTrend = 'down';
+        }
+
+        // BB Position
+        const bbData = calculateBollingerBands(fullData, 20, 2);
+        let bbPosition: 'upper' | 'lower' | 'middle' | 'none' = 'none';
+        if (bbData.length > 0) {
+            const currentBB = bbData[bbData.length - 1];
+            const close = fullData[fullData.length - 1].close;
+            const range = currentBB.upper - currentBB.lower;
+            const threshold = range * 0.1; // 10% threshold
+
+            if (Math.abs(close - currentBB.upper) < threshold || close > currentBB.upper) bbPosition = 'upper';
+            else if (Math.abs(close - currentBB.lower) < threshold || close < currentBB.lower) bbPosition = 'lower';
+            else if (Math.abs(close - currentBB.middle) < threshold) bbPosition = 'middle';
+        }
+
         set({
             status: 'REVEALING',
             frontChart: {
                 ...frontChart,
                 currentPosition: position,
                 entryPrice
+            },
+            currentBetContext: {
+                rsi: currentRSI,
+                maTrend,
+                bbPosition
             }
         });
     },
 
     completeRound: () => {
-        const { frontChart, balance, settings, round, history } = get();
+        const { frontChart, balance, settings, round, history, currentBetContext } = get();
 
         if (!frontChart || !frontChart.entryPrice || !frontChart.currentPosition) return;
 
@@ -175,11 +225,13 @@ export const useGameStore = create<GameState>((set, get) => ({
                 win: null,
                 profitPercent: 0,
                 entryPrice: frontChart.entryPrice,
-                exitPrice
+                exitPrice,
+                indicators: currentBetContext || undefined
             };
 
             set({
                 history: [...history, result],
+                currentBetContext: null
             });
             return;
         }
@@ -206,12 +258,14 @@ export const useGameStore = create<GameState>((set, get) => ({
             win,
             profitPercent,
             entryPrice: frontChart.entryPrice,
-            exitPrice
+            exitPrice,
+            indicators: currentBetContext || undefined
         };
 
         set({
             balance: newBalance,
             history: [...history, result],
+            currentBetContext: null
         });
     },
 
@@ -238,10 +292,15 @@ export const useGameStore = create<GameState>((set, get) => ({
             newBackChart = generateChartData(allCandles, settings.timeframe);
         }
 
-        // Show Ad every 8 rounds (e.g., start of round 9, 17, 25...)
-        // (nextRoundNum - 1) because we just finished round 8, so nextRoundNum is 9.
-        // If we want ad AFTER round 8, we check if (nextRoundNum - 1) % 8 === 0.
-        const showAd = (nextRoundNum - 1) > 0 && (nextRoundNum - 1) % 8 === 0;
+        // Show Ad based on maxRounds
+        let showAd = false;
+        if (maxRounds === 10) {
+            if (nextRoundNum === 4 || nextRoundNum === 8) showAd = true;
+        } else if (maxRounds === 25) {
+            if (nextRoundNum === 7 || nextRoundNum === 13 || nextRoundNum === 19) showAd = true;
+        } else if (maxRounds === 50) {
+            if (nextRoundNum === 9 || nextRoundNum === 17 || nextRoundNum === 25 || nextRoundNum === 33 || nextRoundNum === 41) showAd = true;
+        }
 
         set({
             frontChart: newFrontChart,
