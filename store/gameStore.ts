@@ -275,6 +275,14 @@ export const useGameStore = create<GameState>((set, get) => ({
         const nextRoundNum = history.length + 1;
 
         if (nextRoundNum > maxRounds) {
+            if (typeof window !== 'undefined' && (window as any).dataLayer) {
+                (window as any).dataLayer.push({
+                    event: 'game_complete',
+                    rounds: maxRounds,
+                    timeframe: settings.timeframe
+                });
+            }
+
             set({
                 status: 'FINISHED',
                 frontChart: null,

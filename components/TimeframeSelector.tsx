@@ -19,6 +19,15 @@ export const TimeframeSelector = () => {
     };
 
     const handleRoundSelect = (rounds: number) => {
+        // GTM Tracking
+        if (typeof window !== 'undefined' && (window as any).dataLayer) {
+            (window as any).dataLayer.push({
+                event: 'game_start',
+                timeframe: selectedTimeframe,
+                rounds: rounds
+            });
+        }
+
         setSettings({ maxRounds: rounds });
         initializeGame();
     };

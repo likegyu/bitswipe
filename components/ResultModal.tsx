@@ -62,6 +62,14 @@ export const ResultModal = () => {
             r: totalRounds.toString(),
             bt: bestTrade.toFixed(2)
         });
+
+        // GTM Tracking
+        if (typeof window !== 'undefined' && (window as any).dataLayer) {
+            (window as any).dataLayer.push({
+                event: 'share_click'
+            });
+        }
+
         const shareUrl = `${baseUrl}?${params.toString()}`;
         const shareText = `BitSwipe Results 🚀\n\nReturn: ${profit >= 0 ? '+' : ''}${profitPercent}%\nWin Rate: ${Math.round(winRate)}%\nBest Trade: +${bestTrade.toFixed(2)}%\n\nCan you beat my score? #BitSwipe #CryptoTrading\n${shareUrl}`;
 
@@ -72,6 +80,16 @@ export const ResultModal = () => {
         } catch (err) {
             console.error('Failed to copy:', err);
         }
+    };
+
+    const handleAnalysisClick = () => {
+        // GTM Tracking
+        if (typeof window !== 'undefined' && (window as any).dataLayer) {
+            (window as any).dataLayer.push({
+                event: 'analysis_click'
+            });
+        }
+        setShowAnalysis(true);
     };
 
     return (
@@ -162,7 +180,7 @@ export const ResultModal = () => {
 
                 <div className="flex flex-col gap-3 sm:gap-4">
                     <button
-                        onClick={() => setShowAnalysis(true)}
+                        onClick={handleAnalysisClick}
                         className="cursor-pointer w-full py-3 sm:py-4 bg-gray-500 text-white font-bold text-sm sm:text-base rounded-xl hover:bg-gray-700 transition-colors shadow-sm flex items-center justify-center gap-2"
                     >
                         View Trading Analysis
