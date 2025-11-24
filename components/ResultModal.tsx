@@ -41,12 +41,10 @@ export const ResultModal = () => {
 
     // Advanced Metrics Calculation
     const grossProfit = history.reduce((acc, h) => {
-        const pnl = h.win ? (h.profitPercent / 100) * (balance * 0.1) * 1 : 0; // Simplified PnL estimation for stats
-        return acc + (pnl > 0 ? pnl : 0);
+        return acc + (h.actualPnL > 0 ? h.actualPnL : 0);
     }, 0);
     const grossLoss = history.reduce((acc, h) => {
-        const pnl = !h.win && h.position !== 'hold' ? (balance * 0.1) : 0; // Simplified Loss estimation
-        return acc + pnl;
+        return acc + (h.actualPnL < 0 ? Math.abs(h.actualPnL) : 0);
     }, 0);
     const profitFactor = grossLoss === 0 ? (grossProfit > 0 ? 99.9 : 0) : (grossProfit / grossLoss);
 

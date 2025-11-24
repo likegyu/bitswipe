@@ -20,6 +20,8 @@ export interface RoundResult {
     profitPercent: number;
     entryPrice: number;
     exitPrice: number;
+    betAmount: number; // Actual bet amount for this round
+    actualPnL: number; // Actual profit/loss in dollars
     indicators?: {
         rsi: number;
         maTrend: 'up' | 'down' | 'flat';
@@ -226,6 +228,8 @@ export const useGameStore = create<GameState>((set, get) => ({
                 profitPercent: 0,
                 entryPrice: frontChart.entryPrice,
                 exitPrice,
+                betAmount: 0,
+                actualPnL: 0,
                 indicators: currentBetContext || undefined
             };
 
@@ -270,6 +274,8 @@ export const useGameStore = create<GameState>((set, get) => ({
             profitPercent,
             entryPrice: frontChart.entryPrice,
             exitPrice,
+            betAmount,
+            actualPnL: pnl,
             indicators: currentBetContext || undefined
         };
 
