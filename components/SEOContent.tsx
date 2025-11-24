@@ -2,18 +2,18 @@ import React from 'react';
 
 export const SEOContent = () => {
     return (
-        <section className="w-full max-w-4xl mx-auto px-4 py-12 text-gray-600 dark:text-gray-300">
+        <section className="w-full max-w-4xl mx-auto px-4 py-12 #fdfbf7 dark:bg-gray-900 text-gray-600 dark:text-gray-300">
             <div className="prose prose-sm sm:prose lg:prose-lg dark:prose-invert mx-auto">
 
                 {/* Mission Statement */}
-                <div className="mb-12 bg-blue-50 dark:bg-blue-900/20 p-6 rounded-2xl border border-blue-100 dark:border-blue-800">
+                <div className="mb-12 bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-100 dark:border-gray-700">
                     <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Why Bitswipe?</h2>
-                    <p className="mb-4 text-gray-700 dark:text-gray-300 leading-relaxed">
+                    <p className="mb-4 text-md text-gray-600 dark:text-gray-400 leading-relaxed">
                         I created Bitswipe to bridge the gap between boring study and the thrill of live trading.
                         Many aspiring traders struggle with the slow pace of real-time mock trading—waiting hours for a setup to form.
                     </p>
-                    <p className="mb-0 text-gray-700 dark:text-gray-300 leading-relaxed">
-                        Bitswipe solves this by using <strong>real historical Bitcoin data</strong> to create a fast-paced, intuitive web game.
+                    <p className="mb-0 text-md text-gray-600 dark:text-gray-400 leading-relaxed">
+                        Bitswipe solves this by using <strong>real historical Bitcoin data for 1 year</strong> to create a fast-paced, intuitive web game.
                         It allows you to experience months of market movements in minutes, helping you recognize patterns faster.
                         Our goal is to provide a platform where you can test your intuition, analyze your win rates detailedly,
                         and easily share your achievements with friends—all while having fun without the financial risk.
@@ -129,7 +129,7 @@ export const SEOContent = () => {
                 <div className="space-y-6 mb-12">
 
                     <div className="flex gap-4 items-start">
-                        <div className="p-3 bg-green-100 text-green-600 rounded-lg mt-1">
+                        <div className="p-3 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded-lg mt-1">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>
                         </div>
                         <div>
@@ -144,7 +144,7 @@ export const SEOContent = () => {
                     </div>
 
                     <div className="flex gap-4 items-start">
-                        <div className="p-3 bg-purple-100 text-purple-600 rounded-lg mt-1">
+                        <div className="p-3 bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 rounded-lg mt-1">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18" /><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3" /></svg>
                         </div>
                         <div>
@@ -158,7 +158,7 @@ export const SEOContent = () => {
                     </div>
 
                     <div className="flex gap-4 items-start">
-                        <div className="p-3 bg-blue-100 text-blue-600 rounded-lg mt-1">
+                        <div className="p-3 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-lg mt-1">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
                         </div>
                         <div>
@@ -172,7 +172,7 @@ export const SEOContent = () => {
                     </div>
 
                     <div className="flex gap-4 items-start">
-                        <div className="p-3 bg-orange-100 text-orange-600 rounded-lg mt-1">
+                        <div className="p-3 bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 rounded-lg mt-1">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18" /><path d="m19 9-5 5-4-4-3 3" /></svg>
                         </div>
                         <div>
