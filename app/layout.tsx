@@ -14,13 +14,20 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('http://bitswipe.xyz'),
-  title: "Bitswipe",
-  description: "Test your crypto trading skills with past price charts. Predict Bitcoin price movements and master the art of trading!",
+  metadataBase: new URL('https://bitswipe.xyz'),
+  title: {
+    default: "Bitswipe | Free Bitcoin Trading Simulator & Practice Game",
+    template: "%s | Bitswipe"
+  },
+  description: "Master Bitcoin trading risk-free with Bitswipe. Practice reading candlestick charts, predict price movements, and improve your technical analysis skills in this addictive crypto trading simulation game.",
+  keywords: ["Bitcoin Trading Simulator", "Crypto Trading Game", "Practice Trading", "Technical Analysis", "Candlestick Charts", "Crypto Game", "Bitcoin Price Prediction"],
+  authors: [{ name: "Bitswipe" }],
+  creator: "Bitswipe",
+  publisher: "Bitswipe",
   openGraph: {
-    title: "Bitswipe - Bitcoin Trading Game",
-    description: "Test your crypto trading skills with past price charts. Predict Bitcoin price movements and master the art of trading!",
-    url: "https://bitswipe.xyz", // Update with your actual domain
+    title: "Bitswipe | Free Bitcoin Trading Simulator",
+    description: "Master Bitcoin trading risk-free. Practice reading charts and predicting price movements in this addictive simulation game.",
+    url: "https://bitswipe.xyz",
     siteName: "Bitswipe",
     images: [
       {
@@ -35,9 +42,21 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bitswipe - Bitcoin Trading Game",
-    description: "Test your crypto trading skills with past price charts. Predict Bitcoin price movements and master the art of trading!",
+    title: "Bitswipe | Free Bitcoin Trading Simulator",
+    description: "Master Bitcoin trading risk-free. Practice reading charts and predicting price movements in this addictive simulation game.",
     images: ["/og-image.png"],
+    creator: "@bitswipe",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 
