@@ -59,11 +59,15 @@ export const GameLayout = () => {
             setTimeout(() => {
                 setShowEmoji(null);
 
-                // Here we should trigger the swipe animation on the card
-                // For now, we just proceed to next round which updates the data
-                // Ideally, we'd have a 'SWIPING' state in store to coordinate
+                // Check if game is finished (e.g., liquidation occurred)
+                const currentStatus = useGameStore.getState().status;
+                if (currentStatus !== 'FINISHED') {
+                    // Here we should trigger the swipe animation on the card
+                    // For now, we just proceed to next round which updates the data
+                    // Ideally, we'd have a 'SWIPING' state in store to coordinate
 
-                nextRound();
+                    nextRound();
+                }
             }, 2000);
         }
     };

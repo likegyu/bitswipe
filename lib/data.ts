@@ -11,12 +11,12 @@ export interface CandleData {
 export type Timeframe = '1m' | '5m' | '15m' | '30m' | '1h' | '1d';
 
 export const TIMEFRAME_CONFIG = {
-    '1m': { visible: 150, prediction: 5 },
-    '5m': { visible: 100, prediction: 5 },
-    '15m': { visible: 80, prediction: 5 },
-    '30m': { visible: 80, prediction: 5 },
-    '1h': { visible: 80, prediction: 5 },
-    '1d': { visible: 60, prediction: 5 },
+    '1m': { visible: 120, prediction: 5 },  // 2 hours context
+    '5m': { visible: 100, prediction: 5 },  // ~8 hours context
+    '15m': { visible: 96, prediction: 5 },  // 24 hours context (1 day)
+    '30m': { visible: 96, prediction: 5 },  // 48 hours context (2 days)
+    '1h': { visible: 120, prediction: 5 },  // 5 days context (1 trading week)
+    '1d': { visible: 90, prediction: 5 },   // ~3 months context (1 quarter)
 };
 
 export async function fetchCandleData(timeframe: Timeframe): Promise<CandleData[]> {

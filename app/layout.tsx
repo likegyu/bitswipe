@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { CookieConsent } from "@/components/CookieConsent";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,7 +17,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://bitswipe.xyz'),
   title: {
-    default: "Bitswipe | Free Bitcoin Trading Simulator & Practice Game",
+    default: "Bitswipe",
     template: "%s | Bitswipe"
   },
   description: "Master Bitcoin trading risk-free with Bitswipe. Practice reading candlestick charts, predict price movements, and improve your technical analysis skills in this addictive crypto trading simulation game.",
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
   creator: "Bitswipe",
   publisher: "Bitswipe",
   openGraph: {
-    title: "Bitswipe | Free Bitcoin Trading Simulator",
+    title: "Bitswipe",
     description: "Master Bitcoin trading risk-free. Practice reading charts and predicting price movements in this addictive simulation game.",
     url: "https://bitswipe.xyz",
     siteName: "Bitswipe",
@@ -42,7 +43,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bitswipe | Free Bitcoin Trading Simulator",
+    title: "Bitswipe",
     description: "Master Bitcoin trading risk-free. Practice reading charts and predicting price movements in this addictive simulation game.",
     images: ["/og-image.png"],
     creator: "@bitswipe",
@@ -106,6 +107,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </noscript>
         {/* End Google Tag Manager (noscript) */}
         {children}
+        <CookieConsent />
       </body>
     </html>
   );

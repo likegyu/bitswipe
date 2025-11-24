@@ -13,6 +13,22 @@ interface SettingsModalProps {
 export const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
     const { settings, setSettings, resetGame } = useGameStore();
 
+    // Local state for immediate UI feedback without triggering global re-renders
+    const [localSettings, setLocalSettings] = React.useState(settings);
+
+    // Sync local state when modal opens
+    React.useEffect(() => {
+        if (isOpen) {
+            setLocalSettings(settings);
+        }
+    }, [isOpen, settings]);
+
+    const handleClose = () => {
+        // Commit changes to global store on close
+        setSettings(localSettings);
+        onClose();
+    };
+
     const handleReset = () => {
         if (confirm("Are you sure you want to reset your progress?")) {
             resetGame();
@@ -28,7 +44,7 @@ export const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        onClick={onClose}
+                        onClick={handleClose}
                         className="fixed inset-0 bg-black/20 backdrop-blur-sm z-[60]"
                     />
                     <motion.div
@@ -40,7 +56,7 @@ export const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
                     >
                         <div className="flex items-center justify-between mb-4 sm:mb-6">
                             <h2 className="text-xl sm:text-2xl font-bold text-gray-800">Settings</h2>
-                            <button onClick={onClose} className="cursor-pointer p-3 sm:p-2 bg-gray-100 rounded-full">
+                            <button onClick={handleClose} className="cursor-pointer p-3 sm:p-2 bg-gray-100 rounded-full">
                                 <X size={20} />
                             </button>
                         </div>
@@ -50,24 +66,24 @@ export const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
                             <div className="mb-6 sm:mb-8">
                                 <div className="flex justify-between items-center mb-2">
                                     <label className="font-bold text-sm sm:text-base text-gray-700">Leverage</label>
-                                    <span className="text-primary font-bold text-sm sm:text-base">{settings.leverage}x</span>
+                                    <span className="text-primary font-bold text-sm sm:text-base">{localSettings.leverage}x</span>
                                 </div>
                                 <div className="relative w-full h-2 bg-gray-200 rounded-full">
                                     <div
                                         className="absolute top-0 left-0 h-full bg-primary rounded-full"
-                                        style={{ width: `${(settings.leverage / 100) * 100}%` }}
+                                        style={{ width: `${(localSettings.leverage / 100) * 100}%` }}
                                     />
                                     {/* Thumb */}
                                     <div
                                         className="absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-white border-2 border-primary rounded-full shadow-md pointer-events-none"
-                                        style={{ left: `calc(${(settings.leverage / 100) * 100}% - 8px)` }}
+                                        style={{ left: `calc(${(localSettings.leverage / 100) * 100}% - 8px)` }}
                                     />
                                     <input
                                         type="range"
                                         min="1"
                                         max="100"
-                                        value={settings.leverage}
-                                        onChange={(e) => setSettings({ leverage: parseInt(e.target.value) })}
+                                        value={localSettings.leverage}
+                                        onChange={(e) => setLocalSettings({ ...localSettings, leverage: parseInt(e.target.value) })}
                                         className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                                     />
                                 </div>
@@ -91,18 +107,19 @@ export const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
                                         <div key={indicator.id} className="flex items-center justify-between py-1">
                                             <span className="text-sm sm:text-base text-gray-700">{indicator.label}</span>
                                             <button
-                                                onClick={() => setSettings({
+                                                onClick={() => setLocalSettings({
+                                                    ...localSettings,
                                                     indicators: {
-                                                        ...settings.indicators,
-                                                        [indicator.id]: !settings.indicators[indicator.id as keyof typeof settings.indicators]
+                                                        ...localSettings.indicators,
+                                                        [indicator.id]: !localSettings.indicators[indicator.id as keyof typeof localSettings.indicators]
                                                     }
                                                 })}
-                                                className={`w-14 h-7 sm:w-12 sm:h-6 rounded-full transition-colors relative cursor-pointer ${settings.indicators[indicator.id as keyof typeof settings.indicators]
+                                                className={`w-14 h-7 sm:w-12 sm:h-6 rounded-full transition-colors relative cursor-pointer ${localSettings.indicators[indicator.id as keyof typeof localSettings.indicators]
                                                     ? 'bg-primary'
                                                     : 'bg-gray-200'
                                                     }`}
                                             >
-                                                <div className={`absolute top-1 w-5 h-5 sm:w-4 sm:h-4 bg-white rounded-full transition-transform ${settings.indicators[indicator.id as keyof typeof settings.indicators]
+                                                <div className={`absolute top-1 w-5 h-5 sm:w-4 sm:h-4 bg-white rounded-full transition-transform ${localSettings.indicators[indicator.id as keyof typeof localSettings.indicators]
                                                     ? 'left-8 sm:left-7'
                                                     : 'left-1'
                                                     }`} />

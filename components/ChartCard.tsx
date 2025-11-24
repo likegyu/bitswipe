@@ -41,7 +41,7 @@ const variants: Variants = {
     }
 };
 
-export const ChartCard = () => {
+export const ChartCardBase = () => {
     const {
         frontChart,
         backChart,
@@ -77,7 +77,7 @@ export const ChartCard = () => {
     ].filter(c => c.data !== null);
 
     return (
-        <div className="relative w-full max-w-md sm:max-w-4xl h-[70dvh] sm:h-[70dvh] perspective-1000 flex items-center justify-center">
+        <div className="relative w-full max-w-md sm:max-w-4xl h-[60dvh] sm:h-[70dvh] perspective-1000 flex items-center justify-center">
 
             {/* Pre-Game / Loading State */}
             {(!isGameStarted || isLoading) && (
@@ -103,7 +103,8 @@ export const ChartCard = () => {
                             className="absolute w-full h-full bg-card-bg rounded-3xl overflow-hidden card-shadow border border-gray-100"
                             style={{
                                 transformOrigin: 'bottom center',
-                                boxShadow: '0 20px 50px rgba(0,0,0,0.1)'
+                                boxShadow: '0 20px 50px rgba(0,0,0,0.1)',
+                                willChange: 'transform, opacity'
                             }}
                         >
                             {/* Ad Overlay - Only on front */}
@@ -176,3 +177,5 @@ export const ChartCard = () => {
         </div>
     );
 };
+
+export const ChartCard = React.memo(ChartCardBase);

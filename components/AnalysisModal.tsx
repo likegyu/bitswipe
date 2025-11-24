@@ -14,27 +14,12 @@ export const AnalysisModal = ({ history, onClose }: AnalysisModalProps) => {
     const [showAd, setShowAd] = React.useState(true);
     const adInitialized = React.useRef(false);
 
-    React.useEffect(() => {
-        if (showAd && !adInitialized.current) {
-            // Delay to ensure DOM is fully rendered
-            const timer = setTimeout(() => {
-                try {
-                    // @ts-ignore
-                    (window.adsbygoogle = window.adsbygoogle || []).push({});
-                    adInitialized.current = true;
-                } catch (err) {
-                    console.error('AdSense error:', err);
-                }
-            }, 100);
-
-            return () => clearTimeout(timer);
-        }
-
-        // Reset when ad is closed
-        if (!showAd && adInitialized.current) {
-            adInitialized.current = false;
-        }
-    }, [showAd]);
+    // AdSense initialization logic removed for custom banner
+    // React.useEffect(() => {
+    //     if (showAd && !adInitialized.current) {
+    //         // ...
+    //     }
+    // }, [showAd]);
 
     // Helper to calculate stats
     const calculateStats = (filterFn: (h: RoundResult) => boolean) => {
@@ -120,15 +105,32 @@ export const AnalysisModal = ({ history, onClose }: AnalysisModalProps) => {
                 </button>
 
                 {showAd ? (
-                    <div className="flex flex-col h-[400px]">
-                        <div className="flex-1 flex flex-col items-center justify-center mt-6 overflow-hidden bg-gray-50 min-h-[250px]">
-                            <ins className="adsbygoogle"
-                                style={{ display: 'block', textAlign: 'center', minWidth: '300px', minHeight: '250px' }}
-                                data-ad-layout="in-article"
-                                data-ad-format="fluid"
-                                data-ad-client="ca-pub-3860360352476148"
-                                data-ad-slot="3782671210"
-                            />
+                    <div className="flex flex-col h-[70dvh]">
+                        <div className="flex-1 flex flex-col items-center justify-center mt-6 overflow-hidden bg-gray-50 min-h-[250px] m-3">
+                            <a
+                                href="https://gall.dcinside.com/mgallery/board/lists?id=chartanalysis"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="relative w-full h-full min-h-[250px] block group overflow-hidden rounded-xl"
+                            >
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                <img
+                                    src="/ad-banner-m.jpg"
+                                    alt="Chart Minor Gallery"
+                                    className="sm:hidden absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                                />
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
+                                <img
+                                    src="/ad-banner.png"
+                                    alt="Chart Minor Gallery"
+                                    className="hidden sm:block absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                                />
+                                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
+                                    <span className="opacity-0 group-hover:opacity-100 bg-black/70 text-white px-4 py-2 rounded-full text-sm font-bold transition-opacity duration-300">
+                                        Visit Gallery
+                                    </span>
+                                </div>
+                            </a>
                         </div>
                         <div className="mt-4 flex justify-center">
                             <button

@@ -14,7 +14,7 @@ interface TradingChartProps {
     height?: string;
 }
 
-export const TradingChart = ({ candles, warmupCandles, entryPrice, settings, height = '100%' }: TradingChartProps) => {
+export const TradingChartBase = ({ candles, warmupCandles, entryPrice, settings, height = '100%' }: TradingChartProps) => {
     const chartContainerRef = useRef<HTMLDivElement>(null);
     const rsiContainerRef = useRef<HTMLDivElement>(null);
 
@@ -276,3 +276,5 @@ export const TradingChart = ({ candles, warmupCandles, entryPrice, settings, hei
         </div>
     );
 };
+
+export const TradingChart = React.memo(TradingChartBase);

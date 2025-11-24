@@ -240,27 +240,60 @@ export const useGameStore = create<GameState>((set, get) => ({
         if (currentPosition === 'long' && priceChange > 0) win = true;
         if (currentPosition === 'short' && priceChange < 0) win = true;
 
-        const betAmount = balance * 0.1;
+        const betAmount = balance * 1.0; // Bet entire balance (All-in)
         const leverage = settings.leverage;
 
         let pnl = 0;
+        let isLiquidated = false;
+
         if (currentPosition === 'long') {
             pnl = betAmount * priceChange * leverage;
         } else {
             pnl = betAmount * (-priceChange) * leverage;
         }
 
+        // Check for Liquidation (Loss >= 100% of margin)
+        const liquidationThreshold = -betAmount;
+
+        if (pnl <= liquidationThreshold) {
+            pnl = -betAmount; // Cap loss at bet amount
+            isLiquidated = true;
+        }
+
         const newBalance = balance + pnl;
         const profitPercent = (pnl / betAmount) * 100;
+
         const result: RoundResult = {
             round,
             position: currentPosition,
-            win,
+            win: isLiquidated ? false : win, // Liquidated is always a loss
             profitPercent,
             entryPrice: frontChart.entryPrice,
             exitPrice,
             indicators: currentBetContext || undefined
         };
+
+        // If liquidated, end the game immediately
+        if (isLiquidated) {
+            if (typeof window !== 'undefined' && (window as any).dataLayer) {
+                (window as any).dataLayer.push({
+                    event: 'game_complete',
+                    rounds: round, // Ended at current round
+                    timeframe: settings.timeframe,
+                    reason: 'liquidation'
+                });
+            }
+
+            set({
+                balance: newBalance,
+                history: [...history, result],
+                currentBetContext: null,
+                status: 'FINISHED', // Game Over
+                frontChart: null,
+                backChart: null
+            });
+            return;
+        }
 
         set({
             balance: newBalance,
