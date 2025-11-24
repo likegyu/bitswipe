@@ -26,11 +26,11 @@ export const RoundResultOverlay = ({ type }: RoundResultOverlayProps) => {
                     return clearInterval(interval);
                 }
 
-                const particleCount = 50 * (timeLeft / duration);
+                const particleCount = 30 * (timeLeft / duration);
                 // since particles fall down, start a bit higher than random
                 confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } });
                 confetti({ ...defaults, particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } });
-            }, 250);
+            }, 400);
 
             return () => clearInterval(interval);
         }
@@ -65,7 +65,7 @@ export const RoundResultOverlay = ({ type }: RoundResultOverlayProps) => {
                                 💸
                             </motion.div>
                             {/* Flying bills */}
-                            {[...Array(6)].map((_, i) => (
+                            {[...Array(4)].map((_, i) => (
                                 <motion.div
                                     key={i}
                                     initial={{
@@ -82,7 +82,7 @@ export const RoundResultOverlay = ({ type }: RoundResultOverlayProps) => {
                                         rotate: Math.random() * 360
                                     }}
                                     transition={{
-                                        duration: 1.5,
+                                        duration: 1.2,
                                         ease: "easeOut",
                                         delay: i * 0.1
                                     }}

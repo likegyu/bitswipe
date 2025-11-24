@@ -15,7 +15,7 @@ const variants: Variants = {
         y: 0,
         opacity: 1,
         rotate: 0,
-        transition: { type: 'spring', stiffness: 300, damping: 50 }
+        transition: { type: 'spring', stiffness: 200, damping: 30 }
     },
     back: {
         zIndex: 10,
@@ -23,7 +23,7 @@ const variants: Variants = {
         y: -70, // Peeking out from top (adjusted for bottom transform origin)
         opacity: 0.6,
         rotate: 0,
-        transition: { type: 'spring', stiffness: 300, damping: 50 }
+        transition: { type: 'spring', stiffness: 200, damping: 30 }
     },
     exit: (custom: { direction: 'left' | 'right' | 'up' }) => ({
         zIndex: 30,
@@ -31,7 +31,7 @@ const variants: Variants = {
         y: custom.direction === 'up' ? -1000 : 0,
         opacity: 0,
         rotate: custom.direction === 'left' ? -45 : custom.direction === 'right' ? 45 : 0,
-        transition: { duration: 0.5, ease: "easeIn" }
+        transition: { duration: 0.3, ease: "easeIn" }
     }),
     enter: {
         zIndex: 5,

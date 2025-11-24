@@ -31,6 +31,7 @@ export const TradingChartBase = ({ candles, warmupCandles, entryPrice, settings,
     const entryLineRef = useRef<IPriceLine | null>(null);
 
     // Main Chart Initialization
+    // Main Chart Initialization (only when indicators change)
     useEffect(() => {
         if (!chartContainerRef.current) return;
 
@@ -104,7 +105,26 @@ export const TradingChartBase = ({ candles, warmupCandles, entryPrice, settings,
             window.removeEventListener('resize', handleResize);
             chart.remove();
         };
-    }, [settings.indicators.ma, settings.indicators.bb, resolvedTheme]);
+    }, [settings.indicators.ma, settings.indicators.bb]);
+
+    // Update theme colors without recreating chart
+    useEffect(() => {
+        if (!chartRef.current) return;
+
+        const isDark = resolvedTheme === 'dark';
+        const textColor = isDark ? '#d1d5db' : '#4a4a4a';
+        const gridColor = isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(197, 203, 206, 0.1)';
+
+        chartRef.current.applyOptions({
+            layout: {
+                textColor: textColor,
+            },
+            grid: {
+                vertLines: { color: gridColor },
+                horzLines: { color: gridColor },
+            },
+        });
+    }, [resolvedTheme]);
 
     // Handle Resize when RSI Toggles
     useEffect(() => {
@@ -117,7 +137,7 @@ export const TradingChartBase = ({ candles, warmupCandles, entryPrice, settings,
         }
     }, [settings.indicators.rsi]);
 
-    // RSI Chart Initialization
+    // RSI Chart Initialization (only when RSI is toggled)
     useEffect(() => {
         if (!settings.indicators.rsi || !rsiContainerRef.current) return;
 
@@ -191,7 +211,26 @@ export const TradingChartBase = ({ candles, warmupCandles, entryPrice, settings,
             window.removeEventListener('resize', handleResize);
             chart.remove();
         };
-    }, [settings.indicators.rsi, resolvedTheme]);
+    }, [settings.indicators.rsi]);
+
+    // Update RSI chart theme colors without recreating
+    useEffect(() => {
+        if (!rsiChartRef.current || !settings.indicators.rsi) return;
+
+        const isDark = resolvedTheme === 'dark';
+        const textColor = isDark ? '#d1d5db' : '#4a4a4a';
+        const gridColor = isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(197, 203, 206, 0.1)';
+
+        rsiChartRef.current.applyOptions({
+            layout: {
+                textColor: textColor,
+            },
+            grid: {
+                vertLines: { color: gridColor },
+                horzLines: { color: gridColor },
+            },
+        });
+    }, [resolvedTheme, settings.indicators.rsi]);
 
     // Entry Price Line
     useEffect(() => {
