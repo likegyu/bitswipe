@@ -81,7 +81,7 @@ export const ChartCardBase = () => {
 
             {/* Pre-Game / Loading State */}
             {(!isGameStarted || isLoading) && (
-                <div className="absolute w-full h-full bg-card-bg rounded-3xl overflow-hidden card-shadow border border-gray-100 z-50">
+                <div className="absolute w-full h-full bg-card-bg rounded-3xl overflow-hidden card-shadow border border-gray-100 dark:border-gray-800 z-50">
                     {isLoading ? (
                         <LoadingIndicator timeframe={settings.timeframe} />
                     ) : (
@@ -100,7 +100,7 @@ export const ChartCardBase = () => {
                             initial="enter"
                             animate={card.type === 'front' ? 'front' : 'back'}
                             exit="exit"
-                            className="absolute w-full h-full bg-card-bg rounded-3xl overflow-hidden card-shadow border border-gray-100"
+                            className="absolute w-full h-full bg-card-bg rounded-3xl overflow-hidden card-shadow border border-gray-100 dark:border-gray-800"
                             style={{
                                 transformOrigin: 'bottom center',
                                 boxShadow: '0 20px 50px rgba(0,0,0,0.1)',
@@ -127,10 +127,10 @@ export const ChartCardBase = () => {
                                     </div>
                                     <div
                                         onClick={() => handleInteraction('hold')}
-                                        className="absolute left-1/3 top-0 w-1/3 h-full z-30 cursor-pointer hover:bg-gray-500/5 transition-colors group"
+                                        className="absolute left-1/3 top-0 w-1/3 h-full z-30 cursor-pointer hover:bg-gray-500/5 dark:hover:bg-gray-400/10 transition-colors group"
                                     >
                                         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                            <span className="text-gray-500 font-bold text-2xl sm:text-4xl">HOLD</span>
+                                            <span className="text-gray-500 dark:text-gray-400 font-bold text-2xl sm:text-4xl">HOLD</span>
                                         </div>
                                     </div>
                                     <div
@@ -152,7 +152,7 @@ export const ChartCardBase = () => {
                             )}
                             {card.type === 'front' && overlay === 'hold' && (
                                 <div className="absolute inset-0 bg-gray-500/10 z-20 flex items-center justify-center pointer-events-none">
-                                    <span className="text-gray-500 font-bold text-6xl">HOLD</span>
+                                    <span className="text-gray-500 dark:text-gray-400 font-bold text-6xl">HOLD</span>
                                 </div>
                             )}
                             {card.type === 'front' && overlay === 'long' && (

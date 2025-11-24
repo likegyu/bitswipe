@@ -1,30 +1,6 @@
 @import "tailwindcss";
 
-:root {
-  --background: #fdfbf7;
-  /* Warm off-white */
-  --foreground: #4a4a4a;
-  /* Soft dark gray */
 
-  --primary: #ff9f87;
-  /* Soft coral/salmon */
-  --primary-hover: #ff8a6d;
-
-  --secondary: #a3d9c9;
-  /* Soft mint */
-  --secondary-hover: #8ccfb9;
-
-  --accent: #ffd68a;
-  /* Soft yellow */
-
-  --card-bg: #ffffff;
-  --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
-
-  --success: #88d8b0;
-  /* Pastel green */
-  --error: #ff6b6b;
-  /* Pastel red */
-}
 
 @theme {
   --color-background: var(--background);
@@ -41,6 +17,36 @@
   --font-sans: 'Inter', sans-serif;
 
   --breakpoint-xs: 475px;
+}
+
+/* Custom Variant for Class-based Dark Mode */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #fdfbf7;
+  --foreground: #4a4a4a;
+  --primary: #ff9f87;
+  --primary-hover: #ff8a6d;
+  --secondary: #a3d9c9;
+  --secondary-hover: #8ccfb9;
+  --accent: #ffd68a;
+  --card-bg: #ffffff;
+  --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
+  --success: #88d8b0;
+  --error: #ff6b6b;
+}
+
+.dark {
+  --background: #111827;
+  /* Gray 900 */
+  --foreground: #d1d5db;
+  /* Gray 300 */
+  --card-bg: #1f2937;
+  /* Gray 800 */
+  --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+
+  /* Adjust other colors if needed, but keeping core colors as requested */
+  /* --success and --error are core colors, keeping them */
 }
 
 body {

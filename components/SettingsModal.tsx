@@ -52,11 +52,11 @@ export const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
                         animate={{ y: 0 }}
                         exit={{ y: '100%' }}
                         transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-                        className="fixed bottom-0 left-0 right-0 bg-white rounded-t-3xl p-4 sm:p-6 z-[70] max-w-md mx-auto shadow-2xl"
+                        className="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-900 rounded-t-3xl p-4 sm:p-6 z-[70] max-w-md mx-auto shadow-2xl"
                     >
                         <div className="flex items-center justify-between mb-4 sm:mb-6">
-                            <h2 className="text-xl sm:text-2xl font-bold text-gray-800">Settings</h2>
-                            <button onClick={handleClose} className="cursor-pointer p-3 sm:p-2 bg-gray-100 rounded-full">
+                            <h2 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white">Settings</h2>
+                            <button onClick={handleClose} className="cursor-pointer p-3 sm:p-2 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-600 dark:text-gray-300">
                                 <X size={20} />
                             </button>
                         </div>
@@ -65,10 +65,10 @@ export const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
                             {/* Leverage */}
                             <div className="mb-6 sm:mb-8">
                                 <div className="flex justify-between items-center mb-2">
-                                    <label className="font-bold text-sm sm:text-base text-gray-700">Leverage</label>
+                                    <label className="font-bold text-sm sm:text-base text-gray-700 dark:text-gray-300">Leverage</label>
                                     <span className="text-primary font-bold text-sm sm:text-base">{localSettings.leverage}x</span>
                                 </div>
-                                <div className="relative w-full h-2 bg-gray-200 rounded-full">
+                                <div className="relative w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full">
                                     <div
                                         className="absolute top-0 left-0 h-full bg-primary rounded-full"
                                         style={{ width: `${(localSettings.leverage / 100) * 100}%` }}
@@ -95,7 +95,7 @@ export const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
 
                             {/* Indicators */}
                             <div>
-                                <label className="block text-xs sm:text-sm font-medium text-gray-500 mb-2 sm:mb-3">
+                                <label className="block text-xs sm:text-sm font-medium text-gray-500 dark:text-gray-400 mb-2 sm:mb-3">
                                     Indicators
                                 </label>
                                 <div className="space-y-3">
@@ -105,7 +105,7 @@ export const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
                                         { id: 'bb', label: 'Bollinger Bands' },
                                     ].map((indicator) => (
                                         <div key={indicator.id} className="flex items-center justify-between py-1">
-                                            <span className="text-sm sm:text-base text-gray-700">{indicator.label}</span>
+                                            <span className="text-sm sm:text-base text-gray-700 dark:text-gray-300">{indicator.label}</span>
                                             <button
                                                 onClick={() => setLocalSettings({
                                                     ...localSettings,
@@ -116,7 +116,7 @@ export const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
                                                 })}
                                                 className={`w-14 h-7 sm:w-12 sm:h-6 rounded-full transition-colors relative cursor-pointer ${localSettings.indicators[indicator.id as keyof typeof localSettings.indicators]
                                                     ? 'bg-primary'
-                                                    : 'bg-gray-200'
+                                                    : 'bg-gray-200 dark:bg-gray-700'
                                                     }`}
                                             >
                                                 <div className={`absolute top-1 w-5 h-5 sm:w-4 sm:h-4 bg-white rounded-full transition-transform ${localSettings.indicators[indicator.id as keyof typeof localSettings.indicators]
@@ -132,7 +132,7 @@ export const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
                             {/* Reset */}
                             <button
                                 onClick={handleReset}
-                                className="cursor-pointer w-full py-3 sm:py-4 mt-3 sm:mt-4 bg-red-50 text-error font-bold text-sm sm:text-base rounded-xl flex items-center justify-center gap-2 hover:bg-red-100 transition-colors"
+                                className="cursor-pointer w-full py-3 sm:py-4 mt-3 sm:mt-4 bg-red-50 dark:bg-red-500 text-error dark:text-white font-bold text-sm sm:text-base rounded-xl flex items-center justify-center gap-2 hover:bg-red-100 dark:hover:bg-red-800 transition-colors"
                             >
                                 <RefreshCw size={18} />
                                 Reset Game

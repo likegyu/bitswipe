@@ -42,8 +42,8 @@ export const TimeframeSelector = () => {
             title: 'Short Term',
             description: 'Fast-paced action',
             icon: <Zap className="w-4 h-4 sm:w-5 sm:h-5" />,
-            color: 'text-rose-500',
-            bg: 'bg-rose-50',
+            color: 'text-rose-500 dark:text-rose-400',
+            bg: 'bg-rose-50 dark:bg-rose-900/20',
             border: 'group-hover:border-rose-200',
             options: [
                 { value: '1m', label: '1m', sub: 'Turbo', icon: <Zap className="w-4 h-4 sm:w-6 sm:h-6" /> },
@@ -55,8 +55,8 @@ export const TimeframeSelector = () => {
             title: 'Middle Term',
             description: 'Strategic analysis',
             icon: <BarChart2 className="w-4 h-4 sm:w-5 sm:h-5" />,
-            color: 'text-indigo-500',
-            bg: 'bg-indigo-50',
+            color: 'text-indigo-500 dark:text-indigo-400',
+            bg: 'bg-indigo-50 dark:bg-indigo-900/20',
             border: 'group-hover:border-indigo-200',
             options: [
                 { value: '30m', label: '30m', sub: 'Intra', icon: <BarChart2 className="w-4 h-4 sm:w-6 sm:h-6" /> },
@@ -67,8 +67,8 @@ export const TimeframeSelector = () => {
             title: 'Day Term',
             description: 'Macro trends',
             icon: <Sun className="w-4 h-4 sm:w-5 sm:h-5" />,
-            color: 'text-amber-500',
-            bg: 'bg-amber-50',
+            color: 'text-amber-500 dark:text-amber-400',
+            bg: 'bg-amber-50 dark:bg-amber-900/20',
             border: 'group-hover:border-amber-200',
             options: [
                 { value: '1d', label: '1d', sub: 'Daily', icon: <Calendar className="w-4 h-4 sm:w-6 sm:h-6" /> },
@@ -77,9 +77,9 @@ export const TimeframeSelector = () => {
     ];
 
     const roundOptions = [
-        { value: 10, label: '10 Rounds', sub: 'Quick Match', icon: <Target className="w-6 h-6 sm:w-8 sm:h-8" />, color: 'text-emerald-500', bg: 'bg-emerald-50', border: 'group-hover:border-emerald-200' },
-        { value: 25, label: '25 Rounds', sub: 'Standard', icon: <Medal className="w-6 h-6 sm:w-8 sm:h-8" />, color: 'text-blue-500', bg: 'bg-blue-50', border: 'group-hover:border-blue-200' },
-        { value: 50, label: '50 Rounds', sub: 'Marathon', icon: <Trophy className="w-6 h-6 sm:w-8 sm:h-8" />, color: 'text-purple-500', bg: 'bg-purple-50', border: 'group-hover:border-purple-200' },
+        { value: 10, label: '10 Rounds', sub: 'Quick Match', icon: <Target className="w-6 h-6 sm:w-8 sm:h-8" />, color: 'text-emerald-500 dark:text-emerald-400', bg: 'bg-emerald-50 dark:bg-emerald-900/20', border: 'group-hover:border-emerald-200' },
+        { value: 25, label: '25 Rounds', sub: 'Standard', icon: <Medal className="w-6 h-6 sm:w-8 sm:h-8" />, color: 'text-blue-500 dark:text-blue-400', bg: 'bg-blue-50 dark:bg-blue-900/20', border: 'group-hover:border-blue-200' },
+        { value: 50, label: '50 Rounds', sub: 'Marathon', icon: <Trophy className="w-6 h-6 sm:w-8 sm:h-8" />, color: 'text-purple-500 dark:text-purple-400', bg: 'bg-purple-50 dark:bg-purple-900/20', border: 'group-hover:border-purple-200' },
     ];
 
     return (
@@ -92,7 +92,7 @@ export const TimeframeSelector = () => {
                         <>
                             {/* Header for timeframe step */}
                             <div className="relative text-center mb-4 sm:mb-8 flex-shrink-0">
-                                <h2 className="text-lg sm:text-3xl font-black text-foreground tracking-tight sm:mb-2">
+                                <h2 className="text-lg sm:text-3xl font-black text-foreground dark:text-white tracking-tight sm:mb-2">
                                     Select Pace
                                 </h2>
                                 <p className="text-xs sm:text-base text-gray-400 font-medium">
@@ -116,7 +116,7 @@ export const TimeframeSelector = () => {
                                                     <button
                                                         key={opt.value}
                                                         onClick={() => handleTimeframeSelect(opt.value as Timeframe)}
-                                                        className={`cursor-pointer group relative flex flex-col items-center justify-center p-3 sm:p-4 bg-white rounded-2xl shadow-xs border border-gray-100 ${section.border} hover:shadow-md hover:-translate-y-1 transition-all duration-300 active:scale-95 overflow-hidden`}
+                                                        className={`cursor-pointer group relative flex flex-col items-center justify-center p-3 sm:p-4 bg-white dark:bg-gray-800 rounded-2xl shadow-xs border border-gray-100 dark:border-gray-700 ${section.border} hover:shadow-md hover:-translate-y-1 transition-all duration-300 active:scale-95 overflow-hidden`}
                                                     >
                                                         {/* Background Decoration */}
                                                         <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${section.bg}`} />
@@ -129,11 +129,11 @@ export const TimeframeSelector = () => {
 
                                                         {/* Main content area */}
                                                         <div className={`relative z-10 flex flex-col items-center gap-2 w-full`}>
-                                                            <div className={`p-2.5 sm:p-3 rounded-xl bg-gray-50 group-hover:bg-white/80 transition-colors ${section.color} shadow-sm`}>
+                                                            <div className={`p-2.5 sm:p-3 rounded-xl bg-gray-50 dark:bg-gray-700 group-hover:bg-white/80 dark:group-hover:bg-gray-600 transition-colors ${section.color} shadow-sm`}>
                                                                 {opt.icon}
                                                             </div>
                                                             <div className="text-center">
-                                                                <div className="text-base sm:text-2xl font-black text-gray-800 group-hover:text-gray-900 tracking-tight leading-none mb-1">
+                                                                <div className="text-base sm:text-2xl font-black text-gray-800 dark:text-white group-hover:text-gray-900 dark:group-hover:text-gray-100 tracking-tight leading-none mb-1">
                                                                     {opt.label}
                                                                 </div>
                                                                 <div className="text-[8px] sm:text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-gray-600 transition-colors">
@@ -159,7 +159,7 @@ export const TimeframeSelector = () => {
                                 >
                                     <ArrowLeft className="w-5 h-5 sm:w-6 sm:h-6" />
                                 </button>
-                                <h2 className="text-xl sm:text-3xl font-black text-foreground tracking-tight mb-2 sm:mb-4">
+                                <h2 className="text-xl sm:text-3xl font-black text-foreground dark:text-white tracking-tight mb-2 sm:mb-4">
                                     Select Length
                                 </h2>
                                 <p className="text-xs sm:text-base text-gray-400 font-medium">
@@ -172,17 +172,17 @@ export const TimeframeSelector = () => {
                                     <button
                                         key={opt.value}
                                         onClick={() => handleRoundSelect(opt.value)}
-                                        className={`cursor-pointer group relative w-full flex sm:flex-col items-center sm:justify-center p-4 sm:p-6 bg-white rounded-2xl shadow-xs border border-gray-100 ${opt.border} hover:shadow-md hover:-translate-y-1 transition-all duration-300 active:scale-[0.98] overflow-hidden`}
+                                        className={`cursor-pointer group relative w-full flex sm:flex-col items-center sm:justify-center p-4 sm:p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-xs border border-gray-100 dark:border-gray-700 ${opt.border} hover:shadow-md hover:-translate-y-1 transition-all duration-300 active:scale-[0.98] overflow-hidden`}
                                     >
                                         {/* Background Decoration */}
                                         <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${opt.bg}`} />
 
                                         <div className="relative z-10 flex sm:flex-col items-center w-full gap-4 sm:gap-4">
-                                            <div className={`p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-gray-50 group-hover:bg-white/80 transition-colors ${opt.color} shadow-sm`}>
+                                            <div className={`p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-gray-50 dark:bg-gray-700 group-hover:bg-white/80 dark:group-hover:bg-gray-600 transition-colors ${opt.color} shadow-sm`}>
                                                 {opt.icon}
                                             </div>
                                             <div className="flex-1 text-left sm:text-center">
-                                                <div className="text-xl sm:text-2xl font-black text-gray-800 group-hover:text-gray-900">
+                                                <div className="text-xl sm:text-2xl font-black text-gray-800 dark:text-white group-hover:text-gray-900 dark:group-hover:text-gray-100">
                                                     {opt.label}
                                                 </div>
                                                 <div className="text-xs sm:text-sm font-bold text-gray-400 uppercase tracking-wide group-hover:text-gray-500 mt-1">

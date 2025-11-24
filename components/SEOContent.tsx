@@ -5,6 +5,29 @@ export const SEOContent = () => {
         <section className="w-full max-w-4xl mx-auto px-4 py-12 #fdfbf7 dark:bg-gray-900 text-gray-600 dark:text-gray-300">
             <div className="prose prose-sm sm:prose lg:prose-lg dark:prose-invert mx-auto">
 
+                {/* Psychology of Trading */}
+                <div className="mb-12 bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-100 dark:border-gray-700">
+                    <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">
+                        The Psychology of Trading: Why Games Like BitSwipe Matter
+                    </h2>
+                    <div className="prose dark:prose-invert max-w-none text-gray-600 dark:text-gray-300">
+                        <p className="mb-4">
+                            Trading is often 20% strategy and 80% psychology. Many traders fail not because they lack technical knowledge, but because they cannot control their emotions—fear, greed, and FOMO (Fear Of Missing Out).
+                        </p>
+                        <p className="mb-4">
+                            <strong>BitSwipe</strong> serves as a risk-free "flight simulator" for traders. By compressing hours of market action into minutes, it allows you to:
+                        </p>
+                        <ul className="list-disc pl-6 mb-4 space-y-2">
+                            <li><strong>Test Your Reflexes:</strong> Learn to make quick decisions under pressure without risking real capital.</li>
+                            <li><strong>Recognize Patterns:</strong> Train your eyes to spot chart patterns like Head & Shoulders, Flags, and Wedges in real-time.</li>
+                            <li><strong>Master Risk Management:</strong> Experience the consequences of over-leveraging and poor position sizing in a safe environment.</li>
+                        </ul>
+                        <p>
+                            Whether you are a seasoned pro looking to stay sharp or a beginner taking your first steps into the crypto world, BitSwipe provides the perfect arena to hone your skills and build the mental discipline required for successful trading.
+                        </p>
+                    </div>
+                </div>
+
                 {/* Mission Statement */}
                 <div className="mb-12 bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-100 dark:border-gray-700">
                     <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Why Bitswipe?</h2>
@@ -19,6 +42,38 @@ export const SEOContent = () => {
                         and easily share your achievements with friends—all while having fun without the financial risk.
                     </p>
                 </div>
+
+                {/* Basic Trading Skills */}
+                <section className="mb-12">
+                    <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">
+                        Mastering the Basics: Essential Trading Skills
+                    </h2>
+                    <div className="prose dark:prose-invert max-w-none text-gray-600 dark:text-gray-300">
+                        <p className="mb-4">
+                            Before diving into complex indicators, every trader must master the fundamentals. Here are three core concepts you can practice right now in BitSwipe:
+                        </p>
+                        <div className="grid sm:grid-cols-3 gap-6 mt-6">
+                            <div className="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-100 dark:border-gray-700">
+                                <h3 className="font-bold text-gray-800 dark:text-white mb-2">1. Support & Resistance</h3>
+                                <p className="text-sm">
+                                    Prices rarely move in a straight line. Look for "floors" where price bounces up (Support) and "ceilings" where it gets rejected (Resistance). Buying at support and selling at resistance is a classic strategy.
+                                </p>
+                            </div>
+                            <div className="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-100 dark:border-gray-700">
+                                <h3 className="font-bold text-gray-800 dark:text-white mb-2">2. Trend Identification</h3>
+                                <p className="text-sm">
+                                    "The trend is your friend." In an uptrend, look for Higher Highs and Higher Lows. In a downtrend, watch for Lower Highs and Lower Lows. Don't fight the trend unless you see a clear reversal signal.
+                                </p>
+                            </div>
+                            <div className="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-100 dark:border-gray-700">
+                                <h3 className="font-bold text-gray-800 dark:text-white mb-2">3. Candlestick Anatomy</h3>
+                                <p className="text-sm">
+                                    Long wicks indicate rejection. A long wick at the top means sellers pushed the price down (bearish). A long wick at the bottom means buyers pushed it up (bullish). Pay attention to the shape of the candles!
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
                 <h2 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white">Mastering Chart Patterns</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
@@ -61,7 +116,7 @@ export const SEOContent = () => {
 
                                 {/* Neckline */}
                                 <path d="M10 95 L190 95" strokeDasharray="4 4" className="stroke-gray-400 dark:stroke-gray-500" strokeWidth="2" />
-                                <text x="100" y="120" textAnchor="middle" className="fill-gray-500 text-xs font-bold">Neckline Support</text>
+                                <text x="100" y="115" textAnchor="middle" className="fill-gray-500 text-xs font-bold">Neckline Support</text>
                             </svg>
                         </div>
                         <h3 className="font-bold text-lg mb-2">Head and Shoulders</h3>
@@ -117,6 +172,99 @@ export const SEOContent = () => {
                         <p className="text-sm text-gray-600 dark:text-gray-400">
                             A bullish reversal pattern looking like a "W". It indicates the price has hit a support level twice and failed to break lower.
                             Breaking the upper resistance confirms the uptrend.
+                        </p>
+                    </div>
+
+                    {/* Bull Flag */}
+                    <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                        <div className="h-40 mb-4 flex items-center justify-center p-4 bg-gray-50 dark:bg-gray-900/50 rounded-lg">
+                            <svg viewBox="0 0 200 120" className="w-full h-full" fill="none">
+                                {/* Grid Lines */}
+                                <line x1="0" y1="30" x2="200" y2="30" stroke="#e5e7eb" strokeWidth="1" strokeDasharray="4 4" className="dark:stroke-gray-700" />
+                                <line x1="0" y1="60" x2="200" y2="60" stroke="#e5e7eb" strokeWidth="1" strokeDasharray="4 4" className="dark:stroke-gray-700" />
+                                <line x1="0" y1="90" x2="200" y2="90" stroke="#e5e7eb" strokeWidth="1" strokeDasharray="4 4" className="dark:stroke-gray-700" />
+
+                                {/* Pole */}
+                                <rect x="30" y="50" width="8" height="40" fill="#22c55e" rx="1" />
+                                <line x1="34" y1="45" x2="34" y2="95" stroke="#22c55e" strokeWidth="1" />
+                                <rect x="45" y="30" width="8" height="30" fill="#22c55e" rx="1" />
+                                <line x1="49" y1="25" x2="49" y2="65" stroke="#22c55e" strokeWidth="1" />
+
+                                {/* Flag Channel */}
+                                <line x1="60" y1="25" x2="130" y2="55" stroke="#e5e7eb" strokeWidth="2" className="stroke-gray-400 dark:stroke-gray-500" strokeDasharray="4 4" />
+                                <line x1="60" y1="55" x2="130" y2="85" stroke="#e5e7eb" strokeWidth="2" className="stroke-gray-400 dark:stroke-gray-500" strokeDasharray="4 4" />
+
+                                {/* Flag Candles */}
+                                <rect x="65" y="35" width="8" height="15" fill="#ef4444" rx="1" />
+                                <line x1="69" y1="30" x2="69" y2="55" stroke="#ef4444" strokeWidth="1" />
+                                <rect x="80" y="45" width="8" height="15" fill="#ef4444" rx="1" />
+                                <line x1="84" y1="40" x2="84" y2="65" stroke="#ef4444" strokeWidth="1" />
+                                <rect x="95" y="50" width="8" height="10" fill="#22c55e" rx="1" />
+                                <line x1="99" y1="45" x2="99" y2="65" stroke="#22c55e" strokeWidth="1" />
+                                <rect x="110" y="60" width="8" height="15" fill="#ef4444" rx="1" />
+                                <line x1="114" y1="55" x2="114" y2="80" stroke="#ef4444" strokeWidth="1" />
+
+                                {/* Breakout */}
+                                <rect x="135" y="40" width="8" height="30" fill="#22c55e" rx="1" />
+                                <line x1="139" y1="35" x2="139" y2="75" stroke="#22c55e" strokeWidth="1" />
+                                <rect x="150" y="20" width="8" height="40" fill="#22c55e" rx="1" />
+                                <line x1="154" y1="15" x2="154" y2="65" stroke="#22c55e" strokeWidth="1" />
+
+                                <text x="100" y="110" textAnchor="middle" className="fill-gray-500 text-xs font-bold">Consolidation & Breakout</text>
+                            </svg>
+                        </div>
+                        <h3 className="font-bold text-lg mb-2">Bull Flag</h3>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                            A bullish continuation pattern. After a sharp rise (the pole), prices consolidate downwards in a channel (the flag) before breaking out higher again.
+                        </p>
+                    </div>
+
+                    {/* Double Top */}
+                    <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                        <div className="h-40 mb-4 flex items-center justify-center p-4 bg-gray-50 dark:bg-gray-900/50 rounded-lg">
+                            <svg viewBox="0 0 200 120" className="w-full h-full" fill="none">
+                                {/* Grid Lines */}
+                                <line x1="0" y1="30" x2="200" y2="30" stroke="#e5e7eb" strokeWidth="1" strokeDasharray="4 4" className="dark:stroke-gray-700" />
+                                <line x1="0" y1="60" x2="200" y2="60" stroke="#e5e7eb" strokeWidth="1" strokeDasharray="4 4" className="dark:stroke-gray-700" />
+                                <line x1="0" y1="90" x2="200" y2="90" stroke="#e5e7eb" strokeWidth="1" strokeDasharray="4 4" className="dark:stroke-gray-700" />
+
+                                {/* Peak 1 */}
+                                <rect x="30" y="40" width="8" height="30" fill="#22c55e" rx="1" />
+                                <line x1="34" y1="35" x2="34" y2="75" stroke="#22c55e" strokeWidth="1" />
+                                <rect x="45" y="25" width="8" height="25" fill="#22c55e" rx="1" />
+                                <line x1="49" y1="20" x2="49" y2="55" stroke="#22c55e" strokeWidth="1" />
+                                <rect x="60" y="30" width="8" height="20" fill="#ef4444" rx="1" />
+                                <line x1="64" y1="25" x2="64" y2="55" stroke="#ef4444" strokeWidth="1" />
+
+                                {/* Neckline Dip */}
+                                <rect x="75" y="50" width="8" height="25" fill="#ef4444" rx="1" />
+                                <line x1="79" y1="45" x2="79" y2="80" stroke="#ef4444" strokeWidth="1" />
+                                <rect x="90" y="55" width="8" height="15" fill="#22c55e" rx="1" />
+                                <line x1="94" y1="50" x2="94" y2="75" stroke="#22c55e" strokeWidth="1" />
+
+                                {/* Peak 2 */}
+                                <rect x="105" y="40" width="8" height="25" fill="#22c55e" rx="1" />
+                                <line x1="109" y1="35" x2="109" y2="70" stroke="#22c55e" strokeWidth="1" />
+                                <rect x="120" y="25" width="8" height="25" fill="#ef4444" rx="1" />
+                                <line x1="124" y1="20" x2="124" y2="55" stroke="#ef4444" strokeWidth="1" />
+                                <rect x="135" y="35" width="8" height="20" fill="#ef4444" rx="1" />
+                                <line x1="139" y1="30" x2="139" y2="60" stroke="#ef4444" strokeWidth="1" />
+
+                                {/* Breakdown */}
+                                <rect x="150" y="60" width="8" height="30" fill="#ef4444" rx="1" />
+                                <line x1="154" y1="55" x2="154" y2="95" stroke="#ef4444" strokeWidth="1" />
+                                <rect x="165" y="80" width="8" height="25" fill="#ef4444" rx="1" />
+                                <line x1="169" y1="75" x2="169" y2="110" stroke="#ef4444" strokeWidth="1" />
+
+                                {/* Resistance & Support */}
+                                <path d="M10 20 L190 20" strokeDasharray="4 4" className="stroke-gray-400 dark:stroke-gray-500" strokeWidth="2" />
+                                <path d="M10 80 L190 80" strokeDasharray="4 4" className="stroke-gray-400 dark:stroke-gray-500" strokeWidth="2" />
+                                <text x="100" y="105" textAnchor="middle" className="fill-gray-500 text-xs font-bold">Neckline Breakdown</text>
+                            </svg>
+                        </div>
+                        <h3 className="font-bold text-lg mb-2">Double Top (M Pattern)</h3>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                            A bearish reversal pattern looking like an "M". Price hits a resistance level twice and fails to break higher. Breaking the neckline support confirms the downtrend.
                         </p>
                     </div>
                 </div>

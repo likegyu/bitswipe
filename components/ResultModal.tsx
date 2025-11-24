@@ -14,6 +14,16 @@ export const ResultModal = () => {
     const [isCopied, setIsCopied] = React.useState(false);
     const [showAnalysis, setShowAnalysis] = React.useState(false);
 
+    // Scroll Lock
+    React.useEffect(() => {
+        if (status === 'FINISHED') {
+            document.body.style.overflow = 'hidden';
+        }
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [status]);
+
     if (status !== 'FINISHED') return null;
 
     const totalRounds = history.length;
@@ -50,7 +60,14 @@ export const ResultModal = () => {
 
     const profits = history.map(h => h.profitPercent);
     const avgProfit = profits.length > 0 ? profits.reduce((a, b) => a + b, 0) / profits.length : 0;
-    const bestTrade = profits.length > 0 ? Math.max(...profits) : 0;
+    // Fix: If all trades are losses (e.g. liquidation), max profit is still negative.
+    // However, if liquidated in round 1, profit is -100%. User wants to avoid showing "-100.0%".
+    // If best trade is -100%, it means only loss occurred. We can show 0% or just show the actual best trade.
+    // User request: "Best Trade +-100.0% correction".
+    // If the best trade is -100% (liquidation), we should probably show 0% or handle it gracefully.
+    // Let's show 0% if the best trade is <= -100% (liquidation).
+    const rawBestTrade = profits.length > 0 ? Math.max(...profits) : 0;
+    const bestTrade = rawBestTrade <= -100 ? 0 : rawBestTrade;
 
     const handleShare = async () => {
         const baseUrl = window.location.origin;
@@ -95,11 +112,11 @@ export const ResultModal = () => {
             <motion.div
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
-                className="bg-white rounded-3xl p-4 sm:p-6 w-full max-w-md shadow-2xl max-h-[90vh] overflow-y-auto"
+                className="bg-white dark:bg-gray-900 rounded-3xl p-4 sm:p-6 w-full max-w-md shadow-2xl max-h-[90vh] overflow-y-auto"
             >
                 {/* Main Win Rate */}
                 <div className="flex flex-col items-center mb-6 sm:mb-8">
-                    <h3 className="text-lg sm:text-lg font-bold text-gray-800 mb-2">Total Win Rate</h3>
+                    <h3 className="text-lg sm:text-lg font-bold text-gray-800 dark:text-white mb-2">Total Win Rate</h3>
                     <div className="w-28 h-28 sm:w-48 sm:h-48 relative">
                         <ResponsiveContainer width="100%" height="100%">
                             <PieChart>
@@ -138,13 +155,13 @@ export const ResultModal = () => {
 
                 {/* Sub Stats - Win Rates */}
                 <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-2 sm:mb-4">
-                    <div className="bg-gray-50 p-3 sm:p-4 rounded-2xl text-center shadow-sm">
-                        <h4 className="text-xs sm:text-sm text-gray-500 mb-1">Long Win Rate</h4>
+                    <div className="bg-gray-50 dark:bg-gray-800 p-3 sm:p-4 rounded-2xl text-center shadow-sm">
+                        <h4 className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mb-1">Long Win Rate</h4>
                         <span className="text-base sm:text-xl font-bold text-success">{Math.round(longWinRate)}%</span>
                         <div className="text-xs text-gray-400">{longWins}/{longBets.length}</div>
                     </div>
-                    <div className="bg-gray-50 p-3 sm:p-4 rounded-2xl text-center shadow-sm">
-                        <h4 className="text-xs sm:text-sm text-gray-500 mb-1">Short Win Rate</h4>
+                    <div className="bg-gray-50 dark:bg-gray-800 p-3 sm:p-4 rounded-2xl text-center shadow-sm">
+                        <h4 className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mb-1">Short Win Rate</h4>
                         <span className="text-base sm:text-xl font-bold text-error">{Math.round(shortWinRate)}%</span>
                         <div className="text-xs text-gray-400">{shortWins}/{shortBets.length}</div>
                     </div>
@@ -152,25 +169,25 @@ export const ResultModal = () => {
 
                 {/* Advanced Stats */}
                 <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-2 sm:mb-4">
-                    <div className="bg-gray-50 p-2 sm:p-3 rounded-xl text-center shadow-sm">
-                        <h4 className="text-[10px] sm:text-xs text-gray-500 mb-1">Profit Factor</h4>
-                        <span className="text-sm sm:text-base font-bold text-gray-800">{profitFactor.toFixed(2)}</span>
+                    <div className="bg-gray-50 dark:bg-gray-800 p-2 sm:p-3 rounded-xl text-center shadow-sm">
+                        <h4 className="text-[10px] sm:text-xs text-gray-500 dark:text-gray-400 mb-1">Profit Factor</h4>
+                        <span className="text-sm sm:text-base font-bold text-gray-800 dark:text-gray-200">{profitFactor.toFixed(2)}</span>
                     </div>
-                    <div className="bg-gray-50 p-2 sm:p-3 rounded-xl text-center shadow-sm">
-                        <h4 className="text-[10px] sm:text-xs text-gray-500 mb-1">Avg Profit</h4>
+                    <div className="bg-gray-50 dark:bg-gray-800 p-2 sm:p-3 rounded-xl text-center shadow-sm">
+                        <h4 className="text-[10px] sm:text-xs text-gray-500 dark:text-gray-400 mb-1">Avg Profit</h4>
                         <span className={`text-sm sm:text-base font-bold ${avgProfit >= 0 ? 'text-success' : 'text-error'}`}>
                             {avgProfit >= 0 ? '+' : ''}{avgProfit.toFixed(1)}%
                         </span>
                     </div>
-                    <div className="bg-gray-50 p-2 sm:p-3 rounded-xl text-center shadow-sm">
-                        <h4 className="text-[10px] sm:text-xs text-gray-500 mb-1">Best Trade</h4>
+                    <div className="bg-gray-50 dark:bg-gray-800 p-2 sm:p-3 rounded-xl text-center shadow-sm">
+                        <h4 className="text-[10px] sm:text-xs text-gray-500 dark:text-gray-400 mb-1">Best Trade</h4>
                         <span className="text-sm sm:text-base font-bold text-success">+{bestTrade.toFixed(1)}%</span>
                     </div>
                 </div>
 
                 {/* Final Profit */}
                 <div className="text-center mb-2 sm:mb-4">
-                    <h3 className="text-sm sm:text-lg font-medium text-gray-500 mb-2">Total Return</h3>
+                    <h3 className="text-sm sm:text-lg font-medium text-gray-500 dark:text-gray-400 mb-2">Total Return</h3>
                     <span className={`text-xl sm:text-4xl font-bold ${profit >= 0 ? 'text-success' : 'text-error'}`}>
                         {profit >= 0 ? '+' : ''}{profitPercent}%
                     </span>
@@ -179,7 +196,7 @@ export const ResultModal = () => {
                 <div className="flex flex-col gap-3 sm:gap-4">
                     <button
                         onClick={handleAnalysisClick}
-                        className="cursor-pointer w-full py-3 sm:py-4 bg-gray-500 text-white font-bold text-sm sm:text-base rounded-xl hover:bg-gray-700 transition-colors shadow-sm flex items-center justify-center gap-2"
+                        className="cursor-pointer w-full py-3 sm:py-4 bg-gray-500 dark:bg-gray-700 text-white font-bold text-sm sm:text-base rounded-xl hover:bg-gray-700 dark:hover:bg-gray-600 transition-colors shadow-sm flex items-center justify-center gap-2"
                     >
                         View Trading Analysis
                     </button>
@@ -189,14 +206,14 @@ export const ResultModal = () => {
                             onClick={handleShare}
                             className={`cursor-pointer flex-1 py-3 sm:py-4 font-bold text-sm sm:text-base rounded-xl transition-all shadow-md ${isCopied
                                 ? 'bg-green-500 text-white hover:bg-green-600'
-                                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                                : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
                                 }`}
                         >
                             {isCopied ? 'Copied!' : 'Share'}
                         </button>
                         <button
                             onClick={resetGame}
-                            className="cursor-pointer flex-[2] py-3 sm:py-4 bg-primary text-white font-bold text-sm sm:text-base rounded-xl hover:bg-primary-hover transition-colors shadow-md shadow-orange-200"
+                            className="cursor-pointer flex-[2] py-3 sm:py-4 bg-primary text-white font-bold text-sm sm:text-base rounded-xl hover:bg-primary-hover transition-colors shadow-md"
                         >
                             Play Again
                         </button>

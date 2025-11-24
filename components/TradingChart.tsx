@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { createChart, ColorType, IChartApi, ISeriesApi, Time, CandlestickSeries, LineSeries, IPriceLine } from 'lightweight-charts';
+import { useTheme } from 'next-themes';
 import { CandleData } from '@/lib/data';
 import { calculateSMA, calculateBollingerBands, calculateRSI } from '@/lib/indicators';
 import { GameSettings } from '@/store/gameStore';
@@ -15,6 +16,7 @@ interface TradingChartProps {
 }
 
 export const TradingChartBase = ({ candles, warmupCandles, entryPrice, settings, height = '100%' }: TradingChartProps) => {
+    const { resolvedTheme } = useTheme();
     const chartContainerRef = useRef<HTMLDivElement>(null);
     const rsiContainerRef = useRef<HTMLDivElement>(null);
 
@@ -32,14 +34,18 @@ export const TradingChartBase = ({ candles, warmupCandles, entryPrice, settings,
     useEffect(() => {
         if (!chartContainerRef.current) return;
 
+        const isDark = resolvedTheme === 'dark';
+        const textColor = isDark ? '#d1d5db' : '#4a4a4a';
+        const gridColor = isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(197, 203, 206, 0.1)';
+
         const chart = createChart(chartContainerRef.current, {
             layout: {
                 background: { type: ColorType.Solid, color: 'transparent' },
-                textColor: '#4a4a4a',
+                textColor: textColor,
             },
             grid: {
-                vertLines: { color: 'rgba(197, 203, 206, 0.1)' },
-                horzLines: { color: 'rgba(197, 203, 206, 0.1)' },
+                vertLines: { color: gridColor },
+                horzLines: { color: gridColor },
             },
             width: chartContainerRef.current.clientWidth,
             height: chartContainerRef.current.clientHeight,
@@ -98,7 +104,7 @@ export const TradingChartBase = ({ candles, warmupCandles, entryPrice, settings,
             window.removeEventListener('resize', handleResize);
             chart.remove();
         };
-    }, [settings.indicators.ma, settings.indicators.bb]);
+    }, [settings.indicators.ma, settings.indicators.bb, resolvedTheme]);
 
     // Handle Resize when RSI Toggles
     useEffect(() => {
@@ -115,14 +121,18 @@ export const TradingChartBase = ({ candles, warmupCandles, entryPrice, settings,
     useEffect(() => {
         if (!settings.indicators.rsi || !rsiContainerRef.current) return;
 
+        const isDark = resolvedTheme === 'dark';
+        const textColor = isDark ? '#d1d5db' : '#4a4a4a';
+        const gridColor = isDark ? 'rgba(255, 255, 255, 0.05)' : 'rgba(197, 203, 206, 0.1)';
+
         const chart = createChart(rsiContainerRef.current, {
             layout: {
                 background: { type: ColorType.Solid, color: 'transparent' },
-                textColor: '#4a4a4a',
+                textColor: textColor,
             },
             grid: {
-                vertLines: { color: 'rgba(197, 203, 206, 0.1)' },
-                horzLines: { color: 'rgba(197, 203, 206, 0.1)' },
+                vertLines: { color: gridColor },
+                horzLines: { color: gridColor },
             },
             width: rsiContainerRef.current.clientWidth,
             height: rsiContainerRef.current.clientHeight,
@@ -181,7 +191,7 @@ export const TradingChartBase = ({ candles, warmupCandles, entryPrice, settings,
             window.removeEventListener('resize', handleResize);
             chart.remove();
         };
-    }, [settings.indicators.rsi]);
+    }, [settings.indicators.rsi, resolvedTheme]);
 
     // Entry Price Line
     useEffect(() => {
@@ -259,8 +269,8 @@ export const TradingChartBase = ({ candles, warmupCandles, entryPrice, settings,
             {/* Chart Info Overlay */}
             <div className="absolute top-4 left-4 z-10 pointer-events-none">
                 <div className="flex items-center gap-2">
-                    <h1 className="text-sm font-bold text-gray-800">BTCUSDT</h1>
-                    <span className="text-xs font-medium text-gray-500 bg-gray-100 px-1.5 py-0.5 rounded">
+                    <h1 className="text-sm font-bold text-gray-800 dark:text-gray-200">BTCUSDT</h1>
+                    <span className="text-xs font-medium text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded">
                         {settings.timeframe === '1d' ? '1D' : settings.timeframe.toUpperCase()}
                     </span>
                 </div>
@@ -269,7 +279,7 @@ export const TradingChartBase = ({ candles, warmupCandles, entryPrice, settings,
             <div ref={chartContainerRef} className={`w-full ${settings.indicators.rsi ? 'h-[70%]' : 'h-full'}`} />
 
             {settings.indicators.rsi && (
-                <div className="w-full h-[30%] border-t border-gray-100 pt-1 mt-1">
+                <div className="w-full h-[30%] border-t border-gray-100 dark:border-gray-800 pt-1 mt-1">
                     <div ref={rsiContainerRef} className="w-full h-full" />
                 </div>
             )}
