@@ -4,6 +4,7 @@ import React from 'react';
 import { X, RefreshCw } from 'lucide-react';
 import { useGameStore } from '@/store/gameStore';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 
 interface SettingsModalProps {
     isOpen: boolean;
@@ -11,6 +12,7 @@ interface SettingsModalProps {
 }
 
 export const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
+    const t = useTranslations('Settings');
     const { settings, setSettings, resetGame } = useGameStore();
 
     // Local state for immediate UI feedback without triggering global re-renders
@@ -30,7 +32,7 @@ export const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
     };
 
     const handleReset = () => {
-        if (confirm("Are you sure you want to reset your progress?")) {
+        if (confirm(t("reset_confirm"))) {
             resetGame();
             onClose();
         }
@@ -55,7 +57,7 @@ export const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
                         className="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-900 rounded-t-3xl p-4 sm:p-6 z-[70] max-w-md mx-auto shadow-2xl"
                     >
                         <div className="flex items-center justify-between mb-4 sm:mb-6">
-                            <h2 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white">Settings</h2>
+                            <h2 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white">{t('title')}</h2>
                             <button onClick={handleClose} className="cursor-pointer p-3 sm:p-2 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-600 dark:text-gray-300">
                                 <X size={20} />
                             </button>
@@ -65,7 +67,7 @@ export const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
                             {/* Leverage */}
                             <div className="mb-6 sm:mb-8">
                                 <div className="flex justify-between items-center mb-2">
-                                    <label className="font-bold text-sm sm:text-base text-gray-700 dark:text-gray-300">Leverage</label>
+                                    <label className="font-bold text-sm sm:text-base text-gray-700 dark:text-gray-300">{t('leverage_label')}</label>
                                     <span className="text-primary font-bold text-sm sm:text-base">{localSettings.leverage}x</span>
                                 </div>
                                 <div className="relative w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-full">
@@ -96,13 +98,13 @@ export const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
                             {/* Indicators */}
                             <div>
                                 <label className="block text-xs sm:text-sm font-medium text-gray-500 dark:text-gray-400 mb-2 sm:mb-3">
-                                    Indicators
+                                    {t('indicators_label')}
                                 </label>
                                 <div className="space-y-3">
                                     {[
-                                        { id: 'rsi', label: 'RSI (Relative Strength Index)' },
-                                        { id: 'ma', label: 'MA (Moving Average)' },
-                                        { id: 'bb', label: 'Bollinger Bands' },
+                                        { id: 'rsi', label: t('indicator_rsi') },
+                                        { id: 'ma', label: t('indicator_ma') },
+                                        { id: 'bb', label: t('indicator_bb') },
                                     ].map((indicator) => (
                                         <div key={indicator.id} className="flex items-center justify-between py-1">
                                             <span className="text-sm sm:text-base text-gray-700 dark:text-gray-300">{indicator.label}</span>
@@ -135,7 +137,7 @@ export const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
                                 className="cursor-pointer w-full py-3 sm:py-4 mt-3 sm:mt-4 bg-red-50 dark:bg-red-500 text-error dark:text-white font-bold text-sm sm:text-base rounded-xl flex items-center justify-center gap-2 hover:bg-red-100 dark:hover:bg-red-800 transition-colors"
                             >
                                 <RefreshCw size={18} />
-                                Reset Game
+                                {t('reset_button')}
                             </button>
                         </div>
                     </motion.div>

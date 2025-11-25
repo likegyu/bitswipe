@@ -4,6 +4,7 @@ import React from 'react';
 import { useGameStore } from '@/store/gameStore';
 import { motion } from 'framer-motion';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Sector } from 'recharts';
+import { useTranslations } from 'next-intl';
 
 
 
@@ -13,7 +14,7 @@ export const ResultModal = () => {
     const { status, history, balance, initialBalance, resetGame } = useGameStore();
     const [isCopied, setIsCopied] = React.useState(false);
     const [showAnalysis, setShowAnalysis] = React.useState(false);
-
+    const t = useTranslations('ResultModal');
     // Scroll Lock
     React.useEffect(() => {
         if (status === 'FINISHED') {
@@ -86,7 +87,7 @@ export const ResultModal = () => {
         }
 
         const shareUrl = `${baseUrl}?${params.toString()}`;
-        const shareText = `BitSwipe Results 🚀\n\nReturn: ${profit >= 0 ? '+' : ''}${profitPercent}%\nWin Rate: ${Math.round(winRate)}%\nBest Trade: +${bestTrade.toFixed(2)}%\n\nCan you beat my score? #BitSwipe #CryptoTrading\n${shareUrl}`;
+        const shareText = `${t('bit_swipe_results')} 🚀\n\n${t('total_return')}: ${profit >= 0 ? '+' : ''}${profitPercent}%\n${t('win_rate')}: ${Math.round(winRate)}%\n${t('best_trade')}: +${bestTrade.toFixed(2)}%\n\n${t('can_you_beat_my_score')} #BitSwipe #CryptoTrading\n${shareUrl}`;
 
         try {
             await navigator.clipboard.writeText(shareText);
@@ -116,7 +117,7 @@ export const ResultModal = () => {
             >
                 {/* Main Win Rate */}
                 <div className="flex flex-col items-center mb-6 sm:mb-8">
-                    <h3 className="text-lg sm:text-lg font-bold text-gray-800 dark:text-white mb-2">Total Win Rate</h3>
+                    <h3 className="text-lg sm:text-lg font-bold text-gray-800 dark:text-white mb-2">{t('win_rate')}</h3>
                     <div className="w-28 h-28 sm:w-48 sm:h-48 relative">
                         <ResponsiveContainer width="100%" height="100%">
                             <PieChart>
@@ -156,12 +157,12 @@ export const ResultModal = () => {
                 {/* Sub Stats - Win Rates */}
                 <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-2 sm:mb-4">
                     <div className="bg-gray-50 dark:bg-gray-800 p-3 sm:p-4 rounded-2xl text-center shadow-sm">
-                        <h4 className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mb-1">Long Win Rate</h4>
+                        <h4 className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mb-1">{t('long_win_rate')}</h4>
                         <span className="text-base sm:text-xl font-bold text-success">{Math.round(longWinRate)}%</span>
                         <div className="text-xs text-gray-400">{longWins}/{longBets.length}</div>
                     </div>
                     <div className="bg-gray-50 dark:bg-gray-800 p-3 sm:p-4 rounded-2xl text-center shadow-sm">
-                        <h4 className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mb-1">Short Win Rate</h4>
+                        <h4 className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mb-1">{t('short_win_rate')}</h4>
                         <span className="text-base sm:text-xl font-bold text-error">{Math.round(shortWinRate)}%</span>
                         <div className="text-xs text-gray-400">{shortWins}/{shortBets.length}</div>
                     </div>
@@ -170,24 +171,24 @@ export const ResultModal = () => {
                 {/* Advanced Stats */}
                 <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-2 sm:mb-4">
                     <div className="bg-gray-50 dark:bg-gray-800 p-2 sm:p-3 rounded-xl text-center shadow-sm">
-                        <h4 className="text-[10px] sm:text-xs text-gray-500 dark:text-gray-400 mb-1">Profit Factor</h4>
+                        <h4 className="text-[10px] sm:text-xs text-gray-500 dark:text-gray-400 mb-1">{t('profit_factor')}</h4>
                         <span className="text-sm sm:text-base font-bold text-gray-800 dark:text-gray-200">{profitFactor.toFixed(2)}</span>
                     </div>
                     <div className="bg-gray-50 dark:bg-gray-800 p-2 sm:p-3 rounded-xl text-center shadow-sm">
-                        <h4 className="text-[10px] sm:text-xs text-gray-500 dark:text-gray-400 mb-1">Avg Profit</h4>
+                        <h4 className="text-[10px] sm:text-xs text-gray-500 dark:text-gray-400 mb-1">{t('avg_profit')}</h4>
                         <span className={`text-sm sm:text-base font-bold ${avgProfit >= 0 ? 'text-success' : 'text-error'}`}>
                             {avgProfit >= 0 ? '+' : ''}{avgProfit.toFixed(1)}%
                         </span>
                     </div>
                     <div className="bg-gray-50 dark:bg-gray-800 p-2 sm:p-3 rounded-xl text-center shadow-sm">
-                        <h4 className="text-[10px] sm:text-xs text-gray-500 dark:text-gray-400 mb-1">Best Trade</h4>
+                        <h4 className="text-[10px] sm:text-xs text-gray-500 dark:text-gray-400 mb-1">{t('best_trade')}</h4>
                         <span className="text-sm sm:text-base font-bold text-success">+{bestTrade.toFixed(1)}%</span>
                     </div>
                 </div>
 
                 {/* Final Profit */}
                 <div className="text-center mb-2 sm:mb-4">
-                    <h3 className="text-sm sm:text-lg font-medium text-gray-500 dark:text-gray-400 mb-2">Total Return</h3>
+                    <h3 className="text-sm sm:text-lg font-medium text-gray-500 dark:text-gray-400 mb-2">{t('total_return')}</h3>
                     <span className={`text-xl sm:text-4xl font-bold ${profit >= 0 ? 'text-success' : 'text-error'}`}>
                         {profit >= 0 ? '+' : ''}{profitPercent}%
                     </span>
@@ -198,7 +199,7 @@ export const ResultModal = () => {
                         onClick={handleAnalysisClick}
                         className="cursor-pointer w-full py-3 sm:py-4 bg-gray-500 dark:bg-gray-700 text-white font-bold text-sm sm:text-base rounded-xl hover:bg-gray-700 dark:hover:bg-gray-600 transition-colors shadow-sm flex items-center justify-center gap-2"
                     >
-                        View Trading Analysis
+                        {t('view_analysis')}
                     </button>
 
                     <div className="flex gap-3 sm:gap-4">
@@ -209,13 +210,13 @@ export const ResultModal = () => {
                                 : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
                                 }`}
                         >
-                            {isCopied ? 'Copied!' : 'Share'}
+                            {isCopied ? t('copied') : t('share')}
                         </button>
                         <button
                             onClick={resetGame}
                             className="cursor-pointer flex-[2] py-3 sm:py-4 bg-primary text-white font-bold text-sm sm:text-base rounded-xl hover:bg-primary-hover transition-colors shadow-md"
                         >
-                            Play Again
+                            {t('play_again')}
                         </button>
                     </div>
                 </div>

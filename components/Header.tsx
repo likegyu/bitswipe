@@ -3,8 +3,10 @@
 import React from 'react';
 import { Settings, Trophy } from 'lucide-react';
 import { useGameStore } from '@/store/gameStore';
+import { useTranslations } from 'next-intl';
 
 export const Header = ({ onOpenSettings }: { onOpenSettings: () => void }) => {
+    const t = useTranslations('Header');
     const { balance, initialBalance, round, maxRounds } = useGameStore();
 
     const profit = balance - initialBalance;
@@ -21,7 +23,7 @@ export const Header = ({ onOpenSettings }: { onOpenSettings: () => void }) => {
                     </span>
                 </div>
                 <span className="text-sm text-gray-400 font-medium">
-                    Round {round}/{maxRounds}
+                    {t('selected_rounds')} {round}/{maxRounds}
                 </span>
             </div>
 

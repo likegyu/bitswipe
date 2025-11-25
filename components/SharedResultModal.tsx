@@ -4,8 +4,10 @@ import React, { useEffect, useState } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { Trophy, ArrowRight, X } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 export const SharedResultModal = () => {
+    const t = useTranslations('SharedResultModal');
     const searchParams = useSearchParams();
     const router = useRouter();
     const [isVisible, setIsVisible] = useState(false);
@@ -51,32 +53,32 @@ export const SharedResultModal = () => {
                         <Trophy size={24} />
                     </div>
                     <h2 className="text-2xl font-black text-gray-800 tracking-tight">
-                        Challenger's Score
+                        {t('challenger_score')}
                     </h2>
                     <p className="text-sm text-gray-500 font-medium mt-1">
-                        Can you beat this record?
+                        {t('can_you_beat_this_record')}
                     </p>
                 </div>
 
                 <div className="space-y-3 mb-6">
                     <div className="flex items-center justify-between p-3 bg-gray-50 rounded-xl border border-gray-100">
-                        <span className="text-sm font-bold text-gray-500">Win Rate</span>
+                        <span className="text-sm font-bold text-gray-500">{t('win_rate')}</span>
                         <span className="text-lg font-black text-gray-800">{winRate}%</span>
                     </div>
                     <div className="flex items-center justify-between p-3 bg-gray-50 rounded-xl border border-gray-100">
-                        <span className="text-sm font-bold text-gray-500">Return</span>
+                        <span className="text-sm font-bold text-gray-500">{t('return')}</span>
                         <span className={`text-lg font-black ${Number(profitPercent) >= 0 ? 'text-success' : 'text-error'}`}>
                             {Number(profitPercent) >= 0 ? '+' : ''}{profitPercent}%
                         </span>
                     </div>
                     {bestTrade && (
                         <div className="flex items-center justify-between p-3 bg-gray-50 rounded-xl border border-gray-100">
-                            <span className="text-sm font-bold text-gray-500">Best Trade</span>
+                            <span className="text-sm font-bold text-gray-500">{t('best_trade')}</span>
                             <span className="text-lg font-black text-success">+{bestTrade}%</span>
                         </div>
                     )}
                     <div className="flex items-center justify-between p-3 bg-gray-50 rounded-xl border border-gray-100">
-                        <span className="text-sm font-bold text-gray-500">Rounds</span>
+                        <span className="text-sm font-bold text-gray-500">{t('rounds')}</span>
                         <span className="text-lg font-black text-gray-800">{rounds}</span>
                     </div>
                 </div>
@@ -85,7 +87,7 @@ export const SharedResultModal = () => {
                     onClick={handleClose}
                     className="cursor-pointer w-full py-4 bg-primary text-white font-bold text-md rounded-xl hover:bg-primary-hover transition-all shadow-md shadow-orange-200 flex items-center justify-center gap-1 group"
                 >
-                    Accept Challenge
+                    {t('accept_challenge')}
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
             </motion.div>

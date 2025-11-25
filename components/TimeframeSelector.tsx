@@ -4,16 +4,27 @@ import React, { useState } from 'react';
 import { useGameStore } from '@/store/gameStore';
 import { Timeframe, TIMEFRAME_CONFIG } from '@/lib/data';
 import { Zap, TrendingUp, Sun, Clock, BarChart2, Calendar, ArrowLeft, Target, Trophy, Medal, Eye, ArrowRight, Timer } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 type Step = 'timeframe' | 'rounds';
 
 export const TimeframeSelector = () => {
+    const t = useTranslations('GameSetup');
     const { setSettings, initializeGame } = useGameStore();
     const [step, setStep] = useState<Step>('timeframe');
     const [selectedTimeframe, setSelectedTimeframe] = useState<Timeframe | null>(null);
+    const [selectedTimeframeLabel, setSelectedTimeframeLabel] = useState<string>('');
 
     const handleTimeframeSelect = (timeframe: Timeframe) => {
+        // 1. 선택된 레이블을 찾습니다.
+        const allOptions = timeframeSections.flatMap(section => section.options);
+        const selectedOption = allOptions.find(opt => opt.value === timeframe);
+        const label = selectedOption?.label || timeframe.toUpperCase(); // 레이블이 없다면 value 사용
+
+        // 2. 상태를 업데이트합니다.
         setSelectedTimeframe(timeframe);
+        setSelectedTimeframeLabel(label); // 번역된 레이블을 저장
+
         setSettings({ timeframe });
         setStep('rounds');
     };
@@ -37,49 +48,65 @@ export const TimeframeSelector = () => {
         setSelectedTimeframe(null);
     };
 
-    const timeframeSections = [
-        {
-            title: 'Short Term',
-            description: 'Fast-paced action',
-            icon: <Zap className="w-4 h-4 sm:w-5 sm:h-5" />,
-            color: 'text-rose-500 dark:text-rose-400',
-            bg: 'bg-rose-50 dark:bg-rose-900/20',
-            border: 'group-hover:border-rose-200',
-            options: [
-                { value: '1m', label: '1m', sub: 'Turbo', icon: <Zap className="w-4 h-4 sm:w-6 sm:h-6" /> },
-                { value: '5m', label: '5m', sub: 'Blitz', icon: <Timer className="w-4 h-4 sm:w-6 sm:h-6" /> },
-                { value: '15m', label: '15m', sub: 'Rapid', icon: <TrendingUp className="w-4 h-4 sm:w-6 sm:h-6" /> },
-            ] as const
-        },
-        {
-            title: 'Middle Term',
-            description: 'Strategic analysis',
-            icon: <BarChart2 className="w-4 h-4 sm:w-5 sm:h-5" />,
-            color: 'text-indigo-500 dark:text-indigo-400',
-            bg: 'bg-indigo-50 dark:bg-indigo-900/20',
-            border: 'group-hover:border-indigo-200',
-            options: [
-                { value: '30m', label: '30m', sub: 'Intra', icon: <BarChart2 className="w-4 h-4 sm:w-6 sm:h-6" /> },
-                { value: '1h', label: '1h', sub: 'Hourly', icon: <Clock className="w-4 h-4 sm:w-6 sm:h-6" /> },
-            ] as const
-        },
-        {
-            title: 'Day Term',
-            description: 'Macro trends',
-            icon: <Sun className="w-4 h-4 sm:w-5 sm:h-5" />,
-            color: 'text-amber-500 dark:text-amber-400',
-            bg: 'bg-amber-50 dark:bg-amber-900/20',
-            border: 'group-hover:border-amber-200',
-            options: [
-                { value: '1d', label: '1d', sub: 'Daily', icon: <Calendar className="w-4 h-4 sm:w-6 sm:h-6" /> },
-            ] as const
-        }
-    ];
+    // Define a type for timeframe options to ensure compatibility with all Timeframe values
+    type TimeframeOption = {
+        value: Timeframe;
+        label: string;
+        sub: string;
+        icon: React.ReactNode;
+    };
+
+    const timeframeSections: Array<{
+        title: string;
+        description: string;
+        icon: React.ReactNode;
+        color: string;
+        bg: string;
+        border: string;
+        options: readonly TimeframeOption[];
+    }> = [
+            {
+                title: t('section_short_title'),
+                description: t('section_short_desc'),
+                icon: <Zap className="w-4 h-4 sm:w-5 sm:h-5" />,
+                color: 'text-rose-500 dark:text-rose-400',
+                bg: 'bg-rose-50 dark:bg-rose-900/20',
+                border: 'group-hover:border-rose-200',
+                options: [
+                    { value: '1m', label: t('option_1m_label'), sub: t('option_1m_sub'), icon: <Zap className="w-4 h-4 sm:w-6 sm:h-6" /> },
+                    { value: '5m', label: t('option_5m_label'), sub: t('option_5m_sub'), icon: <Timer className="w-4 h-4 sm:w-6 sm:h-6" /> },
+                    { value: '15m', label: t('option_15m_label'), sub: t('option_15m_sub'), icon: <TrendingUp className="w-4 h-4 sm:w-6 sm:h-6" /> },
+                ]
+            },
+            {
+                title: t('section_middle_title'),
+                description: t('section_middle_desc'),
+                icon: <BarChart2 className="w-4 h-4 sm:w-5 sm:h-5" />,
+                color: 'text-indigo-500 dark:text-indigo-400',
+                bg: 'bg-indigo-50 dark:bg-indigo-900/20',
+                border: 'group-hover:border-indigo-200',
+                options: [
+                    { value: '30m', label: t('option_30m_label'), sub: t('option_30m_sub'), icon: <BarChart2 className="w-4 h-4 sm:w-6 sm:h-6" /> },
+                    { value: '1h', label: t('option_1h_label'), sub: t('option_1h_sub'), icon: <Clock className="w-4 h-4 sm:w-6 sm:h-6" /> },
+                ]
+            },
+            {
+                title: t('section_day_title'),
+                description: t('section_day_desc'),
+                icon: <Sun className="w-4 h-4 sm:w-5 sm:h-5" />,
+                color: 'text-amber-500 dark:text-amber-400',
+                bg: 'bg-amber-50 dark:bg-amber-900/20',
+                border: 'group-hover:border-amber-200',
+                options: [
+                    { value: '1d', label: t('option_1d_label'), sub: t('option_1d_sub'), icon: <Calendar className="w-4 h-4 sm:w-6 sm:h-6" /> },
+                ]
+            }
+        ];
 
     const roundOptions = [
-        { value: 10, label: '10 Rounds', sub: 'Quick Match', icon: <Target className="w-6 h-6 sm:w-8 sm:h-8" />, color: 'text-emerald-500 dark:text-emerald-400', bg: 'bg-emerald-50 dark:bg-emerald-900/20', border: 'group-hover:border-emerald-200' },
-        { value: 25, label: '25 Rounds', sub: 'Standard', icon: <Medal className="w-6 h-6 sm:w-8 sm:h-8" />, color: 'text-blue-500 dark:text-blue-400', bg: 'bg-blue-50 dark:bg-blue-900/20', border: 'group-hover:border-blue-200' },
-        { value: 50, label: '50 Rounds', sub: 'Marathon', icon: <Trophy className="w-6 h-6 sm:w-8 sm:h-8" />, color: 'text-purple-500 dark:text-purple-400', bg: 'bg-purple-50 dark:bg-purple-900/20', border: 'group-hover:border-purple-200' },
+        { value: 10, label: t('rounds_10_label'), sub: t('rounds_10_sub'), icon: <Target className="w-6 h-6 sm:w-8 sm:h-8" />, color: 'text-emerald-500 dark:text-emerald-400', bg: 'bg-emerald-50 dark:bg-emerald-900/20', border: 'group-hover:border-emerald-200' },
+        { value: 25, label: t('rounds_25_label'), sub: t('rounds_25_sub'), icon: <Medal className="w-6 h-6 sm:w-8 sm:h-8" />, color: 'text-blue-500 dark:text-blue-400', bg: 'bg-blue-50 dark:bg-blue-900/20', border: 'group-hover:border-blue-200' },
+        { value: 50, label: t('rounds_50_label'), sub: t('rounds_50_sub'), icon: <Trophy className="w-6 h-6 sm:w-8 sm:h-8" />, color: 'text-purple-500 dark:text-purple-400', bg: 'bg-purple-50 dark:bg-purple-900/20', border: 'group-hover:border-purple-200' },
     ];
 
     return (
@@ -93,10 +120,10 @@ export const TimeframeSelector = () => {
                             {/* Header for timeframe step */}
                             <div className="relative text-center mb-4 sm:mb-8 flex-shrink-0">
                                 <h2 className="text-lg sm:text-3xl font-black text-foreground dark:text-white tracking-tight sm:mb-2">
-                                    Select Pace
+                                    {t('step_timeframe_title')}
                                 </h2>
                                 <p className="text-xs sm:text-base text-gray-400 font-medium">
-                                    Predict the price 5 candles into the future
+                                    {t('step_timeframe_desc')}
                                 </p>
                             </div>
 
@@ -160,10 +187,10 @@ export const TimeframeSelector = () => {
                                     <ArrowLeft className="w-5 h-5 sm:w-6 sm:h-6" />
                                 </button>
                                 <h2 className="text-xl sm:text-3xl font-black text-foreground dark:text-white tracking-tight mb-2 sm:mb-4">
-                                    Select Length
+                                    {t('step_rounds_title')}
                                 </h2>
                                 <p className="text-xs sm:text-base text-gray-400 font-medium">
-                                    How many rounds to play?
+                                    {t('step_rounds_desc')}
                                 </p>
                             </div>
 
@@ -203,7 +230,15 @@ export const TimeframeSelector = () => {
                 {/* Footer */}
                 <div className="mt-auto pt-3 sm:pt-4 text-center flex-shrink-0 opacity-60 hover:opacity-100 transition-opacity">
                     <p className="text-[10px] sm:text-xs text-gray-400 font-medium hidden sm:block">
-                        {step === 'timeframe' ? 'Detailed statistics available after game completion' : `Selected: ${selectedTimeframe?.toUpperCase()} Candle`}
+                        {step === 'timeframe' ? (
+                            t('footer_timeframe')
+                        ) : (
+                            // [수정된 코드]: selectedTimeframeLabel을 사용합니다.
+                            t('footer_rounds', {
+                                timeframe: selectedTimeframeLabel || selectedTimeframe?.toUpperCase() || ''
+                            })
+                            // 이제 푸터에 '1분' (ko) 또는 '1分' (ja)이 표시됩니다.
+                        )}
                     </p>
                 </div>
             </div>

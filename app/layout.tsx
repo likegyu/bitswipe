@@ -17,38 +17,6 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://bitswipe.xyz'),
-  title: {
-    default: "Bitswipe",
-    template: "%s | Bitswipe"
-  },
-  description: "Master Bitcoin trading risk-free with Bitswipe. Practice reading candlestick charts, predict price movements, and improve your technical analysis skills in this addictive crypto trading simulation game.",
-  keywords: ["Bitcoin Trading Simulator", "Crypto Trading Game", "Practice Trading", "Technical Analysis", "Candlestick Charts", "Crypto Game", "Bitcoin Price Prediction"],
-  authors: [{ name: "Bitswipe" }],
-  creator: "Bitswipe",
-  publisher: "Bitswipe",
-  openGraph: {
-    title: "Bitswipe",
-    description: "Master Bitcoin trading risk-free. Practice reading charts and predicting price movements in this addictive simulation game.",
-    url: "https://bitswipe.xyz",
-    siteName: "Bitswipe",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Bitswipe - Bitcoin Trading Game",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Bitswipe",
-    description: "Master Bitcoin trading risk-free. Practice reading charts and predicting price movements in this addictive simulation game.",
-    images: ["/og-image.png"],
-    creator: "@bitswipe",
-  },
   robots: {
     index: true,
     follow: true,
@@ -76,7 +44,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html suppressHydrationWarning>
       <head>
 
         {/* Google Tag Manager */}

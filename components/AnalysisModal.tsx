@@ -4,6 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { X, TrendingUp, TrendingDown, Activity, BarChart2 } from 'lucide-react';
 import { RoundResult } from '@/store/gameStore';
+import { useTranslations } from 'next-intl';
 
 interface AnalysisModalProps {
     history: RoundResult[];
@@ -11,6 +12,8 @@ interface AnalysisModalProps {
 }
 
 export const AnalysisModal = ({ history, onClose }: AnalysisModalProps) => {
+
+    const t = useTranslations('AnalysisModal');
     const [showAd, setShowAd] = React.useState(true);
     const adInitialized = React.useRef(false);
 
@@ -68,10 +71,10 @@ export const AnalysisModal = ({ history, onClose }: AnalysisModalProps) => {
                         <Icon size={14} />
                     </div>
                     <span className="text-sm font-bold text-gray-700 dark:text-gray-300">{title}</span>
-                    <span className="text-xs text-gray-400 ml-auto">{stats.total} trades</span>
+                    <span className="text-xs text-gray-400 ml-auto">{stats.total} {t('trades')}</span>
                 </div>
                 <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs text-gray-500">Win Rate</span>
+                    <span className="text-xs text-gray-500">{t('win_rate')}</span>
                     <span className={`text-sm font-bold ${stats.winRate >= 50 ? 'text-success' : 'text-error'}`}>
                         {Math.round(stats.winRate)}%
                     </span>
@@ -137,7 +140,7 @@ export const AnalysisModal = ({ history, onClose }: AnalysisModalProps) => {
                                 onClick={() => setShowAd(false)}
                                 className="cursor-pointer w-[80%] mx-auto py-3 bg-primary text-white font-bold rounded-xl hover:bg-primary-hover transition-colors"
                             >
-                                Close Ad & View Analysis
+                                {t('close_ad_view_analysis')}
                             </button>
                         </div>
                         <div className="mt-2 text-center">
@@ -147,42 +150,42 @@ export const AnalysisModal = ({ history, onClose }: AnalysisModalProps) => {
                 ) : (
                     <>
                         <div className="text-center mt-6 mb-6">
-                            <h2 className="text-2xl font-bold text-gray-800 dark:text-white">Trading Analysis</h2>
-                            <p className="text-sm text-gray-500 dark:text-gray-400">Your behavior patterns in different market conditions</p>
+                            <h2 className="text-2xl font-bold text-gray-800 dark:text-white">{t('trading_analysis')}</h2>
+                            <p className="text-sm text-gray-500 dark:text-gray-400">{t('your_behavior_patterns_in_different_market_conditions')}</p>
                         </div>
 
                         <div className="space-y-4 p-4">
                             {/* RSI Section */}
                             <div>
                                 <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-3 flex items-center gap-2">
-                                    <Activity size={16} /> RSI Context
+                                    <Activity size={16} /> {t('rsi_context')}
                                 </h3>
                                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                                    {rsiLow ? <StatCard title="Oversold (<30)" stats={rsiLow} icon={TrendingDown} color="bg-blue-500" /> : <div className="text-xs text-gray-400 dark:text-gray-500 p-4 text-center bg-gray-50 dark:bg-gray-800 rounded-xl">No trades in Oversold</div>}
-                                    {rsiMid ? <StatCard title="Neutral (30-70)" stats={rsiMid} icon={Activity} color="bg-gray-500" /> : <div className="text-xs text-gray-400 dark:text-gray-500 p-4 text-center bg-gray-50 dark:bg-gray-800 rounded-xl">No trades in Neutral</div>}
-                                    {rsiHigh ? <StatCard title="Overbought (>70)" stats={rsiHigh} icon={TrendingUp} color="bg-purple-500" /> : <div className="text-xs text-gray-400 dark:text-gray-500 p-4 text-center bg-gray-50 dark:bg-gray-800 rounded-xl">No trades in Overbought</div>}
+                                    {rsiLow ? <StatCard title={t('oversold')} stats={rsiLow} icon={TrendingDown} color="bg-blue-500" /> : <div className="text-xs text-gray-400 dark:text-gray-500 p-4 text-center bg-gray-50 dark:bg-gray-800 rounded-xl">{t('no_trades_in_oversold')}</div>}
+                                    {rsiMid ? <StatCard title={t('neutral')} stats={rsiMid} icon={Activity} color="bg-gray-500" /> : <div className="text-xs text-gray-400 dark:text-gray-500 p-4 text-center bg-gray-50 dark:bg-gray-800 rounded-xl">{t('no_trades_in_neutral')}</div>}
+                                    {rsiHigh ? <StatCard title={t('overbought')} stats={rsiHigh} icon={TrendingUp} color="bg-purple-500" /> : <div className="text-xs text-gray-400 dark:text-gray-500 p-4 text-center bg-gray-50 dark:bg-gray-800 rounded-xl">{t('no_trades_in_overbought')}</div>}
                                 </div>
                             </div>
 
                             {/* MA Section */}
                             <div>
                                 <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-3 flex items-center gap-2">
-                                    <TrendingUp size={16} /> MA Trend
+                                    <TrendingUp size={16} /> {t('ma_trend')}
                                 </h3>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                    {maUp ? <StatCard title="Uptrend" stats={maUp} icon={TrendingUp} color="bg-success" /> : <div className="text-xs text-gray-400 dark:text-gray-500 p-4 text-center bg-gray-50 dark:bg-gray-800 rounded-xl">No trades in Uptrend</div>}
-                                    {maDown ? <StatCard title="Downtrend" stats={maDown} icon={TrendingDown} color="bg-error" /> : <div className="text-xs text-gray-400 dark:text-gray-500 p-4 text-center bg-gray-50 dark:bg-gray-800 rounded-xl">No trades in Downtrend</div>}
+                                    {maUp ? <StatCard title={t('uptrend')} stats={maUp} icon={TrendingUp} color="bg-success" /> : <div className="text-xs text-gray-400 dark:text-gray-500 p-4 text-center bg-gray-50 dark:bg-gray-800 rounded-xl">{t('no_trades_in_uptrend')}</div>}
+                                    {maDown ? <StatCard title={t('downtrend')} stats={maDown} icon={TrendingDown} color="bg-error" /> : <div className="text-xs text-gray-400 dark:text-gray-500 p-4 text-center bg-gray-50 dark:bg-gray-800 rounded-xl">{t('no_trades_in_downtrend')}</div>}
                                 </div>
                             </div>
 
                             {/* BB Section */}
                             <div>
                                 <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-3 flex items-center gap-2">
-                                    <BarChart2 size={16} /> Bollinger Bands
+                                    <BarChart2 size={16} /> {t('bollinger_bands')}
                                 </h3>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                    {bbUpper ? <StatCard title="Upper Band Touch" stats={bbUpper} icon={TrendingUp} color="bg-orange-500" /> : <div className="text-xs text-gray-400 dark:text-gray-500 p-4 text-center bg-gray-50 dark:bg-gray-800 rounded-xl">No trades at Upper Band</div>}
-                                    {bbLower ? <StatCard title="Lower Band Touch" stats={bbLower} icon={TrendingDown} color="bg-cyan-500" /> : <div className="text-xs text-gray-400 dark:text-gray-500 p-4 text-center bg-gray-50 dark:bg-gray-800 rounded-xl">No trades at Lower Band</div>}
+                                    {bbUpper ? <StatCard title={t('upper_band_touch')} stats={bbUpper} icon={TrendingUp} color="bg-orange-500" /> : <div className="text-xs text-gray-400 dark:text-gray-500 p-4 text-center bg-gray-50 dark:bg-gray-800 rounded-xl">{t('no_trades_at_upper_band')}</div>}
+                                    {bbLower ? <StatCard title={t('lower_band_touch')} stats={bbLower} icon={TrendingDown} color="bg-cyan-500" /> : <div className="text-xs text-gray-400 dark:text-gray-500 p-4 text-center bg-gray-50 dark:bg-gray-800 rounded-xl">{t('no_trades_at_lower_band')}</div>}
                                 </div>
                             </div>
                         </div>

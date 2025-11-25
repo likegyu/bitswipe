@@ -1,6 +1,11 @@
 import React from 'react';
+import { useTranslations } from 'next-intl';
 
 export const SEOContent = () => {
+    // next-intl을 사용하여 'SEOContent' 네임스페이스의 번역을 가져옵니다.
+    const t = useTranslations('SEOContent');
+
+    // 이 컴포넌트의 HTML 구조와 Tailwind CSS 클래스는 원본과 동일합니다.
     return (
         <section className="w-full max-w-4xl mx-auto px-4 py-12 #fdfbf7 dark:bg-gray-900 text-gray-600 dark:text-gray-300">
             <div className="prose prose-sm sm:prose lg:prose-lg dark:prose-invert mx-auto">
@@ -8,79 +13,76 @@ export const SEOContent = () => {
                 {/* Psychology of Trading */}
                 <div className="mb-12 bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-100 dark:border-gray-700">
                     <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">
-                        The Psychology of Trading: Why Games Like BitSwipe Matter
+                        {t('Psychology.title')}
                     </h2>
                     <div className="prose dark:prose-invert max-w-none text-gray-600 dark:text-gray-300">
                         <p className="mb-4">
-                            Trading is often 20% strategy and 80% psychology. Many traders fail not because they lack technical knowledge, but because they cannot control their emotions—fear, greed, and FOMO (Fear Of Missing Out).
+                            {t('Psychology.p1')}
                         </p>
                         <p className="mb-4">
-                            <strong>BitSwipe</strong> serves as a risk-free "flight simulator" for traders. By compressing hours of market action into minutes, it allows you to:
+                            <strong>BitSwipe</strong> {t('Psychology.p2_part1')}
                         </p>
                         <ul className="list-disc pl-6 mb-4 space-y-2">
-                            <li><strong>Test Your Reflexes:</strong> Learn to make quick decisions under pressure without risking real capital.</li>
-                            <li><strong>Recognize Patterns:</strong> Train your eyes to spot chart patterns like Head & Shoulders, Flags, and Wedges in real-time.</li>
-                            <li><strong>Master Risk Management:</strong> Experience the consequences of over-leveraging and poor position sizing in a safe environment.</li>
+                            <li><strong>{t('Psychology.list1_bold')}</strong>: {t('Psychology.list1_text')}</li>
+                            <li><strong>{t('Psychology.list2_bold')}</strong>: {t('Psychology.list2_text')}</li>
+                            <li><strong>{t('Psychology.list3_bold')}</strong>: {t('Psychology.list3_text')}</li>
                         </ul>
                         <p>
-                            Whether you are a seasoned pro looking to stay sharp or a beginner taking your first steps into the crypto world, BitSwipe provides the perfect arena to hone your skills and build the mental discipline required for successful trading.
+                            {t('Psychology.p3')}
                         </p>
                     </div>
                 </div>
 
                 {/* Mission Statement */}
                 <div className="mb-12 bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-100 dark:border-gray-700">
-                    <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Why Bitswipe?</h2>
+                    <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">{t('Mission.title')}</h2>
                     <p className="mb-4 text-md text-gray-600 dark:text-gray-400 leading-relaxed">
-                        I created Bitswipe to bridge the gap between boring study and the thrill of live trading.
-                        Many aspiring traders struggle with the slow pace of real-time mock trading—waiting hours for a setup to form.
+                        {t('Mission.p1')}
                     </p>
                     <p className="mb-0 text-md text-gray-600 dark:text-gray-400 leading-relaxed">
-                        Bitswipe solves this by using <strong>real historical Bitcoin data for 1 year</strong> to create a fast-paced, intuitive web game.
-                        It allows you to experience months of market movements in minutes, helping you recognize patterns faster.
-                        Our goal is to provide a platform where you can test your intuition, analyze your win rates detailedly,
-                        and easily share your achievements with friends—all while having fun without the financial risk.
+                        {t('Mission.p2_part1')} <strong>{t('Mission.p2_data')}</strong> {t('Mission.p2_part2')}
                     </p>
                 </div>
 
                 {/* Basic Trading Skills */}
                 <section className="mb-12">
                     <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">
-                        Mastering the Basics: Essential Trading Skills
+                        {t('Basics.title')}
                     </h2>
                     <div className="prose dark:prose-invert max-w-none text-gray-600 dark:text-gray-300">
                         <p className="mb-4">
-                            Before diving into complex indicators, every trader must master the fundamentals. Here are three core concepts you can practice right now in BitSwipe:
+                            {t('Basics.p1')}
                         </p>
                         <div className="grid sm:grid-cols-3 gap-6 mt-6">
                             <div className="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-100 dark:border-gray-700">
-                                <h3 className="font-bold text-gray-800 dark:text-white mb-2">1. Support & Resistance</h3>
+                                <h3 className="font-bold text-gray-800 dark:text-white mb-2">{t('Basics.concept1_title')}</h3>
                                 <p className="text-sm">
-                                    Prices rarely move in a straight line. Look for "floors" where price bounces up (Support) and "ceilings" where it gets rejected (Resistance). Buying at support and selling at resistance is a classic strategy.
+                                    {t('Basics.concept1_text')}
                                 </p>
                             </div>
                             <div className="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-100 dark:border-gray-700">
-                                <h3 className="font-bold text-gray-800 dark:text-white mb-2">2. Trend Identification</h3>
+                                <h3 className="font-bold text-gray-800 dark:text-white mb-2">{t('Basics.concept2_title')}</h3>
                                 <p className="text-sm">
-                                    "The trend is your friend." In an uptrend, look for Higher Highs and Higher Lows. In a downtrend, watch for Lower Highs and Lower Lows. Don't fight the trend unless you see a clear reversal signal.
+                                    {t('Basics.concept2_text')}
                                 </p>
                             </div>
                             <div className="bg-white dark:bg-gray-800 p-4 rounded-xl border border-gray-100 dark:border-gray-700">
-                                <h3 className="font-bold text-gray-800 dark:text-white mb-2">3. Candlestick Anatomy</h3>
+                                <h3 className="font-bold text-gray-800 dark:text-white mb-2">{t('Basics.concept3_title')}</h3>
                                 <p className="text-sm">
-                                    Long wicks indicate rejection. A long wick at the top means sellers pushed the price down (bearish). A long wick at the bottom means buyers pushed it up (bullish). Pay attention to the shape of the candles!
+                                    {t('Basics.concept3_text')}
                                 </p>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <h2 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white">Mastering Chart Patterns</h2>
+                <h2 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white">{t('ChartPatterns.title')}</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
                     {/* Head and Shoulders */}
                     <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                        {/* SVG remains static as it's a visual representation */}
                         <div className="h-40 mb-4 flex items-center justify-center p-4 bg-gray-50 dark:bg-gray-900/50 rounded-lg">
-                            <svg viewBox="0 0 200 120" className="w-full h-full" fill="none">
+                            <svg viewBox="0 0 200 130" className="w-full h-full" fill="none">
                                 {/* Grid Lines */}
                                 <line x1="0" y1="30" x2="200" y2="30" stroke="#e5e7eb" strokeWidth="1" strokeDasharray="4 4" className="dark:stroke-gray-700" />
                                 <line x1="0" y1="60" x2="200" y2="60" stroke="#e5e7eb" strokeWidth="1" strokeDasharray="4 4" className="dark:stroke-gray-700" />
@@ -116,20 +118,20 @@ export const SEOContent = () => {
 
                                 {/* Neckline */}
                                 <path d="M10 95 L190 95" strokeDasharray="4 4" className="stroke-gray-400 dark:stroke-gray-500" strokeWidth="2" />
-                                <text x="100" y="115" textAnchor="middle" className="fill-gray-500 text-xs font-bold">Neckline Support</text>
+                                <text x="100" y="120" textAnchor="middle" className="fill-gray-500 text-xs font-bold">{t('ChartPatterns.pattern1_neckline')}</text>
                             </svg>
                         </div>
-                        <h3 className="font-bold text-lg mb-2">Head and Shoulders</h3>
+                        <h3 className="font-bold text-lg mb-2">{t('ChartPatterns.pattern1_title')}</h3>
                         <p className="text-sm text-gray-600 dark:text-gray-400">
-                            A bearish reversal pattern. It has three peaks: a higher middle peak (head) between two smaller peaks (shoulders).
-                            Breaking the "neckline" support often signals a price drop.
+                            {t('ChartPatterns.pattern1_text')}
                         </p>
                     </div>
 
                     {/* Double Bottom */}
                     <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                        {/* SVG remains static as it's a visual representation */}
                         <div className="h-40 mb-4 flex items-center justify-center p-4 bg-gray-50 dark:bg-gray-900/50 rounded-lg">
-                            <svg viewBox="0 0 200 120" className="w-full h-full" fill="none">
+                            <svg viewBox="0 0 200 130" className="w-full h-full" fill="none">
                                 {/* Grid Lines */}
                                 <line x1="0" y1="30" x2="200" y2="30" stroke="#e5e7eb" strokeWidth="1" strokeDasharray="4 4" className="dark:stroke-gray-700" />
                                 <line x1="0" y1="60" x2="200" y2="60" stroke="#e5e7eb" strokeWidth="1" strokeDasharray="4 4" className="dark:stroke-gray-700" />
@@ -165,20 +167,20 @@ export const SEOContent = () => {
 
                                 {/* Resistance Line */}
                                 <path d="M10 35 L190 35" strokeDasharray="4 4" className="stroke-gray-400 dark:stroke-gray-500" strokeWidth="2" />
-                                <text x="100" y="15" textAnchor="middle" className="fill-gray-500 text-xs font-bold">Resistance Breakout</text>
+                                <text x="100" y="120" textAnchor="middle" className="fill-gray-500 text-xs font-bold">{t('ChartPatterns.pattern2_resistance')}</text>
                             </svg>
                         </div>
-                        <h3 className="font-bold text-lg mb-2">Double Bottom (W Pattern)</h3>
+                        <h3 className="font-bold text-lg mb-2">{t('ChartPatterns.pattern2_title')}</h3>
                         <p className="text-sm text-gray-600 dark:text-gray-400">
-                            A bullish reversal pattern looking like a "W". It indicates the price has hit a support level twice and failed to break lower.
-                            Breaking the upper resistance confirms the uptrend.
+                            {t('ChartPatterns.pattern2_text')}
                         </p>
                     </div>
 
                     {/* Bull Flag */}
                     <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                        {/* SVG remains static as it's a visual representation */}
                         <div className="h-40 mb-4 flex items-center justify-center p-4 bg-gray-50 dark:bg-gray-900/50 rounded-lg">
-                            <svg viewBox="0 0 200 120" className="w-full h-full" fill="none">
+                            <svg viewBox="0 0 200 130" className="w-full h-full" fill="none">
                                 {/* Grid Lines */}
                                 <line x1="0" y1="30" x2="200" y2="30" stroke="#e5e7eb" strokeWidth="1" strokeDasharray="4 4" className="dark:stroke-gray-700" />
                                 <line x1="0" y1="60" x2="200" y2="60" stroke="#e5e7eb" strokeWidth="1" strokeDasharray="4 4" className="dark:stroke-gray-700" />
@@ -210,19 +212,20 @@ export const SEOContent = () => {
                                 <rect x="150" y="20" width="8" height="40" fill="#22c55e" rx="1" />
                                 <line x1="154" y1="15" x2="154" y2="65" stroke="#22c55e" strokeWidth="1" />
 
-                                <text x="100" y="110" textAnchor="middle" className="fill-gray-500 text-xs font-bold">Consolidation & Breakout</text>
+                                <text x="100" y="120" textAnchor="middle" className="fill-gray-500 text-xs font-bold">{t('ChartPatterns.pattern3_breakout')}</text>
                             </svg>
                         </div>
-                        <h3 className="font-bold text-lg mb-2">Bull Flag</h3>
+                        <h3 className="font-bold text-lg mb-2">{t('ChartPatterns.pattern3_title')}</h3>
                         <p className="text-sm text-gray-600 dark:text-gray-400">
-                            A bullish continuation pattern. After a sharp rise (the pole), prices consolidate downwards in a channel (the flag) before breaking out higher again.
+                            {t('ChartPatterns.pattern3_text')}
                         </p>
                     </div>
 
                     {/* Double Top */}
                     <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                        {/* SVG remains static as it's a visual representation */}
                         <div className="h-40 mb-4 flex items-center justify-center p-4 bg-gray-50 dark:bg-gray-900/50 rounded-lg">
-                            <svg viewBox="0 0 200 120" className="w-full h-full" fill="none">
+                            <svg viewBox="0 0 200 130" className="w-full h-full" fill="none">
                                 {/* Grid Lines */}
                                 <line x1="0" y1="30" x2="200" y2="30" stroke="#e5e7eb" strokeWidth="1" strokeDasharray="4 4" className="dark:stroke-gray-700" />
                                 <line x1="0" y1="60" x2="200" y2="60" stroke="#e5e7eb" strokeWidth="1" strokeDasharray="4 4" className="dark:stroke-gray-700" />
@@ -259,19 +262,19 @@ export const SEOContent = () => {
                                 {/* Resistance & Support */}
                                 <path d="M10 20 L190 20" strokeDasharray="4 4" className="stroke-gray-400 dark:stroke-gray-500" strokeWidth="2" />
                                 <path d="M10 80 L190 80" strokeDasharray="4 4" className="stroke-gray-400 dark:stroke-gray-500" strokeWidth="2" />
-                                <text x="100" y="105" textAnchor="middle" className="fill-gray-500 text-xs font-bold">Neckline Breakdown</text>
+                                <text x="100" y="120" textAnchor="middle" className="fill-gray-500 text-xs font-bold">{t('ChartPatterns.pattern4_neckline')}</text>
                             </svg>
                         </div>
-                        <h3 className="font-bold text-lg mb-2">Double Top (M Pattern)</h3>
+                        <h3 className="font-bold text-lg mb-2">{t('ChartPatterns.pattern4_title')}</h3>
                         <p className="text-sm text-gray-600 dark:text-gray-400">
-                            A bearish reversal pattern looking like an "M". Price hits a resistance level twice and fails to break higher. Breaking the neckline support confirms the downtrend.
+                            {t('ChartPatterns.pattern4_text')}
                         </p>
                     </div>
                 </div>
 
-                <h2 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white">Advanced Tools & Indicators</h2>
+                <h2 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white">{t('Advanced.title')}</h2>
                 <p className="mb-6">
-                    Want to trade like a pro? Click the <strong>Settings (Gear Icon)</strong> button in the top right corner to enable professional technical indicators.
+                    {t('Advanced.p1_part1')} <strong>{t('Advanced.p1_strong')}</strong> {t('Advanced.p1_part2')}
                 </p>
 
                 <div className="space-y-6 mb-12">
@@ -281,12 +284,12 @@ export const SEOContent = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>
                         </div>
                         <div>
-                            <h3 className="font-bold text-lg">Leverage (1x - 100x) & Liquidation Risk</h3>
+                            <h3 className="font-bold text-lg">{t('Advanced.tool1_title')}</h3>
                             <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                                <strong>Educational Goal:</strong> Understand the high risks of leverage trading safely.
-                                <br />• <strong>Leverage:</strong> Amplifies both profits and losses. (e.g., 10x leverage turns a 1% move into 10%)
-                                <br />• <strong>Liquidation:</strong> If your loss exceeds 100% of your margin (e.g., -2% move at 50x), you lose your entire bet.
-                                <br />• <em>Game Rule: If you are liquidated, the game ends immediately, regardless of remaining rounds. Use this to practice risk management!</em>
+                                <strong>{t('Advanced.tool1_goal_bold')}</strong>: {t('Advanced.tool1_goal_text')}
+                                <br />• <strong>{t('Advanced.tool1_lever_bold')}</strong>: {t('Advanced.tool1_lever_text')}
+                                <br />• <strong>{t('Advanced.tool1_liq_bold')}</strong>: {t('Advanced.tool1_liq_text')}
+                                <br />• <em>{t('Advanced.tool1_rule_text')}</em>
                             </p>
                         </div>
                     </div>
@@ -296,11 +299,11 @@ export const SEOContent = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18" /><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3" /></svg>
                         </div>
                         <div>
-                            <h3 className="font-bold text-lg">RSI (Relative Strength Index)</h3>
+                            <h3 className="font-bold text-lg">{t('Advanced.tool2_title')}</h3>
                             <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                                Measures the speed and change of price movements.
-                                <br />• <strong>Above 70:</strong> Overbought (Price might drop)
-                                <br />• <strong>Below 30:</strong> Oversold (Price might rise)
+                                {t('Advanced.tool2_text')}
+                                <br />• <strong>{t('Advanced.tool2_overbought_bold')}</strong>: {t('Advanced.tool2_overbought_text')}
+                                <br />• <strong>{t('Advanced.tool2_oversold_bold')}</strong>: {t('Advanced.tool2_oversold_text')}
                             </p>
                         </div>
                     </div>
@@ -310,11 +313,11 @@ export const SEOContent = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
                         </div>
                         <div>
-                            <h3 className="font-bold text-lg">MA (Moving Average)</h3>
+                            <h3 className="font-bold text-lg">{t('Advanced.tool3_title')}</h3>
                             <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                                Shows the average price over a specific period, smoothing out price fluctuations to identify the trend direction.
-                                <br />• <strong>Slope Up:</strong> Uptrend (Bullish)
-                                <br />• <strong>Slope Down:</strong> Downtrend (Bearish)
+                                {t('Advanced.tool3_text')}
+                                <br />• <strong>{t('Advanced.tool3_up_bold')}</strong>: {t('Advanced.tool3_up_text')}
+                                <br />• <strong>{t('Advanced.tool3_down_bold')}</strong>: {t('Advanced.tool3_down_text')}
                             </p>
                         </div>
                     </div>
@@ -324,57 +327,56 @@ export const SEOContent = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18" /><path d="m19 9-5 5-4-4-3 3" /></svg>
                         </div>
                         <div>
-                            <h3 className="font-bold text-lg">Bollinger Bands</h3>
+                            <h3 className="font-bold text-lg">{t('Advanced.tool4_title')}</h3>
                             <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                                A set of lines plotted two standard deviations (positively and negatively) away from a simple moving average.
-                                <br />• <strong>Squeeze:</strong> Low volatility, often followed by a breakout.
-                                <br />• <strong>Touch:</strong> Price touching the upper band may indicate overbought, lower band may indicate oversold.
+                                {t('Advanced.tool4_text')}
+                                <br />• <strong>{t('Advanced.tool4_squeeze_bold')}</strong>: {t('Advanced.tool4_squeeze_text')}
+                                <br />• <strong>{t('Advanced.tool4_touch_bold')}</strong>: {t('Advanced.tool4_touch_text')}
                             </p>
                         </div>
                     </div>
 
                 </div>
 
-                <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">How to Play</h2>
+                <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">{t('HowToPlay.title')}</h2>
                 <ul className="list-disc pl-6 mb-6 space-y-2">
-                    <li><strong>Analyze the Chart:</strong> Review the historical candlestick chart displayed on the card. Look for patterns, trends, and indicators.</li>
-                    <li><strong>Make a Prediction:</strong> Decide if the price will go up (Long), down (Short), or stay sideways (Hold).</li>
-                    <li><strong>Tap to Predict:</strong> Tap the 'Long' button to predict a rise, 'Short' for a drop, or 'Hold' to wait.</li>
-                    <li><strong>Instant Results:</strong> Experience immediate feedback with interactive visual effects that reveal your result right away.</li>
-                    <li><strong>Track Your Progress:</strong> Monitor your win rate and virtual profit to see how your trading skills improve over time.</li>
+                    <li><strong>{t('HowToPlay.step1_bold')}</strong>: {t('HowToPlay.step1_text')}</li>
+                    <li><strong>{t('HowToPlay.step2_bold')}</strong>: {t('HowToPlay.step2_text')}</li>
+                    <li><strong>{t('HowToPlay.step3_bold')}</strong>: {t('HowToPlay.step3_text')}</li>
+                    <li><strong>{t('HowToPlay.step4_bold')}</strong>: {t('HowToPlay.step4_text')}</li>
+                    <li><strong>{t('HowToPlay.step5_bold')}</strong>: {t('HowToPlay.step5_text')}</li>
                 </ul>
 
-                <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Trading Tips for Beginners</h2>
+                <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">{t('Tips.title')}</h2>
                 <p className="mb-4">
-                    Successful trading requires discipline and strategy. Here are a few tips to keep in mind while playing Bitswipe:
+                    {t('Tips.p1')}
                 </p>
                 <ol className="list-decimal pl-6 mb-6 space-y-2">
-                    <li><strong>Trend is Your Friend:</strong> It's often safer to trade in the direction of the overall trend rather than against it.</li>
-                    <li><strong>Wait for Confirmation:</strong> Don't jump into a trade too early. Wait for a candle to close to confirm a pattern.</li>
-                    <li><strong>Manage Your Risk:</strong> In real trading, never risk more than you can afford to lose. Bitswipe lets you practice this mindset safely.</li>
-                    <li><strong>Learn from Mistakes:</strong> Analyze your losing trades to understand what went wrong. Was it a false breakout? Did you miss a support level?</li>
+                    <li><strong>{t('Tips.tip1_bold')}</strong>: {t('Tips.tip1_text')}</li>
+                    <li><strong>{t('Tips.tip2_bold')}</strong>: {t('Tips.tip2_text')}</li>
+                    <li><strong>{t('Tips.tip3_bold')}</strong>: {t('Tips.tip3_text')}</li>
+                    <li><strong>{t('Tips.tip4_bold')}</strong>: {t('Tips.tip4_text')}</li>
                 </ol>
 
-                <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Trusted Resources for Learning</h2>
+                <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">{t('Resources.title')}</h2>
                 <p className="mb-4">
-                    To further improve your trading skills, we recommend studying from reputable sources. Here are some trusted platforms where you can learn more about technical analysis:
+                    {t('Resources.p1')}
                 </p>
                 <ul className="list-disc pl-6 mb-8 space-y-2">
                     <li>
                         <a href="https://www.binance.com/en/academy/articles/tags/technical-analysis" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">
-                            <strong>Binance Academy:</strong>
-                        </a> Free educational resources on cryptocurrency trading and blockchain technology.
+                            <strong>{t('Resources.link1_bold')}</strong>
+                        </a> {t('Resources.link1_text')}
                     </li>
                     <li>
                         <a href="https://www.okx.com/learn" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">
-                            <strong>OKX Learn:</strong>
-                        </a> Comprehensive crypto learning platform covering trading basics, technical analysis, and market trends.
+                            <strong>{t('Resources.link2_bold')}</strong>
+                        </a> {t('Resources.link2_text')}
                     </li>
                 </ul>
 
                 <p className="text-sm text-gray-500 mt-8 italic">
-                    Disclaimer: Bitswipe is a simulation game for entertainment and educational purposes only.
-                    It does not involve real money trading and does not constitute financial advice.
+                    {t('Disclaimer')}
                 </p>
             </div>
         </section>
