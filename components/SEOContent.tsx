@@ -120,7 +120,7 @@ export const SEOContent = () => {
                             <p>{t('Mission.p1')}</p>
                             <div className="p-6 bg-gray-50 dark:bg-gray-700/50 rounded-2xl border border-gray-100 dark:border-gray-700">
                                 <p className="font-medium text-gray-900 dark:text-white">
-                                    Bitswipe{t('Mission.p2_part1')}
+                                    {t('Mission.p2_part1')}
                                     <span className="inline-block px-2 py-0.5 mx-1 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded font-bold">
                                         {t('Mission.p2_data')}
                                     </span>
@@ -139,7 +139,7 @@ export const SEOContent = () => {
                         <div className="grid md:grid-cols-2 gap-8 mb-6">
                             <div className="space-y-4">
                                 <p className="text-gray-900 dark:text-white font-bold text-lg leading-relaxed">
-                                    {t('Psychology.p2_part1')}
+                                    Bitswipe{t('Psychology.p2_part1')}
                                 </p>
                                 <ul className="space-y-3">
                                     {[1, 2, 3].map((num) => (
