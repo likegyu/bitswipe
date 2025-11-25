@@ -1,25 +1,25 @@
 {
     "HomePage": {
         "title": "Bitswipe",
-        "description": "Bitswipe es un juego de simulación de trading de criptomonedas que te ayuda a dominar el trading de Bitcoin sin riesgo. Practica la lectura de gráficos de velas, la predicción de movimientos de precios y mejora tus habilidades de análisis técnico con este intuitivo juego de simulación de trading de criptomonedas. ¡O simplemente diviértete!",
-        "keywords": "Simulador de trading de Bitcoin,Juego de trading de criptomonedas,Análisis técnico,Gráficos de velas,Inversión simulada de Bitcoin,Bitcoin,Trading de Bitcoin,Trading de gráficos,Negociación con gráficos,Futuros de Bitcoin,Apalancamiento de Bitcoin,Posición de Bitcoin",
-        "ogDescription": "Domina el trading de Bitcoin a través de un juego. Aprende mientras disfrutas de un juego de simulación que te permite practicar la lectura de gráficos y la predicción de movimientos de precios.",
-        "ogImageAlt": "Bitswipe - Simulador de trading de Bitcoin"
+        "description": "Bitswipe es un juego de simulación de trading de criptomonedas sin riesgo. Practica la lectura de gráficos de velas, predice los movimientos de precios y agudiza tus instintos con un juego intuitivo. ¡O simplemente juega por diversión!",
+        "keywords": "Trading de Bitcoin, Simulación de Criptomonedas, Lectura de Gráficos, Velas Japonesas, Juego de Cripto, Práctica de Trading, Análisis Técnico, Futuros de Bitcoin, Apalancamiento, Posición Corta",
+        "ogDescription": "Domina el trading de Bitcoin jugando. Aprende patrones de gráficos y desarrolla tu intuición de trading.",
+        "ogImageAlt": "Bitswipe - Simulador de Trading de Bitcoin"
     },
     "Header": {
         "selected_rounds": "Rondas"
     },
     "GameSetup": {
-        "step_timeframe_title": "Seleccionar Ritmo",
-        "step_timeframe_desc": "Predice el precio en 5 velas futuras",
-        "step_rounds_title": "Seleccionar Duración",
-        "step_rounds_desc": "¿Cuántas rondas quieres jugar?",
+        "step_timeframe_title": "Seleccionar Temporalidad",
+        "step_timeframe_desc": "Predice el precio a 5 velas vista",
+        "step_rounds_title": "Seleccionar Rondas",
+        "step_rounds_desc": "¿Cuántas operaciones quieres hacer?",
         "section_short_title": "Corto Plazo",
-        "section_short_desc": "Acción de ritmo rápido",
-        "section_middle_title": "Mediano Plazo",
-        "section_middle_desc": "Análisis estratégico",
-        "section_day_title": "Diario",
-        "section_day_desc": "Tendencias macro",
+        "section_short_desc": "Scalping Rápido",
+        "section_middle_title": "Medio Plazo",
+        "section_middle_desc": "Análisis Estratégico",
+        "section_day_title": "Largo Plazo",
+        "section_day_desc": "Tendencias Macro",
         "option_1m_label": "1m",
         "option_5m_label": "5m",
         "option_15m_label": "15m",
@@ -30,16 +30,16 @@
         "option_5m_sub": "Blitz",
         "option_15m_sub": "Rápido",
         "option_30m_sub": "Intra",
-        "option_1h_sub": "Por Hora",
+        "option_1h_sub": "Horario",
         "option_1d_sub": "Diario",
         "rounds_10_label": "10 Rondas",
         "rounds_10_sub": "Partida Rápida",
         "rounds_25_label": "25 Rondas",
         "rounds_25_sub": "Estándar",
         "rounds_50_label": "50 Rondas",
-        "rounds_50_sub": "Maratón",
-        "footer_timeframe": "Estadísticas detalladas disponibles al finalizar el juego",
-        "footer_rounds": "Seleccionado: {timeframe} Vela"
+        "rounds_50_sub": "Modo Serio",
+        "footer_timeframe": "Análisis detallado disponible al finalizar el juego",
+        "footer_rounds": "Gráfico seleccionado: Vela de {timeframe}"
     },
     "Settings": {
         "title": "Ajustes",
@@ -47,50 +47,53 @@
         "indicators_label": "Indicadores",
         "indicator_rsi": "RSI (Índice de Fuerza Relativa)",
         "indicator_ma": "MA (Media Móvil)",
-        "indicator_bb": "Bandas de Bollinger",
+        "indicator_bb": "BB (Bandas de Bollinger)",
         "reset_button": "Reiniciar Juego",
-        "reset_confirm": "¿Estás seguro de que deseas reiniciar tu progreso?"
+        "reset_confirm": "Tu progreso actual se perderá. ¿Estás seguro de que quieres reiniciar?"
     },
     "ResultModal": {
-        "win_rate": "Tasa de Ganancia Total",
-        "long_win_rate": "Tasa de Ganancia en Largo",
-        "short_win_rate": "Tasa de Ganancia en Corto",
+        "win_rate": "Tasa de Acierto Total",
+        "long_win_rate": "Acierto en Largo",
+        "short_win_rate": "Acierto en Corto",
         "profit_factor": "Factor de Beneficio",
         "avg_profit": "Beneficio Promedio",
         "best_trade": "Mejor Operación",
         "total_return": "Retorno Total",
         "view_analysis": "Ver Análisis",
         "copied": "¡Copiado!",
-        "share": "Compartir",
+        "share": "Compartir Resultado",
         "play_again": "Jugar de Nuevo",
-        "bit_swipe_results": "Resultados de BitSwipe",
-        "can_you_beat_my_score": "¿Puedes superar mi puntuación?"
+        "bit_swipe_results": "Resultados de Bitswipe",
+        "can_you_beat_my_score": "¿Qué tal mi trading? ¡Intenta superar mi puntuación!"
     },
     "AnalysisModal": {
-        "win_rate": "Tasa de Ganancia",
+        "win_rate": "Tasa de Acierto",
         "trades": "Operaciones",
-        "close_ad_view_analysis": "Cerrar Anuncio & Ver Análisis",
-        "trading_analysis": "Análisis de Operaciones",
-        "your_behavior_patterns_in_different_market_conditions": "Tus Patrones de Comportamiento en Diferentes Condiciones de Mercado",
-        "rsi_context": "Contexto del RSI",
-        "ma_trend": "Tendencia de la Media Móvil (MA)",
-        "bollinger_bands": "Bandas de Bollinger",
+        "close_ad_view_analysis": "Cerrar Anuncio y Ver Análisis",
+        "trading_analysis": "Informe de Análisis de Trading",
+        "your_behavior_patterns_in_different_market_conditions": "Tus Patrones por Condición de Mercado",
+        "rsi_context": "Uso del RSI",
+        "ma_trend": "Juicio de Tendencia (MA)",
+        "bollinger_bands": "Uso de Volatilidad (BB)",
+        "oversold": "Zona de Sobreventa",
+        "neutral": "Zona Neutral",
+        "overbought": "Zona de Sobrecompra",
         "uptrend": "Tendencia Alcista",
         "downtrend": "Tendencia Bajista",
-        "upper_band_touch": "Toque de Banda Superior",
-        "lower_band_touch": "Toque de Banda Inferior",
-        "no_trades_in_oversold": "Sin operaciones en Sobrevendido",
+        "upper_band_touch": "Toque Superior",
+        "lower_band_touch": "Toque Inferior",
+        "no_trades_in_oversold": "Sin operaciones en Sobreventa",
         "no_trades_in_neutral": "Sin operaciones en Neutral",
-        "no_trades_in_overbought": "Sin operaciones en Sobrepuesto",
+        "no_trades_in_overbought": "Sin operaciones en Sobrecompra",
         "no_trades_in_uptrend": "Sin operaciones en Tendencia Alcista",
         "no_trades_in_downtrend": "Sin operaciones en Tendencia Bajista",
-        "no_trades_at_upper_band": "Sin operaciones en la Banda Superior",
-        "no_trades_at_lower_band": "Sin operaciones en la Banda Inferior"
+        "no_trades_at_upper_band": "Sin operaciones en Banda Superior",
+        "no_trades_at_lower_band": "Sin operaciones en Banda Inferior"
     },
     "SharedResultModal": {
         "challenger_score": "Puntuación del Desafiante",
         "can_you_beat_this_record": "¿Puedes superar este récord?",
-        "win_rate": "Tasa de Ganancia",
+        "win_rate": "Tasa de Acierto",
         "return": "Retorno",
         "best_trade": "Mejor Operación",
         "rounds": "Rondas",
@@ -98,198 +101,289 @@
     },
     "SEOContent": {
         "Psychology": {
-            "title": "La Psicología del Trading: Por Qué Son Importantes Juegos Como BitSwipe",
-            "p1": "El trading es a menudo 20% estrategia y 80% psicología. Muchos traders fracasan no por falta de conocimiento técnico, sino porque no pueden controlar sus emociones: miedo, avaricia y FOMO (Miedo a Perderse Algo).",
-            "p2_part1": "sirve como un \"simulador de vuelo\" sin riesgo para los traders. Al comprimir horas de acción del mercado en minutos, le permite:",
-            "list1_bold": "Probar Sus Reflejos",
-            "list1_text": "Aprenda a tomar decisiones rápidas bajo presión sin arriesgar capital real.",
-            "list2_bold": "Reconocer Patrones",
-            "list2_text": "Entrene sus ojos para detectar patrones de gráficos como Hombro-Cabeza-Hombro, Banderas y Cuñas en tiempo real.",
-            "list3_bold": "Dominar la Gestión de Riesgos",
-            "list3_text": "Experimente las consecuencias del apalancamiento excesivo y el tamaño de posición deficiente en un entorno seguro.",
-            "p3": "Ya sea un profesional experimentado que busca mantenerse ágil o un principiante que da sus primeros pasos en el mundo de las criptomonedas, BitSwipe proporciona el escenario perfecto para perfeccionar sus habilidades y construir la disciplina mental requerida para un trading exitoso."
+            "title": "Cómo te ayuda Bitswipe",
+            "p1": "Dicen que el trading es 20% habilidad y 80% psicología. Muchos traders fallan no por falta de conocimiento técnico, sino porque no pueden controlar emociones como el miedo y la avaricia.",
+            "p2_part1": "es un 'gimnasio de trading' donde puedes sentir la tensión del trading real sin arriesgar tu dinero. Experimenta días de movimiento del mercado en solo minutos y gana.",
+            "list1_bold": "Intuición Rápida",
+            "list1_text": "Practica la toma de decisiones intuitiva para no dudar y perder el momento.",
+            "list2_bold": "Reconocimiento de Patrones",
+            "list2_text": "Entrena tus ojos para ver cómo aparecen los patrones de libro en gráficos reales.",
+            "list3_bold": "Gestión de Riesgos",
+            "list3_text": "Experimenta de forma segura cómo el apalancamiento excesivo puede liquidar una cuenta.",
+            "p3": "Ya seas un profesional o un principiante, Bitswipe es una excelente manera de calentar tus sentidos de trading."
         },
         "Mission": {
-            "title": "¿Por Qué Bitswipe?",
-            "p1": "Creé Bitswipe para cerrar la brecha entre el estudio aburrido y la emoción del trading en vivo. Muchos aspirantes a traders luchan con el ritmo lento del trading simulado en tiempo real, esperando horas para que se forme una configuración.",
-            "p2_part1": "Bitswipe lo resuelve utilizando",
-            "p2_data": "datos históricos reales de Bitcoin durante 1 año",
-            "p2_part2": "para crear un juego web intuitivo y de ritmo rápido. Le permite experimentar meses de movimientos del mercado en minutos, ayudándole a reconocer patrones más rápido. Nuestro objetivo es proporcionar una plataforma donde pueda probar su intuición, analizar detalladamente sus tasas de ganancias y compartir fácilmente sus logros con amigos, todo mientras se divierte sin el riesgo financiero."
+            "title": "¿Por qué hice esto?",
+            "p1": "Estudiar es aburrido y el trading real da miedo. Pensé que necesitábamos algo intermedio: una forma divertida de practicar. El paper trading es demasiado lento y aburrido.",
+            "p2_part1": "Así que construí Bitswipe.",
+            "p2_data": "Datos históricos reales de Bitcoin",
+            "p2_part2": "se utilizan para crear un juego de ritmo rápido. Opera todo lo que quieras sin miedo a perder dinero, comprueba tu tasa de aciertos y apuesta con amigos. El trading no siempre tiene que ser tan serio, ¿verdad?"
         },
         "Basics": {
-            "title": "Dominando lo Básico: Habilidades Esenciales de Trading",
-            "p1": "Antes de sumergirse en indicadores complejos, todo trader debe dominar los fundamentos. Aquí hay tres conceptos centrales que puede practicar ahora mismo en BitSwipe:",
-            "concept1_title": "1. Soporte y Resistencia",
-            "concept1_text": "Los precios rara vez se mueven en línea recta. Busque \"pisos\" donde el precio rebota (Soporte) y \"techos\" donde es rechazado (Resistencia). Comprar en el soporte y vender en la resistencia es una estrategia clásica.",
-            "concept2_title": "2. Identificación de Tendencias",
-            "concept2_text": "\"La tendencia es tu amiga.\" En una tendencia alcista, busque máximos más altos y mínimos más altos. En una tendencia bajista, observe mínimos más bajos y máximos más bajos. No luche contra la tendencia a menos que vea una clara señal de reversión.",
-            "concept3_title": "3. Anatomía de las Velas",
-            "concept3_text": "Las mechas largas indican rechazo. Una mecha larga en la parte superior significa que los vendedores empujaron el precio hacia abajo (bajista). Una mecha larga en la parte inferior significa que los compradores lo empujaron hacia arriba (alcista). ¡Preste atención a la forma de las velas!"
+            "title": "Dominando lo Básico",
+            "p1": "Antes de llenarte de indicadores, es bueno mirar los conceptos básicos del gráfico. Aquí hay tres conceptos que aprenderás naturalmente mientras juegas a Bitswipe.",
+            "concept1_title": "Soporte y Resistencia",
+            "concept1_text": "Los precios tienden a rebotar en el suelo (Soporte) y caer desde el techo (Resistencia). Comprar barato y vender caro es el principio más fundamental.",
+            "concept2_title": "Sigue la Tendencia",
+            "concept2_text": "¿Has oído \"La tendencia es tu amiga\"? Si el precio está subiendo, no apuestes a que bajará. Montar la ola te da mejores probabilidades.",
+            "concept3_title": "Mechas de las Velas",
+            "concept3_text": "Las mechas largas en las velas son signos de una batalla. Una mecha superior larga significa que alguien vendió fuerte, y una mecha inferior larga significa que alguien compró fuerte."
         },
         "ChartPatterns": {
-            "title": "Dominando los Patrones de Gráficos",
-            "pattern1_title": "Hombro-Cabeza-Hombro (Head and Shoulders)",
-            "pattern1_text": "Un patrón de reversión bajista. Tiene tres picos: un pico medio más alto (cabeza) entre dos picos más pequeños (hombros). Romper el soporte de la \"línea de cuello\" a menudo indica una caída de precios.",
-            "pattern1_neckline": "Línea de Cuello",
-            "pattern2_title": "Doble Fondo (Patrón W)",
-            "pattern2_text": "Un patrón de reversión alcista con forma de \"W\". Indica que el precio ha tocado un nivel de soporte dos veces y no ha logrado romper a la baja. Romper la resistencia superior confirma la tendencia alcista.",
-            "pattern2_resistance": "Ruptura de Resistencia",
-            "pattern3_title": "Bandera Alcista (Bull Flag)",
-            "pattern3_text": "Un patrón de continuación alcista. Después de un fuerte ascenso (el mástil), los precios se consolidan a la baja en un canal (la bandera) antes de volver a romper al alza.",
-            "pattern3_breakout": "Consolidación y Ruptura",
-            "pattern4_title": "Doble Techo (Patrón M)",
-            "pattern4_text": "Un patrón de reversión bajista con forma de \"M\". El precio toca un nivel de resistencia dos veces y no logra romper al alza. Romper el soporte de la línea de cuello confirma la tendencia bajista.",
-            "pattern4_neckline": "Ruptura de Línea de Cuello"
+            "title": "Patrones de Gráficos Comunes",
+            "pattern1_title": "Hombro-Cabeza-Hombro (Reversión Bajista)",
+            "pattern1_text": "Una cabeza en el medio con dos hombros. A menudo aparece cuando una tendencia alcista se agota y se convierte en una tendencia bajista.",
+            "pattern1_neckline": "Ruptura de Línea de Cuello",
+            "pattern2_title": "Hombro-Cabeza-Hombro Invertido (Reversión Alcista)",
+            "pattern2_text": "Un Hombro-Cabeza-Hombro al revés. A menudo se ve en el fondo cuando una tendencia bajista termina y se convierte en una tendencia alcista.",
+            "pattern2_neckline": "Ruptura de Resistencia",
+            "pattern3_title": "Doble Techo (Patrón M, Reversión Bajista)",
+            "pattern3_text": "Con forma de 'M'. Tocó el máximo dos veces pero no pudo romperlo y cayó. Una señal de que comienza una tendencia bajista.",
+            "pattern3_neckline": "Ruptura de Soporte",
+            "pattern4_title": "Doble Suelo (Patrón W, Reversión Alcista)",
+            "pattern4_text": "Con forma de 'W'. Tocó el fondo dos veces y volvió a subir. Considerado una fuerte señal de reversión alcista.",
+            "pattern4_resistance": "Ruptura de Resistencia",
+            "pattern5_title": "Bandera Bajista (Continuación Bajista)",
+            "pattern5_text": "Después de una caída brusca, se mueve lateralmente como una bandera. Es probable que reúna fuerza y vuelva a caer.",
+            "pattern5_breakout": "Caída Continúa",
+            "pattern6_title": "Bandera Alcista (Continuación Alcista)",
+            "pattern6_text": "Después de una subida brusca, se toma un respiro en forma de bandera. Es probable que reúna energía y vuelva a dispararse.",
+            "pattern6_breakout": "Subida Continúa"
         },
         "Advanced": {
-            "title": "Herramientas e Indicadores Avanzados",
-            "p1_part1": "¿Quiere operar como un profesional? Haga clic en el botón",
-            "p1_strong": "Configuración (Icono de Engranaje)",
-            "p1_part2": "en la esquina superior derecha para habilitar indicadores técnicos profesionales.",
-            "tool1_title": "Apalancamiento (1x - 100x) y Riesgo de Liquidación",
+            "title": "Uso de Funciones Avanzadas",
+            "p1_part1": "¿Quieres analizar más profesionalmente? Activa los indicadores en los",
+            "p1_strong": "Ajustes (Icono de Engranaje)",
+            "p1_part2": "en la parte superior derecha.",
+            "tool1_title": "Apalancamiento (1x - 100x)",
             "tool1_goal_bold": "Objetivo Educativo",
-            "tool1_goal_text": "Comprender los altos riesgos del trading con apalancamiento de forma segura.",
-            "tool1_lever_bold": "Apalancamiento",
-            "tool1_lever_text": "Amplifica tanto las ganancias como las pérdidas. (p. ej., un apalancamiento de 10x convierte un movimiento del 1% en 10%)",
-            "tool1_liq_bold": "Liquidación",
-            "tool1_liq_text": "Si su pérdida excede el 100% de su margen (p. ej., un movimiento de -2% con 50x), pierde toda su apuesta.",
-            "tool1_rule_text": "Regla del Juego: Si es liquidado, el juego termina inmediatamente, independientemente de las rondas restantes. ¡Utilice esto para practicar la gestión de riesgos!",
+            "tool1_goal_text": "Experimenta de primera mano lo peligroso que es el alto apalancamiento.",
+            "tool1_lever_bold": "Espada de Doble Filo",
+            "tool1_lever_text": "Las ganancias se amplifican, pero las pérdidas crecen igual de rápido.",
+            "tool1_liq_bold": "Liquidación (Game Over)",
+            "tool1_liq_text": "En el momento en que tu pérdida excede tu capital, tu posición se cierra forzosamente y tu dinero se vuelve cero. ¡En el juego, la liquidación significa Game Over inmediato!",
+            "tool1_rule_text": "Consejo: Empieza con bajo apalancamiento para cogerle el truco.",
             "tool2_title": "RSI (Índice de Fuerza Relativa)",
-            "tool2_text": "Mide la velocidad y el cambio de los movimientos de precios.",
-            "tool2_overbought_bold": "Por Encima de 70",
-            "tool2_overbought_text": "Sobrecomprado (El precio podría caer)",
-            "tool2_oversold_bold": "Por Debajo de 30",
-            "tool2_oversold_text": "Sobrevendido (El precio podría subir)",
-            "tool3_title": "MA (Media Móvil)",
-            "tool3_text": "Muestra el precio promedio durante un período específico, suavizando las fluctuaciones de precios para identificar la dirección de la tendencia.",
+            "tool2_text": "Un indicador que te dice si el precio actual es demasiado caro o demasiado barato.",
+            "tool2_overbought_bold": "Por encima de 70",
+            "tool2_overbought_text": "Sobrecompra (¿Comprado demasiado, podría caer?)",
+            "tool2_oversold_bold": "Por debajo de 30",
+            "tool2_oversold_text": "Sobreventa (¿Vendido demasiado, podría subir?)",
+            "tool3_title": "Media Móvil (MA)",
+            "tool3_text": "Suaviza los flujos de precios irregulares para mostrar la tendencia.",
             "tool3_up_bold": "Pendiente Ascendente",
-            "tool3_up_text": "Tendencia Alcista (Bullish)",
+            "tool3_up_text": "Tendencia Alcista",
             "tool3_down_bold": "Pendiente Descendente",
-            "tool3_down_text": "Tendencia Bajista (Bearish)",
+            "tool3_down_text": "Tendencia Bajista",
             "tool4_title": "Bandas de Bollinger",
-            "tool4_text": "Un conjunto de líneas trazadas a dos desviaciones estándar (positiva y negativamente) de un promedio móvil simple.",
+            "tool4_text": "Piensa en ello como el camino por el que viaja el precio.",
             "tool4_squeeze_bold": "Contracción (Squeeze)",
-            "tool4_squeeze_text": "Baja volatilidad, a menudo seguida de una ruptura.",
-            "tool4_touch_bold": "Toque",
-            "tool4_touch_text": "El precio que toca la banda superior puede indicar sobrecompra, la banda inferior puede indicar sobreventa."
+            "tool4_squeeze_text": "Cuando el ancho se estrecha, es una señal de que se avecina un gran movimiento.",
+            "tool4_touch_bold": "Toque de Banda",
+            "tool4_touch_text": "Salirse de la banda es raro, por lo que tiende a querer volver adentro."
         },
         "HowToPlay": {
             "title": "Cómo Jugar",
-            "step1_bold": "Analizar el Gráfico",
-            "step1_text": "Revise el gráfico histórico de velas japonesas que se muestra en la tarjeta. Busque patrones, tendencias e indicadores.",
-            "step2_bold": "Hacer una Predicción",
-            "step2_text": "Decida si el precio subirá (Long), bajará (Short) o se mantendrá lateral (Hold).",
-            "step3_bold": "Tocar para Predecir",
-            "step3_text": "Toque el botón 'Long' para predecir un aumento, 'Short' para una caída, o 'Hold' para esperar.",
-            "step4_bold": "Resultados Instantáneos",
-            "step4_text": "Experimente retroalimentación inmediata con efectos visuales interactivos que revelan su resultado de inmediato.",
-            "step5_bold": "Seguir su Progreso",
-            "step5_text": "Supervise su tasa de ganancias y ganancias virtuales para ver cómo mejoran sus habilidades de trading con el tiempo."
+            "step1_bold": "Lee el Gráfico",
+            "step1_text": "Mira de cerca la forma y el flujo de las velas pasadas.",
+            "step2_bold": "Predice",
+            "step2_text": "¿Subirá el precio (Largo), bajará (Corto) o se mantendrá lateral (Hold) después de 5 velas?",
+            "step3_bold": "Decide",
+            "step3_text": "Presiona Largo, Corto o Hold.",
+            "step4_bold": "Comprueba el Resultado",
+            "step4_text": "Mira inmediatamente si tu predicción fue correcta.",
+            "step5_bold": "Revisa",
+            "step5_text": "Después del juego, analizamos tus patrones de trading."
         },
         "Tips": {
-            "title": "Consejos de Trading para Principiantes",
-            "p1": "El trading exitoso requiere disciplina y estrategia. Aquí hay algunos consejos a tener en cuenta mientras juega Bitswipe:",
-            "tip1_bold": "La Tendencia es su Amiga",
-            "tip1_text": "A menudo es más seguro operar en la dirección de la tendencia general en lugar de ir en contra de ella.",
-            "tip2_bold": "Espere la Confirmación",
-            "tip2_text": "No se meta en una operación demasiado pronto. Espere a que se cierre una vela para confirmar un patrón.",
-            "tip3_bold": "Gestione su Riesgo",
-            "tip3_text": "En el trading real, nunca arriesgue más de lo que puede permitirse perder. Bitswipe le permite practicar esta mentalidad de forma segura.",
-            "tip4_bold": "Aprenda de los Errores",
-            "tip4_text": "Analice sus operaciones perdedoras para comprender qué salió mal. ¿Fue una falsa ruptura? ¿Se perdió un nivel de soporte?"
+            "title": "Pequeños Consejos",
+            "p1": "No confíes solo en la suerte; establece tus propias reglas.",
+            "tip1_bold": "Seguimiento de Tendencia",
+            "tip1_text": "No luches contra la corriente; ve con ella.",
+            "tip2_bold": "Confirmación",
+            "tip2_text": "A menudo es más seguro esperar a que termine una vela que adivinar.",
+            "tip3_bold": "Gestión de Riesgos",
+            "tip3_text": "No apuestes todo a la vez. Las oportunidades volverán.",
+            "tip4_bold": "Revisa los Errores",
+            "tip4_text": "Solo pensar en por qué te equivocaste mejora tus habilidades."
         },
         "Resources": {
-            "title": "Recursos Confiables para el Aprendizaje",
-            "p1": "Para mejorar aún más sus habilidades de trading, recomendamos estudiar de fuentes acreditadas. Aquí hay algunas plataformas confiables donde puede aprender más sobre análisis técnico:",
+            "title": "¿Quieres aprender más?",
+            "p1": "Si quieres estudiar adecuadamente, recomendamos estos sitios.",
             "link1_bold": "Binance Academy",
-            "link1_text": ": Recursos educativos gratuitos sobre el trading de criptomonedas y la tecnología blockchain.",
+            "link1_text": "Aprende todo, desde los conceptos básicos de cripto hasta el análisis de gráficos de forma gratuita.",
             "link2_bold": "OKX Learn",
-            "link2_text": ": Plataforma integral de aprendizaje de criptomonedas que cubre los conceptos básicos de trading, análisis técnico y tendencias del mercado."
+            "link2_text": "Explica varias estrategias de trading de forma sencilla."
         },
-        "Disclaimer": "Descargo de Responsabilidad: Bitswipe es un juego de simulación solo con fines de entretenimiento y educativos. No implica trading con dinero real y no constituye asesoramiento financiero."
+        "FAQ": {
+            "title": "Preguntas Frecuentes",
+            "q1_question": "P1. ¿Puedo ganar dinero real?",
+            "q1_answer": "No. Bitswipe es 100% un juego de simulación. No hay dinero real involucrado, y las ganancias en el juego son virtuales. Es puramente una herramienta para practicar y divertirse.",
+            "q2_question": "P2. ¿Ayudará con el trading real?",
+            "q2_answer": "Sí, ayuda a desarrollar tu capacidad para leer gráficos y tomar decisiones rápidas. Sin embargo, el trading real tiene variables que no existen en el juego, como presión psicológica, comisiones y deslizamiento. Así que Bitswipe no puede reemplazar completamente el trading real.",
+            "q3_question": "P3. ¿Es más divertido con alto apalancamiento?",
+            "q3_answer": "¡Es una espada de doble filo! Las ganancias se amplifican pero también las pérdidas, y tu probabilidad de liquidación (game over) aumenta. Recomendamos comenzar con bajo apalancamiento (1x-5x).",
+            "q4_question": "P4. ¿Los datos de velas son datos reales de Bitcoin?",
+            "q4_answer": "Sí, usamos datos históricos reales de precios de Bitcoin. Cuándo y qué segmento aparece es aleatorio, por lo que tendrás una nueva experiencia cada vez.",
+            "q5_question": "P5. ¿Tengo que usar indicadores?",
+            "q5_answer": "No es obligatorio. Puedes disfrutar del juego solo mirando las formas de las velas. Pero aprender indicadores como RSI, Media Móvil y Bandas de Bollinger te ayudará mucho en el trading real.",
+            "q6_question": "P6. ¿Puedo competir con amigos?",
+            "q6_answer": "¡Absolutamente! Después del juego, obtienes un enlace para compartir. Envíalo a tus amigos y desafíalos: '¿Puedes superar esta puntuación?'"
+        },
+        "GettingStarted": {
+            "title": "Guía para Principiantes",
+            "p1": "Si el trading es nuevo para ti, puede ser abrumador. No te preocupes. Solo sigue estos pasos.",
+            "step1_title": "Comienza con velas de 1d",
+            "step1_text": "Las velas de 1m o 5m son demasiado rápidas para principiantes. Comenzar con gráficos más lentos como 1h o 1d hace más fácil aprender patrones.",
+            "step2_title": "Mantén el apalancamiento en 1x",
+            "step2_text": "Comienza sin apalancamiento (1x). Concéntrate en leer el flujo del gráfico. Puedes aumentar el apalancamiento más tarde cuando tengas confianza.",
+            "step3_title": "Activa solo un indicador",
+            "step3_text": "Comienza solo con la Media Móvil (MA). Si el precio está por encima del promedio, es una tendencia alcista; si está por debajo, es una tendencia bajista.",
+            "step4_title": "Juega 10 rondas casualmente",
+            "step4_text": "Los juegos largos pueden agotar tu concentración. Comienza con 10 rondas para familiarizarte.",
+            "step5_title": "Siempre revisa el Análisis",
+            "step5_text": "Después del juego, haz clic en 'Ver Análisis'. Puedes ver dónde lo hiciste bien y dónde cometiste errores. Este es el proceso de aprendizaje más importante.",
+            "bonus_title": "Consejo Extra",
+            "bonus_text": "No busques la precisión perfecta. Incluso el 60% es excelente. Los traders reales obtienen ganancias con tasas de acierto del 50-60%. Lo que importa es cortar pérdidas rápidamente y dejar correr las ganancias."
+        },
+        "CommonMistakes": {
+            "title": "Errores Comunes de Principiantes",
+            "p1": "Todos cometen errores al principio. Aquí están los más comunes. ¡Conócelos de antemano y evítalos!",
+            "mistake1_title": "Operar contra la tendencia",
+            "mistake1_text": "Cuando el precio sigue subiendo, muchas personas piensan 'Seguramente bajará ahora' y van en Corto. Esto es apostar. Recuerda 'La tendencia es tu amiga'. Montar la tendencia da mejores probabilidades.",
+            "mistake2_title": "Usar apalancamiento excesivo",
+            "mistake2_text": "El apalancamiento 100x es emocionante, pero solo el 1% en contra significa liquidación. Los principiantes deben comenzar con 1x-5x. Puedes aumentarlo más tarde cuando mejoren tus habilidades.",
+            "mistake3_title": "Enfocarse en una sola vela",
+            "mistake3_text": "Tomar decisiones basadas solo en la última vela a menudo fracasa. Mira al menos 10 velas para entender el flujo general. No solo mires el árbol; ve el bosque.",
+            "mistake4_title": "Confiar solo en indicadores",
+            "mistake4_text": "Que el RSI muestre sobrecompra no significa que definitivamente bajará. Los indicadores son referencias, no reglas absolutas. Necesitas considerar formas de velas, tendencias, soporte/resistencia juntos.",
+            "mistake5_title": "Decisiones emocionales",
+            "mistake5_text": "'Trading de venganza'—intentar recuperarse de una pérdida apostando grande en la siguiente operación—es un no-no. Igual en el juego. Acepta los errores y espera la próxima oportunidad.",
+            "mistake6_title": "Usar Hold con demasiada frecuencia",
+            "mistake6_text": "Cuando no estés seguro, puedes presionar Hold, pero usarlo demasiado no mejorará tus habilidades. Está bien equivocarse; sé audaz y prueba Largo o Corto. Aprender de los errores es la forma más rápida de mejorar."
+        },
+        "PerformanceAnalysis": {
+            "title": "Entendiendo las Estadísticas del Juego",
+            "p1": "Después del juego, se muestran varias métricas. Aquí está lo que significan y cómo interpretarlas.",
+            "metric1_title": "Tasa de Acierto",
+            "metric1_text": "Porcentaje de operaciones correctas del total de operaciones. Por encima del 60% es excelente, por encima del 50% está por encima del promedio. Por debajo del 40% significa que debes revisar tu estrategia.",
+            "metric2_title": "Acierto Largo/Corto",
+            "metric2_text": "Muestra en qué predicción (Largo o Corto) eres mejor. Si una es notablemente más baja, estudia más los patrones para esa dirección.",
+            "metric3_title": "Factor de Beneficio",
+            "metric3_text": "Beneficio Total ÷ Pérdida Total. Por encima de 1.0 es ganancia, por debajo es pérdida. Por encima de 2.0 es muy bueno. Puedes ganar dinero incluso con una tasa de acierto baja si tu factor de beneficio es alto.",
+            "metric4_title": "Beneficio Promedio",
+            "metric4_text": "Beneficio promedio (o pérdida) por operación. Si es positivo, es una buena señal; si es negativo, necesitas cambiar tu estrategia.",
+            "metric5_title": "Mejor Operación",
+            "metric5_text": "La mayor ganancia de una sola operación. Esto aparece cuando usaste bien el apalancamiento o capturaste una gran tendencia. La suerte importa, pero también se necesita habilidad.",
+            "metric6_title": "Retorno Total",
+            "metric6_text": "Retorno general de principio a fin. +100% significa que tus activos se duplicaron. Negativo significa que perdiste capital. Cuanto mayor sea el apalancamiento, más extremo se vuelve este valor.",
+            "indicator_title": "Guía de Análisis por Indicador",
+            "indicator_intro": "Después del juego, haz clic en 'Ver Análisis' para ver tus patrones de trading por indicador (RSI, MA, BB). ¿Cómo debes interpretar estos datos?",
+            "rsi_section_title": "Análisis del RSI (Índice de Fuerza Relativa)",
+            "rsi_oversold": "Zona de Sobreventa (RSI < 30)",
+            "rsi_oversold_text": "Teóricamente, está 'sobrevendido, momento de rebotar'. Si fuiste Largo mucho aquí, tienes una tendencia contra-tendencia. Alta tasa de acierto significa que eres bueno en eso; baja significa que podrías estar ignorando la tendencia.",
+            "rsi_neutral": "Zona Neutral (RSI 30-70)",
+            "rsi_neutral_text": "La zona más común. La mayoría de las operaciones ocurren aquí. Tu tasa de acierto aquí representa tu habilidad básica. La relación Largo/Corto muestra si sigues la tendencia o vas contra ella.",
+            "rsi_overbought": "Zona de Sobrecompra (RSI > 70)",
+            "rsi_overbought_text": "Teóricamente, está 'sobrecomprado, momento de corregir'. Si fuiste Corto mucho aquí, tienes una tendencia contra-tendencia. Pero en tendencias fuertes, la sobrecompra puede durar mucho—ten cuidado.",
+            "ma_section_title": "Análisis de Media Móvil (MA)",
+            "ma_uptrend": "Tendencia Alcista",
+            "ma_uptrend_text": "El precio está por encima de la MA y la MA tiene pendiente ascendente. Ir Largo aquí es 'seguir la tendencia'. Alta tasa de acierto significa que sigues bien las tendencias. Muchos Cortos significa que operas contra-tendencia.",
+            "ma_downtrend": "Tendencia Bajista",
+            "ma_downtrend_text": "El precio está por debajo de la MA y la MA tiene pendiente descendente. Ir Corto aquí es 'seguir la tendencia'. Muchos Largos significa que intentas capturar el fondo (contra-tendencia).",
+            "bb_section_title": "Análisis de Bandas de Bollinger (BB)",
+            "bb_upper": "Toque de Banda Superior",
+            "bb_upper_text": "El precio está lejos del promedio (alto). Teóricamente tiende a revertir a la media, así que es un momento para Corto. Si fuiste Corto mucho aquí, tienes una tendencia de 'reversión a la media'.",
+            "bb_lower": "Toque de Banda Inferior",
+            "bb_lower_text": "El precio está lejos del promedio (bajo). Puede revertir a la media, así que es un momento para Largo. Si fuiste Largo mucho aquí, tienes una tendencia de 'reversión a la media'.",
+            "analysis_tip_title": "Cómo Usar los Resultados del Análisis",
+            "analysis_tip_text": "Es importante entender si tu estilo es 'seguir la tendencia' o 'contra-tendencia'. Si seguir la tendencia funciona mejor, te irá bien en tendencias fuertes. Si contra-tendencia funciona, te irá bien en mercados laterales. ¡Aprovecha tus fortalezas y trabaja en tus debilidades!",
+            "tip_title": "Consejo de Interpretación",
+            "tip_text": "No te obsesiones con la tasa de acierto. Incluso con 40% de precisión, puedes obtener ganancias si tu factor de beneficio es 3:1. Por el contrario, incluso con 70% de precisión, una gran pérdida sin cortarla puede acabar con todo. El equilibrio es clave."
+        },
+        "Disclaimer": "Descargo de responsabilidad: Bitswipe es solo un juego de simulación. No hay dinero real involucrado, y obtener ganancias aquí no garantiza retornos de inversión reales. Eres el único responsable de tus inversiones."
     },
     "PrivacyPolicy": {
         "title": "Política de Privacidad",
-        "lastUpdated": "Última actualización: {date}",
-        "introP1": "En Bitswipe, accesible desde {url}, una de nuestras principales prioridades es la privacidad de nuestros visitantes. Este documento de Política de Privacidad contiene los tipos de información que Bitswipe recopila y registra, y cómo la utilizamos.",
+        "lastUpdated": "Última actualización: 11.25.2025",
+        "introP1": "Bitswipe (https://bitswipe.xyz) valora tu privacidad. Esta política explica qué información recopilamos y cómo la usamos.",
         "logFiles": {
-            "title": "Archivos de Registro (Log Files)",
-            "p1": "Bitswipe sigue un procedimiento estándar de uso de archivos de registro. Estos archivos registran a los visitantes cuando acceden a los sitios web. Todas las empresas de alojamiento web hacen esto y es parte de la analítica de los servicios de alojamiento. La información recopilada por los archivos de registro incluye direcciones de protocolo de Internet (IP), tipo de navegador, Proveedor de Servicios de Internet (ISP), fecha y hora, páginas de referencia/salida, y posiblemente el número de clics. Estos no están vinculados a ninguna información de identificación personal. El propósito de la información es analizar tendencias, administrar el sitio, rastrear el movimiento de los usuarios en el sitio web y recopilar información demográfica."
+            "title": "Archivos de Registro",
+            "p1": "Como la mayoría de los sitios web, Bitswipe utiliza archivos de registro. Estos son registros generados automáticamente cuando visitas el sitio, incluyendo dirección IP, tipo de navegador, hora de visita, etc. Esta información se utiliza solo para la operación del sitio, análisis de tendencias y mejora de la experiencia del usuario, y no se utiliza para identificar a individuos."
         },
         "cookies": {
-            "title": "Cookies y Web Beacons",
-            "p1": "Al igual que cualquier otro sitio web, Bitswipe utiliza 'cookies'. Estas cookies se utilizan para almacenar información que incluye las preferencias de los visitantes y las páginas del sitio web a las que el visitante accedió o visitó. La información se utiliza para optimizar la experiencia de los usuarios personalizando el contenido de nuestra página web según el tipo de navegador de los visitantes y/u otra información."
+            "title": "Cookies",
+            "p1": "Bitswipe utiliza cookies para la comodidad del usuario. Las cookies almacenan la configuración del usuario o el historial de visitas para ayudarte a usar el sitio más convenientemente en tu próxima visita."
         },
         "googleDart": {
             "title": "Cookie DART de Google DoubleClick",
-            "p1": "Google es uno de los proveedores de terceros en nuestro sitio. También utiliza cookies, conocidas como cookies DART, para publicar anuncios a los visitantes de nuestro sitio basándose en su visita a {url} y a otros sitios en Internet. Sin embargo, los visitantes pueden optar por rechazar el uso de cookies DART visitando la Política de Privacidad de la red de anuncios y contenido de Google en la siguiente URL – "
+            "p1": "Google, como nuestro socio publicitario, utiliza cookies DART. Esto es para mostrar anuncios apropiados basados en tu historial de visitas a Internet. Puedes optar por no usar cookies DART en la página de configuración de anuncios de Google."
         },
         "adPolicies": {
-            "title": "Políticas de Privacidad de Publicidad",
-            "p1": "Puede consultar esta lista para encontrar la Política de Privacidad de cada uno de los socios publicitarios de Bitswipe.",
-            "p2": "Los servidores de anuncios de terceros o las redes de anuncios utilizan tecnologías como cookies, JavaScript o Web Beacons que se emplean en sus respectivos anuncios y enlaces que aparecen en Bitswipe, los cuales se envían directamente al navegador de los usuarios. Reciben automáticamente su dirección IP cuando esto ocurre. Estas tecnologías se utilizan para medir la efectividad de sus campañas publicitarias y/o para personalizar el contenido publicitario que usted ve en los sitios web que visita.",
-            "p3": "Tenga en cuenta que Bitswipe no tiene acceso ni control sobre estas cookies utilizadas por anunciantes de terceros."
+            "title": "Políticas de Privacidad de Socios Publicitarios",
+            "p1": "Los anuncios mostrados en Bitswipe son proporcionados por servidores de anuncios o redes de anuncios de terceros. Pueden utilizar tecnologías como cookies o web beacons para medir la efectividad de los anuncios o proporcionar anuncios personalizados, y tu dirección IP puede transmitirse automáticamente en este proceso.",
+            "p2": "Bitswipe no tiene control sobre las cookies utilizadas por estos socios publicitarios de terceros.",
+            "p3": ""
         },
         "thirdParty": {
-            "title": "Políticas de Privacidad de Terceros",
-            "p1": "La Política de Privacidad de Bitswipe no se aplica a otros anunciantes o sitios web. Por lo tanto, le recomendamos consultar las Políticas de Privacidad respectivas de estos servidores de anuncios de terceros para obtener información más detallada. Esto puede incluir sus prácticas e instrucciones sobre cómo optar por no participar en ciertas opciones."
+            "title": "Sitios Web de Terceros",
+            "p1": "La política de privacidad de Bitswipe no se aplica a otros sitios web o anunciantes. Por lo tanto, comprueba la política de privacidad del sitio vinculado cuando lo uses."
         },
         "children": {
-            "title": "Información de Niños",
-            "p1": "Otra parte de nuestra prioridad es agregar protección para los niños mientras usan Internet. Alentamos a los padres y tutores a observar, participar y/o monitorear y guiar su actividad en línea.",
-            "p2": "Bitswipe no recopila a sabiendas ninguna Información de Identificación Personal de niños menores de {age} años. Si cree que su hijo proporcionó este tipo de información en nuestro sitio web, le recomendamos encarecidamente que se comunique con nosotros de inmediato y haremos todo lo posible para eliminar rápidamente dicha información de nuestros registros."
+            "title": "Protección Infantil",
+            "p1": "Bitswipe no recopila a sabiendas información personal de niños menores de 13 años. Si crees que tu hijo ha proporcionado información personal en nuestro sitio, contáctanos de inmediato. Tomaremos medidas para eliminar dicha información de inmediato.",
+            "p2": ""
         },
         "consent": {
             "title": "Consentimiento",
-            "p1": "Al utilizar nuestro sitio web, usted otorga su consentimiento a nuestra Política de Privacidad y acepta sus Términos y Condiciones."
+            "p1": "Al utilizar el sitio web de Bitswipe, se considera que aceptas esta Política de Privacidad."
         }
     },
     "TermsOfService": {
         "title": "Términos de Servicio",
-        "lastUpdated": "Última actualización: {date}",
+        "lastUpdated": "Última actualización: 11.25.2025",
         "section1": {
-            "title": "1. Términos",
-            "p1": "Al acceder a este Sitio Web, accesible desde {url}, usted acepta estar obligado por estos Términos y Condiciones de Uso del Sitio Web y acepta que es responsable del acuerdo con cualquier ley local aplicable. Si no está de acuerdo con alguno de estos términos, tiene prohibido acceder a este sitio. Los materiales contenidos en este Sitio Web están protegidos por derechos de autor y la ley de marcas comerciales."
+            "title": "Aceptación de los Términos",
+            "p1": "Al acceder a Bitswipe (https://bitswipe.xyz), aceptas cumplir con estos Términos de Uso y las leyes pertinentes. Si no estás de acuerdo con estos términos, no puedes utilizar el servicio."
         },
         "section2": {
-            "title": "2. Licencia de Uso",
-            "p1": "Se concede permiso para descargar temporalmente una copia de los materiales en el Sitio Web de Bitswipe solo para visualización transitoria personal y no comercial. Esto es la concesión de una licencia, no una transferencia de título, y bajo esta licencia usted no puede:",
-            "list1": "modificar o copiar los materiales;",
-            "list2": "utilizar los materiales para cualquier propósito comercial o para cualquier exhibición pública;",
-            "list3": "intentar descompilar o aplicar ingeniería inversa a cualquier software contenido en el Sitio Web de Bitswipe;",
-            "list4": "eliminar cualquier derecho de autor u otras notaciones de propiedad de los materiales; o",
-            "list5": "transferir los materiales a otra persona o 'reflejar' los materiales en cualquier otro servidor.",
-            "p2": "Esto permitirá a Bitswipe rescindir el servicio ante violaciones de cualquiera de estas restricciones. Tras la rescisión, su derecho de visualización también se dará por terminado y debe destruir cualquier material descargado en su posesión, ya sea en formato impreso o electrónico."
+            "title": "Licencia de Uso",
+            "p1": "Bitswipe te otorga una licencia limitada para usar el sitio con fines personales y no comerciales. Sin embargo, las siguientes acciones están prohibidas:",
+            "list1": "Copia, modificación o uso comercial no autorizado de materiales",
+            "list2": "Analizar o aplicar ingeniería inversa al software del sitio",
+            "list3": "Eliminar avisos de derechos de autor u otros avisos de propiedad",
+            "list4": "Transferir materiales a un tercero o reflejarlos en otro servidor",
+            "p2": "Si violas lo anterior, tu licencia terminará inmediatamente y deberás destruir todos los materiales descargados."
         },
         "section3": {
-            "title": "3. Exención de Responsabilidad",
-            "p1": "Todos los materiales en el Sitio Web de Bitswipe se proporcionan \"tal cual\". Bitswipe no ofrece garantías, ya sean expresas o implícitas, por lo tanto, niega todas las demás garantías. Además, Bitswipe no hace ninguna declaración sobre la precisión o probable fiabilidad del uso de los materiales en su Sitio Web o en relación con dichos materiales o cualquier sitio vinculado a este Sitio Web.",
-            "importantBold": "Importante",
-            "importantText": "Bitswipe es un juego de simulación solo con fines de entretenimiento. No proporciona asesoramiento financiero, y no hay dinero real involucrado en la simulación de trading. El rendimiento pasado en el juego no garantiza resultados futuros en el trading del mundo real."
+            "title": "Descargo de Responsabilidad",
+            "p1": "Bitswipe proporciona el servicio 'tal cual' y no ofrece garantías, expresas o implícitas, con respecto a la precisión o estabilidad del servicio.",
+            "importantBold": "Importante:",
+            "importantText": "Bitswipe es un juego de simulación simple. No ocurren transacciones de dinero real, y los datos o resultados dentro del juego no son consejos para inversiones reales. Los resultados en este juego no garantizan retornos en inversiones reales."
         },
         "section4": {
-            "title": "4. Limitaciones",
-            "p1": "Bitswipe o sus proveedores no serán responsables de ningún daño que surja con el uso o la incapacidad de usar los materiales en el Sitio Web de Bitswipe, incluso si Bitswipe o un representante autorizado de este Sitio Web ha sido notificado, oralmente o por escrito, de la posibilidad de tal daño. Algunas jurisdicciones no permiten limitaciones en las garantías implícitas o limitaciones de responsabilidad por daños incidentales, estas limitaciones pueden no aplicarse a usted."
+            "title": "Limitaciones de Responsabilidad",
+            "p1": "Bitswipe no es responsable de ningún daño (pérdida de datos, pérdida de beneficios, etc.) que surja del uso del servicio. Esto se aplica incluso si hemos sido advertidos de la posibilidad de tales daños."
         },
         "section5": {
-            "title": "5. Revisiones y Errores",
-            "p1": "Los materiales que aparecen en el Sitio Web de Bitswipe pueden incluir errores técnicos, tipográficos o fotográficos. Bitswipe no prometerá que ninguno de los materiales en este Sitio Web sea preciso, completo o actual. Bitswipe puede cambiar los materiales contenidos en su Sitio Web en cualquier momento sin previo aviso. Bitswipe no se compromete a actualizar los materiales."
+            "title": "Precisión de los Materiales",
+            "p1": "Los materiales mostrados en Bitswipe pueden contener errores técnicos o tipográficos. No garantizamos la perfección de los materiales y podemos cambiar el contenido sin previo aviso."
         },
         "section6": {
-            "title": "6. Enlaces",
-            "p1": "Bitswipe no ha revisado todos los sitios vinculados a su Sitio Web y no es responsable del contenido de ningún sitio vinculado. La presencia de cualquier enlace no implica el respaldo de Bitswipe al sitio. El uso de cualquier sitio web vinculado es bajo el propio riesgo del usuario."
+            "title": "Enlaces",
+            "p1": "Bitswipe no revisa ni respalda el contenido de sitios web externos vinculados al sitio. La responsabilidad de usar sitios vinculados recae completamente en el usuario."
         },
         "section7": {
-            "title": "7. Modificaciones de los Términos de Uso del Sitio",
-            "p1": "Bitswipe puede revisar estos Términos de Uso para su Sitio Web en cualquier momento sin previo aviso. Al usar este Sitio Web, usted acepta estar obligado por la versión actual de estos Términos y Condiciones de Uso."
+            "title": "Modificaciones a los Términos",
+            "p1": "Bitswipe puede cambiar estos Términos de Uso en cualquier momento. Los términos modificados entran en vigencia inmediatamente después de su publicación en el sitio."
         },
         "section8": {
-            "title": "8. Su Privacidad",
-            "p1": "Por favor, lea nuestra Política de Privacidad."
+            "title": "Privacidad",
+            "p1": "Los asuntos relacionados con el procesamiento de información personal siguen la Política de Privacidad."
         },
         "section9": {
-            "title": "9. Ley Aplicable",
-            "p1": "Cualquier reclamo relacionado con el Sitio Web de Bitswipe se regirá por las leyes de EE. UU. sin tener en cuenta sus disposiciones sobre conflicto de leyes."
+            "title": "Ley Aplicable",
+            "p1": "Estos términos se interpretan y rigen por las leyes de los Estados Unidos."
         }
     }
 }

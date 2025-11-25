@@ -134,7 +134,7 @@ export const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
                             {/* Reset */}
                             <button
                                 onClick={handleReset}
-                                className="cursor-pointer w-full py-3 sm:py-4 mt-3 sm:mt-4 bg-red-50 dark:bg-red-500 text-error dark:text-white font-bold text-sm sm:text-base rounded-xl flex items-center justify-center gap-2 hover:bg-red-100 dark:hover:bg-red-800 transition-colors"
+                                className="cursor-pointer w-full py-3 sm:py-4 mt-3 sm:mt-4 bg-red-50 dark:bg-red-400 text-error dark:text-white font-bold text-sm sm:text-base rounded-xl flex items-center justify-center gap-2 hover:bg-red-100 dark:hover:bg-red-500 transition-colors"
                             >
                                 <RefreshCw size={18} />
                                 {t('reset_button')}

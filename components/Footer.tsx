@@ -11,7 +11,7 @@ export const Footer = () => {
                 <Link href="/terms" className="hover:text-gray-700 dark:hover:text-gray-300 hover:underline">
                     Terms of Service
                 </Link>
-                <a href="mailto:gyu@likegyu.com" className="hover:text-gray-700 dark:hover:text-gray-300 hover:underline">
+                <a href="mailto:admin@bitswipe.xyz" className="hover:text-gray-700 dark:hover:text-gray-300 hover:underline">
                     Contact
                 </a>
             </div>

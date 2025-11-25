@@ -1,25 +1,25 @@
 {
     "HomePage": {
         "title": "Bitswipe",
-        "description": "Bitswipe is a cryptocurrency trading simulation game that helps you master Bitcoin trading without risk. Practice reading candlestick charts, predicting price movements, and sharpen your technical analysis skills with this addictive crypto trading simulation game. Or, simply enjoy the fun!",
-        "keywords": "Bitcoin Trading Simulator,Crypto Trading Game,Practice Trading,Technical Analysis,Candlestick Charts,Crypto Game,Bitcoin Price Prediction,Bitcoin Paper Trading,Chart Trading,Bitcoin Futures,Bitcoin Leverage,Bitcoin Position",
-        "ogDescription": "Master Bitcoin Trading through a Game. Learn while enjoying a simulation game that lets you practice reading charts and predicting price movements.",
+        "description": "Bitswipe is a risk-free crypto trading simulation game. Practice reading candle charts, predict price flows, and sharpen your instincts with intuitive gameplay. Or, just play for fun!",
+        "keywords": "Bitcoin Trading, Crypto Simulation, Chart Reading, Candlestick Charts, Crypto Game, Trading Practice, Technical Analysis, Bitcoin Futures, Leverage, Short Position",
+        "ogDescription": "Master Bitcoin trading through a game. Learn chart patterns and build your trading intuition.",
         "ogImageAlt": "Bitswipe - Bitcoin Trading Simulator"
     },
     "Header": {
         "selected_rounds": "Rounds"
     },
     "GameSetup": {
-        "step_timeframe_title": "Select Pace",
-        "step_timeframe_desc": "Predict the price 5 candles into the future",
-        "step_rounds_title": "Select Length",
-        "step_rounds_desc": "How many rounds to play?",
+        "step_timeframe_title": "Select Timeframe",
+        "step_timeframe_desc": "Predict the price 5 candles ahead",
+        "step_rounds_title": "Select Rounds",
+        "step_rounds_desc": "How many trades to play?",
         "section_short_title": "Short Term",
-        "section_short_desc": "Fast-paced action",
-        "section_middle_title": "Middle Term",
-        "section_middle_desc": "Strategic analysis",
-        "section_day_title": "Day Term",
-        "section_day_desc": "Macro trends",
+        "section_short_desc": "Fast-paced Scalping",
+        "section_middle_title": "Mid Term",
+        "section_middle_desc": "Strategic Analysis",
+        "section_day_title": "Long Term",
+        "section_day_desc": "Macro Trends",
         "option_1m_label": "1m",
         "option_5m_label": "5m",
         "option_15m_label": "15m",
@@ -37,9 +37,9 @@
         "rounds_25_label": "25 Rounds",
         "rounds_25_sub": "Standard",
         "rounds_50_label": "50 Rounds",
-        "rounds_50_sub": "Marathon",
-        "footer_timeframe": "Detailed statistics available after game completion",
-        "footer_rounds": "Selected: {timeframe} Candle"
+        "rounds_50_sub": "Serious Mode",
+        "footer_timeframe": "Detailed analysis available after the game",
+        "footer_rounds": "Selected Chart: {timeframe} Candle"
     },
     "Settings": {
         "title": "Settings",
@@ -47,41 +47,41 @@
         "indicators_label": "Indicators",
         "indicator_rsi": "RSI (Relative Strength Index)",
         "indicator_ma": "MA (Moving Average)",
-        "indicator_bb": "Bollinger Bands",
-        "reset_button": "Reset Game",
-        "reset_confirm": "Are you sure you want to reset your progress?"
+        "indicator_bb": "BB (Bollinger Bands)",
+        "reset_button": "Restart Game",
+        "reset_confirm": "Your current progress will be lost. Are you sure you want to restart?"
     },
     "ResultModal": {
         "win_rate": "Total Win Rate",
-        "long_win_rate": "Long Win Rate",
-        "short_win_rate": "Short Win Rate",
+        "long_win_rate": "Long Accuracy",
+        "short_win_rate": "Short Accuracy",
         "profit_factor": "Profit Factor",
-        "avg_profit": "Average Profit",
+        "avg_profit": "Avg Profit",
         "best_trade": "Best Trade",
         "total_return": "Total Return",
         "view_analysis": "View Analysis",
         "copied": "Copied!",
-        "share": "Share",
+        "share": "Share Result",
         "play_again": "Play Again",
-        "bit_swipe_results": "BitSwipe Results",
-        "can_you_beat_my_score": "Can you beat my score?"
+        "bit_swipe_results": "Bitswipe Results",
+        "can_you_beat_my_score": "How's my trading? Try to beat my score!"
     },
     "AnalysisModal": {
         "win_rate": "Win Rate",
         "trades": "Trades",
         "close_ad_view_analysis": "Close Ad & View Analysis",
-        "trading_analysis": "Trading Analysis",
-        "your_behavior_patterns_in_different_market_conditions": "Your behavior patterns in different market conditions",
-        "rsi_context": "RSI Context",
-        "ma_trend": "MA Trend",
-        "bollinger_bands": "Bollinger Bands",
-        "oversold": "Oversold",
-        "neutral": "Neutral",
-        "overbought": "Overbought",
+        "trading_analysis": "Trading Analysis Report",
+        "your_behavior_patterns_in_different_market_conditions": "Your Patterns by Market Condition",
+        "rsi_context": "RSI Usage",
+        "ma_trend": "Trend Judgment (MA)",
+        "bollinger_bands": "Volatility Usage (BB)",
+        "oversold": "Oversold Zone",
+        "neutral": "Neutral Zone",
+        "overbought": "Overbought Zone",
         "uptrend": "Uptrend",
         "downtrend": "Downtrend",
-        "upper_band_touch": "Upper Band Touch",
-        "lower_band_touch": "Lower Band Touch",
+        "upper_band_touch": "Upper Touch",
+        "lower_band_touch": "Lower Touch",
         "no_trades_in_oversold": "No trades in Oversold",
         "no_trades_in_neutral": "No trades in Neutral",
         "no_trades_in_overbought": "No trades in Overbought",
@@ -101,198 +101,289 @@
     },
     "SEOContent": {
         "Psychology": {
-            "title": "The Psychology of Trading: Why Games Like BitSwipe Matter",
-            "p1": "Trading is often 20% strategy and 80% psychology. Many traders fail not because they lack technical knowledge, but because they cannot control their emotions—fear, greed, and FOMO (Fear Of Missing Out).",
-            "p2_part1": "serves as a risk-free \"flight simulator\" for traders. By compressing hours of market action into minutes, it allows you to:",
-            "list1_bold": "Test Your Reflexes",
-            "list1_text": "Learn to make quick decisions under pressure without risking real capital.",
-            "list2_bold": "Recognize Patterns",
-            "list2_text": "Train your eyes to spot chart patterns like Head & Shoulders, Flags, and Wedges in real-time.",
-            "list3_bold": "Master Risk Management",
-            "list3_text": "Experience the consequences of over-leveraging and poor position sizing in a safe environment.",
-            "p3": "Whether you are a seasoned pro looking to stay sharp or a beginner taking your first steps into the crypto world, BitSwipe provides the perfect arena to hone your skills and build the mental discipline required for successful trading."
+            "title": "How Bitswipe Helps You",
+            "p1": "They say trading is 20% skill and 80% psychology. It's not usually the lack of chart knowledge that causes failure, but emotions like fear and greed.",
+            "p2_part1": "is a 'trading gym' where you can feel the tension of real trading without risking your money. Experience days of price action in just minutes and gain.",
+            "list1_bold": "Quick Intuition",
+            "list1_text": "Practice making intuitive decisions so you don't hesitate and miss the timing.",
+            "list2_bold": "Pattern Recognition",
+            "list2_text": "Train your eyes to see how textbook patterns appear in real charts.",
+            "list3_bold": "Risk Management",
+            "list3_text": "Safely experience how excessive leverage can wipe out an account.",
+            "p3": "Whether you're a pro or a beginner, Bitswipe is a great way to warm up your trading senses."
         },
         "Mission": {
-            "title": "Why Bitswipe?",
-            "p1": "I created Bitswipe to bridge the gap between boring study and the thrill of live trading. Many aspiring traders struggle with the slow pace of real-time mock trading—waiting hours for a setup to form.",
-            "p2_part1": "Bitswipe solves this by using",
-            "p2_data": "real historical Bitcoin data for 1 year",
-            "p2_part2": "to create a fast-paced, intuitive web game. It allows you to experience months of market movements in minutes, helping you recognize patterns faster. Our goal is to provide a platform where you can test your intuition, analyze your win rates detailedly, and easily share your achievements with friends—all while having fun without the financial risk."
+            "title": "Why did I make this?",
+            "p1": "Studying is boring, and real trading is scary. I thought we needed something in between—a fun way to practice. Paper trading is too slow and boring.",
+            "p2_part1": "So I built Bitswipe.",
+            "p2_data": "Real historical Bitcoin data",
+            "p2_part2": "is used to create a fast-paced game. Trade to your heart's content without fear of losing money, check your win rate, and bet with friends. Trading doesn't always have to be so serious, right?"
         },
         "Basics": {
-            "title": "Mastering the Basics: Essential Trading Skills",
-            "p1": "Before diving into complex indicators, every trader must master the fundamentals. Here are three core concepts you can practice right now in BitSwipe:",
-            "concept1_title": "1. Support & Resistance",
-            "concept1_text": "Prices rarely move in a straight line. Look for \"floors\" where price bounces up (Support) and \"ceilings\" where it gets rejected (Resistance). Buying at support and selling at resistance is a classic strategy.",
-            "concept2_title": "2. Trend Identification",
-            "concept2_text": "\"The trend is your friend.\" In an uptrend, look for Higher Highs and Higher Lows. In a downtrend, watch for Lower Highs and Lower Lows. Don't fight the trend unless you see a clear reversal signal.",
-            "concept3_title": "3. Candlestick Anatomy",
-            "concept3_text": "Long wicks indicate rejection. A long wick at the top means sellers pushed the price down (bearish). A long wick at the bottom means buyers pushed it up (bullish). Pay attention to the shape of the candles!"
+            "title": "Mastering the Basics",
+            "p1": "Before loading up on indicators, it's good to look at the basics of the chart. Here are three concepts you'll naturally pick up while playing Bitswipe.",
+            "concept1_title": "Support & Resistance",
+            "concept1_text": "Prices tend to bounce off the floor (Support) and fall from the ceiling (Resistance). Buying low and selling high is the most fundamental principle.",
+            "concept2_title": "Follow the Trend",
+            "concept2_text": "Have you heard \"The trend is your friend\"? If the price is going up, don't bet on it falling. Riding the wave gives you better odds.",
+            "concept3_title": "Candle Wicks",
+            "concept3_text": "Long wicks on candles are signs of a battle. A long upper wick means someone sold hard, and a long lower wick means someone bought hard."
         },
         "ChartPatterns": {
-            "title": "Mastering Chart Patterns",
-            "pattern1_title": "Head and Shoulders",
-            "pattern1_text": "A bearish reversal pattern. It has three peaks: a higher middle peak (head) between two smaller peaks (shoulders). Breaking the \"neckline\" support often signals a price drop.",
-            "pattern1_neckline": "Neckline Support",
-            "pattern2_title": "Double Bottom (W Pattern)",
-            "pattern2_text": "A bullish reversal pattern looking like a \"W\". It indicates the price has hit a support level twice and failed to break lower. Breaking the upper resistance confirms the uptrend.",
-            "pattern2_resistance": "Resistance Breakout",
-            "pattern3_title": "Bull Flag",
-            "pattern3_text": "A bullish continuation pattern. After a sharp rise (the pole), prices consolidate downwards in a channel (the flag) before breaking out higher again.",
-            "pattern3_breakout": "Consolidation & Breakout",
-            "pattern4_title": "Double Top (M Pattern)",
-            "pattern4_text": "A bearish reversal pattern looking like an \"M\". Price hits a resistance level twice and fails to break higher. Breaking the neckline support confirms the downtrend.",
-            "pattern4_neckline": "Neckline Breakdown"
+            "title": "Common Chart Patterns",
+            "pattern1_title": "Head & Shoulders (Bearish Reversal)",
+            "pattern1_text": "A head in the middle with two shoulders. It often appears when an uptrend runs out of steam and turns into a downtrend.",
+            "pattern1_neckline": "Neckline Break",
+            "pattern2_title": "Inverse Head & Shoulders (Bullish Reversal)",
+            "pattern2_text": "An upside-down Head & Shoulders. It's often seen at the bottom when a downtrend ends and turns into an uptrend.",
+            "pattern2_neckline": "Resistance Break",
+            "pattern3_title": "Double Top (M Pattern, Bearish Reversal)",
+            "pattern3_text": "Shaped like an 'M'. It hit the high twice but couldn't break through and fell. A signal that a downtrend is starting.",
+            "pattern3_neckline": "Support Break",
+            "pattern4_title": "Double Bottom (W Pattern, Bullish Reversal)",
+            "pattern4_text": "Shaped like a 'W'. It hit the bottom twice and went back up. Considered a strong bullish reversal signal.",
+            "pattern4_resistance": "Resistance Break",
+            "pattern5_title": "Bear Flag (Bearish Continuation)",
+            "pattern5_text": "After a sharp drop, it moves sideways like a flag. It's likely to gather strength and pour down again.",
+            "pattern5_breakout": "Drop Continues",
+            "pattern6_title": "Bull Flag (Bullish Continuation)",
+            "pattern6_text": "After a sharp rise, it takes a breather in a flag shape. It's likely to gather energy and shoot up again.",
+            "pattern6_breakout": "Rise Continues"
         },
         "Advanced": {
-            "title": "Advanced Tools & Indicators",
-            "p1_part1": "Want to trade like a pro? Click the",
+            "title": "Using Advanced Features",
+            "p1_part1": "Want to analyze more professionally? Turn on indicators in the",
             "p1_strong": "Settings (Gear Icon)",
-            "p1_part2": "button in the top right corner to enable professional technical indicators.",
-            "tool1_title": "Leverage (1x - 100x) & Liquidation Risk",
+            "p1_part2": "at the top right.",
+            "tool1_title": "Leverage (1x - 100x)",
             "tool1_goal_bold": "Educational Goal",
-            "tool1_goal_text": "Understand the high risks of leverage trading safely.",
-            "tool1_lever_bold": "Leverage",
-            "tool1_lever_text": "Amplifies both profits and losses. (e.g., 10x leverage turns a 1% move into 10%)",
-            "tool1_liq_bold": "Liquidation",
-            "tool1_liq_text": "If your loss exceeds 100% of your margin (e.g., -2% move at 50x), you lose your entire bet.",
-            "tool1_rule_text": "Game Rule: If you are liquidated, the game ends immediately, regardless of remaining rounds. Use this to practice risk management!",
+            "tool1_goal_text": "Experience firsthand how dangerous high leverage is.",
+            "tool1_lever_bold": "Double-Edged Sword",
+            "tool1_lever_text": "Profits are amplified, but losses snowball just as fast.",
+            "tool1_liq_bold": "Liquidation (Game Over)",
+            "tool1_liq_text": "The moment your loss exceeds your principal, your position is forcibly closed and your money becomes zero. In the game, liquidation means immediate Game Over!",
+            "tool1_rule_text": "Tip: Start with low leverage to get the hang of it.",
             "tool2_title": "RSI (Relative Strength Index)",
-            "tool2_text": "Measures the speed and change of price movements.",
+            "tool2_text": "An indicator that tells you if the current price is too expensive or too cheap.",
             "tool2_overbought_bold": "Above 70",
-            "tool2_overbought_text": "Overbought (Price might drop)",
+            "tool2_overbought_text": "Overbought (Bought too much, might drop?)",
             "tool2_oversold_bold": "Below 30",
-            "tool2_oversold_text": "Oversold (Price might rise)",
-            "tool3_title": "MA (Moving Average)",
-            "tool3_text": "Shows the average price over a specific period, smoothing out price fluctuations to identify the trend direction.",
-            "tool3_up_bold": "Slope Up",
-            "tool3_up_text": "Uptrend (Bullish)",
-            "tool3_down_bold": "Slope Down",
-            "tool3_down_text": "Downtrend (Bearish)",
+            "tool2_oversold_text": "Oversold (Sold too much, might rise?)",
+            "tool3_title": "Moving Average (MA)",
+            "tool3_text": "Smooths out jagged price flows to show the trend.",
+            "tool3_up_bold": "Upward Slope",
+            "tool3_up_text": "Uptrend",
+            "tool3_down_bold": "Downward Slope",
+            "tool3_down_text": "Downtrend",
             "tool4_title": "Bollinger Bands",
-            "tool4_text": "A set of lines plotted two standard deviations (positively and negatively) away from a simple moving average.",
+            "tool4_text": "Think of it as the road the price travels on.",
             "tool4_squeeze_bold": "Squeeze",
-            "tool4_squeeze_text": "Low volatility, often followed by a breakout.",
-            "tool4_touch_bold": "Touch",
-            "tool4_touch_text": "Price touching the upper band may indicate overbought, lower band may indicate oversold."
+            "tool4_squeeze_text": "When the width narrows, it's a signal that a big move is coming.",
+            "tool4_touch_bold": "Band Touch",
+            "tool4_touch_text": "Going outside the band is rare, so it tends to want to come back inside."
         },
         "HowToPlay": {
             "title": "How to Play",
-            "step1_bold": "Analyze the Chart",
-            "step1_text": "Review the historical candlestick chart displayed on the card. Look for patterns, trends, and indicators.",
-            "step2_bold": "Make a Prediction",
-            "step2_text": "Decide if the price will go up (Long), down (Short), or stay sideways (Hold).",
-            "step3_bold": "Tap to Predict",
-            "step3_text": "Tap the 'Long' button to predict a rise, 'Short' for a drop, or 'Hold' to wait.",
-            "step4_bold": "Instant Results",
-            "step4_text": "Experience immediate feedback with interactive visual effects that reveal your result right away.",
-            "step5_bold": "Track Your Progress",
-            "step5_text": "Monitor your win rate and virtual profit to see how your trading skills improve over time."
+            "step1_bold": "Read the Chart",
+            "step1_text": "Look closely at the shape and flow of the past candles.",
+            "step2_bold": "Predict",
+            "step2_text": "Will the price go up (Long), down (Short), or stay sideways (Hold) after 5 candles?",
+            "step3_bold": "Decide",
+            "step3_text": "Press Long, Short, or Hold.",
+            "step4_bold": "Check Result",
+            "step4_text": "See immediately if your prediction was right.",
+            "step5_bold": "Review",
+            "step5_text": "After the game, we analyze your trading patterns."
         },
         "Tips": {
-            "title": "Trading Tips for Beginners",
-            "p1": "Successful trading requires discipline and strategy. Here are a few tips to keep in mind while playing Bitswipe:",
-            "tip1_bold": "Trend is Your Friend",
-            "tip1_text": "It's often safer to trade in the direction of the overall trend rather than against it.",
-            "tip2_bold": "Wait for Confirmation",
-            "tip2_text": "Don't jump into a trade too early. Wait for a candle to close to confirm a pattern.",
-            "tip3_bold": "Manage Your Risk",
-            "tip3_text": "In real trading, never risk more than you can afford to lose. Bitswipe lets you practice this mindset safely.",
-            "tip4_bold": "Learn from Mistakes",
-            "tip4_text": "Analyze your losing trades to understand what went wrong. Was it a false breakout? Did you miss a support level?"
+            "title": "Small Tips",
+            "p1": "Don't just rely on luck; set your own rules.",
+            "tip1_bold": "Trend Following",
+            "tip1_text": "Don't fight the flow; go with it.",
+            "tip2_bold": "Confirmation",
+            "tip2_text": "It's often safer to wait for a candle to finish than to guess.",
+            "tip3_bold": "Risk Management",
+            "tip3_text": "Don't bet everything at once. Opportunities will come again.",
+            "tip4_bold": "Review Mistakes",
+            "tip4_text": "Just thinking about why you got it wrong improves your skills."
         },
         "Resources": {
-            "title": "Trusted Resources for Learning",
-            "p1": "To further improve your trading skills, we recommend studying from reputable sources. Here are some trusted platforms where you can learn more about technical analysis:",
+            "title": "Want to Learn More?",
+            "p1": "If you want to study properly, we recommend these sites.",
             "link1_bold": "Binance Academy",
-            "link1_text": ": Free educational resources on cryptocurrency trading and blockchain technology.",
+            "link1_text": "Learn everything from crypto basics to chart analysis for free.",
             "link2_bold": "OKX Learn",
-            "link2_text": ": Comprehensive crypto learning platform covering trading basics, technical analysis, and market trends."
+            "link2_text": "Explains various trading strategies simply."
         },
-        "Disclaimer": "Disclaimer: Bitswipe is a simulation game for entertainment and educational purposes only. It does not involve real money trading and does not constitute financial advice."
+        "FAQ": {
+            "title": "Frequently Asked Questions",
+            "q1_question": "Q1. Can I make real money?",
+            "q1_answer": "No. Bitswipe is 100% a simulation game. No real money is involved, and profits in the game are virtual. It's purely a tool for practice and fun.",
+            "q2_question": "Q2. Will it help with real trading?",
+            "q2_answer": "Yes, it helps develop your ability to read charts and make quick decisions. However, real trading has variables that don't exist in the game, like psychological pressure, fees, and slippage. So Bitswipe can't replace real trading completely.",
+            "q3_question": "Q3. Is it more fun with high leverage?",
+            "q3_answer": "It's a double-edged sword! Profits are amplified but so are losses, and your chance of liquidation (game over) increases. We recommend starting with low leverage (1x-5x).",
+            "q4_question": "Q4. Is the candle data real Bitcoin data?",
+            "q4_answer": "Yes, we use actual historical Bitcoin price data. When and which segment appears is random, so you'll have a new experience each time.",
+            "q5_question": "Q5. Do I have to use indicators?",
+            "q5_answer": "Not required. You can enjoy the game just by looking at the candle shapes. But learning indicators like RSI, Moving Average, and Bollinger Bands will help a lot in real trading.",
+            "q6_question": "Q6. Can I compete with friends?",
+            "q6_answer": "Absolutely! After the game, you get a shareable link. Send it to friends and challenge them: 'Can you beat this score?'"
+        },
+        "GettingStarted": {
+            "title": "Beginner's Guide",
+            "p1": "If trading is new to you, it might be overwhelming. Don't worry. Just follow these steps.",
+            "step1_title": "Start with 1d Candles",
+            "step1_text": "1m or 5m candles are too fast for beginners. Starting with slower charts like 1h or 1d makes it easier to learn patterns.",
+            "step2_title": "Keep Leverage at 1x",
+            "step2_text": "Start without leverage (1x). Focus on reading chart flow. You can increase leverage later when you're confident.",
+            "step3_title": "Turn on Just One Indicator",
+            "step3_text": "Start with Moving Average (MA) only. If the price is above the average, it's an uptrend; if below, it's a downtrend.",
+            "step4_title": "Play 10 Rounds Casually",
+            "step4_text": "Long games can drain your focus. Start with 10 rounds to get a feel for it.",
+            "step5_title": "Always Check the Analysis",
+            "step5_text": "After the game, click 'View Analysis'. You can see where you did well and where you made mistakes. This is the most important learning process.",
+            "bonus_title": "Bonus Tip",
+            "bonus_text": "Don't aim for perfect accuracy. Even 60% is excellent. Real traders profit with 50-60% win rates. What matters is cutting losses quickly and letting profits run."
+        },
+        "CommonMistakes": {
+            "title": "Common Beginner Mistakes",
+            "p1": "Everyone makes mistakes at first. Here are the most common ones. Know them in advance and avoid them!",
+            "mistake1_title": "Trading Against the Trend",
+            "mistake1_text": "When the price keeps rising, many people think 'Surely it will drop now' and go Short. This is gambling. Remember 'The trend is your friend'. Riding the trend gives better odds.",
+            "mistake2_title": "Using Excessive Leverage",
+            "mistake2_text": "100x leverage is thrilling, but just 1% against you means liquidation. Beginners should start with 1x-5x. You can increase it later when your skills improve.",
+            "mistake3_title": "Focusing on One Candle Only",
+            "mistake3_text": "Making decisions based on just the last candle often fails. Look at at least 10 candles to understand the overall flow. Don't just look at the tree; see the forest.",
+            "mistake4_title": "Relying Only on Indicators",
+            "mistake4_text": "RSI showing overbought doesn't mean it will definitely drop. Indicators are references, not absolute rules. You need to consider candle shapes, trends, support/resistance together.",
+            "mistake5_title": "Emotional Decisions",
+            "mistake5_text": "'Revenge trading'—trying to recover from one loss by betting big in the next trade—is a no-go. Same in the game. Accept mistakes and wait for the next opportunity.",
+            "mistake6_title": "Using Hold Too Often",
+            "mistake6_text": "When unsure, you can press Hold, but using it too much won't improve your skills. It's okay to be wrong; be bold and try Long or Short. Learning from mistakes is the fastest way to improve."
+        },
+        "PerformanceAnalysis": {
+            "title": "Understanding Game Statistics",
+            "p1": "After the game, various metrics are shown. Here's what they mean and how to interpret them.",
+            "metric1_title": "Win Rate",
+            "metric1_text": "Percentage of correct trades out of total trades. Above 60% is excellent, above 50% is above average. Below 40% means you should revise your strategy.",
+            "metric2_title": "Long/Short Accuracy",
+            "metric2_text": "Shows which prediction (Long or Short) you're better at. If one is notably lower, study patterns for that direction more.",
+            "metric3_title": "Profit Factor",
+            "metric3_text": "Total Profit ÷ Total Loss. Above 1.0 is profit, below is loss. Above 2.0 is very good. You can make money even with a low win rate if your profit factor is high.",
+            "metric4_title": "Avg Profit",
+            "metric4_text": "Average profit (or loss) per trade. If it's positive, that's a good sign; if negative, you need to change your strategy.",
+            "metric5_title": "Best Trade",
+            "metric5_text": "The highest profit from a single trade. This appears when you used leverage well or caught a big trend. Luck matters, but skill is needed too.",
+            "metric6_title": "Total Return",
+            "metric6_text": "Overall return from start to finish. +100% means your assets doubled. Negative means you lost principal. The higher the leverage, the more extreme this value becomes.",
+            "indicator_title": "Indicator Analysis Guide",
+            "indicator_intro": "After the game, click 'View Analysis' to see your trading patterns by indicator (RSI, MA, BB). How should you interpret this data?",
+            "rsi_section_title": "RSI (Relative Strength Index) Analysis",
+            "rsi_oversold": "Oversold Zone (RSI < 30)",
+            "rsi_oversold_text": "Theoretically, it's 'oversold, time to bounce'. If you went Long a lot here, you have a counter-trend tendency. High win rate means you're good at it; low means you might be ignoring the trend.",
+            "rsi_neutral": "Neutral Zone (RSI 30-70)",
+            "rsi_neutral_text": "The most common zone. Most trades happen here. Your win rate here represents your basic skill. Long/Short ratio shows if you're trend-following or counter-trend.",
+            "rsi_overbought": "Overbought Zone (RSI > 70)",
+            "rsi_overbought_text": "Theoretically, it's 'overbought, time to correct'. If you went Short a lot here, you have a counter-trend tendency. But in strong trends, overbought can last long—be careful.",
+            "ma_section_title": "Moving Average (MA) Analysis",
+            "ma_uptrend": "Uptrend",
+            "ma_uptrend_text": "Price is above MA and MA is sloping upward. Going Long here is 'trend-following'. High win rate means you ride trends well. Many Shorts means you're counter-trend trading.",
+            "ma_downtrend": "Downtrend",
+            "ma_downtrend_text": "Price is below MA and MA is sloping downward. Going Short here is 'trend-following'. Many Longs means you're trying to catch the bottom (counter-trend).",
+            "bb_section_title": "Bollinger Bands (BB) Analysis",
+            "bb_upper": "Upper Band Touch",
+            "bb_upper_text": "Price is far from average (high). Theoretically tends to revert to mean, so it's a Short timing. If you went Short a lot here, you have a 'mean reversion' tendency.",
+            "bb_lower": "Lower Band Touch",
+            "bb_lower_text": "Price is far from average (low). May revert to mean, so it's a Long timing. If you went Long a lot here, you have a 'mean reversion' tendency.",
+            "analysis_tip_title": "How to Use Analysis Results",
+            "analysis_tip_text": "It's important to understand if your style is 'trend-following' or 'counter-trend'. If trend-following works better, you'll do well in strong trends. If counter-trend works, you'll do well in ranging markets. Play to your strengths and work on weaknesses!",
+            "tip_title": "Interpretation Tip",
+            "tip_text": "Don't obsess over win rate. Even with 40% accuracy, you can profit if your profit factor is 3:1. Conversely, even with 70% accuracy, one big loss without cutting it can wipe everything out. Balance is key."
+        },
+        "Disclaimer": "Disclaimer: Bitswipe is just a simulation game. No real money is involved, and making a profit here does not guarantee real investment returns. You are solely responsible for your investments."
     },
     "PrivacyPolicy": {
         "title": "Privacy Policy",
-        "lastUpdated": "Last updated: {date}",
-        "introP1": "At Bitswipe, accessible from {url}, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by Bitswipe and how we use it.",
+        "lastUpdated": "Last updated: 11.25.2025",
+        "introP1": "Bitswipe (https://bitswipe.xyz) values your privacy. This policy explains what information we collect and how we use it.",
         "logFiles": {
             "title": "Log Files",
-            "p1": "Bitswipe follows a standard procedure of using log files. These files log visitors when they visit websites. All hosting companies do this and a part of hosting services' analytics. The information collected by log files include internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable. The purpose of the information is for analyzing trends, administering the site, tracking users' movement on the website, and gathering demographic information."
+            "p1": "Like most websites, Bitswipe uses log files. These are automatically generated records when you visit the site, including IP address, browser type, visit time, etc. This information is used only for site operation, trend analysis, and improving user experience, and is not used to identify individuals."
         },
         "cookies": {
-            "title": "Cookies and Web Beacons",
-            "p1": "Like any other website, Bitswipe uses 'cookies'. These cookies are used to store information including visitors' preferences, and the pages on the website that the visitor accessed or visited. The information is used to optimize the users' experience by customizing our web page content based on visitors' browser type and/or other information."
+            "title": "Cookies",
+            "p1": "Bitswipe uses cookies for user convenience. Cookies store user settings or visit history to help you use the site more conveniently on your next visit."
         },
         "googleDart": {
             "title": "Google DoubleClick DART Cookie",
-            "p1": "Google is one of a third-party vendor on our site. It also uses cookies, known as DART cookies, to serve ads to our site visitors based upon their visit to {url} and other sites on the internet. However, visitors may choose to decline the use of DART cookies by visiting the Google ad and content network Privacy Policy at the following URL – "
+            "p1": "Google, as our advertising partner, uses DART cookies. This is to show appropriate ads based on your internet visit history. You can opt out of DART cookies on the Google ad settings page."
         },
         "adPolicies": {
-            "title": "Privacy Policies",
-            "p1": "You may consult this list to find the Privacy Policy for each of the advertising partners of Bitswipe.",
-            "p2": "Third-party ad servers or ad networks uses technologies like cookies, JavaScript, or Web Beacons that are used in their respective advertisements and links that appear on Bitswipe, which are sent directly to users' browser. They automatically receive your IP address when this occurs. These technologies are used to measure the effectiveness of their advertising campaigns and/or to personalize the advertising content that you see on websites that you visit.",
-            "p3": "Note that Bitswipe has no access to or control over these cookies that are used by third-party advertisers."
+            "title": "Advertising Partners' Privacy Policies",
+            "p1": "Ads displayed on Bitswipe are provided by third-party ad servers or ad networks. They may use technologies like cookies or web beacons to measure ad effectiveness or provide personalized ads, and your IP address may be automatically transmitted in this process.",
+            "p2": "Bitswipe has no control over the cookies used by these third-party ad partners.",
+            "p3": ""
         },
         "thirdParty": {
-            "title": "Third Party Privacy Policies",
-            "p1": "Bitswipe's Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options."
+            "title": "Third-Party Websites",
+            "p1": "Bitswipe's privacy policy does not apply to other websites or advertisers. Therefore, please check the privacy policy of the linked site when you use it."
         },
         "children": {
-            "title": "Children's Information",
-            "p1": "Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity.",
-            "p2": "Bitswipe does not knowingly collect any Personal Identifiable Information from children under the age of {age}. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records."
+            "title": "Child Protection",
+            "p1": "Bitswipe does not knowingly collect personal information from children under 13. If you believe your child has provided personal information on our site, please contact us immediately. We will take steps to delete such information right away.",
+            "p2": ""
         },
         "consent": {
             "title": "Consent",
-            "p1": "By using our website, you hereby consent to our Privacy Policy and agree to its Terms and Conditions."
+            "p1": "By using the Bitswipe website, you are deemed to agree to this Privacy Policy."
         }
     },
     "TermsOfService": {
         "title": "Terms of Service",
-        "lastUpdated": "Last updated: {date}",
+        "lastUpdated": "Last updated: 11.25.2025",
         "section1": {
-            "title": "1. Terms",
-            "p1": "By accessing this Website, accessible from {url}, you are agreeing to be bound by these Website Terms and Conditions of Use and agree that you are responsible for the agreement with any applicable local laws. If you disagree with any of these terms, you are prohibited from accessing this site. The materials contained in this Website are protected by copyright and trade mark law."
+            "title": "Acceptance of Terms",
+            "p1": "By accessing Bitswipe (https://bitswipe.xyz), you agree to comply with these Terms of Use and relevant laws. If you do not agree to these terms, you may not use the service."
         },
         "section2": {
-            "title": "2. Use License",
-            "p1": "Permission is granted to temporarily download one copy of the materials on Bitswipe's Website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:",
-            "list1": "modify or copy the materials;",
-            "list2": "use the materials for any commercial purpose or for any public display;",
-            "list3": "attempt to reverse engineer any software contained on Bitswipe's Website;",
-            "list4": "remove any copyright or other proprietary notations from the materials; or",
-            "list5": "transfer the materials to another person or \"mirror\" the materials on any other server.",
-            "p2": "This will let Bitswipe to terminate upon violations of any of these restrictions. Upon termination, your viewing right will also be terminated and you should destroy any downloaded materials in your possession whether it is printed or electronic format."
+            "title": "Use License",
+            "p1": "Bitswipe grants you a limited license to use the site for personal, non-commercial purposes. However, the following actions are prohibited:",
+            "list1": "Unauthorized copying, modification, or commercial use of materials",
+            "list2": "Analyzing or reverse engineering the site's software",
+            "list3": "Removing copyright or other proprietary notices",
+            "list4": "Transferring materials to a third party or mirroring on another server",
+            "p2": "If you violate the above, your license will terminate immediately, and you must destroy all downloaded materials."
         },
         "section3": {
-            "title": "3. Disclaimer",
-            "p1": "All the materials on Bitswipe's Website are provided \"as is\". Bitswipe makes no warranties, may it be expressed or implied, therefore negates all other warranties. Furthermore, Bitswipe does not make any representations concerning the accuracy or likely reliability of the use of the materials on its Website or otherwise relating to such materials or any sites linked to this Website.",
-            "importantBold": "Important",
-            "importantText": "Bitswipe is a simulation game for entertainment purposes only. It does not provide financial advice, and no real money is involved in the trading simulation. Past performance in the game does not guarantee future results in real-world trading."
+            "title": "Disclaimer",
+            "p1": "Bitswipe provides the service 'as is' and makes no warranties, express or implied, regarding the accuracy or stability of the service.",
+            "importantBold": "Important:",
+            "importantText": "Bitswipe is a simple simulation game. No real money transactions occur, and data or results within the game are not advice for real investments. Results in this game do not guarantee returns in real investments."
         },
         "section4": {
-            "title": "4. Limitations",
-            "p1": "Bitswipe or its suppliers will not be hold accountable for any damages that will arise with the use or inability to use the materials on Bitswipe's Website, even if Bitswipe or an authorize representative of this Website has been notified, orally or written, of the possibility of such damage. Some jurisdiction does not allow limitations on implied warranties or limitations of liability for incidental damages, these limitations may not apply to you."
+            "title": "Limitations of Liability",
+            "p1": "Bitswipe is not responsible for any damages (loss of data, loss of profit, etc.) arising from the use of the service. This applies even if we have been advised of the possibility of such damages."
         },
         "section5": {
-            "title": "5. Revisions and Errata",
-            "p1": "The materials appearing on Bitswipe's Website may include technical, typographical, or photographic errors. Bitswipe will not promise that any of the materials in this Website are accurate, complete, or current. Bitswipe may change the materials contained on its Website at any time without notice. Bitswipe does not make any commitment to update the materials."
+            "title": "Accuracy of Materials",
+            "p1": "Materials displayed on Bitswipe may contain technical errors or typos. We do not guarantee the perfection of the materials and may change the content without prior notice."
         },
         "section6": {
-            "title": "6. Links",
-            "p1": "Bitswipe has not reviewed all of the sites linked to its Website and is not responsible for the contents of any such linked site. The presence of any link does not imply endorsement by Bitswipe of the site. The use of any linked website is at the user's own risk."
+            "title": "Links",
+            "p1": "Bitswipe does not review or endorse the content of external websites linked to the site. Responsibility for using linked sites lies entirely with the user."
         },
         "section7": {
-            "title": "7. Site Terms of Use Modifications",
-            "p1": "Bitswipe may revise these Terms of Use for its Website at any time without prior notice. By using this Website, you are agreeing to be bound by the current version of these Terms and Conditions of Use."
+            "title": "Modifications to Terms",
+            "p1": "Bitswipe may change these Terms of Use at any time. Changed terms become effective immediately upon posting on the site."
         },
         "section8": {
-            "title": "8. Your Privacy",
-            "p1": "Please read our Privacy Policy."
+            "title": "Privacy",
+            "p1": "Matters regarding personal information processing follow the Privacy Policy."
         },
         "section9": {
-            "title": "9. Governing Law",
-            "p1": "Any claim related to Bitswipe's Website shall be governed by the laws of us without regards to its conflict of law provisions."
+            "title": "Governing Law",
+            "p1": "These terms are interpreted and governed by the laws of the United States."
         }
     }
 }
