@@ -14,6 +14,7 @@
         "step_timeframe_desc": "5本先のローソク足の価格を予測します",
         "step_rounds_title": "ラウンド数を選択",
         "step_rounds_desc": "何回トレードしますか？",
+        "step_timeframe_sub_desc": "最近 1年のチャートを反映します。チャート更新 : 2025/11/23",
         "section_short_title": "短期",
         "section_short_desc": "ハイペースなスキャルピング",
         "section_middle_title": "中期",

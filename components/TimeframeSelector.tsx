@@ -14,6 +14,20 @@ export const TimeframeSelector = () => {
     const [step, setStep] = useState<Step>('timeframe');
     const [selectedTimeframe, setSelectedTimeframe] = useState<Timeframe | null>(null);
     const [selectedTimeframeLabel, setSelectedTimeframeLabel] = useState<string>('');
+    const [isCompactHeight, setIsCompactHeight] = useState(false);
+
+    React.useEffect(() => {
+        const checkHeight = () => {
+            // 70dvh <= 600px implies 100dvh <= 857px. Using 860px as a safe threshold.
+            setIsCompactHeight(window.innerHeight <= 1000);
+        };
+
+        // Initial check
+        checkHeight();
+
+        window.addEventListener('resize', checkHeight);
+        return () => window.removeEventListener('resize', checkHeight);
+    }, []);
 
     const handleTimeframeSelect = (timeframe: Timeframe) => {
         // 1. 선택된 레이블을 찾습니다.
@@ -125,17 +139,20 @@ export const TimeframeSelector = () => {
                                 <p className="text-xs sm:text-base text-gray-400 font-medium">
                                     {t('step_timeframe_desc')}
                                 </p>
+                                <p className="text-[10px] sm:text-xs text-gray-400/60 font-medium mt-1">
+                                    {t('step_timeframe_sub_desc')}
+                                </p>
                             </div>
 
-                            <div className="space-y-2 sm:space-y-0 sm:grid sm:grid-cols-3 sm:gap-4">
+                            <div className={`${isCompactHeight ? '' : 'space-y-2'} sm:space-y-0 ${isCompactHeight ? 'grid grid-cols-3 gap-2' : 'sm:grid sm:grid-cols-3 sm:gap-4'}`}>
                                 {timeframeSections.map((section) => (
-                                    <div key={section.title} className="space-y-2 sm:space-y-2 flex flex-col">
-                                        <div className={`hidden sm:flex items-center gap-2 ${section.color} opacity-80 ml-1 sm:justify-center sm:mb-3`}>
+                                    <div key={section.title} className={`${isCompactHeight ? 'contents' : 'space-y-2 sm:space-y-2 flex flex-col'}`}>
+                                        <div className={`${isCompactHeight ? 'hidden' : 'hidden sm:flex'} items-center gap-2 ${section.color} opacity-80 ml-1 sm:justify-center sm:mb-3`}>
                                             {section.icon}
                                             <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider">{section.title}</h3>
                                         </div>
 
-                                        <div className={`grid ${section.options.length === 3 ? 'grid-cols-3 sm:grid-cols-1' : section.options.length === 2 ? 'grid-cols-2 sm:grid-cols-1' : 'grid-cols-1'} gap-2 sm:gap-4 flex-1`}>
+                                        <div className={`${isCompactHeight ? 'contents' : `grid ${section.options.length === 3 ? 'grid-cols-3 sm:grid-cols-1' : section.options.length === 2 ? 'grid-cols-2 sm:grid-cols-1' : 'grid-cols-1'} gap-2 sm:gap-4 flex-1`}`}>
                                             {section.options.map((opt) => {
                                                 const config = TIMEFRAME_CONFIG[opt.value as Timeframe];
                                                 const isMultiOption = section.options.length > 1;
@@ -228,8 +245,8 @@ export const TimeframeSelector = () => {
                 </div>
 
                 {/* Footer */}
-                <div className="mt-auto pt-3 sm:pt-4 text-center flex-shrink-0 opacity-60 hover:opacity-100 transition-opacity">
-                    <p className="text-[10px] sm:text-xs text-gray-400 font-medium hidden sm:block">
+                <div className="mt-auto pt-1 sm:pt-3 text-center flex-shrink-0 opacity-60 hover:opacity-100 transition-opacity">
+                    <p className="text-[10px] sm:text-xs text-gray-400 font-medium">
                         {step === 'timeframe' ? (
                             t('footer_timeframe')
                         ) : (

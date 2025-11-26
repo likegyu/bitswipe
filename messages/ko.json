@@ -12,6 +12,7 @@
     "GameSetup": {
         "step_timeframe_title": "캔들 시간 선택",
         "step_timeframe_desc": "5개의 캔들 뒤 가격은 어떻게 될까요?",
+        "step_timeframe_sub_desc": "최근 1년의 차트를 반영합니다. 차트 업데이트 : 2025/11/23",
         "step_rounds_title": "진행 라운드",
         "step_rounds_desc": "몇 번의 거래를 진행할까요?",
         "section_short_title": "단기 트레이딩",
@@ -305,7 +306,7 @@
     },
     "PrivacyPolicy": {
         "title": "개인정보 처리방침",
-        "lastUpdated": "최종 업데이트: 2025.11.25",
+        "lastUpdated": "최종 업데이트: 2025/11/25",
         "introP1": "Bitswipe(https://bitswipe.xyz)는 이용자의 개인정보를 소중하게 생각합니다. 본 방침은 Bitswipe가 수집하는 정보의 종류와 그 사용 목적에 대해 설명합니다.",
         "logFiles": {
             "title": "로그 파일",
@@ -341,7 +342,7 @@
     },
     "TermsOfService": {
         "title": "서비스 이용 약관",
-        "lastUpdated": "최종 업데이트: 2025.11.25",
+        "lastUpdated": "최종 업데이트: 2025/11/25",
         "section1": {
             "title": "약관의 승낙",
             "p1": "Bitswipe(https://bitswipe.xyz)에 접속함으로써 귀하는 본 이용 약관 및 관련 법령을 준수하는 데 동의하게 됩니다. 만약 이 약관에 동의하지 않으신다면 서비스를 이용하실 수 없습니다."

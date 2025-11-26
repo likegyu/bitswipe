@@ -14,6 +14,7 @@
         "step_timeframe_desc": "Predice el precio a 5 velas vista",
         "step_rounds_title": "Seleccionar Rondas",
         "step_rounds_desc": "¿Cuántas operaciones quieres hacer?",
+        "step_timeframe_sub_desc": "Refleja el gráfico del último año. Actualización del gráfico: 23/11/2025",
         "section_short_title": "Corto Plazo",
         "section_short_desc": "Scalping Rápido",
         "section_middle_title": "Medio Plazo",
@@ -305,7 +306,7 @@
     },
     "PrivacyPolicy": {
         "title": "Política de Privacidad",
-        "lastUpdated": "Última actualización: 11.25.2025",
+        "lastUpdated": "Última actualización: 11/25/2025",
         "introP1": "Bitswipe (https://bitswipe.xyz) valora tu privacidad. Esta política explica qué información recopilamos y cómo la usamos.",
         "logFiles": {
             "title": "Archivos de Registro",
@@ -341,7 +342,7 @@
     },
     "TermsOfService": {
         "title": "Términos de Servicio",
-        "lastUpdated": "Última actualización: 11.25.2025",
+        "lastUpdated": "Última actualización: 11/25/2025",
         "section1": {
             "title": "Aceptación de los Términos",
             "p1": "Al acceder a Bitswipe (https://bitswipe.xyz), aceptas cumplir con estos Términos de Uso y las leyes pertinentes. Si no estás de acuerdo con estos términos, no puedes utilizar el servicio."

@@ -12,6 +12,7 @@
     "GameSetup": {
         "step_timeframe_title": "Select Timeframe",
         "step_timeframe_desc": "Predict the price 5 candles ahead",
+        "step_timeframe_sub_desc": "Reflects the chart of the last 1 year. Chart update: 11/23/2025",
         "step_rounds_title": "Select Rounds",
         "step_rounds_desc": "How many trades to play?",
         "section_short_title": "Short Term",
@@ -305,7 +306,7 @@
     },
     "PrivacyPolicy": {
         "title": "Privacy Policy",
-        "lastUpdated": "Last updated: 11.25.2025",
+        "lastUpdated": "Last updated: 11/25/2025",
         "introP1": "Bitswipe (https://bitswipe.xyz) values your privacy. This policy explains what information we collect and how we use it.",
         "logFiles": {
             "title": "Log Files",
@@ -341,7 +342,7 @@
     },
     "TermsOfService": {
         "title": "Terms of Service",
-        "lastUpdated": "Last updated: 11.25.2025",
+        "lastUpdated": "Last updated: 11/25/2025",
         "section1": {
             "title": "Acceptance of Terms",
             "p1": "By accessing Bitswipe (https://bitswipe.xyz), you agree to comply with these Terms of Use and relevant laws. If you do not agree to these terms, you may not use the service."
