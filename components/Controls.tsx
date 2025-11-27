@@ -11,7 +11,7 @@ export const Controls = () => {
     const disabled = status !== 'PLAYING';
 
     return (
-        <div className="w-full max-w-md sm:max-w-4xl flex gap-2 sm:gap-3 p-2 sm:p-4 z-50">
+        <div className="w-full max-w-md sm:max-w-4xl flex gap-2 sm:gap-3 p-2 sm:p-1 z-50">
             <button
                 onClick={() => placeBet('short')}
                 disabled={disabled}

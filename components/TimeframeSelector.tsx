@@ -87,9 +87,9 @@ export const TimeframeSelector = () => {
                 bg: 'bg-rose-50 dark:bg-rose-900/20',
                 border: 'group-hover:border-rose-200',
                 options: [
-                    { value: '1m', label: t('option_1m_label'), sub: t('option_1m_sub'), icon: <Zap className="w-4 h-4 sm:w-6 sm:h-6" /> },
-                    { value: '5m', label: t('option_5m_label'), sub: t('option_5m_sub'), icon: <Timer className="w-4 h-4 sm:w-6 sm:h-6" /> },
-                    { value: '15m', label: t('option_15m_label'), sub: t('option_15m_sub'), icon: <TrendingUp className="w-4 h-4 sm:w-6 sm:h-6" /> },
+                    { value: '1m', label: t('option_1m_label'), sub: t('option_1m_sub'), icon: <Zap className="w-4 h-4 sm:w-5 sm:h-5" /> },
+                    { value: '5m', label: t('option_5m_label'), sub: t('option_5m_sub'), icon: <Timer className="w-4 h-4 sm:w-5 sm:h-5" /> },
+                    { value: '15m', label: t('option_15m_label'), sub: t('option_15m_sub'), icon: <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5" /> },
                 ]
             },
             {
@@ -100,8 +100,8 @@ export const TimeframeSelector = () => {
                 bg: 'bg-indigo-50 dark:bg-indigo-900/20',
                 border: 'group-hover:border-indigo-200',
                 options: [
-                    { value: '30m', label: t('option_30m_label'), sub: t('option_30m_sub'), icon: <BarChart2 className="w-4 h-4 sm:w-6 sm:h-6" /> },
-                    { value: '1h', label: t('option_1h_label'), sub: t('option_1h_sub'), icon: <Clock className="w-4 h-4 sm:w-6 sm:h-6" /> },
+                    { value: '30m', label: t('option_30m_label'), sub: t('option_30m_sub'), icon: <BarChart2 className="w-4 h-4 sm:w-5 sm:h-5" /> },
+                    { value: '1h', label: t('option_1h_label'), sub: t('option_1h_sub'), icon: <Clock className="w-4 h-4 sm:w-5 sm:h-5" /> },
                 ]
             },
             {
@@ -112,7 +112,7 @@ export const TimeframeSelector = () => {
                 bg: 'bg-amber-50 dark:bg-amber-900/20',
                 border: 'group-hover:border-amber-200',
                 options: [
-                    { value: '1d', label: t('option_1d_label'), sub: t('option_1d_sub'), icon: <Calendar className="w-4 h-4 sm:w-6 sm:h-6" /> },
+                    { value: '1d', label: t('option_1d_label'), sub: t('option_1d_sub'), icon: <Calendar className="w-4 h-4 sm:w-5 sm:h-5" /> },
                 ]
             }
         ];
@@ -132,7 +132,7 @@ export const TimeframeSelector = () => {
                     {step === 'timeframe' ? (
                         <>
                             {/* Header for timeframe step */}
-                            <div className="relative text-center mb-6 sm:mb-8 flex-shrink-0">
+                            <div className="relative text-center mb-6 sm:mb-4 flex-shrink-0">
                                 <h2 className="text-2xl sm:text-3xl font-black text-foreground dark:text-white tracking-tight mb-1 sm:mb-2">
                                     {t('step_timeframe_title')}
                                 </h2>
@@ -160,7 +160,7 @@ export const TimeframeSelector = () => {
                                                     <button
                                                         key={opt.value}
                                                         onClick={() => handleTimeframeSelect(opt.value as Timeframe)}
-                                                        className={`cursor-pointer group relative flex flex-col items-center justify-center p-3 sm:p-4 bg-white dark:bg-gray-800 rounded-2xl shadow-xs border border-gray-100 dark:border-gray-700 ${section.border} hover:shadow-md hover:-translate-y-1 transition-all duration-300 active:scale-95 overflow-hidden`}
+                                                        className={`cursor-pointer group relative flex flex-col items-center justify-center p-3 sm:p-2 bg-white dark:bg-gray-800 rounded-2xl shadow-xs border border-gray-100 dark:border-gray-700 ${section.border} hover:shadow-md hover:-translate-y-1 transition-all duration-300 active:scale-95 overflow-hidden`}
                                                     >
                                                         {/* Background Decoration */}
                                                         <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${section.bg}`} />
@@ -177,10 +177,10 @@ export const TimeframeSelector = () => {
                                                                 {opt.icon}
                                                             </div>
                                                             <div className="text-center">
-                                                                <div className="text-base sm:text-2xl font-black text-gray-800 dark:text-white group-hover:text-gray-900 dark:group-hover:text-gray-100 tracking-tight leading-none mb-1">
+                                                                <div className="text-base sm:text-xl font-semibold text-gray-800 dark:text-white group-hover:text-gray-900 dark:group-hover:text-gray-100 tracking-tight leading-none mb-1">
                                                                     {opt.label}
                                                                 </div>
-                                                                <div className="text-[8px] sm:text-xs font-bold text-gray-400 uppercase tracking-wider group-hover:text-gray-600 transition-colors">
+                                                                <div className="text-[8px] sm:text-xs font-thin text-gray-400 uppercase tracking-wider group-hover:text-gray-600 transition-colors">
                                                                     {opt.sub}
                                                                 </div>
                                                             </div>

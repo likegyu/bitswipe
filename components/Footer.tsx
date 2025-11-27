@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export const Footer = () => {
     return (
-        <footer className="w-full py-4 px-4 text-center text-[11px] sm:text-xs text-gray-400 dark:text-gray-500 flex flex-col gap-3">
+        <footer className="w-full py-2 px-4 text-center text-[11px] sm:text-xs text-gray-400 dark:text-gray-500 flex flex-col gap-3">
             <div className="flex justify-center gap-4 text-gray-500 dark:text-gray-400">
                 <Link href="/privacy" className="hover:text-gray-700 dark:hover:text-gray-300 hover:underline">
                     Privacy Policy
