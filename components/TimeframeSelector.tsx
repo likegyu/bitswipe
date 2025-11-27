@@ -132,14 +132,14 @@ export const TimeframeSelector = () => {
                     {step === 'timeframe' ? (
                         <>
                             {/* Header for timeframe step */}
-                            <div className="relative text-center mb-4 sm:mb-8 flex-shrink-0">
-                                <h2 className="text-lg sm:text-3xl font-black text-foreground dark:text-white tracking-tight sm:mb-2">
+                            <div className="relative text-center mb-6 sm:mb-8 flex-shrink-0">
+                                <h2 className="text-2xl sm:text-3xl font-black text-foreground dark:text-white tracking-tight mb-1 sm:mb-2">
                                     {t('step_timeframe_title')}
                                 </h2>
-                                <p className="text-xs sm:text-base text-gray-400 font-medium">
+                                <p className="text-sm sm:text-base text-gray-400 font-medium">
                                     {t('step_timeframe_desc')}
                                 </p>
-                                <p className="text-[10px] sm:text-xs text-gray-400/60 font-medium mt-1">
+                                <p className="text-xs sm:text-xs text-gray-400/60 font-medium mt-1">
                                     {t('step_timeframe_sub_desc')}
                                 </p>
                             </div>
@@ -245,8 +245,8 @@ export const TimeframeSelector = () => {
                 </div>
 
                 {/* Footer */}
-                <div className="mt-auto pt-1 sm:pt-3 text-center flex-shrink-0 opacity-60 hover:opacity-100 transition-opacity">
-                    <p className="text-[10px] sm:text-xs text-gray-400 font-medium">
+                <div className="mt-auto text-center flex-shrink-0 opacity-60 hover:opacity-100 transition-opacity">
+                    <p className="text-xs sm:text-sm text-gray-400 font-medium">
                         {step === 'timeframe' ? (
                             t('footer_timeframe')
                         ) : (

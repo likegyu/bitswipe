@@ -386,5 +386,15 @@
             "title": "Governing Law",
             "p1": "These terms are interpreted and governed by the laws of the United States."
         }
+    },
+    "MarketPage": {
+        "title": "Bitcoin Market Sentiment",
+        "description": "Check today's Bitcoin market sentiment analyzed.",
+        "calendar_title": "Market Sentiment Calendar",
+        "calendar_desc": "Check the market sentiment for the last 4 weeks at a glance.",
+        "history_title": "Past Sentiment History",
+        "sentiment_positive": "Positive",
+        "sentiment_negative": "Negative",
+        "sentiment_neutral": "Neutral"
     }
 }

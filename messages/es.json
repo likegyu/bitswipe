@@ -386,5 +386,15 @@
             "title": "Ley Aplicable",
             "p1": "Estos términos se interpretan y rigen por las leyes de los Estados Unidos."
         }
+    },
+    "MarketPage": {
+        "title": "Sentimiento del Mercado de Bitcoin",
+        "description": "Consulta el sentimiento del mercado de Bitcoin de hoy analizado.",
+        "calendar_title": "Calendario de Sentimiento del Mercado",
+        "calendar_desc": "Consulta el sentimiento del mercado de las últimas 4 semanas de un vistazo.",
+        "history_title": "Historial de Sentimiento",
+        "sentiment_positive": "Positivo",
+        "sentiment_negative": "Negativo",
+        "sentiment_neutral": "Neutral"
     }
 }

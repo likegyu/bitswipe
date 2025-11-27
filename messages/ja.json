@@ -386,5 +386,15 @@
             "title": "準拠法",
             "p1": "本規約は、米国の法律に基づいて解釈され、適用されます。"
         }
+    },
+    "MarketPage": {
+        "title": "ビットコイン市況",
+        "description": "今日のビットコイン市場の雰囲気を確認してください。",
+        "calendar_title": "市場センチメントカレンダー",
+        "calendar_desc": "過去4週間の市場の雰囲気を一目で確認できます。",
+        "history_title": "過去の市況履歴",
+        "sentiment_positive": "強気",
+        "sentiment_negative": "弱気",
+        "sentiment_neutral": "中立"
     }
 }

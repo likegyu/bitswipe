@@ -386,5 +386,15 @@
             "title": "준거법",
             "p1": "본 약관은 미국 법률에 따라 해석되고 규율됩니다."
         }
+    },
+    "MarketPage": {
+        "title": "비트코인 시황",
+        "description": "오늘의 비트코인 시장 분위기를 확인하세요.",
+        "calendar_title": "시장 분위기 캘린더",
+        "calendar_desc": "최근 5주간의 시장 분위기를 한눈에 확인하세요.",
+        "history_title": "지난 시황 기록",
+        "sentiment_positive": "긍정적",
+        "sentiment_negative": "부정적",
+        "sentiment_neutral": "중립적"
     }
 }
