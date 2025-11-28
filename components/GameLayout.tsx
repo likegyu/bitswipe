@@ -13,6 +13,7 @@ import { Footer } from './Footer';
 import { RoundResultOverlay } from './RoundResultOverlay';
 import { motion, AnimatePresence } from 'framer-motion';
 
+// Force rebuild
 export const GameLayout = () => {
     const {
         status,

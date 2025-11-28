@@ -5,16 +5,34 @@ import { useGameStore } from '@/store/gameStore';
 import { motion } from 'framer-motion';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Sector } from 'recharts';
 import { useTranslations } from 'next-intl';
+import { Trophy, Share2 } from 'lucide-react';
+import { supabase } from '@/lib/supabaseClient';
 
 
 
 import { AnalysisModal } from './AnalysisModal';
+import { RankingRegistrationModal } from './RankingRegistrationModal';
 
 export const ResultModal = () => {
-    const { status, history, balance, initialBalance, resetGame } = useGameStore();
+    const { status, history, balance, initialBalance, resetGame, isRankingRegistered } = useGameStore();
     const [isCopied, setIsCopied] = React.useState(false);
     const [showAnalysis, setShowAnalysis] = React.useState(false);
+    const [showRegistration, setShowRegistration] = React.useState(false);
+    const [isRegistered, setIsRegistered] = React.useState(false);
+    const [isMobileHeight, setIsMobileHeight] = React.useState(false);
     const t = useTranslations('ResultModal');
+
+    // Check sessionStorage for persistence
+    const isActuallyRegistered = isRankingRegistered || (typeof window !== 'undefined' && sessionStorage.getItem('isRankingRegistered') === 'true');
+
+    React.useEffect(() => {
+        const checkHeight = () => {
+            setIsMobileHeight(window.innerHeight <= 600);
+        };
+        checkHeight();
+        window.addEventListener('resize', checkHeight);
+        return () => window.removeEventListener('resize', checkHeight);
+    }, []);
     // Scroll Lock
     React.useEffect(() => {
         if (status === 'FINISHED') {
@@ -108,17 +126,19 @@ export const ResultModal = () => {
         setShowAnalysis(true);
     };
 
+
+
     return (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-md z-[80] flex items-center justify-center p-2 sm:p-4">
             <motion.div
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
-                className="bg-white dark:bg-gray-900 rounded-3xl p-4 sm:p-6 w-full max-w-md shadow-2xl max-h-[90vh] overflow-y-auto"
+                className={`bg-white dark:bg-gray-900 rounded-3xl w-full max-w-md shadow-2xl overflow-y-auto ${isMobileHeight ? 'p-3 max-h-[95vh]' : 'p-4 sm:p-6 max-h-[90vh]'}`}
             >
                 {/* Main Win Rate */}
-                <div className="flex flex-col items-center mb-6 sm:mb-8">
-                    <h3 className="text-lg sm:text-lg font-bold text-gray-800 dark:text-white mb-2">{t('win_rate')}</h3>
-                    <div className="w-28 h-28 sm:w-48 sm:h-48 relative">
+                <div className={`flex flex-col items-center ${isMobileHeight ? 'mb-2' : 'mb-6 sm:mb-8'}`}>
+                    <h3 className={`font-bold text-gray-800 dark:text-white ${isMobileHeight ? 'text-base mb-1' : 'text-lg sm:text-lg mb-2'}`}>{t('win_rate')}</h3>
+                    <div className={`${isMobileHeight ? 'w-20 h-20' : 'w-28 h-28 sm:w-48 sm:h-48'} relative`}>
                         <ResponsiveContainer width="100%" height="100%">
                             <PieChart>
                                 <Pie
@@ -155,7 +175,7 @@ export const ResultModal = () => {
                 </div>
 
                 {/* Sub Stats - Win Rates */}
-                <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-2 sm:mb-4">
+                <div className={`grid grid-cols-2 gap-3 sm:gap-4 ${isMobileHeight ? 'mb-2' : 'mb-2 sm:mb-4'}`}>
                     <div className="bg-gray-50 dark:bg-gray-800 p-3 sm:p-4 rounded-2xl text-center shadow-sm">
                         <h4 className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mb-1">{t('long_win_rate')}</h4>
                         <span className="text-base sm:text-xl font-bold text-success">{Math.round(longWinRate)}%</span>
@@ -169,7 +189,7 @@ export const ResultModal = () => {
                 </div>
 
                 {/* Advanced Stats */}
-                <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-2 sm:mb-4">
+                <div className={`grid grid-cols-3 gap-2 sm:gap-3 ${isMobileHeight ? 'mb-2' : 'mb-2 sm:mb-4'}`}>
                     <div className="bg-gray-50 dark:bg-gray-800 p-2 sm:p-3 rounded-xl text-center shadow-sm">
                         <h4 className="text-[10px] sm:text-xs text-gray-500 dark:text-gray-400 mb-1">{t('profit_factor')}</h4>
                         <span className="text-sm sm:text-base font-bold text-gray-800 dark:text-gray-200">{profitFactor.toFixed(2)}</span>
@@ -187,14 +207,38 @@ export const ResultModal = () => {
                 </div>
 
                 {/* Final Profit */}
-                <div className="text-center mb-2 sm:mb-4">
+                <div className={`text-center ${isMobileHeight ? 'mb-2' : 'mb-2 sm:mb-4'}`}>
                     <h3 className="text-sm sm:text-lg font-medium text-gray-500 dark:text-gray-400 mb-2">{t('total_return')}</h3>
                     <span className={`text-xl sm:text-4xl font-bold ${profit >= 0 ? 'text-success' : 'text-error'}`}>
                         {profit >= 0 ? '+' : ''}{profitPercent}%
                     </span>
                 </div>
 
-                <div className="flex flex-col gap-3 sm:gap-4">
+                <div className={`flex flex-col ${isMobileHeight ? 'gap-2' : 'gap-3 sm:gap-4'}`}>
+                    <div className="flex gap-2 sm:gap-4">
+                        <button
+                            onClick={handleShare}
+                            className={`cursor-pointer flex-1 py-3 sm:py-4 font-bold text-sm sm:text-base rounded-xl transition-all shadow-sm flex items-center justify-center gap-2 ${isCopied
+                                ? 'bg-green-500 text-white hover:bg-green-600'
+                                : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                                }`}
+                        >
+                            <Share2 size={18} />
+                            {isCopied ? t('copied') : t('share')}
+                        </button>
+                        <button
+                            onClick={() => setShowRegistration(true)}
+                            disabled={isActuallyRegistered}
+                            className={`cursor-pointer flex-1 py-3 sm:py-4 font-bold text-sm sm:text-base rounded-xl transition-all shadow-sm flex items-center justify-center gap-2 ${isActuallyRegistered
+                                ? 'bg-gray-300 dark:bg-gray-700 text-gray-500 cursor-not-allowed'
+                                : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                                }`}
+                        >
+                            <Trophy size={18} />
+                            {isActuallyRegistered ? t('ranking_registered') : t('register_ranking')}
+                        </button>
+                    </div>
+
                     <button
                         onClick={handleAnalysisClick}
                         className="cursor-pointer w-full py-3 sm:py-4 bg-gray-500 dark:bg-gray-700 text-white font-bold text-sm sm:text-base rounded-xl hover:bg-gray-700 dark:hover:bg-gray-600 transition-colors shadow-sm flex items-center justify-center gap-2"
@@ -202,25 +246,14 @@ export const ResultModal = () => {
                         {t('view_analysis')}
                     </button>
 
-                    <div className="flex gap-3 sm:gap-4">
-                        <button
-                            onClick={handleShare}
-                            className={`cursor-pointer flex-1 py-3 sm:py-4 font-bold text-sm sm:text-base rounded-xl transition-all shadow-md ${isCopied
-                                ? 'bg-green-500 text-white hover:bg-green-600'
-                                : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
-                                }`}
-                        >
-                            {isCopied ? t('copied') : t('share')}
-                        </button>
-                        <button
-                            onClick={resetGame}
-                            className="cursor-pointer flex-[2] py-3 sm:py-4 bg-primary text-white font-bold text-sm sm:text-base rounded-xl hover:bg-primary-hover transition-colors shadow-md"
-                        >
-                            {t('play_again')}
-                        </button>
-                    </div>
+                    <button
+                        onClick={resetGame}
+                        className="cursor-pointer w-full py-3 sm:py-4 bg-primary text-white font-bold text-sm sm:text-base rounded-xl hover:bg-primary-hover transition-colors shadow-md"
+                    >
+                        {t('play_again')}
+                    </button>
                 </div>
-            </motion.div>
+            </motion.div >
 
             {showAnalysis && (
                 <AnalysisModal
@@ -228,6 +261,24 @@ export const ResultModal = () => {
                     onClose={() => setShowAnalysis(false)}
                 />
             )}
-        </div>
+
+            {
+                showRegistration && (
+                    <RankingRegistrationModal
+                        onClose={() => setShowRegistration(false)}
+                        gameData={{
+                            profitPercent,
+                            totalRounds,
+                            winRate,
+                            longWinRate,
+                            shortWinRate,
+                            bestTrade,
+                            avgProfit,
+                            history
+                        }}
+                    />
+                )
+            }
+        </div >
     );
 };

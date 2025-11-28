@@ -48,6 +48,7 @@ interface GameState {
     status: 'IDLE' | 'PLAYING' | 'REVEALING' | 'RESULT' | 'AD' | 'FINISHED';
     isGameStarted: boolean;
     isLoading: boolean;
+    isRankingRegistered: boolean;
 
     // Data
     allCandles: CandleData[];
@@ -65,6 +66,7 @@ interface GameState {
 
     // Actions
     setSettings: (settings: Partial<GameSettings>) => void;
+    setRankingRegistered: (registered: boolean) => void;
     initializeGame: () => Promise<void>;
     placeBet: (position: 'long' | 'short' | 'hold') => void;
     completeRound: () => void;
@@ -117,6 +119,7 @@ export const useGameStore = create<GameState>((set, get) => ({
     status: 'IDLE',
     isGameStarted: false,
     isLoading: false,
+    isRankingRegistered: false,
     allCandles: [],
 
     frontChart: null,
@@ -125,6 +128,8 @@ export const useGameStore = create<GameState>((set, get) => ({
 
     setSettings: (newSettings) =>
         set((state) => ({ settings: { ...state.settings, ...newSettings } })),
+
+    setRankingRegistered: (registered) => set({ isRankingRegistered: registered }),
 
     initializeGame: async () => {
         set({ isLoading: true });
@@ -380,12 +385,16 @@ export const useGameStore = create<GameState>((set, get) => ({
     },
 
     resetGame: () => {
+        if (typeof window !== 'undefined') {
+            sessionStorage.removeItem('isRankingRegistered');
+        }
         set({
             balance: 1000,
             round: 1,
             history: [],
             status: 'IDLE',
             isGameStarted: false,
+            isRankingRegistered: false,
             frontChart: null,
             backChart: null,
         });

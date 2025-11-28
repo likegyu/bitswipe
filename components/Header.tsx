@@ -31,13 +31,20 @@ export const Header = ({ onOpenSettings }: { onOpenSettings: () => void }) => {
             <div className="flex items-center gap-2">
                 <Link
                     href="/market"
-                    className="relative p-3 sm:p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-300"
+                    className="relative p-3 sm:p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-300 cursor-pointer"
                 >
                     <Newspaper size={24} />
                     <span className="absolute top-2 right-2 sm:top-1 sm:right-1 flex h-3 w-3">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
                         <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
                     </span>
+                </Link>
+
+                <Link
+                    href="/ranking"
+                    className="p-3 sm:p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-300 cursor-pointer"
+                >
+                    <Trophy size={24} />
                 </Link>
 
                 <button

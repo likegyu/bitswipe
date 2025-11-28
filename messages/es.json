@@ -65,7 +65,32 @@
         "share": "Compartir Resultado",
         "play_again": "Jugar de Nuevo",
         "bit_swipe_results": "Resultados de Bitswipe",
-        "can_you_beat_my_score": "¿Qué tal mi trading? ¡Intenta superar mi puntuación!"
+        "can_you_beat_my_score": "¿Qué tal mi trading? ¡Intenta superar mi puntuación!",
+        "register_ranking": "Registrar Ranking",
+        "nickname_placeholder": "Apodo (Máx 10 caracteres)",
+        "comment_placeholder": "Comentario (Máx 20 caracteres)",
+        "ranking_registered": "¡Ranking Registrado!",
+        "ranking_registration_failed": "Fallo al registrar ranking.",
+        "already_registered": "Ya registrado.",
+        "nickname_label": "Apodo",
+        "comment_label": "Comentario"
+    },
+    "RankingPage": {
+        "title": "Ranking de Traders",
+        "rank": "Rango",
+        "trader": "Trader",
+        "profit": "Beneficio",
+        "rounds": "Rondas",
+        "win_rate": "Tasa de Acierto",
+        "avg_profit": "Beneficio Promedio",
+        "investment_style": "Estilo de Inversión",
+        "no_rankings": "Aún no hay rankings.",
+        "view_analysis": "Ver Análisis",
+        "can_you_beat_my_score": "¿Qué tal mi trading? ¡Intenta superar mi puntuación!",
+        "header_subtitle": "Ranking de Traders",
+        "header_description": "Consulta los traders con los mayores retornos. Analiza a los mejores y desafía sus récords.",
+        "best_label": "Mejor",
+        "win_label": "Ganar"
     },
     "AnalysisModal": {
         "win_rate": "Tasa de Acierto",
@@ -114,11 +139,11 @@
             "p3": "Ya seas un profesional o un principiante, Bitswipe es una excelente manera de calentar tus sentidos de trading."
         },
         "Mission": {
-            "title": "¿Por qué hice esto?",
-            "p1": "Estudiar es aburrido y el trading real da miedo. Pensé que necesitábamos algo intermedio: una forma divertida de practicar. El paper trading es demasiado lento y aburrido.",
-            "p2_part1": "Así que construí Bitswipe.",
-            "p2_data": "Datos históricos reales de Bitcoin",
-            "p2_part2": "se utilizan para crear un juego de ritmo rápido. Opera todo lo que quieras sin miedo a perder dinero, comprueba tu tasa de aciertos y apuesta con amigos. El trading no siempre tiene que ser tan serio, ¿verdad?"
+            "title": "Despierta tu Cerebro de Trading Cada Mañana",
+            "p1": "Análisis de gráficos complejos, revisión de noticias y trading en vivo. Bitswipe es el lugar perfecto para despertar tu cerebro y leer el flujo del mercado cada mañana.",
+            "p2_part1": "Solo 5 minutos son suficientes.",
+            "p2_data": "Datos Históricos Reales de Bitcoin",
+            "p2_part2": "Afina tus sentidos de trading y consulta las noticias de criptomonedas de hoy de un vistazo. La rutina más inteligente para comenzar tu día, con Bitswipe."
         },
         "Basics": {
             "title": "Dominando lo Básico",

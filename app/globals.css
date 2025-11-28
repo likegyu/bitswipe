@@ -79,6 +79,11 @@ body {
   box-shadow: var(--card-shadow);
 }
 
+/* Korean/Japanese Word Breaking Support */
+.word-break-keep-all {
+  word-break: keep-all;
+}
+
 /* Hide Lightweight Charts Logo */
 a[href^="https://www.tradingview.com/"] {
   display: none !important;

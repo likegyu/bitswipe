@@ -65,7 +65,32 @@
         "share": "Share Result",
         "play_again": "Play Again",
         "bit_swipe_results": "Bitswipe Results",
-        "can_you_beat_my_score": "How's my trading? Try to beat my score!"
+        "can_you_beat_my_score": "How's my trading? Try to beat my score!",
+        "register_ranking": "Register Ranking",
+        "nickname_placeholder": "Nickname (Max 10 chars)",
+        "comment_placeholder": "Comment (Max 20 chars)",
+        "ranking_registered": "Ranking Registered!",
+        "ranking_registration_failed": "Failed to register ranking.",
+        "already_registered": "Already registered.",
+        "nickname_label": "Nickname",
+        "comment_label": "Comment"
+    },
+    "RankingPage": {
+        "title": "Trader Ranking",
+        "rank": "Rank",
+        "trader": "Trader",
+        "profit": "Profit",
+        "rounds": "Rounds",
+        "win_rate": "Win Rate",
+        "avg_profit": "Avg Profit",
+        "investment_style": "Investment Style",
+        "no_rankings": "No rankings yet.",
+        "view_analysis": "View Analysis",
+        "can_you_beat_my_score": "How's my trading skill? Beat my score!",
+        "header_subtitle": "Trader Rankings",
+        "header_description": "Check out the traders with the highest returns. Analyze top rankers and challenge their records.",
+        "best_label": "Best Return",
+        "win_label": "Win"
     },
     "AnalysisModal": {
         "win_rate": "Win Rate",
@@ -114,11 +139,11 @@
             "p3": "Whether you're a pro or a beginner, Bitswipe is a great way to warm up your trading senses."
         },
         "Mission": {
-            "title": "Why did I make this?",
-            "p1": "Studying is boring, and real trading is scary. I thought we needed something in between—a fun way to practice. Paper trading is too slow and boring.",
-            "p2_part1": "So I built Bitswipe.",
-            "p2_data": "Real historical Bitcoin data",
-            "p2_part2": "is used to create a fast-paced game. Trade to your heart's content without fear of losing money, check your win rate, and bet with friends. Trading doesn't always have to be so serious, right?"
+            "title": "Wake Up Your Trading Brain Every Morning",
+            "p1": "Complex chart analysis, checking news, and live trading. Bitswipe is the perfect place to wake up your brain and read the market flow every morning.",
+            "p2_part1": "Just 5 minutes is enough.",
+            "p2_data": "Real Bitcoin Historical Data",
+            "p2_part2": "Tune your trading senses and check today's crypto news at a glance. The smartest routine to start your day, with Bitswipe."
         },
         "Basics": {
             "title": "Mastering the Basics",

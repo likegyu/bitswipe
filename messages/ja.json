@@ -65,7 +65,32 @@
         "share": "結果をシェア",
         "play_again": "もう一度プレイ",
         "bit_swipe_results": "Bitswipeの結果",
-        "can_you_beat_my_score": "私のトレードはどう？スコアを超えられるかな？"
+        "can_you_beat_my_score": "私のトレードはどう？スコアを超えられるかな？",
+        "register_ranking": "ランキング登録",
+        "nickname_placeholder": "ニックネーム (最大10文字)",
+        "comment_placeholder": "一言コメント (最大20文字)",
+        "ranking_registered": "ランキングに登録されました！",
+        "ranking_registration_failed": "ランキング登録に失敗しました。",
+        "already_registered": "既に登録済みです。",
+        "nickname_label": "ニックネーム",
+        "comment_label": "コメント"
+    },
+    "RankingPage": {
+        "title": "トレーダーランキング",
+        "rank": "順位",
+        "trader": "トレーダー",
+        "profit": "収益率",
+        "rounds": "ラウンド",
+        "win_rate": "勝率",
+        "avg_profit": "平均収益",
+        "investment_style": "投資スタイル分析",
+        "no_rankings": "まだランキングがありません。",
+        "view_analysis": "詳細分析を見る",
+        "can_you_beat_my_score": "私のトレードはどう？スコアを超えられるかな？",
+        "header_subtitle": "トレーダーランキング",
+        "header_description": "最も高い収益率を記録したトレーダーたちです。上位ランカーの記録を確認して挑戦してみましょう。",
+        "best_label": "ベスト",
+        "win_label": "勝"
     },
     "AnalysisModal": {
         "win_rate": "勝率",
@@ -114,11 +139,11 @@
             "p3": "プロのウォーミングアップにも、初心者の入門にも、Bitswipeは最適です。"
         },
         "Mission": {
-            "title": "なぜ作ったのか？",
-            "p1": "勉強は退屈だし、本番トレードは怖いですよね。「その中間」で楽しく練習できるものが欲しいと思って作りました。ペーパートレーディング（デモトレード）だと遅すぎて飽きてしまうので。",
-            "p2_part1": "だからBitswipeを作りました。",
-            "p2_data": "実際のビットコインの過去データ",
-            "p2_part2": "を使って、スピーディーなゲームにしました。お金を失う恐怖なしに思う存分トレードして、勝率を確認して、友達と競い合ってください。トレードってもっと気楽に楽しんでもいいはずです。"
+            "title": "毎朝、トレーディング脳を目覚めさせる習慣",
+            "p1": "複雑なチャート分析、ニュースチェック、そして実戦トレード。Bitswipeは、毎朝気軽にアクセスして市場の流れを読み、眠っている脳を目覚めさせるのに最適な場所です。",
+            "p2_part1": "たった5分で十分です。",
+            "p2_data": "実際のビットコイン過去データ",
+            "p2_part2": "でトレーディング感覚を調整し、今日の仮想通貨ニュースも一目でチェックしましょう。一日を始める最もスマートなルーティン、Bitswipeと共に。"
         },
         "Basics": {
             "title": "まずは基本から",
