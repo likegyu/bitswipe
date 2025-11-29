@@ -227,7 +227,7 @@ export const ResultModal = () => {
                             onClick={handleShare}
                             className={`cursor-pointer flex-1 py-3 sm:py-4 font-bold text-sm sm:text-base rounded-xl transition-all shadow-sm flex items-center justify-center gap-2 ${isCopied
                                 ? 'bg-green-500 text-white hover:bg-green-600'
-                                : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                                : 'bg-gray-100 dark:bg-gray-500 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
                                 }`}
                         >
                             <Share2 size={18} />
@@ -237,8 +237,8 @@ export const ResultModal = () => {
                             onClick={() => setShowRegistration(true)}
                             disabled={isActuallyRegistered}
                             className={`cursor-pointer flex-1 py-3 sm:py-4 font-bold text-sm sm:text-base rounded-xl transition-all shadow-sm flex items-center justify-center gap-2 ${isActuallyRegistered
-                                ? 'bg-gray-300 dark:bg-gray-700 text-gray-500 cursor-not-allowed'
-                                : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                                ? 'bg-gray-300 dark:bg-gray-500 text-gray-500 cursor-not-allowed'
+                                : 'bg-gray-100 dark:bg-gray-500 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
                                 }`}
                         >
                             <Trophy size={18} />
@@ -248,7 +248,7 @@ export const ResultModal = () => {
 
                     <button
                         onClick={handleAnalysisClick}
-                        className="cursor-pointer w-full py-3 sm:py-4 bg-gray-500 dark:bg-gray-700 text-white font-bold text-sm sm:text-base rounded-xl hover:bg-gray-700 dark:hover:bg-gray-600 transition-colors shadow-sm flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-95"
+                        className="cursor-pointer w-full py-3 sm:py-4 bg-gray-500 dark:bg-gray-600 text-white font-bold text-sm sm:text-base rounded-xl hover:bg-gray-700 dark:hover:bg-gray-700 transition-colors shadow-sm flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-95"
                     >
                         {t('view_analysis')}
                     </button>
