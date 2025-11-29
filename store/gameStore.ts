@@ -11,6 +11,7 @@ export interface GameSettings {
     };
     timeframe: Timeframe;
     maxRounds: number;
+    revealSpeed: number; // 새로 추가
 }
 
 export interface RoundResult {
@@ -105,6 +106,58 @@ const generateChartData = (allCandles: CandleData[], timeframe: Timeframe): Char
     };
 };
 
+export const calculateGameStats = (history: RoundResult[]) => {
+    const totalRounds = history.length;
+    const wins = history.filter(h => h.win).length;
+    const losses = totalRounds - wins;
+    const winRate = totalRounds > 0 ? (wins / totalRounds) * 100 : 0;
+
+    const longBets = history.filter(h => h.position === 'long');
+    const longWins = longBets.filter(h => h.win).length;
+    const longWinRate = longBets.length > 0 ? (longWins / longBets.length) * 100 : 0;
+
+    const shortBets = history.filter(h => h.position === 'short');
+    const shortWins = shortBets.filter(h => h.win).length;
+    const shortWinRate = shortBets.length > 0 ? (shortWins / shortBets.length) * 100 : 0;
+
+    const winningTrades = history.filter(h => h.actualPnL > 0);
+    const losingTrades = history.filter(h => h.actualPnL < 0);
+
+    const avgWin = winningTrades.length > 0
+        ? winningTrades.reduce((acc, h) => acc + h.actualPnL, 0) / winningTrades.length
+        : 0;
+    const avgLoss = losingTrades.length > 0
+        ? Math.abs(losingTrades.reduce((acc, h) => acc + h.actualPnL, 0) / losingTrades.length)
+        : 0;
+
+    // Profit Ratio (손익비): Average Win / Average Loss
+    const profitFactor = avgLoss === 0 ? (avgWin > 0 ? 99.99 : 0) : (avgWin / avgLoss);
+
+    const profits = history.map(h => h.profitPercent);
+    const avgProfit = profits.length > 0 ? profits.reduce((a, b) => a + b, 0) / profits.length : 0;
+
+    const rawBestTrade = profits.length > 0 ? Math.max(...profits) : 0;
+    const bestTrade = rawBestTrade <= -100 ? 0 : rawBestTrade;
+
+    return {
+        totalRounds,
+        wins,
+        losses,
+        winRate,
+        longWinRate,
+        longWins,
+        longTotal: longBets.length,
+        shortWinRate,
+        shortWins,
+        shortTotal: shortBets.length,
+        profitFactor,
+        avgProfit,
+        bestTrade,
+        avgWin,
+        avgLoss
+    };
+};
+
 export const useGameStore = create<GameState>((set, get) => ({
     balance: 1000,
     initialBalance: 1000,
@@ -120,6 +173,7 @@ export const useGameStore = create<GameState>((set, get) => ({
         },
         timeframe: '1m',
         maxRounds: 25,
+        revealSpeed: 1000,
     },
     status: 'IDLE',
     isGameStarted: false,

@@ -46,11 +46,5 @@
     "files": [
       "1h_1.json"
     ]
-  },
-  "4h": {
-    "chunks": 1,
-    "files": [
-      "4h_1.json"
-    ]
   }
 }

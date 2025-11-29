@@ -11,8 +11,8 @@
     },
     "GameSetup": {
         "step_timeframe_title": "Select Timeframe",
-        "step_timeframe_desc": "Predict the price 5 candles ahead",
-        "step_timeframe_sub_desc": "Reflects the chart of the last 1 year. Chart update: 11/23/2025",
+        "step_timeframe_desc": "Predict the price based on the chart",
+        "step_timeframe_sub_desc": "The charts reflect the past year. update: 11/23/2025",
         "step_rounds_title": "Select Rounds",
         "step_rounds_desc": "How many trades to play?",
         "section_short_title": "Short Term",
@@ -26,13 +26,11 @@
         "option_15m_label": "15m",
         "option_30m_label": "30m",
         "option_1h_label": "1h",
-        "option_4h_label": "4h",
         "option_1m_sub": "Turbo",
         "option_5m_sub": "Blitz",
         "option_15m_sub": "Rapid",
         "option_30m_sub": "Intra",
         "option_1h_sub": "Hourly",
-        "option_4h_sub": "Swing",
         "rounds_10_label": "10 Rounds",
         "rounds_10_sub": "Quick Match",
         "rounds_25_label": "25 Rounds",
@@ -50,7 +48,8 @@
         "indicator_ma": "MA (Moving Average)",
         "indicator_bb": "BB (Bollinger Bands)",
         "reset_button": "Restart Game",
-        "reset_confirm": "Your current progress will be lost. Are you sure you want to restart?"
+        "reset_confirm": "Are you sure you want to restart?",
+        "reveal_speed_label": "Reveal Speed"
     },
     "ResultModal": {
         "win_rate": "Total Win Rate",
@@ -187,9 +186,10 @@
             "tool1_goal_text": "Experience firsthand how dangerous high leverage is.",
             "tool1_lever_bold": "Double-Edged Sword",
             "tool1_lever_text": "Profits are amplified, but losses snowball just as fast.",
-            "tool1_liq_bold": "Liquidation (Game Over)",
-            "tool1_liq_text": "The moment your loss exceeds your principal, your position is forcibly closed and your money becomes zero. In the game, liquidation means immediate Game Over!",
-            "tool1_rule_text": "Tip: Start with low leverage to get the hang of it.",
+            "tool1_liq_bold": "Liquidation",
+            "tool1_liq_text": "If your loss exceeds your principal, your position is forcibly closed.",
+            "tool1_rule_text": "In this game, if your loss exceeds your principal, it's immediate Game Over.",
+            "tool1_text": "Amplifies both profits and losses. Beware of liquidation (Game Over) if your loss exceeds your principal!",
             "tool2_title": "RSI (Relative Strength Index)",
             "tool2_text": "An indicator that tells you if the current price is too expensive or too cheap.",
             "tool2_overbought_bold": "Above 70",
@@ -207,7 +207,9 @@
             "tool4_squeeze_bold": "Squeeze",
             "tool4_squeeze_text": "When the width narrows, it's a signal that a big move is coming.",
             "tool4_touch_bold": "Band Touch",
-            "tool4_touch_text": "Going outside the band is rare, so it tends to want to come back inside."
+            "tool4_touch_text": "Going outside the band is rare, so it tends to want to come back inside.",
+            "tool5_title": "Candle Reveal Speed",
+            "tool5_text": "The default speed is medium. Adjust it to be faster or slower to find your own tempo."
         },
         "HowToPlay": {
             "title": "How to Play",
@@ -260,8 +262,8 @@
         "GettingStarted": {
             "title": "Beginner's Guide",
             "p1": "If trading is new to you, it might be overwhelming. Don't worry. Just follow these steps.",
-            "step1_title": "Start with 4h Candles",
-            "step1_text": "1m or 5m candles are too fast for beginners. Starting with slower charts like 1h or 4h makes it easier to learn patterns.",
+            "step1_title": "Start with 1m Candles",
+            "step1_text": "1m candles have small volatility, making them perfect for beginners to learn chart flow. Practice patterns with a faster pace.",
             "step2_title": "Keep Leverage at 1x",
             "step2_text": "Start without leverage (1x). Focus on reading chart flow. You can increase leverage later when you're confident.",
             "step3_title": "Turn on Just One Indicator",

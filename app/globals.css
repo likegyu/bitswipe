@@ -97,3 +97,21 @@ a[href^="https://www.tradingview.com/"] {
   opacity: 0 !important;
   pointer-events: none !important;
 }
+
+/* globals.css */
+
+@keyframes slow-pulse {
+
+  0%,
+  100% {
+    opacity: 0.9;
+  }
+
+  50% {
+    opacity: 0.70;
+  }
+}
+
+.animate-slow-pulse {
+  animation: slow-pulse 2s ease-in-out infinite;
+}

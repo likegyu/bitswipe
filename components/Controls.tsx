@@ -15,7 +15,7 @@ export const Controls = () => {
             <div className="w-full max-w-md sm:max-w-4xl flex gap-2 sm:gap-3 p-2 sm:p-1 z-50">
                 <button
                     onClick={closePosition}
-                    className="w-full py-3 sm:py-4 rounded-2xl flex items-center justify-center gap-2 font-bold text-lg text-white bg-blue-500 hover:bg-blue-600 hover:shadow-blue-500/50 hover:scale-[1.02] cursor-pointer active:scale-95 transition-all shadow-lg shadow-blue-500/30 animate-pulse"
+                    className="w-full py-3 sm:py-4 rounded-2xl flex items-center justify-center gap-2 font-bold text-lg text-white bg-blue-500 hover:bg-blue-600 hover:scale-[1.02] cursor-pointer active:scale-95 transition-all animate-slow-pulse"
                 >
                     <span className="uppercase">Close Position</span>
                 </button>

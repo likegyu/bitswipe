@@ -27,6 +27,9 @@ export const GameLayout = () => {
     const [isSettingsOpen, setIsSettingsOpen] = useState(false);
     const [showEmoji, setShowEmoji] = useState<'win' | 'loss' | 'hold' | null>(null);
 
+    const revealSpeed = useGameStore(state => state.settings.revealSpeed);
+
+
     // Game Loop: Reveal candles
     useEffect(() => {
         let interval: NodeJS.Timeout;
@@ -38,11 +41,12 @@ export const GameLayout = () => {
                     clearInterval(interval);
                     finishRound();
                 }
-            }, 500); // 0.5s per candle
+            }, revealSpeed);
         }
 
         return () => clearInterval(interval);
-    }, [status]);
+    }, [status, revealSpeed]);
+
     useEffect(() => {
         if (status === 'RESULT') {
             const state = useGameStore.getState();

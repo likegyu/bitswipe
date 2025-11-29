@@ -12,15 +12,14 @@ CHUNK_CONFIG = {
     '5m': 5,
     '15m': 3,
     '30m': 2,
-    '1h': 1,
-    '4h': 1
+    '1h': 1
 }
 
 SYMBOL = 'BTCUSDT'
 LIMIT = 1000  # 한 번의 API 호출로 가져올 최대 캔들 수 (Binance 최대치)
 
 # 현재 실행할 시간봉 설정
-INTERVAL = '4h' 
+INTERVAL = '1h' 
 START_DATE_STR = (datetime.now() - timedelta(days=365)).strftime('%Y-%m-%d %H:%M:%S')
 
 # 2. 5분봉: 3개월치 데이터 (현재 날짜 기준)

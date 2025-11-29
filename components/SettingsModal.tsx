@@ -5,6 +5,7 @@ import { X, RefreshCw } from 'lucide-react';
 import { useGameStore } from '@/store/gameStore';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslations } from 'next-intl';
+import { GameSettings } from '@/store/gameStore';
 
 interface SettingsModalProps {
     isOpen: boolean;
@@ -16,7 +17,10 @@ export const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
     const { settings, setSettings, resetGame } = useGameStore();
 
     // Local state for immediate UI feedback without triggering global re-renders
-    const [localSettings, setLocalSettings] = React.useState(settings);
+    const [localSettings, setLocalSettings] = React.useState<GameSettings>({
+        ...settings,
+        revealSpeed: settings.revealSpeed || 500
+    });
     React.useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = 'hidden';
@@ -36,7 +40,7 @@ export const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
 
     const handleClose = () => {
         // Commit leverage changes to global store on close
-        setSettings({ leverage: localSettings.leverage });
+        setSettings({ ...settings, leverage: localSettings.leverage, revealSpeed: localSettings.revealSpeed });
         onClose();
     };
 
@@ -141,7 +145,30 @@ export const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
                                     ))}
                                 </div>
                             </div>
-
+                            {/* Reveal Speed */}
+                            <div className="mt-4">
+                                <label className="block text-xs sm:text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">
+                                    {t('reveal_speed_label') /* "캔들 공개 속도" */}
+                                </label>
+                                <div className="flex gap-2">
+                                    {[
+                                        { label: '빠름', value: 500 },
+                                        { label: '중간', value: 1000 },
+                                        { label: '느림', value: 1500 }
+                                    ].map((option) => (
+                                        <button
+                                            key={option.value}
+                                            onClick={() => setLocalSettings({ ...localSettings, revealSpeed: option.value })}
+                                            className={`flex-1 py-2 rounded-xl text-sm sm:text-base font-medium transition-colors cursor-pointer ${localSettings.revealSpeed === option.value
+                                                ? 'bg-primary text-white'
+                                                : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
+                                                }`}
+                                        >
+                                            {option.label}
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
                             {/* Reset */}
                             <button
                                 onClick={handleReset}

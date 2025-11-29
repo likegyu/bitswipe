@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslations } from 'next-intl';
-import { ExternalLink, ChevronRight, Quote, Trophy } from 'lucide-react';
+import { ExternalLink, ChevronRight, Quote, Trophy, Gauge } from 'lucide-react';
 
 export const SEOContent = () => {
     const t = useTranslations('SEOContent');
@@ -482,7 +482,7 @@ export const SEOContent = () => {
                             description={`${t('Advanced.p1_part1')} ${t('Advanced.p1_strong')} ${t('Advanced.p1_part2')}`}
                         />
                         <div className="grid md:grid-cols-2 gap-6">
-                            {/* Leverage */}
+                            {/* 1. Leverage (1열) */}
                             <Card>
                                 <div className="flex items-center gap-3 mb-4">
                                     <div className="p-3 bg-gray-100 dark:bg-gray-800 rounded-xl text-amber-400">
@@ -493,15 +493,29 @@ export const SEOContent = () => {
                                     </h3>
                                 </div>
                                 <div className="space-y-3 text-sm text-gray-600 dark:text-gray-400">
-                                    <p><strong>{t('Advanced.tool1_goal_bold')}:</strong> {t('Advanced.tool1_goal_text')}</p>
                                     <p><strong>{t('Advanced.tool1_lever_bold')}:</strong> {t('Advanced.tool1_lever_text')}</p>
                                     <p><strong>{t('Advanced.tool1_liq_bold')}:</strong> {t('Advanced.tool1_liq_text')}</p>
                                     <p className="pt-2 text-gray-900 dark:text-gray-200 font-medium">{t('Advanced.tool1_rule_text')}</p>
                                 </div>
                             </Card>
 
-                            {/* RSI & MA & BB (Combined Concept Intro) */}
-                            <div className="space-y-6">
+                            {/* 2. Candle Reveal Speed (2열) */}
+                            <Card>
+                                <div className="flex items-center gap-3 mb-2">
+                                    <div className="p-2 bg-gray-100 dark:bg-gray-800 rounded-xl text-yellow-400">
+                                        <Gauge className="w-6 h-6" />
+                                    </div>
+                                    <h3 className="font-bold text-lg text-gray-900 dark:text-white">
+                                        {t('Advanced.tool5_title')}
+                                    </h3>
+                                </div>
+                                <div className="space-y-3 text-sm text-gray-600 dark:text-gray-400">
+                                    <p>{t('Advanced.tool5_text')}</p>
+                                </div>
+                            </Card>
+
+                            {/* 3. RSI & MA & BB (Combined Concept Intro) - 여기서 md:col-span-2 추가! */}
+                            <div className="space-y-6 md:col-span-2">
                                 <Card className="!p-5 flex gap-4 items-start">
                                     <div className="p-2 bg-gray-100 dark:bg-gray-800 rounded-lg text-gray-800 dark:text-gray-200 shrink-0"><Icons.RSI /></div>
                                     <div>

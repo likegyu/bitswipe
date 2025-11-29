@@ -103,17 +103,6 @@ export const TimeframeSelector = () => {
                     { value: '30m', label: t('option_30m_label'), sub: t('option_30m_sub'), icon: <BarChart2 className="w-4 h-4 sm:w-5 sm:h-5" /> },
                     { value: '1h', label: t('option_1h_label'), sub: t('option_1h_sub'), icon: <Clock className="w-4 h-4 sm:w-5 sm:h-5" /> },
                 ]
-            },
-            {
-                title: t('section_day_title'),
-                description: t('section_day_desc'),
-                icon: <Sun className="w-4 h-4 sm:w-5 sm:h-5" />,
-                color: 'text-amber-500 dark:text-amber-400',
-                bg: 'bg-amber-50 dark:bg-amber-900/20',
-                border: 'group-hover:border-amber-200',
-                options: [
-                    { value: '4h', label: t('option_4h_label'), sub: t('option_4h_sub'), icon: <Calendar className="w-4 h-4 sm:w-5 sm:h-5" /> },
-                ]
             }
         ];
 
@@ -144,7 +133,7 @@ export const TimeframeSelector = () => {
                                 </p>
                             </div>
 
-                            <div className={`${isCompactHeight ? '' : 'space-y-2'} sm:space-y-0 ${isCompactHeight ? 'grid grid-cols-3 gap-2' : 'sm:grid sm:grid-cols-3 sm:gap-4'}`}>
+                            <div className={`${isCompactHeight ? '' : 'space-y-2'} sm:space-y-0 ${isCompactHeight ? 'grid grid-cols-2 gap-2' : 'sm:grid sm:grid-cols-2 sm:gap-4'}`}>
                                 {timeframeSections.map((section) => (
                                     <div key={section.title} className={`${isCompactHeight ? 'contents' : 'space-y-2 sm:space-y-2 flex flex-col'}`}>
                                         <div className={`${isCompactHeight ? 'hidden' : 'hidden sm:flex'} items-center gap-2 ${section.color} opacity-80 ml-1 sm:justify-center sm:mb-3`}>

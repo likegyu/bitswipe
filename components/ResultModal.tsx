@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { useGameStore } from '@/store/gameStore';
+import { useGameStore, calculateGameStats } from '@/store/gameStore';
 import { motion } from 'framer-motion';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Sector } from 'recharts';
 import { useTranslations } from 'next-intl';
@@ -45,18 +45,21 @@ export const ResultModal = () => {
 
     if (status !== 'FINISHED') return null;
 
-    const totalRounds = history.length;
-    const wins = history.filter(h => h.win).length;
-    const losses = totalRounds - wins;
-    const winRate = totalRounds > 0 ? (wins / totalRounds) * 100 : 0;
-
-    const longBets = history.filter(h => h.position === 'long');
-    const longWins = longBets.filter(h => h.win).length;
-    const longWinRate = longBets.length > 0 ? (longWins / longBets.length) * 100 : 0;
-
-    const shortBets = history.filter(h => h.position === 'short');
-    const shortWins = shortBets.filter(h => h.win).length;
-    const shortWinRate = shortBets.length > 0 ? (shortWins / shortBets.length) * 100 : 0;
+    const {
+        totalRounds,
+        wins,
+        losses,
+        winRate,
+        longWinRate,
+        longWins,
+        longTotal,
+        shortWinRate,
+        shortWins,
+        shortTotal,
+        profitFactor,
+        avgProfit,
+        bestTrade
+    } = React.useMemo(() => calculateGameStats(history), [history]);
 
     const profit = balance - initialBalance;
     const profitPercent = ((profit / initialBalance) * 100).toFixed(2);
@@ -67,33 +70,6 @@ export const ResultModal = () => {
     ];
 
     const COLORS = ['#88d8b0', '#ff6b6b'];
-
-    // Advanced Metrics Calculation
-    const winningTrades = history.filter(h => h.actualPnL > 0);
-    const losingTrades = history.filter(h => h.actualPnL < 0);
-
-    const avgWin = winningTrades.length > 0
-        ? winningTrades.reduce((acc, h) => acc + h.actualPnL, 0) / winningTrades.length
-        : 0;
-    const avgLoss = losingTrades.length > 0
-        ? Math.abs(losingTrades.reduce((acc, h) => acc + h.actualPnL, 0) / losingTrades.length)
-        : 0;
-
-    // Profit Ratio (손익비): Average Win / Average Loss
-    // If Average Loss is 0, and Average Win > 0, it's infinite (perfect). We cap it at 99.99 for display.
-    // If both are 0, it's 0.
-    const profitFactor = avgLoss === 0 ? (avgWin > 0 ? 99.99 : 0) : (avgWin / avgLoss);
-
-    const profits = history.map(h => h.profitPercent);
-    const avgProfit = profits.length > 0 ? profits.reduce((a, b) => a + b, 0) / profits.length : 0;
-    // Fix: If all trades are losses (e.g. liquidation), max profit is still negative.
-    // However, if liquidated in round 1, profit is -100%. User wants to avoid showing "-100.0%".
-    // If best trade is -100%, it means only loss occurred. We can show 0% or just show the actual best trade.
-    // User request: "Best Trade +-100.0% correction".
-    // If the best trade is -100% (liquidation), we should probably show 0% or handle it gracefully.
-    // Let's show 0% if the best trade is <= -100% (liquidation).
-    const rawBestTrade = profits.length > 0 ? Math.max(...profits) : 0;
-    const bestTrade = rawBestTrade <= -100 ? 0 : rawBestTrade;
 
     const handleShare = async () => {
         const baseUrl = window.location.origin;
@@ -187,12 +163,12 @@ export const ResultModal = () => {
                     <div className="bg-gray-50 dark:bg-gray-700 p-3 sm:p-4 rounded-2xl text-center shadow-sm">
                         <h4 className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mb-1">{t('long_win_rate')}</h4>
                         <span className="text-base sm:text-xl font-bold text-success">{Math.round(longWinRate)}%</span>
-                        <div className="text-xs text-gray-400">{longWins}/{longBets.length}</div>
+                        <div className="text-xs text-gray-400">{longWins}/{longTotal}</div>
                     </div>
                     <div className="bg-gray-50 dark:bg-gray-700 p-3 sm:p-4 rounded-2xl text-center shadow-sm">
                         <h4 className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mb-1">{t('short_win_rate')}</h4>
                         <span className="text-base sm:text-xl font-bold text-error">{Math.round(shortWinRate)}%</span>
-                        <div className="text-xs text-gray-400">{shortWins}/{shortBets.length}</div>
+                        <div className="text-xs text-gray-400">{shortWins}/{shortTotal}</div>
                     </div>
                 </div>
 

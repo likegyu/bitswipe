@@ -11,7 +11,7 @@
     },
     "GameSetup": {
         "step_timeframe_title": "Seleccionar Temporalidad",
-        "step_timeframe_desc": "Predice el precio a 5 velas vista",
+        "step_timeframe_desc": "Predice el precio basándote en el gráfico",
         "step_rounds_title": "Seleccionar Rondas",
         "step_rounds_desc": "¿Cuántas operaciones quieres hacer?",
         "step_timeframe_sub_desc": "Refleja el gráfico del último año. Actualización del gráfico: 23/11/2025",
@@ -26,13 +26,11 @@
         "option_15m_label": "15m",
         "option_30m_label": "30m",
         "option_1h_label": "1h",
-        "option_4h_label": "4h",
         "option_1m_sub": "Turbo",
         "option_5m_sub": "Blitz",
         "option_15m_sub": "Rápido",
         "option_30m_sub": "Intra",
         "option_1h_sub": "Horario",
-        "option_4h_sub": "Swing",
         "rounds_10_label": "10 Rondas",
         "rounds_10_sub": "Partida Rápida",
         "rounds_25_label": "25 Rondas",
@@ -50,7 +48,8 @@
         "indicator_ma": "MA (Media Móvil)",
         "indicator_bb": "BB (Bandas de Bollinger)",
         "reset_button": "Reiniciar Juego",
-        "reset_confirm": "Tu progreso actual se perderá. ¿Estás seguro de que quieres reiniciar?"
+        "reset_confirm": "¿Estás seguro de que quieres reiniciar?",
+        "reveal_speed_label": "Velocidad de revelación"
     },
     "ResultModal": {
         "win_rate": "Tasa de Acierto Total",
@@ -187,9 +186,10 @@
             "tool1_goal_text": "Experimenta de primera mano lo peligroso que es el alto apalancamiento.",
             "tool1_lever_bold": "Espada de Doble Filo",
             "tool1_lever_text": "Las ganancias se amplifican, pero las pérdidas crecen igual de rápido.",
-            "tool1_liq_bold": "Liquidación (Game Over)",
-            "tool1_liq_text": "En el momento en que tu pérdida excede tu capital, tu posición se cierra forzosamente y tu dinero se vuelve cero. ¡En el juego, la liquidación significa Game Over inmediato!",
-            "tool1_rule_text": "Consejo: Empieza con bajo apalancamiento para cogerle el truco.",
+            "tool1_liq_bold": "Liquidación",
+            "tool1_liq_text": "Si tu pérdida excede tu capital, tu posición se cierra forzosamente.",
+            "tool1_rule_text": "En este juego, si tu pérdida excede tu capital, es Game Over inmediato.",
+            "tool1_text": "Amplifica tanto las ganancias como las pérdidas. ¡Cuidado con la liquidación (Game Over) si tu pérdida supera tu capital!",
             "tool2_title": "RSI (Índice de Fuerza Relativa)",
             "tool2_text": "Un indicador que te dice si el precio actual es demasiado caro o demasiado barato.",
             "tool2_overbought_bold": "Por encima de 70",
@@ -207,7 +207,9 @@
             "tool4_squeeze_bold": "Contracción (Squeeze)",
             "tool4_squeeze_text": "Cuando el ancho se estrecha, es una señal de que se avecina un gran movimiento.",
             "tool4_touch_bold": "Toque de Banda",
-            "tool4_touch_text": "Salirse de la banda es raro, por lo que tiende a querer volver adentro."
+            "tool4_touch_text": "Salirse de la banda es raro, por lo que tiende a querer volver adentro.",
+            "tool5_title": "Velocidad de Revelación de Velas",
+            "tool5_text": "La velocidad predeterminada es media. Ajústala para que sea más rápida o más lenta y encuentra tu propio ritmo."
         },
         "HowToPlay": {
             "title": "Cómo Jugar",
@@ -260,8 +262,8 @@
         "GettingStarted": {
             "title": "Guía para Principiantes",
             "p1": "Si el trading es nuevo para ti, puede ser abrumador. No te preocupes. Solo sigue estos pasos.",
-            "step1_title": "Comienza con velas de 4h",
-            "step1_text": "Las velas de 1m o 5m son demasiado rápidas para principiantes. Comenzar con gráficos más lentos como 1h o 4h hace más fácil aprender patrones.",
+            "step1_title": "Comienza con velas de 1m",
+            "step1_text": "Las velas de 1m tienen poca volatilidad, lo que las hace perfectas para que los principiantes aprendan el flujo del gráfico. Practica patrones con un ritmo más rápido.",
             "step2_title": "Mantén el apalancamiento en 1x",
             "step2_text": "Comienza sin apalancamiento (1x). Concéntrate en leer el flujo del gráfico. Puedes aumentar el apalancamiento más tarde cuando tengas confianza.",
             "step3_title": "Activa solo un indicador",
