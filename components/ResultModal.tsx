@@ -133,7 +133,8 @@ export const ResultModal = () => {
         setShowAnalysis(true);
     };
 
-
+    const isLiquidationLoss = parseFloat(profitPercent) <= -100.00;
+    const isRegistrationDisabled = isActuallyRegistered || isLiquidationLoss;
 
     return (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-md z-[80] flex items-center justify-center p-2 sm:p-4">
@@ -183,12 +184,12 @@ export const ResultModal = () => {
 
                 {/* Sub Stats - Win Rates */}
                 <div className={`grid grid-cols-2 gap-3 sm:gap-4 ${isMobileHeight ? 'mb-2' : 'mb-2 sm:mb-4'}`}>
-                    <div className="bg-gray-50 dark:bg-gray-800 p-3 sm:p-4 rounded-2xl text-center shadow-sm">
+                    <div className="bg-gray-50 dark:bg-gray-700 p-3 sm:p-4 rounded-2xl text-center shadow-sm">
                         <h4 className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mb-1">{t('long_win_rate')}</h4>
                         <span className="text-base sm:text-xl font-bold text-success">{Math.round(longWinRate)}%</span>
                         <div className="text-xs text-gray-400">{longWins}/{longBets.length}</div>
                     </div>
-                    <div className="bg-gray-50 dark:bg-gray-800 p-3 sm:p-4 rounded-2xl text-center shadow-sm">
+                    <div className="bg-gray-50 dark:bg-gray-700 p-3 sm:p-4 rounded-2xl text-center shadow-sm">
                         <h4 className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 mb-1">{t('short_win_rate')}</h4>
                         <span className="text-base sm:text-xl font-bold text-error">{Math.round(shortWinRate)}%</span>
                         <div className="text-xs text-gray-400">{shortWins}/{shortBets.length}</div>
@@ -197,17 +198,17 @@ export const ResultModal = () => {
 
                 {/* Advanced Stats */}
                 <div className={`grid grid-cols-3 gap-2 sm:gap-3 ${isMobileHeight ? 'mb-2' : 'mb-2 sm:mb-4'}`}>
-                    <div className="bg-gray-50 dark:bg-gray-800 p-2 sm:p-3 rounded-xl text-center shadow-sm">
+                    <div className="bg-gray-50 dark:bg-gray-700 p-2 sm:p-3 rounded-xl text-center shadow-sm">
                         <h4 className="text-[10px] sm:text-xs text-gray-500 dark:text-gray-400 mb-1">{t('profit_factor')}</h4>
                         <span className="text-sm sm:text-base font-bold text-gray-800 dark:text-gray-200">{profitFactor.toFixed(2)}</span>
                     </div>
-                    <div className="bg-gray-50 dark:bg-gray-800 p-2 sm:p-3 rounded-xl text-center shadow-sm">
+                    <div className="bg-gray-50 dark:bg-gray-700 p-2 sm:p-3 rounded-xl text-center shadow-sm">
                         <h4 className="text-[10px] sm:text-xs text-gray-500 dark:text-gray-400 mb-1">{t('avg_profit')}</h4>
                         <span className={`text-sm sm:text-base font-bold ${avgProfit >= 0 ? 'text-success' : 'text-error'}`}>
                             {avgProfit >= 0 ? '+' : ''}{avgProfit.toFixed(1)}%
                         </span>
                     </div>
-                    <div className="bg-gray-50 dark:bg-gray-800 p-2 sm:p-3 rounded-xl text-center shadow-sm">
+                    <div className="bg-gray-50 dark:bg-gray-700 p-2 sm:p-3 rounded-xl text-center shadow-sm">
                         <h4 className="text-[10px] sm:text-xs text-gray-500 dark:text-gray-400 mb-1">{t('best_trade')}</h4>
                         <span className="text-sm sm:text-base font-bold text-success">+{bestTrade.toFixed(1)}%</span>
                     </div>
@@ -235,10 +236,10 @@ export const ResultModal = () => {
                         </button>
                         <button
                             onClick={() => setShowRegistration(true)}
-                            disabled={isActuallyRegistered}
-                            className={`cursor-pointer flex-1 py-3 sm:py-4 font-bold text-sm sm:text-base rounded-xl transition-all shadow-sm flex items-center justify-center gap-2 ${isActuallyRegistered
-                                ? 'bg-gray-300 dark:bg-gray-500 text-gray-500 cursor-not-allowed'
-                                : 'bg-gray-100 dark:bg-gray-500 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
+                            disabled={isRegistrationDisabled}
+                            className={`flex-1 py-3 sm:py-4 font-bold text-sm sm:text-base rounded-xl transition-all shadow-sm flex items-center justify-center gap-2 ${isRegistrationDisabled
+                                ? 'cursor-not-allowed bg-gray-200 dark:bg-gray-700 text-gray-500'
+                                : 'cursor-pointer bg-gray-100 dark:bg-gray-500 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
                                 }`}
                         >
                             <Trophy size={18} />
