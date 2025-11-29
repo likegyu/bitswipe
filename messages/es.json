@@ -327,6 +327,15 @@
             "tip_title": "Consejo de Interpretación",
             "tip_text": "No te obsesiones con la tasa de acierto. Incluso con 40% de precisión, puedes obtener ganancias si tu factor de beneficio es 3:1. Por el contrario, incluso con 70% de precisión, una gran pérdida sin cortarla puede acabar con todo. El equilibrio es clave."
         },
+        "RankingSection": {
+            "title": "Revisa Tu Ranking",
+            "p1": "¿Tienes curiosidad por saber qué tan bien lo estás haciendo? Revisa tu ranking y mira cómo invierten otros traders.",
+            "card1_title": "Mi Ranking",
+            "card1_text": "Mira dónde te encuentras entre todos los traders.",
+            "card2_title": "Estilos de Inversión",
+            "card2_text": "Analiza los estilos de trading de los mejores.",
+            "cta_button": "Ver Ranking"
+        },
         "Disclaimer": "Descargo de responsabilidad: Bitswipe es solo un juego de simulación. No hay dinero real involucrado, y obtener ganancias aquí no garantiza retornos de inversión reales. Eres el único responsable de tus inversiones."
     },
     "PrivacyPolicy": {

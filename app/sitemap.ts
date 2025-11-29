@@ -13,7 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: 'https://www.bitswipe.xyz',
-      lastModified: '2025-11-27T15:02:24.021Z',
+      lastModified: currentDate,
       changeFrequency: 'weekly', // <changefreq>weekly</changefreq>
       priority: 1,                // <priority>1</priority>
     },
@@ -34,7 +34,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       // 'daily' 변경 빈도에 맞춰 lastModified를 현재 시점(빌드 또는 요청 시점)으로 설정합니다.
       lastModified: currentDate,
       changeFrequency: 'daily',
-      priority: 1,
+      priority: 0.8,
+    },
+    {
+      url: 'https://www.bitswipe.xyz/ranking',
+      // 'daily' 변경 빈도에 맞춰 lastModified를 현재 시점(빌드 또는 요청 시점)으로 설정합니다.
+      lastModified: currentDate,
+      changeFrequency: 'daily',
+      priority: 0.8,
     },
     // TODO: 만약 게시글이나 제품과 같은 동적 페이지가 있다면
     // 이 부분에서 데이터베이스 또는 API를 호출하여 URL 목록을 추가해야 합니다.

@@ -3,7 +3,7 @@
 import React from 'react';
 import { useTranslations } from 'next-intl';
 import { supabase } from '@/lib/supabaseClient';
-import { Trophy, TrendingUp, TrendingDown, Activity, ChevronDown, ChevronUp } from 'lucide-react';
+import { Trophy, TrendingUp, TrendingDown, Activity, ChevronDown, ChevronUp, Quote } from 'lucide-react';
 import { AnalysisModal } from '@/components/AnalysisModal';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -31,6 +31,7 @@ interface Ranking {
 
 export default function RankingPage() {
     const t = useTranslations('RankingPage');
+    const tSEO = useTranslations('SEOContent');
     const [rankings, setRankings] = React.useState<Ranking[]>([]);
     const [loading, setLoading] = React.useState(true);
     const [expandedId, setExpandedId] = React.useState<string | null>(null);
@@ -103,6 +104,34 @@ export default function RankingPage() {
                     </motion.div>
                 </div>
 
+                {/* Decorative Cards */}
+                <div className="grid md:grid-cols-2 gap-4 mb-8">
+                    <div className="bg-white dark:bg-gray-900 p-6 rounded-2xl border border-gray-100 dark:border-gray-800 flex flex-col items-center text-center shadow-sm hover:shadow-md transition-shadow">
+                        <div className="w-12 h-12 bg-yellow-100 dark:bg-yellow-900/30 rounded-full flex items-center justify-center mb-3 text-yellow-600 dark:text-yellow-400">
+                            <Trophy className="w-6 h-6" />
+                        </div>
+                        <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
+                            {tSEO('RankingSection.card1_title')}
+                        </h3>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                            {tSEO('RankingSection.card1_text')}
+                        </p>
+                    </div>
+                    <div className="bg-white dark:bg-gray-900 p-6 rounded-2xl border border-gray-100 dark:border-gray-800 flex flex-col items-center text-center shadow-sm hover:shadow-md transition-shadow">
+                        <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mb-3 text-blue-600 dark:text-blue-400">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-6 h-6">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                            </svg>
+                        </div>
+                        <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
+                            {tSEO('RankingSection.card2_title')}
+                        </h3>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                            {tSEO('RankingSection.card2_text')}
+                        </p>
+                    </div>
+                </div>
+
                 {loading ? (
                     <div className="flex justify-center py-20">
                         <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-primary"></div>
@@ -139,12 +168,15 @@ export default function RankingPage() {
                                             <span className="bg-gray-100 dark:bg-gray-800 px-2 py-0.5 rounded-full">
                                                 {ranking.rounds} {t('rounds')}
                                             </span>
-                                            {ranking.message && (
-                                                <span className="truncate max-w-[150px]">
-                                                    {ranking.message}
-                                                </span>
-                                            )}
                                         </div>
+                                        {ranking.message && (
+                                            <div className="flex items-center gap-2 mt-3 text-sm text-gray-500 dark:text-gray-400">
+                                                <Quote size={14} className="text-gray-400 fill-gray-400 flex-shrink-0" />
+                                                <span className="truncate italic">
+                                                    "{ranking.message}"
+                                                </span>
+                                            </div>
+                                        )}
                                     </div>
 
                                     <div className="text-right">
@@ -175,6 +207,15 @@ export default function RankingPage() {
                                                     <Activity size={16} className="text-primary" />
                                                     <h4 className="text-sm font-bold text-gray-700 dark:text-gray-300">{t('investment_style')}</h4>
                                                 </div>
+
+                                                {ranking.message && (
+                                                    <div className="mb-4 p-4 bg-gray-100 dark:bg-gray-800/50 rounded-xl relative">
+                                                        <Quote className="absolute top-2 left-2 text-gray-300 dark:text-gray-700 w-6 h-6 -z-0" />
+                                                        <p className="text-sm text-gray-600 dark:text-gray-300 relative z-10 pl-4 italic">
+                                                            "{ranking.message}"
+                                                        </p>
+                                                    </div>
+                                                )}
 
                                                 <div className="grid grid-cols-3 gap-3 mb-4">
                                                     <div className="bg-white dark:bg-gray-800 p-3 rounded-xl text-center shadow-sm border border-gray-100 dark:border-gray-700 transform-gpu">
@@ -217,12 +258,14 @@ export default function RankingPage() {
                 )}
             </div>
 
-            {selectedHistory && (
-                <AnalysisModal
-                    history={selectedHistory}
-                    onClose={() => setSelectedHistory(null)}
-                />
-            )}
-        </div>
+            {
+                selectedHistory && (
+                    <AnalysisModal
+                        history={selectedHistory}
+                        onClose={() => setSelectedHistory(null)}
+                    />
+                )
+            }
+        </div >
     );
 }

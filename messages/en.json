@@ -327,6 +327,15 @@
             "tip_title": "Interpretation Tip",
             "tip_text": "Don't obsess over win rate. Even with 40% accuracy, you can profit if your profit factor is 3:1. Conversely, even with 70% accuracy, one big loss without cutting it can wipe everything out. Balance is key."
         },
+        "RankingSection": {
+            "title": "Check Your Ranking",
+            "p1": "Curious about how well you're doing? Check your ranking and see how other traders are investing.",
+            "card1_title": "My Ranking",
+            "card1_text": "See where you stand among all traders.",
+            "card2_title": "Investment Styles",
+            "card2_text": "Analyze the trading styles of top rankers.",
+            "cta_button": "Check Ranking"
+        },
         "Disclaimer": "Disclaimer: Bitswipe is just a simulation game. No real money is involved, and making a profit here does not guarantee real investment returns. You are solely responsible for your investments."
     },
     "PrivacyPolicy": {

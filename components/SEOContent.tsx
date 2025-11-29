@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslations } from 'next-intl';
-import { ExternalLink, ChevronRight, Quote } from 'lucide-react';
+import { ExternalLink, ChevronRight, Quote, Trophy } from 'lucide-react';
 
 export const SEOContent = () => {
     const t = useTranslations('SEOContent');
@@ -127,6 +127,49 @@ export const SEOContent = () => {
                                     {t('Mission.p2_part2')}
                                 </p>
                             </div>
+                        </div>
+                    </Section>
+
+                    {/* 2. Ranking & Community (Moved) */}
+                    <Section>
+                        <SectionHeader
+                            title={t('RankingSection.title')}
+                            description={t('RankingSection.p1')}
+                        />
+                        <div className="grid md:grid-cols-2 gap-6 mb-8">
+                            <Card className="flex flex-col items-center text-center p-8">
+                                <div className="w-16 h-16 bg-yellow-100 dark:bg-yellow-900/30 rounded-full flex items-center justify-center mb-4 text-yellow-600 dark:text-yellow-400">
+                                    <Trophy className="w-8 h-8" />
+                                </div>
+                                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                                    {t('RankingSection.card1_title')}
+                                </h3>
+                                <p className="text-gray-600 dark:text-gray-400">
+                                    {t('RankingSection.card1_text')}
+                                </p>
+                            </Card>
+                            <Card className="flex flex-col items-center text-center p-8">
+                                <div className="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mb-4 text-blue-600 dark:text-blue-400">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-8 h-8">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                    </svg>
+                                </div>
+                                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                                    {t('RankingSection.card2_title')}
+                                </h3>
+                                <p className="text-gray-600 dark:text-gray-400">
+                                    {t('RankingSection.card2_text')}
+                                </p>
+                            </Card>
+                        </div>
+                        <div className="text-center">
+                            <a
+                                href="/ranking"
+                                className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-gray-900 rounded-xl hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100"
+                            >
+                                {t('RankingSection.cta_button')}
+                                <ChevronRight className="w-5 h-5 ml-2" />
+                            </a>
                         </div>
                     </Section>
 
@@ -652,7 +695,9 @@ export const SEOContent = () => {
                         </div>
                     </Section>
 
-                    {/* 9. FAQ & Resources */}
+
+
+                    {/* 10. FAQ & Resources */}
                     <Section className="mb-0">
                         <div className="grid lg:grid-cols-3 gap-12">
                             <div className="lg:col-span-2">
