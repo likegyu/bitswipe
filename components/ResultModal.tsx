@@ -69,13 +69,20 @@ export const ResultModal = () => {
     const COLORS = ['#88d8b0', '#ff6b6b'];
 
     // Advanced Metrics Calculation
-    const grossProfit = history.reduce((acc, h) => {
-        return acc + (h.actualPnL > 0 ? h.actualPnL : 0);
-    }, 0);
-    const grossLoss = history.reduce((acc, h) => {
-        return acc + (h.actualPnL < 0 ? Math.abs(h.actualPnL) : 0);
-    }, 0);
-    const profitFactor = grossLoss === 0 ? (grossProfit > 0 ? 99.9 : 0) : (grossProfit / grossLoss);
+    const winningTrades = history.filter(h => h.actualPnL > 0);
+    const losingTrades = history.filter(h => h.actualPnL < 0);
+
+    const avgWin = winningTrades.length > 0
+        ? winningTrades.reduce((acc, h) => acc + h.actualPnL, 0) / winningTrades.length
+        : 0;
+    const avgLoss = losingTrades.length > 0
+        ? Math.abs(losingTrades.reduce((acc, h) => acc + h.actualPnL, 0) / losingTrades.length)
+        : 0;
+
+    // Profit Ratio (손익비): Average Win / Average Loss
+    // If Average Loss is 0, and Average Win > 0, it's infinite (perfect). We cap it at 99.99 for display.
+    // If both are 0, it's 0.
+    const profitFactor = avgLoss === 0 ? (avgWin > 0 ? 99.99 : 0) : (avgWin / avgLoss);
 
     const profits = history.map(h => h.profitPercent);
     const avgProfit = profits.length > 0 ? profits.reduce((a, b) => a + b, 0) / profits.length : 0;
@@ -133,7 +140,7 @@ export const ResultModal = () => {
             <motion.div
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
-                className={`bg-white dark:bg-gray-900 rounded-3xl w-full max-w-md shadow-2xl overflow-y-auto ${isMobileHeight ? 'p-3 max-h-[95vh]' : 'p-4 sm:p-6 max-h-[90vh]'}`}
+                className={`bg-card dark:bg-gray-900 rounded-3xl w-full max-w-md shadow-2xl overflow-y-auto ${isMobileHeight ? 'p-3 max-h-[95vh]' : 'p-4 sm:p-6 max-h-[90vh]'}`}
             >
                 {/* Main Win Rate */}
                 <div className={`flex flex-col items-center ${isMobileHeight ? 'mb-2' : 'mb-6 sm:mb-8'}`}>
@@ -241,14 +248,14 @@ export const ResultModal = () => {
 
                     <button
                         onClick={handleAnalysisClick}
-                        className="cursor-pointer w-full py-3 sm:py-4 bg-gray-500 dark:bg-gray-700 text-white font-bold text-sm sm:text-base rounded-xl hover:bg-gray-700 dark:hover:bg-gray-600 transition-colors shadow-sm flex items-center justify-center gap-2"
+                        className="cursor-pointer w-full py-3 sm:py-4 bg-gray-500 dark:bg-gray-700 text-white font-bold text-sm sm:text-base rounded-xl hover:bg-gray-700 dark:hover:bg-gray-600 transition-colors shadow-sm flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-95"
                     >
                         {t('view_analysis')}
                     </button>
 
                     <button
                         onClick={resetGame}
-                        className="cursor-pointer w-full py-3 sm:py-4 bg-primary text-white font-bold text-sm sm:text-base rounded-xl hover:bg-primary-hover transition-colors shadow-md"
+                        className="cursor-pointer w-full py-3 sm:py-4 bg-primary text-white font-bold text-sm sm:text-base rounded-xl hover:bg-primary-hover transition-colors shadow-md hover:scale-[1.02] active:scale-95"
                     >
                         {t('play_again')}
                     </button>
@@ -274,7 +281,9 @@ export const ResultModal = () => {
                             shortWinRate,
                             bestTrade,
                             avgProfit,
-                            history
+                            profitFactor,
+                            history,
+                            timeframe: useGameStore.getState().settings.timeframe
                         }}
                     />
                 )

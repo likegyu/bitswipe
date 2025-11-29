@@ -5,7 +5,7 @@ import { createChart, ColorType, IChartApi, ISeriesApi, Time, CandlestickSeries,
 import { useTheme } from 'next-themes';
 import { CandleData } from '@/lib/data';
 import { calculateSMA, calculateBollingerBands, calculateRSI } from '@/lib/indicators';
-import { GameSettings } from '@/store/gameStore';
+import { GameSettings, useGameStore } from '@/store/gameStore';
 
 interface TradingChartProps {
     candles: CandleData[];
@@ -17,6 +17,7 @@ interface TradingChartProps {
 
 export const TradingChartBase = ({ candles, warmupCandles, entryPrice, settings, height = '100%' }: TradingChartProps) => {
     const { resolvedTheme } = useTheme();
+    const { isPositionOpen, candlesSinceEntry, autoCloseLimit, closePosition } = useGameStore();
     const chartContainerRef = useRef<HTMLDivElement>(null);
     const rsiContainerRef = useRef<HTMLDivElement>(null);
 
@@ -303,6 +304,28 @@ export const TradingChartBase = ({ candles, warmupCandles, entryPrice, settings,
 
     }, [candles, warmupCandles, settings.indicators]);
 
+    // Dynamic red color that increases exponentially
+    const progress = Math.min(candlesSinceEntry / autoCloseLimit, 1);
+
+    // Exponential curve (start slow → then sharply red)
+    const intensity = Math.pow(progress, 2.2);
+
+    // Base colors depending on theme
+    const isDark = resolvedTheme === 'dark';
+
+    // 라이트모드: 약한 회색 → 진한 빨강  
+    // 다크모드: 밝은 회색 → 채도 낮은 레드(다크에서 눈에 확 들어오지만 과하지 않게)  
+    const startColor = isDark ? [220, 220, 220] : [255, 255, 255];
+    const endColor = isDark ? [255, 80, 80] : [255, 30, 30];
+
+    // Linear interpolation
+    const r = Math.round(startColor[0] + (endColor[0] - startColor[0]) * intensity);
+    const g = Math.round(startColor[1] + (endColor[1] - startColor[1]) * intensity);
+    const b = Math.round(startColor[2] + (endColor[2] - startColor[2]) * intensity);
+
+    const dynamicColor = `rgb(${r}, ${g}, ${b})`;
+
+
     return (
         <div className="w-full h-full flex flex-col relative pointer-events-none">
             {/* Chart Info Overlay */}
@@ -310,10 +333,26 @@ export const TradingChartBase = ({ candles, warmupCandles, entryPrice, settings,
                 <div className="flex items-center gap-2">
                     <h1 className="text-sm font-bold text-gray-800 dark:text-gray-200">BTCUSDT</h1>
                     <span className="text-xs font-medium text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded">
-                        {settings.timeframe === '1d' ? '1D' : settings.timeframe.toUpperCase()}
+                        {settings.timeframe.toUpperCase()}
                     </span>
                 </div>
             </div>
+
+            {/* Candle Counter Overlay */}
+            {isPositionOpen && (
+                <div className="absolute inset-0 z-20 flex flex-col items-center justify-end pb-16 pointer-events-none">
+                    {/* Candle Counter */}
+                    <div className="bg-black/60 backdrop-blur-md px-6 py-2 rounded-full border border-white/10">
+                        <span
+                            className="text-2xl font-mono font-bold transition-colors duration-300"
+                            style={{ color: dynamicColor }}
+                        >
+
+                            {candlesSinceEntry} / {autoCloseLimit}
+                        </span>
+                    </div>
+                </div>
+            )}
 
             <div ref={chartContainerRef} className={`w-full ${settings.indicators.rsi ? 'h-[70%]' : 'h-full'}`} />
 

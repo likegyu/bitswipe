@@ -50,6 +50,10 @@ interface GameState {
     isLoading: boolean;
     isRankingRegistered: boolean;
 
+    isPositionOpen: boolean;
+    candlesSinceEntry: number;
+    autoCloseLimit: number;
+
     // Data
     allCandles: CandleData[];
 
@@ -69,6 +73,7 @@ interface GameState {
     setRankingRegistered: (registered: boolean) => void;
     initializeGame: () => Promise<void>;
     placeBet: (position: 'long' | 'short' | 'hold') => void;
+    closePosition: () => void;
     completeRound: () => void;
     nextRound: () => void;
     resetGame: () => void;
@@ -120,6 +125,9 @@ export const useGameStore = create<GameState>((set, get) => ({
     isGameStarted: false,
     isLoading: false,
     isRankingRegistered: false,
+    isPositionOpen: false,
+    candlesSinceEntry: 0,
+    autoCloseLimit: 30,
     allCandles: [],
 
     frontChart: null,
@@ -150,6 +158,8 @@ export const useGameStore = create<GameState>((set, get) => ({
                 balance: 1000,
                 isGameStarted: true,
                 isLoading: false,
+                isPositionOpen: false,
+                candlesSinceEntry: 0,
                 frontChart,
                 backChart,
                 currentBetContext: null,
@@ -200,8 +210,40 @@ export const useGameStore = create<GameState>((set, get) => ({
             else if (Math.abs(close - currentBB.middle) < threshold) bbPosition = 'middle';
         }
 
+        // Check for HOLD
+        if (position === 'hold') {
+            const result: RoundResult = {
+                round: get().round,
+                position: 'hold',
+                win: null,
+                profitPercent: 0,
+                entryPrice: entryPrice,
+                exitPrice: entryPrice,
+                betAmount: 0,
+                actualPnL: 0,
+                indicators: {
+                    rsi: currentRSI,
+                    maTrend,
+                    bbPosition
+                }
+            };
+
+            set({
+                history: [...get().history, result],
+                currentBetContext: null,
+                status: 'REVEALING', // Briefly show revealing state or skip directly
+            });
+
+            // For HOLD, we just skip to next round (or show result briefly)
+            // Let's reuse completeRound logic but adapted
+            get().completeRound();
+            return;
+        }
+
         set({
             status: 'REVEALING',
+            isPositionOpen: true,
+            candlesSinceEntry: 0,
             frontChart: {
                 ...frontChart,
                 currentPosition: position,
@@ -215,6 +257,14 @@ export const useGameStore = create<GameState>((set, get) => ({
         });
     },
 
+    closePosition: () => {
+        const { isPositionOpen } = get();
+        if (!isPositionOpen) return;
+
+        set({ isPositionOpen: false });
+        get().completeRound();
+    },
+
     completeRound: () => {
         const { frontChart, balance, settings, round, history, currentBetContext } = get();
 
@@ -226,23 +276,13 @@ export const useGameStore = create<GameState>((set, get) => ({
 
         // Handle hold position
         if (currentPosition === 'hold') {
-            const result: RoundResult = {
-                round,
-                position: 'hold',
-                win: null,
-                profitPercent: 0,
-                entryPrice: frontChart.entryPrice,
-                exitPrice,
-                betAmount: 0,
-                actualPnL: 0,
-                indicators: currentBetContext || undefined
-            };
+            // Already handled in placeBet for HOLD, but safety check
+            // Logic moved to placeBet for immediate resolution or keep here if we want animation
+            // If we want animation for hold, we need to decide what to show. 
+            // For now, let's assume HOLD resolves immediately without chart revealing.
+            // But if we are here, it means completeRound was called.
 
-            set({
-                history: [...history, result],
-                currentBetContext: null
-            });
-            return;
+            // If we want to show "Skipped" effect, we can just proceed.
         }
 
         let win = false;
@@ -344,14 +384,14 @@ export const useGameStore = create<GameState>((set, get) => ({
             newBackChart = generateChartData(allCandles, settings.timeframe);
         }
 
-        // Show Ad based on maxRounds
+        // Show Ad based on maxRounds (Reduced frequency)
         let showAd = false;
         if (maxRounds === 10) {
-            if (nextRoundNum === 4 || nextRoundNum === 8) showAd = true;
+            if (nextRoundNum === 5) showAd = true;
         } else if (maxRounds === 25) {
-            if (nextRoundNum === 7 || nextRoundNum === 13 || nextRoundNum === 19) showAd = true;
+            if (nextRoundNum === 10 || nextRoundNum === 20) showAd = true;
         } else if (maxRounds === 50) {
-            if (nextRoundNum === 9 || nextRoundNum === 17 || nextRoundNum === 25 || nextRoundNum === 33 || nextRoundNum === 41) showAd = true;
+            if (nextRoundNum === 15 || nextRoundNum === 30 || nextRoundNum === 45) showAd = true;
         }
 
         set({
@@ -363,25 +403,40 @@ export const useGameStore = create<GameState>((set, get) => ({
     },
 
     revealNextCandle: () => {
-        const { frontChart, status } = get();
+        const { frontChart, status, isPositionOpen, candlesSinceEntry, autoCloseLimit } = get();
+
+        // If position is closed (manually), stop revealing immediately
+        if (!isPositionOpen) return false;
+
         if (status !== 'REVEALING' || !frontChart) return false;
 
+        // If no future candles left, end round (shouldn't happen with correct config)
         if (frontChart.futureCandles.length === 0) {
+            get().completeRound();
             return false;
         }
 
         const nextCandle = frontChart.futureCandles[0];
-        const remainingFuture = frontChart.futureCandles.slice(1);
+        const newVisible = [...frontChart.candles, nextCandle];
+        const newFuture = frontChart.futureCandles.slice(1);
 
+        // Update chart state
         set({
             frontChart: {
                 ...frontChart,
-                candles: [...frontChart.candles, nextCandle],
-                futureCandles: remainingFuture,
-            }
+                candles: newVisible,
+                futureCandles: newFuture,
+            },
+            candlesSinceEntry: candlesSinceEntry + 1
         });
 
-        return remainingFuture.length > 0;
+        // Auto-close if limit reached
+        if (candlesSinceEntry + 1 >= autoCloseLimit) {
+            get().closePosition();
+            return false;
+        }
+
+        return true;
     },
 
     resetGame: () => {

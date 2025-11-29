@@ -17,6 +17,14 @@ export const AnalysisModal = ({ history, onClose }: AnalysisModalProps) => {
     const [showAd, setShowAd] = React.useState(true);
     const adInitialized = React.useRef(false);
 
+    // Prevent background scrolling when modal is open
+    React.useEffect(() => {
+        document.body.style.overflow = 'hidden';
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, []);
+
     // AdSense initialization logic removed for custom banner
     // React.useEffect(() => {
     //     if (showAd && !adInitialized.current) {
@@ -102,7 +110,7 @@ export const AnalysisModal = ({ history, onClose }: AnalysisModalProps) => {
             >
                 <button
                     onClick={onClose}
-                    className="cursor-pointer absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full p-1 transition-colors z-50"
+                    className="cursor-pointer absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full p-1 transition-colors z-50 hover:scale-110 active:scale-95"
                 >
                     <X size={20} />
                 </button>
@@ -138,7 +146,7 @@ export const AnalysisModal = ({ history, onClose }: AnalysisModalProps) => {
                         <div className="mt-4 flex justify-center">
                             <button
                                 onClick={() => setShowAd(false)}
-                                className="cursor-pointer w-[80%] mx-auto py-3 bg-primary text-white font-bold rounded-xl hover:bg-primary-hover transition-colors"
+                                className="cursor-pointer w-[80%] mx-auto py-3 bg-primary text-white font-bold rounded-xl hover:bg-primary-hover transition-colors hover:scale-[1.02] active:scale-95"
                             >
                                 {t('close_ad_view_analysis')}
                             </button>

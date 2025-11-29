@@ -17,7 +17,16 @@ export const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
 
     // Local state for immediate UI feedback without triggering global re-renders
     const [localSettings, setLocalSettings] = React.useState(settings);
-
+    React.useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [isOpen]);
     // Sync local state when modal opens
     React.useEffect(() => {
         if (isOpen) {
@@ -26,8 +35,8 @@ export const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
     }, [isOpen, settings]);
 
     const handleClose = () => {
-        // Commit changes to global store on close
-        setSettings(localSettings);
+        // Commit leverage changes to global store on close
+        setSettings({ leverage: localSettings.leverage });
         onClose();
     };
 
@@ -58,7 +67,7 @@ export const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
                     >
                         <div className="flex items-center justify-between mb-4 sm:mb-6">
                             <h2 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white">{t('title')}</h2>
-                            <button onClick={handleClose} className="cursor-pointer p-3 sm:p-2 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-600 dark:text-gray-300">
+                            <button onClick={handleClose} className="cursor-pointer p-3 sm:p-2 bg-gray-100 dark:bg-gray-800 rounded-full text-gray-600 dark:text-gray-300 hover:scale-110 active:scale-95 transition-transform">
                                 <X size={20} />
                             </button>
                         </div>
@@ -109,19 +118,21 @@ export const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
                                         <div key={indicator.id} className="flex items-center justify-between py-1">
                                             <span className="text-sm sm:text-base text-gray-700 dark:text-gray-300">{indicator.label}</span>
                                             <button
-                                                onClick={() => setLocalSettings({
-                                                    ...localSettings,
-                                                    indicators: {
-                                                        ...localSettings.indicators,
-                                                        [indicator.id]: !localSettings.indicators[indicator.id as keyof typeof localSettings.indicators]
-                                                    }
-                                                })}
-                                                className={`w-14 h-7 sm:w-12 sm:h-6 rounded-full transition-colors relative cursor-pointer ${localSettings.indicators[indicator.id as keyof typeof localSettings.indicators]
+                                                onClick={() => {
+                                                    // Update global store immediately for indicators
+                                                    setSettings({
+                                                        indicators: {
+                                                            ...settings.indicators,
+                                                            [indicator.id]: !settings.indicators[indicator.id as keyof typeof settings.indicators]
+                                                        }
+                                                    });
+                                                }}
+                                                className={`w-14 h-7 sm:w-12 sm:h-6 rounded-full transition-colors relative cursor-pointer ${settings.indicators[indicator.id as keyof typeof settings.indicators]
                                                     ? 'bg-primary'
                                                     : 'bg-gray-200 dark:bg-gray-700'
                                                     }`}
                                             >
-                                                <div className={`absolute top-1 w-5 h-5 sm:w-4 sm:h-4 bg-white rounded-full transition-transform ${localSettings.indicators[indicator.id as keyof typeof localSettings.indicators]
+                                                <div className={`absolute top-1 w-5 h-5 sm:w-4 sm:h-4 bg-white rounded-full transition-transform ${settings.indicators[indicator.id as keyof typeof settings.indicators]
                                                     ? 'left-8 sm:left-7'
                                                     : 'left-1'
                                                     }`} />
@@ -134,7 +145,7 @@ export const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
                             {/* Reset */}
                             <button
                                 onClick={handleReset}
-                                className="cursor-pointer w-full py-3 sm:py-4 mt-3 sm:mt-4 bg-red-50 dark:bg-red-400 text-error dark:text-white font-bold text-sm sm:text-base rounded-xl flex items-center justify-center gap-2 hover:bg-red-100 dark:hover:bg-red-500 transition-colors"
+                                className="cursor-pointer w-full py-3 sm:py-4 mt-3 sm:mt-4 bg-red-50 dark:bg-red-400 text-error dark:text-white font-bold text-sm sm:text-base rounded-xl flex items-center justify-center gap-2 hover:bg-red-100 dark:hover:bg-red-500 transition-colors hover:scale-[1.02] active:scale-95"
                             >
                                 <RefreshCw size={18} />
                                 {t('reset_button')}

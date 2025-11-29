@@ -112,7 +112,7 @@ export const TimeframeSelector = () => {
                 bg: 'bg-amber-50 dark:bg-amber-900/20',
                 border: 'group-hover:border-amber-200',
                 options: [
-                    { value: '1d', label: t('option_1d_label'), sub: t('option_1d_sub'), icon: <Calendar className="w-4 h-4 sm:w-5 sm:h-5" /> },
+                    { value: '4h', label: t('option_4h_label'), sub: t('option_4h_sub'), icon: <Calendar className="w-4 h-4 sm:w-5 sm:h-5" /> },
                 ]
             }
         ];
@@ -160,7 +160,7 @@ export const TimeframeSelector = () => {
                                                     <button
                                                         key={opt.value}
                                                         onClick={() => handleTimeframeSelect(opt.value as Timeframe)}
-                                                        className={`cursor-pointer group relative flex flex-col items-center justify-center p-3 sm:p-2 bg-white dark:bg-gray-800 rounded-2xl shadow-xs border border-gray-100 dark:border-gray-700 ${section.border} hover:shadow-md hover:-translate-y-1 transition-all duration-300 active:scale-95 overflow-hidden`}
+                                                        className={`cursor-pointer group relative flex flex-col items-center justify-center p-3 sm:p-2 bg-white dark:bg-gray-800 rounded-2xl shadow-xs border border-gray-100 dark:border-gray-700 ${section.border} hover:shadow-md hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300 active:scale-95 overflow-hidden`}
                                                     >
                                                         {/* Background Decoration */}
                                                         <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${section.bg}`} />
@@ -199,7 +199,7 @@ export const TimeframeSelector = () => {
                             <div className="relative text-center mb-6 sm:mb-8 flex-shrink-0">
                                 <button
                                     onClick={handleBack}
-                                    className="cursor-pointer absolute left-0 top-1/2 -translate-y-1/2 p-2 sm:p-3 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-full transition-all"
+                                    className="cursor-pointer absolute left-0 top-1/2 -translate-y-1/2 p-2 sm:p-3 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-full transition-all hover:scale-[1.02] active:scale-95"
                                 >
                                     <ArrowLeft className="w-5 h-5 sm:w-6 sm:h-6" />
                                 </button>
@@ -216,7 +216,7 @@ export const TimeframeSelector = () => {
                                     <button
                                         key={opt.value}
                                         onClick={() => handleRoundSelect(opt.value)}
-                                        className={`cursor-pointer group relative w-full flex sm:flex-col items-center sm:justify-center p-4 sm:p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-xs border border-gray-100 dark:border-gray-700 ${opt.border} hover:shadow-md hover:-translate-y-1 transition-all duration-300 active:scale-[0.98] overflow-hidden`}
+                                        className={`cursor-pointer group relative w-full flex sm:flex-col items-center sm:justify-center p-4 sm:p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-xs border border-gray-100 dark:border-gray-700 ${opt.border} hover:shadow-md hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300 active:scale-[0.98] overflow-hidden`}
                                     >
                                         {/* Background Decoration */}
                                         <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${opt.bg}`} />

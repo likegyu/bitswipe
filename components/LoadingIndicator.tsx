@@ -16,12 +16,6 @@ export const LoadingIndicator = ({ timeframe }: LoadingIndicatorProps) => {
                 animate={{ rotate: 360 }}
                 transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
             />
-            <p className="mt-4 text-gray-600 dark:text-gray-300 font-medium">Loading data...</p>
-            {timeframe === '1m' && (
-                <p className="mt-2 text-sm text-gray-400 text-center px-6">
-                    1-minute data may take a moment to load due to large volume
-                </p>
-            )}
         </div>
     );
 };

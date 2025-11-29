@@ -57,6 +57,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.bg-card {
+  background-color: var(--card-bg);
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;

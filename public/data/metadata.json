@@ -47,10 +47,10 @@
       "1h_1.json"
     ]
   },
-  "1d": {
+  "4h": {
     "chunks": 1,
     "files": [
-      "1d_1.json"
+      "4h_1.json"
     ]
   }
 }

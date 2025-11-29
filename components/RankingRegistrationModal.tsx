@@ -18,7 +18,9 @@ interface RankingRegistrationModalProps {
         shortWinRate: number;
         bestTrade: number;
         avgProfit: number;
+        profitFactor: number;
         history: any[];
+        timeframe: string;
     };
 }
 
@@ -29,6 +31,14 @@ export const RankingRegistrationModal = ({ onClose, gameData }: RankingRegistrat
     const [nickname, setNickname] = React.useState('');
     const [comment, setComment] = React.useState('');
     const [isSubmitting, setIsSubmitting] = React.useState(false);
+
+    // Scroll Lock
+    React.useEffect(() => {
+        document.body.style.overflow = 'hidden';
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, []);
 
     const handleSubmit = async () => {
         if (!nickname.trim()) return;
@@ -48,6 +58,8 @@ export const RankingRegistrationModal = ({ onClose, gameData }: RankingRegistrat
                         shortWinRate: gameData.shortWinRate,
                         bestTrade: gameData.bestTrade,
                         avgProfit: gameData.avgProfit,
+                        profitFactor: gameData.profitFactor,
+                        timeframe: gameData.timeframe,
                         history: gameData.history.map(h => ({
                             win: h.win,
                             position: h.position,
@@ -81,7 +93,7 @@ export const RankingRegistrationModal = ({ onClose, gameData }: RankingRegistrat
             >
                 <button
                     onClick={onClose}
-                    className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+                    className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 rounded-full cursor-pointer p-1 hover:bg-gray-200 dark:hover:bg-gray-800 dark:hover:text-gray-300 transition-colors hover:scale-110 active:scale-95"
                 >
                     <X size={20} />
                 </button>
@@ -133,7 +145,7 @@ export const RankingRegistrationModal = ({ onClose, gameData }: RankingRegistrat
                         disabled={isSubmitting || !nickname.trim()}
                         className={`w-full py-4 font-bold text-lg rounded-xl transition-all shadow-md flex items-center justify-center gap-2 mt-2 cursor-pointer ${isSubmitting || !nickname.trim()
                             ? 'bg-gray-300 dark:bg-gray-700 text-gray-500 cursor-not-allowed'
-                            : 'bg-primary text-white hover:bg-primary-hover'
+                            : 'bg-primary text-white hover:bg-primary-hover hover:scale-[1.02] active:scale-95'
                             }`}
                     >
                         {isSubmitting ? (
