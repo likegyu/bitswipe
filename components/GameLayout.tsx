@@ -17,12 +17,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 export const GameLayout = () => {
     const {
         status,
-        revealNextCandle,
-        nextRound,
         round,
         isGameStarted,
-        completeRound
     } = useGameStore();
+    const revealNextCandle = () => useGameStore.getState().revealNextCandle();
+    const nextRound = () => useGameStore.getState().nextRound();
+    const completeRound = () => useGameStore.getState().completeRound();
 
     const [isSettingsOpen, setIsSettingsOpen] = useState(false);
     const [showEmoji, setShowEmoji] = useState<'win' | 'loss' | 'hold' | null>(null);
@@ -33,7 +33,7 @@ export const GameLayout = () => {
 
         if (status === 'REVEALING') {
             interval = setInterval(() => {
-                const hasMore = revealNextCandle();
+                const hasMore = useGameStore.getState().revealNextCandle();
                 if (!hasMore) {
                     clearInterval(interval);
                     finishRound();
@@ -43,34 +43,46 @@ export const GameLayout = () => {
 
         return () => clearInterval(interval);
     }, [status]);
+    useEffect(() => {
+        if (status === 'RESULT') {
+            const state = useGameStore.getState();
+            const lastResult = state.history[state.history.length - 1];
+
+            if (lastResult) {
+                // Determine emoji based on position and result
+                if (lastResult.position === 'hold') {
+                    setShowEmoji('hold');
+                } else {
+                    setShowEmoji(lastResult.win ? 'win' : 'loss');
+                }
+
+                // Wait for emoji (2초), then proceed to next round
+                setTimeout(() => {
+                    setShowEmoji(null);
+
+                    // Check if game is finished (e.g., liquidation occurred)
+                    const currentStatus = useGameStore.getState().status;
+                    if (currentStatus !== 'FINISHED') {
+                        nextRound();
+                    }
+                }, 2000); // 👈 2초 이모지 표시 시간
+            }
+        }
+    }, [status]); // 👈 status가 변경될 때마다 실행
 
     const finishRound = () => {
+        const state = useGameStore.getState();
+
+        // 💡 수정 1: status가 'REVEALING'이 아닐 때 중복 실행 방지
+        // (수동 종료 시 이미 completeRound가 호출되어 status가 'RESULT'가 됨)
+        if (state.status !== 'REVEALING') return;
+
+        // 💡 수정 2: completeRound() 호출
+        // 이 호출로 useGameStore에서 status가 'RESULT'로 변경됩니다.
         completeRound();
-        const lastResult = useGameStore.getState().history[useGameStore.getState().history.length - 1];
 
-        if (lastResult) {
-            // Determine emoji based on position and result
-            if (lastResult.position === 'hold') {
-                setShowEmoji('hold');
-            } else {
-                setShowEmoji(lastResult.win ? 'win' : 'loss');
-            }
-
-            // Wait for emoji, then swipe/next
-            setTimeout(() => {
-                setShowEmoji(null);
-
-                // Check if game is finished (e.g., liquidation occurred)
-                const currentStatus = useGameStore.getState().status;
-                if (currentStatus !== 'FINISHED') {
-                    // Here we should trigger the swipe animation on the card
-                    // For now, we just proceed to next round which updates the data
-                    // Ideally, we'd have a 'SWIPING' state in store to coordinate
-
-                    nextRound();
-                }
-            }, 2000);
-        }
+        // 💡 수정 3: 이모지 관련 로직 (lastResult 확인, setShowEmoji, setTimeout, nextRound)은
+        // 위에서 새로 추가한 'RESULT' useEffect가 처리하므로, 여기서는 모두 제거합니다.
     };
 
     return (

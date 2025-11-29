@@ -231,12 +231,11 @@ export const useGameStore = create<GameState>((set, get) => ({
             set({
                 history: [...get().history, result],
                 currentBetContext: null,
-                status: 'REVEALING', // Briefly show revealing state or skip directly
+                status: 'RESULT', // Briefly show revealing state or skip directly
             });
 
             // For HOLD, we just skip to next round (or show result briefly)
             // Let's reuse completeRound logic but adapted
-            get().completeRound();
             return;
         }
 
@@ -349,7 +348,10 @@ export const useGameStore = create<GameState>((set, get) => ({
         set({
             balance: newBalance,
             history: [...history, result],
-            currentBetContext: null
+            currentBetContext: null,
+            status: 'RESULT', // 👈 라운드 결과를 보여주는 상태로 변경
+            isPositionOpen: false, // 👈 포지션 닫기
+            candlesSinceEntry: 0,
         });
     },
 
