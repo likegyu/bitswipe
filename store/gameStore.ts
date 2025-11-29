@@ -405,7 +405,8 @@ export const useGameStore = create<GameState>((set, get) => ({
     },
 
     revealNextCandle: () => {
-        const { frontChart, status, isPositionOpen, candlesSinceEntry, autoCloseLimit } = get();
+        // 💡 수정: 필요한 상태 변수를 get()을 통해 가져옵니다.
+        const { frontChart, status, isPositionOpen, candlesSinceEntry, autoCloseLimit, balance, settings } = get();
 
         // If position is closed (manually), stop revealing immediately
         if (!isPositionOpen) return false;
@@ -431,6 +432,47 @@ export const useGameStore = create<GameState>((set, get) => ({
             },
             candlesSinceEntry: candlesSinceEntry + 1
         });
+
+        // ----------------------------------------------------
+        // 💡 실시간 청산 체크 로직 (수정된 로직)
+        // ----------------------------------------------------
+        const entryPrice = frontChart.entryPrice;
+        const currentPosition = frontChart.currentPosition;
+        // const leverage = settings.leverage; // settings는 이미 구조분해되어 있으므로 바로 사용 가능
+        const betAmount = balance * 1.0;
+
+        // 포지션 진입 가격이 없거나 포지션이 'hold'라면 체크할 필요 없음
+        if (entryPrice !== null && currentPosition !== 'hold') {
+            const currentPrice = nextCandle.close; // 방금 추가된 캔들의 종가
+            const priceChange = (currentPrice - entryPrice) / entryPrice;
+
+            let currentPnl = 0;
+
+            if (currentPosition === 'long') {
+                currentPnl = betAmount * priceChange * settings.leverage; // 💡 settings.leverage 사용
+            } else {
+                currentPnl = betAmount * (-priceChange) * settings.leverage; // 💡 settings.leverage 사용
+            }
+
+            // 청산 임계점: 손실액이 마진(betAmount)의 100%와 같거나 커지는 시점
+            const liquidationThreshold = -betAmount;
+
+            if (currentPnl <= liquidationThreshold) {
+
+                // 💡 청산 발생! 즉시 게임 종료 처리
+
+                // 1. isPositionOpen을 false로 설정 (리빌링 루프 중지)
+                set({ isPositionOpen: false });
+
+                // 2. completeRound 호출 (청산은 completeRound 내에서 FINISHED 상태로 처리됨)
+                // 이 시점의 currentPrice를 이용하여 completeRound가 최종 PnL을 계산하게 됩니다.
+                get().completeRound();
+
+                // 3. 리빌링 루프 즉시 종료
+                return false;
+            }
+        }
+        // ----------------------------------------------------
 
         // Auto-close if limit reached
         if (candlesSinceEntry + 1 >= autoCloseLimit) {
