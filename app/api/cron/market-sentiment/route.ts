@@ -23,11 +23,17 @@ export async function GET(request: Request) {
         const koreaTime = new Date(now.getTime() + (9 * 60 * 60 * 1000)); // Add 9 hours
         const today = koreaTime.toISOString().split('T')[0]; // YYYY-MM-DD in Korea Time
 
+        // Check time range: Between 00:00 and 06:00 KST
+        const koreaHour = koreaTime.getHours();
+        if (koreaHour < 0 || koreaHour >= 6) {
+            console.log("Outside of allowed update hours (00:00 - 06:00 KST). Exiting.");
+            return NextResponse.json({ error: 'Outside of allowed update hours (00:00 - 06:00 KST).' }, { status: 403 });
+        }
 
         const client = supabaseAdmin || supabase;
 
         if (!supabaseAdmin) {
-            console.warn("SUPABASE_SERVICE_ROLE_KEY not set. Using anon key for updates (requires public RLS policy).");
+            console.warn("SUPABASE_SERVICE_ROLE_KEY not set. Using anon key for updates (requires public RLS policy)." );
         }
 
         const { data, error } = await client
