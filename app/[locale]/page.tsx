@@ -2,7 +2,13 @@ import { Suspense } from 'react';
 import { getTranslations } from 'next-intl/server';
 import { GameLayout } from "@/components/GameLayout";
 import { SharedResultModal } from "@/components/SharedResultModal";
-import { SEOContent } from "@/components/SEOContent";
+import dynamic from 'next/dynamic';
+import { Metadata } from 'next';
+
+const SEOContent = dynamic(() => import('@/components/SEOContent').then(mod => mod.SEOContent), {
+    loading: () => <div className="h-96 w-full animate-pulse bg-gray-50 dark:bg-gray-900" />,
+    ssr: true
+});
 
 // For SEO: Generate metadata using server-side translations
 export async function generateMetadata({

@@ -20,7 +20,7 @@ export const TIMEFRAME_CONFIG = {
 
 export async function fetchCandleData(timeframe: Timeframe): Promise<CandleData[]> {
     try {
-        const response = await fetch(`/api/candles?timeframe=${timeframe}&limit=2000`);
+        const response = await fetch(`/api/candles?timeframe=${timeframe}&limit=8000`);
         if (!response.ok) {
             throw new Error(`Failed to fetch data for ${timeframe}`);
         }

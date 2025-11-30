@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 
+// Simple in-memory cache
+const CACHE: Record<string, any[]> = {};
+
 export async function GET(request: NextRequest) {
     const searchParams = request.nextUrl.searchParams;
     const timeframe = searchParams.get('timeframe');
@@ -28,14 +31,27 @@ export async function GET(request: NextRequest) {
 
         // Select a random file (year)
         const randomFile = timeframeData.files[Math.floor(Math.random() * timeframeData.files.length)];
-        const filePath = path.join(dataDir, randomFile);
+        const cacheKey = `${timeframe}-${randomFile}`;
 
-        if (!fs.existsSync(filePath)) {
-            return NextResponse.json({ error: 'Data file not found' }, { status: 404 });
+        let candles: any[] = [];
+
+        // Check cache first
+        if (CACHE[cacheKey]) {
+            candles = CACHE[cacheKey];
+        } else {
+            // Read from file if not in cache
+            const filePath = path.join(dataDir, randomFile);
+
+            if (!fs.existsSync(filePath)) {
+                return NextResponse.json({ error: 'Data file not found' }, { status: 404 });
+            }
+
+            const fileContent = fs.readFileSync(filePath, 'utf-8');
+            candles = JSON.parse(fileContent);
+
+            // Store in cache
+            CACHE[cacheKey] = candles;
         }
-
-        const fileContent = fs.readFileSync(filePath, 'utf-8');
-        const candles = JSON.parse(fileContent);
 
         if (candles.length <= limit) {
             return NextResponse.json(candles);

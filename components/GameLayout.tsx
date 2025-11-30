@@ -5,13 +5,19 @@ import { useGameStore } from '@/store/gameStore';
 import { Header } from './Header';
 import { ChartCard } from './ChartCard';
 import { Controls } from './Controls';
-import { SettingsModal } from './SettingsModal';
-import { ResultModal } from './ResultModal';
+import dynamic from 'next/dynamic';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Ad } from './Ad';
 import { TimeframeSelector } from './TimeframeSelector';
 import { Footer } from './Footer';
 import { RoundResultOverlay } from './RoundResultOverlay';
-import { motion, AnimatePresence } from 'framer-motion';
+
+const SettingsModal = dynamic(() => import('./SettingsModal').then(mod => mod.SettingsModal), {
+    ssr: false
+});
+const ResultModal = dynamic(() => import('./ResultModal').then(mod => mod.ResultModal), {
+    ssr: false
+});
 
 // Force rebuild
 export const GameLayout = () => {
