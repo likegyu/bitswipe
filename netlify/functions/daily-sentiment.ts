@@ -60,5 +60,5 @@ const scheduledTaskHandler: Handler = async (event, context) => {
     }
 };
 
-// Cron 표현식: 매일 UTC 15:00 (한국 시간 00:00)
-export const handler = schedule("0 15 * * *", scheduledTaskHandler);
+// Cron 표현식: 매일 UTC 15:00 (한국 시간 06:00)
+export const handler = schedule("0 21 * * *", scheduledTaskHandler);
