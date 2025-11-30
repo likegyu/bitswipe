@@ -72,7 +72,8 @@
         "ranking_registration_failed": "등록실패.",
         "already_registered": "이미 등록된 기록입니다.",
         "nickname_label": "닉네임",
-        "comment_label": "한마디"
+        "comment_label": "댓글",
+        "no_loss": "손실 없음"
     },
     "RankingPage": {
         "title": "트레이더 랭킹",
@@ -83,14 +84,15 @@
         "win_rate": "승률",
         "avg_profit": "평균 수익",
         "investment_style": "투자 성향 분석",
-        "no_rankings": "아직 등록된 랭킹이 없습니다.",
+        "no_rankings": "아직 랭킹이 없습니다.",
         "view_analysis": "상세 분석 보기",
-        "can_you_beat_my_score": "제 트레이딩 실력 어때요? 도전해보세요!",
+        "can_you_beat_my_score": "내 트레이딩 어때? 내 점수 넘을 수 있어?",
         "header_subtitle": "트레이더 랭킹",
-        "header_description": "가장 높은 수익률을 기록한 트레이더들입니다. 상위 랭커들의 기록을 확인하고 도전해보세요.",
-        "best_label": "최고 수익률",
+        "header_description": "가장 높은 수익률을 기록한 트레이더들입니다. 상위 랭커의 기록을 확인하고 도전해보세요.",
+        "best_label": "베스트",
         "profit_factor": "손익비",
-        "win_label": "승"
+        "win_label": "승",
+        "no_loss": "손실 없음"
     },
     "AnalysisModal": {
         "win_rate": "승률",
@@ -327,6 +329,15 @@
             "analysis_tip_text": "자신의 매매 패턴이 '추세 추종형'인지 '역추세형'인지 파악하는 게 중요합니다. 추세 추종이 더 승률이 높다면 강한 추세장에서 유리하고, 역추세가 잘 맞는다면 횡보장에서 유리합니다. 강점을 살리고 약점을 보완하세요!",
             "tip_title": "해석 팁",
             "tip_text": "승률에만 집착하지 마세요. 승률 40%여도 손익비가 3:1이면 돈을 벌 수 있습니다. 반대로 승률 70%여도 손절을 안 하면 한 번의 큰 손실로 다 날릴 수 있어요. 균형이 중요합니다."
+        },
+        "MarketAnalysis": {
+            "title": "비트코인 시황 분석",
+            "p1": "AI가 분석한 오늘의 비트코인 시장 분위기를 확인해보세요. 가격, 거래량, 변동성 등 다양한 데이터를 분석하여 현재 시장의 공포/탐욕 지수와 추세를 알려드립니다.",
+            "card1_title": "오늘의 투심",
+            "card1_text": "오늘은 상승장일까요, 하락장일까요? AI의 분석 결과를 확인하세요.",
+            "card2_title": "시황 캘린더",
+            "card2_text": "지난 4주간의 시장 분위기 흐름을 달력으로 한눈에 파악할 수 있습니다.",
+            "cta_button": "시황 분석 보러가기"
         },
         "RankingSection": {
             "title": "나의 랭킹 확인하기",

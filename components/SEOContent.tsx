@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslations } from 'next-intl';
-import { ExternalLink, ChevronRight, Quote, Trophy, Gauge } from 'lucide-react';
+import { ExternalLink, ChevronRight, Quote, Trophy, Gauge, Calendar, CheckCircle, TrendingUp } from 'lucide-react';
 
 export const SEOContent = () => {
     const t = useTranslations('SEOContent');
@@ -127,6 +127,47 @@ export const SEOContent = () => {
                                     {t('Mission.p2_part2')}
                                 </p>
                             </div>
+                        </div>
+                    </Section>
+
+                    {/* 1.5 Market Analysis */}
+                    <Section>
+                        <SectionHeader
+                            title={t('MarketAnalysis.title')}
+                            description={t('MarketAnalysis.p1')}
+                        />
+                        <div className="grid md:grid-cols-2 gap-6 mb-8">
+                            <Card className="flex flex-col items-center text-center p-8">
+                                <div className="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mb-4 text-green-600 dark:text-green-400">
+                                    <TrendingUp className="w-8 h-8" />
+                                </div>
+                                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                                    {t('MarketAnalysis.card1_title')}
+                                </h3>
+                                <p className="text-gray-600 dark:text-gray-400">
+                                    {t('MarketAnalysis.card1_text')}
+                                </p>
+                            </Card>
+                            <Card className="flex flex-col items-center text-center p-8">
+                                <div className="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mb-4 text-purple-600 dark:text-purple-400">
+                                    <Calendar className="w-8 h-8" />
+                                </div>
+                                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                                    {t('MarketAnalysis.card2_title')}
+                                </h3>
+                                <p className="text-gray-600 dark:text-gray-400">
+                                    {t('MarketAnalysis.card2_text')}
+                                </p>
+                            </Card>
+                        </div>
+                        <div className="text-center">
+                            <a
+                                href="/market"
+                                className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-gray-900 rounded-xl hover:bg-gray-800 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100"
+                            >
+                                {t('MarketAnalysis.cta_button')}
+                                <ChevronRight className="w-5 h-5 ml-2" />
+                            </a>
                         </div>
                     </Section>
 
@@ -502,7 +543,7 @@ export const SEOContent = () => {
                             {/* 2. Candle Reveal Speed (2열) */}
                             <Card>
                                 <div className="flex items-center gap-3 mb-2">
-                                    <div className="p-2 bg-gray-100 dark:bg-gray-800 rounded-xl text-yellow-400">
+                                    <div className="p-2 bg-gray-100 dark:bg-gray-800 rounded-xl text-white">
                                         <Gauge className="w-6 h-6" />
                                     </div>
                                     <h3 className="font-bold text-lg text-gray-900 dark:text-white">

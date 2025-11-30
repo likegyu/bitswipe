@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { useGameStore } from '@/store/gameStore';
 import { Timeframe, TIMEFRAME_CONFIG } from '@/lib/data';
-import { Zap, TrendingUp, Sun, Clock, BarChart2, Calendar, ArrowLeft, Target, Trophy, Medal, Eye, ArrowRight, Timer } from 'lucide-react';
+import { Zap, TrendingUp, Sun, Clock, BarChart2, Calendar, ArrowLeft, Target, Trophy, Medal, Eye, ArrowRight, Timer, Loader2 } from 'lucide-react'; // Loader2 아이콘 추가
 import { useTranslations } from 'next-intl';
 
 type Step = 'timeframe' | 'rounds';
@@ -14,11 +14,13 @@ export const TimeframeSelector = () => {
     const [step, setStep] = useState<Step>('timeframe');
     const [selectedTimeframe, setSelectedTimeframe] = useState<Timeframe | null>(null);
     const [selectedTimeframeLabel, setSelectedTimeframeLabel] = useState<string>('');
-    const [isCompactHeight, setIsCompactHeight] = useState(false);
+
+    // 📌 변경 1: 초기 상태를 boolean 대신 undefined로 설정하여 '높이 체크 전' 상태를 명확히 합니다.
+    const [isCompactHeight, setIsCompactHeight] = useState<boolean | undefined>(undefined);
 
     React.useEffect(() => {
         const checkHeight = () => {
-            // 70dvh <= 600px implies 100dvh <= 857px. Using 860px as a safe threshold.
+            // 70dvh <= 600px -> 100dvh <= 857px. 안전 역치 860px 대신, 이전 코드에서 사용하던 1000px을 유지합니다.
             setIsCompactHeight(window.innerHeight <= 1000);
         };
 
@@ -28,6 +30,8 @@ export const TimeframeSelector = () => {
         window.addEventListener('resize', checkHeight);
         return () => window.removeEventListener('resize', checkHeight);
     }, []);
+
+    // ... (handleTimeframeSelect, handleRoundSelect, handleBack 함수는 변경 없음)
 
     const handleTimeframeSelect = (timeframe: Timeframe) => {
         // 1. 선택된 레이블을 찾습니다.
@@ -112,6 +116,15 @@ export const TimeframeSelector = () => {
         { value: 50, label: t('rounds_50_label'), sub: t('rounds_50_sub'), icon: <Trophy className="w-6 h-6 sm:w-8 sm:h-8" />, color: 'text-purple-500 dark:text-purple-400', bg: 'bg-purple-50 dark:bg-purple-900/20', border: 'group-hover:border-purple-200' },
     ];
 
+    // 📌 추가: isCompactHeight가 undefined일 때 로딩 스피너 표시
+    if (isCompactHeight === undefined) {
+        return (
+            <div className="flex flex-col items-center justify-center h-full p-3 sm:p-6 w-full min-h-[300px]">
+                <Loader2 className="h-8 w-8 animate-spin text-gray-500" />
+            </div>
+        );
+    }
+
     return (
         <div className="flex flex-col items-center justify-center h-full p-3 sm:p-6 bg-card-bg w-full">
             <div className="w-full max-w-[360px] sm:max-w-4xl flex flex-col h-full">
@@ -133,15 +146,18 @@ export const TimeframeSelector = () => {
                                 </p>
                             </div>
 
-                            <div className={`${isCompactHeight ? '' : 'space-y-2'} sm:space-y-0 ${isCompactHeight ? 'grid grid-cols-2 gap-2' : 'sm:grid sm:grid-cols-2 sm:gap-4'}`}>
-                                {timeframeSections.map((section) => (
-                                    <div key={section.title} className={`${isCompactHeight ? 'contents' : 'space-y-2 sm:space-y-2 flex flex-col'}`}>
+                            {/* 📌 수정 2: 높이 작을 때 모바일 레이아웃 강제 적용 로직 (기존 isCompactHeight 로직 유지) */}
+                            <div className={`${isCompactHeight ? 'space-y-2' : 'space-y-0'} ${isCompactHeight ? '' : 'sm:grid sm:grid-cols-2 sm:gap-4'}`}>
+                                {timeframeSections.map((section, index) => (
+                                    <div key={section.title} className={`${isCompactHeight ? 'space-y-2 flex flex-col' : 'contents'} sm:space-y-2 sm:flex sm:flex-col ${index === 1 && isCompactHeight ? 'mt-2' : ''}`}> {/* 모바일 레이아웃 강제 적용 + 2번째 섹션 마진 추가 */}
+                                        {/* 섹션 타이틀 - isCompactHeight 일 때 숨김, 데스크톱 레이아웃일 때만 sm:flex 적용 */}
                                         <div className={`${isCompactHeight ? 'hidden' : 'hidden sm:flex'} items-center gap-2 ${section.color} opacity-80 ml-1 sm:justify-center sm:mb-3`}>
                                             {section.icon}
                                             <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider">{section.title}</h3>
                                         </div>
 
-                                        <div className={`${isCompactHeight ? 'contents' : `grid ${section.options.length === 3 ? 'grid-cols-3 sm:grid-cols-1' : section.options.length === 2 ? 'grid-cols-2 sm:grid-cols-1' : 'grid-cols-1'} gap-2 sm:gap-4 flex-1`}`}>
+                                        {/* 옵션 그리드 - isCompactHeight 일 때 sm: 브레이크포인트 무시하고 모바일 스타일 강제 적용 */}
+                                        <div className={`${isCompactHeight ? `grid ${section.options.length === 3 ? 'grid-cols-3' : section.options.length === 2 ? 'grid-cols-2' : 'grid-cols-1'} gap-3 flex-1` : `grid ${section.options.length === 3 ? 'grid-cols-3 sm:grid-cols-1' : section.options.length === 2 ? 'grid-cols-2 sm:grid-cols-1' : 'grid-cols-1'} gap-2 sm:gap-4 flex-1`}`}>
                                             {section.options.map((opt) => {
                                                 const config = TIMEFRAME_CONFIG[opt.value as Timeframe];
                                                 const isMultiOption = section.options.length > 1;
@@ -154,8 +170,8 @@ export const TimeframeSelector = () => {
                                                         {/* Background Decoration */}
                                                         <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${section.bg}`} />
 
-                                                        {/* Visible Candles Badge (Desktop Only) */}
-                                                        <div className="hidden sm:flex absolute top-3 right-3 items-center gap-1.5 opacity-40 group-hover:opacity-100 transition-all duration-300">
+                                                        {/* Visible Candles Badge (Desktop Only) - isCompactHeight 일 때 숨김 */}
+                                                        <div className={`${isCompactHeight ? 'hidden' : 'hidden sm:flex'} absolute top-3 right-3 items-center gap-1.5 opacity-40 group-hover:opacity-100 transition-all duration-300`}>
                                                             <Eye className="w-3.5 h-3.5 text-gray-400 group-hover:text-gray-600" />
                                                             <span className="text-xs font-bold text-gray-400 group-hover:text-gray-600">{config.visible}</span>
                                                         </div>

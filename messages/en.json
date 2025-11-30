@@ -72,7 +72,8 @@
         "ranking_registration_failed": "Failed.",
         "already_registered": "Already registered.",
         "nickname_label": "Nickname",
-        "comment_label": "Comment"
+        "comment_label": "Comment",
+        "no_loss": "No Loss"
     },
     "RankingPage": {
         "title": "Trader Ranking",
@@ -90,7 +91,8 @@
         "header_description": "Check out the traders with the highest returns. Analyze top rankers and challenge their records.",
         "best_label": "Best Return",
         "profit_factor": "Profit Ratio",
-        "win_label": "Win"
+        "win_label": "Win",
+        "no_loss": "No Loss"
     },
     "AnalysisModal": {
         "win_rate": "Win Rate",
@@ -329,6 +331,15 @@
             "analysis_tip_text": "It's important to understand if your style is 'trend-following' or 'counter-trend'. If trend-following works better, you'll do well in strong trends. If counter-trend works, you'll do well in ranging markets. Play to your strengths and work on weaknesses!",
             "tip_title": "Interpretation Tip",
             "tip_text": "Don't obsess over win rate. Even with 40% accuracy, you can profit if your profit factor is 3:1. Conversely, even with 70% accuracy, one big loss without cutting it can wipe everything out. Balance is key."
+        },
+        "MarketAnalysis": {
+            "title": "Bitcoin Market Sentiment Analysis",
+            "p1": "Check today's Bitcoin market sentiment analyzed by AI. We analyze various data such as price, volume, and volatility to inform you of the current market atmosphere.",
+            "card1_title": "Daily Sentiment",
+            "card1_text": "Is today's market Bullish or Bearish? Check the AI's analysis results.",
+            "card2_title": "Sentiment Calendar",
+            "card2_text": "Check the flow of market sentiment over the past 4 weeks at a glance.",
+            "cta_button": "View Market Analysis"
         },
         "RankingSection": {
             "title": "Check Your Ranking",

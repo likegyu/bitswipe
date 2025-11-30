@@ -187,7 +187,9 @@ export const ResultModal = () => {
                 <div className={`grid grid-cols-3 ${isMobileHeight ? 'gap-2 mb-2' : 'gap-2 sm:gap-3 mb-2 sm:mb-4'}`}>
                     <div className={`bg-gray-50 dark:bg-gray-700 rounded-xl text-center shadow-sm ${isMobileHeight ? 'p-2' : 'p-2 sm:p-3'}`}>
                         <h4 className={`text-gray-500 dark:text-gray-400 mb-1 ${isMobileHeight ? 'text-[10px]' : 'text-[10px] sm:text-xs'}`}>{t('profit_factor')}</h4>
-                        <span className={`font-bold text-gray-800 dark:text-gray-200 ${isMobileHeight ? 'text-sm' : 'text-sm sm:text-base'}`}>{typeof profitFactor === 'number' ? profitFactor.toFixed(2) : profitFactor}</span>
+                        <span className={`font-bold text-gray-800 dark:text-gray-200 ${isMobileHeight ? 'text-sm' : 'text-sm sm:text-base'}`}>
+                            {typeof profitFactor === 'number' && profitFactor >= 99.9 ? t('no_loss') : (typeof profitFactor === 'number' ? profitFactor.toFixed(2) : profitFactor)}
+                        </span>
                     </div>
                     <div className={`bg-gray-50 dark:bg-gray-700 rounded-xl text-center shadow-sm ${isMobileHeight ? 'p-2' : 'p-2 sm:p-3'}`}>
                         <h4 className={`text-gray-500 dark:text-gray-400 mb-1 ${isMobileHeight ? 'text-[10px]' : 'text-[10px] sm:text-xs'}`}>{t('avg_profit')}</h4>

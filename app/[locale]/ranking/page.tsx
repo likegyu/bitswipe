@@ -259,7 +259,10 @@ export default function RankingPage() {
                                                     <div className="bg-white dark:bg-gray-800 p-3 rounded-xl text-center shadow-sm border border-gray-100 dark:border-gray-700">
                                                         <div className="text-xs text-gray-400 mb-1">{t('profit_factor')}</div>
                                                         <div className={`font-bold text-lg ${(ranking.investment_style.profitFactor ?? ranking.investment_style.profit_factor ?? 0) >= 1 ? 'text-success' : 'text-error'}`}>
-                                                            {(ranking.investment_style.profitFactor ?? ranking.investment_style.profit_factor ?? 0).toFixed(2)}
+                                                            {(() => {
+                                                                const pf = ranking.investment_style.profitFactor ?? ranking.investment_style.profit_factor ?? 0;
+                                                                return pf >= 99.9 ? t('no_loss') : pf.toFixed(2);
+                                                            })()}
                                                         </div>
                                                     </div>
                                                     <div className="bg-white dark:bg-gray-800 p-3 rounded-xl text-center shadow-sm border border-gray-100 dark:border-gray-700">

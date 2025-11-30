@@ -72,7 +72,8 @@
         "ranking_registration_failed": "Fallo.",
         "already_registered": "Ya registrado.",
         "nickname_label": "Apodo",
-        "comment_label": "Comentario"
+        "comment_label": "Comentario",
+        "no_loss": "Sin Pérdidas"
     },
     "RankingPage": {
         "title": "Ranking de Traders",
@@ -90,7 +91,8 @@
         "header_description": "Consulta los traders con los mayores retornos. Analiza a los mejores y desafía sus récords.",
         "best_label": "Mejor",
         "profit_factor": "Ratio de Beneficio",
-        "win_label": "Ganar"
+        "win_label": "Ganar",
+        "no_loss": "Sin Pérdidas"
     },
     "AnalysisModal": {
         "win_rate": "Tasa de Acierto",
@@ -329,6 +331,15 @@
             "analysis_tip_text": "Es importante entender si tu estilo es 'seguir la tendencia' o 'contra-tendencia'. Si seguir la tendencia funciona mejor, te irá bien en tendencias fuertes. Si contra-tendencia funciona, te irá bien en mercados laterales. ¡Aprovecha tus fortalezas y trabaja en tus debilidades!",
             "tip_title": "Consejo de Interpretación",
             "tip_text": "No te obsesiones con la tasa de acierto. Incluso con 40% de precisión, puedes obtener ganancias si tu factor de beneficio es 3:1. Por el contrario, incluso con 70% de precisión, una gran pérdida sin cortarla puede acabar con todo. El equilibrio es clave."
+        },
+        "MarketAnalysis": {
+            "title": "Análisis del Mercado de Bitcoin",
+            "p1": "Consulta el sentimiento del mercado de Bitcoin de hoy analizado por IA. Analizamos varios datos como precio, volumen y volatilidad para informarte de la atmósfera actual del mercado.",
+            "card1_title": "Sentimiento Diario",
+            "card1_text": "¿El mercado de hoy es Alcista o Bajista? Consulta los resultados del análisis de la IA.",
+            "card2_title": "Calendario de Sentimiento",
+            "card2_text": "Consulta el flujo del sentimiento del mercado de las últimas 4 semanas de un vistazo.",
+            "cta_button": "Ver Análisis de Mercado"
         },
         "RankingSection": {
             "title": "Revisa Tu Ranking",
