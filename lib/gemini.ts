@@ -14,13 +14,13 @@ const MarketSentimentSchema = z.object({
         .describe("2-3 sentences English summary. Include causes, upcoming factors, and price outlook. Conversational tone."),
 
     summary_ko: z.string()
-        .describe("2-3 sentences Korean summary. 한국어 원어민처럼 자연스럽게, '급등', '조정' 등의 용어 사용. 존댓말 사용(해요체)."),
+        .describe("2-3 sentences Korean summary. Include causes, upcoming factors, and price outlook. Conversational tone. 존댓말 사용(해요체)."),
 
     summary_es: z.string()
-        .describe("2-3 sentences Spanish summary. Natural local crypto phrasing."),
+        .describe("2-3 sentences Spanish summary. Include causes, upcoming factors, and price outlook. Conversational tone."),
 
     summary_ja: z.string()
-        .describe("2-3 sentences Japanese summary. Natural local crypto phrasing."),
+        .describe("2-3 sentences Japanese summary. Include causes, upcoming factors, and price outlook. Conversational tone."),
 });
 
 export type MarketSentiment = z.infer<typeof MarketSentimentSchema>;
