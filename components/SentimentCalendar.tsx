@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useTranslations } from 'next-intl';
-import { format, subDays, eachDayOfInterval, isSameDay, getDay, startOfWeek } from 'date-fns';
+import { format, subDays, eachDayOfInterval, isSameDay, getDay, startOfWeek, startOfDay } from 'date-fns';
 
 interface SentimentData {
     date: string;
@@ -17,7 +17,8 @@ export function SentimentCalendar({ data }: Props) {
     const t = useTranslations('MarketPage');
 
     // Generate 5 weeks (35 days) aligned to weeks
-    const today = new Date();
+    // Normalize to start of day to avoid timezone issues
+    const today = startOfDay(new Date());
     // Start from the Sunday of 4 weeks ago to get 5 full weeks
     const startDate = startOfWeek(subDays(today, 28));
 

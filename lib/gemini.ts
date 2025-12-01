@@ -11,16 +11,16 @@ const MarketSentimentSchema = z.object({
 
     // 각 언어별 요약 요청을 스키마 description에 통합하여 프롬프트 중복 제거
     summary_en: z.string()
-        .describe("2-3 sentences English summary. Include causes, upcoming factors, and price outlook. Conversational tone."),
+        .describe("2-3 sentences English summary. "),
 
     summary_ko: z.string()
-        .describe("2-3 sentences Korean summary. Include causes, upcoming factors, and price outlook. Conversational tone. 존댓말 사용(해요체)."),
+        .describe("2-3 sentences Korean summary. 존댓말 사용(해요체)."),
 
     summary_es: z.string()
-        .describe("2-3 sentences Spanish summary. Include causes, upcoming factors, and price outlook. Conversational tone."),
+        .describe("2-3 sentences Spanish summary. "),
 
     summary_ja: z.string()
-        .describe("2-3 sentences Japanese summary. Include causes, upcoming factors, and price outlook. Conversational tone."),
+        .describe("2-3 sentences Japanese summary. "),
 });
 
 export type MarketSentiment = z.infer<typeof MarketSentimentSchema>;
@@ -28,11 +28,12 @@ export type MarketSentiment = z.infer<typeof MarketSentimentSchema>;
 export async function getBitcoinMarketSentiment(): Promise<MarketSentiment> {
     const prompt = `Find the latest Bitcoin news from today and analyze the market sentiment.`;
 
+    // 수정된 SYSTEM_INSTRUCTION
     const SYSTEM_INSTRUCTION = `
-    Role: Crypto market analyst.
-    Tone: Friendly, professional, direct. NO greetings.
-    Style: Use natural crypto language (e.g., 'rally', 'dump', '횡보', '급등', '급락').
-    `;
+Role: Crypto market analyst.
+Tone: Friendly, professional, direct. NO greetings.
+Style: Use natural crypto language (e.g., 'rally', 'dump', '횡보', '급등', '급락'). Include causes, upcoming factors, and price outlook. Crucially, identify and highlight any major upcoming events (e.g., Fed meeting, Halving, regulation changes) that are likely to drive significant price volatility. Conversational tone.
+`;
     try {
         const response = await ai.models.generateContent({
             model: "gemini-3-pro-preview",
