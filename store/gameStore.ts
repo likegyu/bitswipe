@@ -443,11 +443,11 @@ export const useGameStore = create<GameState>((set, get) => ({
         // Show Ad based on maxRounds (Reduced frequency)
         let showAd = false;
         if (maxRounds === 10) {
-            if (nextRoundNum === 5) showAd = true;
+            if (nextRoundNum === 50) showAd = true;
         } else if (maxRounds === 25) {
-            if (nextRoundNum === 10 || nextRoundNum === 20) showAd = true;
+            if (nextRoundNum === 100 || nextRoundNum === 200) showAd = true;
         } else if (maxRounds === 50) {
-            if (nextRoundNum === 15 || nextRoundNum === 30 || nextRoundNum === 45) showAd = true;
+            if (nextRoundNum === 150 || nextRoundNum === 300 || nextRoundNum === 450) showAd = true;
         }
 
         set({
