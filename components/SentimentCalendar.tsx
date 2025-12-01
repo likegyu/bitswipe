@@ -30,16 +30,12 @@ export function SentimentCalendar({ data }: Props) {
     // Get color based on sentiment - with light/dark mode support (5 levels)
     const getColor = (sentiment?: string) => {
         switch (sentiment) {
-            case 'very_positive':
-                return 'bg-emerald-700 dark:bg-emerald-800 hover:bg-emerald-800 dark:hover:bg-emerald-700';
             case 'positive':
                 return 'bg-emerald-500 dark:bg-emerald-600 hover:bg-emerald-600 dark:hover:bg-emerald-500';
             case 'neutral':
                 return 'bg-gray-300 dark:bg-gray-500 hover:bg-gray-400 dark:hover:bg-gray-400';
             case 'negative':
                 return 'bg-rose-500 dark:bg-rose-600 hover:bg-rose-600 dark:hover:bg-rose-500';
-            case 'very_negative':
-                return 'bg-rose-700 dark:bg-rose-800 hover:bg-rose-800 dark:hover:bg-rose-700';
             default:
                 return 'bg-gray-200 dark:bg-gray-700'; // Empty/No data state
         }
@@ -98,7 +94,6 @@ export function SentimentCalendar({ data }: Props) {
                 {/* Negative Group */}
                 <div className="flex items-center gap-2">
                     <div className="flex gap-1">
-                        <div className="w-3 h-3 rounded-sm bg-rose-700 dark:bg-rose-800" />
                         <div className="w-3 h-3 rounded-sm bg-rose-500 dark:bg-rose-600" />
                     </div>
                     <span className="font-medium">{t('sentiment_negative')}</span>
@@ -114,7 +109,6 @@ export function SentimentCalendar({ data }: Props) {
                 <div className="flex items-center gap-2">
                     <div className="flex gap-1">
                         <div className="w-3 h-3 rounded-sm bg-emerald-500 dark:bg-emerald-600" />
-                        <div className="w-3 h-3 rounded-sm bg-emerald-700 dark:bg-emerald-800" />
                     </div>
                     <span className="font-medium">{t('sentiment_positive')}</span>
                 </div>
