@@ -54,6 +54,7 @@ interface GameState {
     isPositionOpen: boolean;
     candlesSinceEntry: number;
     autoCloseLimit: number;
+    activeLeverage: number; // Leverage locked for the current round
 
     // Data
     allCandles: CandleData[];
@@ -182,6 +183,7 @@ export const useGameStore = create<GameState>((set, get) => ({
     isPositionOpen: false,
     candlesSinceEntry: 0,
     autoCloseLimit: 30,
+    activeLeverage: 1,
     allCandles: [],
 
     frontChart: null,
@@ -214,6 +216,7 @@ export const useGameStore = create<GameState>((set, get) => ({
                 isLoading: false,
                 isPositionOpen: false,
                 candlesSinceEntry: 0,
+                activeLeverage: settings.leverage,
                 frontChart,
                 backChart,
                 currentBetContext: null,
@@ -297,6 +300,7 @@ export const useGameStore = create<GameState>((set, get) => ({
             status: 'REVEALING',
             isPositionOpen: true,
             candlesSinceEntry: 0,
+            activeLeverage: get().settings.leverage, // Lock leverage at bet placement
             frontChart: {
                 ...frontChart,
                 currentPosition: position,
@@ -343,7 +347,7 @@ export const useGameStore = create<GameState>((set, get) => ({
         if (currentPosition === 'short' && priceChange < 0) win = true;
 
         const betAmount = balance * 1.0; // Bet entire balance (All-in)
-        const leverage = settings.leverage;
+        const leverage = get().activeLeverage; // Use locked leverage
 
         let pnl = 0;
         let isLiquidated = false;
@@ -460,7 +464,7 @@ export const useGameStore = create<GameState>((set, get) => ({
 
     revealNextCandle: () => {
         // 💡 수정: 필요한 상태 변수를 get()을 통해 가져옵니다.
-        const { frontChart, status, isPositionOpen, candlesSinceEntry, autoCloseLimit, balance, settings } = get();
+        const { frontChart, status, isPositionOpen, candlesSinceEntry, autoCloseLimit, balance, activeLeverage } = get();
 
         // If position is closed (manually), stop revealing immediately
         if (!isPositionOpen) return false;
@@ -503,9 +507,9 @@ export const useGameStore = create<GameState>((set, get) => ({
             let currentPnl = 0;
 
             if (currentPosition === 'long') {
-                currentPnl = betAmount * priceChange * settings.leverage; // 💡 settings.leverage 사용
+                currentPnl = betAmount * priceChange * activeLeverage; // 💡 activeLeverage 사용
             } else {
-                currentPnl = betAmount * (-priceChange) * settings.leverage; // 💡 settings.leverage 사용
+                currentPnl = betAmount * (-priceChange) * activeLeverage; // 💡 activeLeverage 사용
             }
 
             // 청산 임계점: 손실액이 마진(betAmount)의 100%와 같거나 커지는 시점

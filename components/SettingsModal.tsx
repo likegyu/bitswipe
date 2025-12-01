@@ -19,7 +19,7 @@ export const SettingsModal = ({ isOpen, onClose }: SettingsModalProps) => {
     // Local state for immediate UI feedback without triggering global re-renders
     const [localSettings, setLocalSettings] = React.useState<GameSettings>({
         ...settings,
-        revealSpeed: settings.revealSpeed || 500
+        revealSpeed: settings.revealSpeed || 1000
     });
     React.useEffect(() => {
         if (isOpen) {

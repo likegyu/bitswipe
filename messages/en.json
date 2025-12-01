@@ -301,7 +301,7 @@
             "metric2_title": "Long/Short Accuracy",
             "metric2_text": "Shows which prediction (Long or Short) you're better at. If one is notably lower, study patterns for that direction more.",
             "metric3_title": "Profit Factor",
-            "metric3_text": "Total Profit ÷ Total Loss. Above 1.0 is profit, below is loss. Above 2.0 is very good. You can make money even with a low win rate if your profit factor is high.",
+            "metric3_text": "Average Profit / Average Loss. Above 1.0 is profit, below is loss. Above 2.0 is very good. You can make money even with a low win rate if your profit factor is high.",
             "metric4_title": "Avg Profit",
             "metric4_text": "Average profit (or loss) per trade. If it's positive, that's a good sign; if negative, you need to change your strategy.",
             "metric5_title": "Best Trade",

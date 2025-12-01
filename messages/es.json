@@ -301,7 +301,7 @@
             "metric2_title": "Acierto Largo/Corto",
             "metric2_text": "Muestra en qué predicción (Largo o Corto) eres mejor. Si una es notablemente más baja, estudia más los patrones para esa dirección.",
             "metric3_title": "Factor de Beneficio",
-            "metric3_text": "Beneficio Total ÷ Pérdida Total. Por encima de 1.0 es ganancia, por debajo es pérdida. Por encima de 2.0 es muy bueno. Puedes ganar dinero incluso con una tasa de acierto baja si tu factor de beneficio es alto.",
+            "metric3_text": "Beneficio Promedio / Pérdida Promedio. Por encima de 1.0 es ganancia, por debajo es pérdida. Por encima de 2.0 es muy bueno. Puedes ganar dinero incluso con una tasa de acierto baja si tu factor de beneficio es alto.",
             "metric4_title": "Beneficio Promedio",
             "metric4_text": "Beneficio promedio (o pérdida) por operación. Si es positivo, es una buena señal; si es negativo, necesitas cambiar tu estrategia.",
             "metric5_title": "Mejor Operación",
