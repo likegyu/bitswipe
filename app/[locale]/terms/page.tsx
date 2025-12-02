@@ -20,19 +20,19 @@ export async function generateMetadata({
         description: t('description'),
         keywords: t('keywords').split(','),
         alternates: {
-            canonical: `https://bitswipe.xyz/${locale}/terms`,
+            canonical: `https://www.bitswipe.xyz/${locale}/terms`,
             languages: {
-                'en': 'https://bitswipe.xyz/en/terms',
-                'ko': 'https://bitswipe.xyz/ko/terms',
-                'es': 'https://bitswipe.xyz/es/terms',
-                'ja': 'https://bitswipe.xyz/ja/terms',
+                'en': 'https://www.bitswipe.xyz/en/terms',
+                'ko': 'https://www.bitswipe.xyz/ko/terms',
+                'es': 'https://www.bitswipe.xyz/es/terms',
+                'ja': 'https://www.bitswipe.xyz/ja/terms',
             },
         },
         openGraph: {
             title: t('title'),
             description: t('ogDescription'),
-            url: `https://bitswipe.xyz/${locale}/terms`,
-            siteName: 'BitSwipe',
+            url: `https://www.bitswipe.xyz/${locale}/terms`,
+            siteName: 'Bitswipe',
             images: [
                 {
                     url: '/og-image.png',
@@ -66,8 +66,8 @@ export default async function TermsPage({
         <div className="min-h-screen bg-gray-50 dark:bg-gray-900 pb-20">
             <BreadcrumbJsonLd
                 items={[
-                    { name: 'Home', item: `https://bitswipe.xyz/${locale}` },
-                    { name: 'Terms', item: `https://bitswipe.xyz/${locale}/terms` },
+                    { name: 'Home', item: `https://www.bitswipe.xyz/${locale}` },
+                    { name: 'Terms', item: `https://www.bitswipe.xyz/${locale}/terms` },
                 ]}
             />
             {/* Header */}
