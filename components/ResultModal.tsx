@@ -96,7 +96,7 @@ export const ResultModal = () => {
         }
 
         const shareUrl = `${baseUrl}?${params.toString()}`;
-        const shareText = `${t('bit_swipe_results')} 🚀\n\n${t('total_return')}: ${profit >= 0 ? '+' : ''}${profitPercent}%\n${t('win_rate')}: ${Math.round(winRate)}%\n${t('best_trade')}: +${bestTrade.toFixed(2)}%\n\n${t('can_you_beat_my_score')} #BitSwipe #CryptoTrading\n${shareUrl}`;
+        const shareText = `${t('bit_swipe_results')} 🚀\n\n${t('total_return')}: ${profit >= 0 ? '+' : ''}${profitPercent}%\n${t('win_rate')}: ${Math.round(winRate)}%\n${t('best_trade')}: +${bestTrade.toFixed(2)}%\n\n${t('can_you_beat_my_score')} #Bitswipe #CryptoTrading\n${shareUrl}`;
 
         try {
             await navigator.clipboard.writeText(shareText);
