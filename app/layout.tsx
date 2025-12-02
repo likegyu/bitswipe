@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://bitswipe.xyz'),
+  metadataBase: new URL('https://www.bitswipe.xyz'),
   robots: {
     index: true,
     follow: true,
