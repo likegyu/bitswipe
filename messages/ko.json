@@ -1,10 +1,10 @@
 {
     "HomePage": {
-        "title": "BitSwipe - 비트코인 선물 게임 & 비트코인 모의투자",
-        "description": "BitSwipe는 비트코인 게임입니다. 리스크 없는 비트코인 선물 거래와 비트코인 모의투자를 통해 실전 감각을 익히세요.",
+        "title": "Bitswipe - 비트코인 선물 게임 & 비트코인 모의투자",
+        "description": "Bitswipe는 비트코인 게임입니다. 리스크 없는 비트코인 선물 거래와 비트코인 모의투자를 통해 실전 감각을 익히세요.",
         "keywords": "비트코인 게임, 비트코인 선물, 비트코인 모의투자, 코인 모의투자, 차트 보는 법, 캔들 차트, 트레이딩 연습, 기술적 분석, 레버리지, 숏 포지션",
         "ogDescription": "비트코인 선물과 모의투자를 위한 비트코인 게임. 차트 패턴을 마스터하세요.",
-        "ogImageAlt": "BitSwipe - 비트코인 선물 게임 & 비트코인 모의투자"
+        "ogImageAlt": "Bitswipe - 비트코인 선물 게임 & 비트코인 모의투자"
     },
     "Header": {
         "selected_rounds": "라운드"
