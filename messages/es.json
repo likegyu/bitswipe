@@ -1,10 +1,10 @@
 {
     "HomePage": {
-        "title": "BitSwipe - Juego de Futuros de Bitcoin e Inversión Virtual",
-        "description": "BitSwipe es el juego de Bitcoin para practicar Futuros de Bitcoin e Inversión Virtual. Domina el mercado con nuestra simulación sin riesgos.",
+        "title": "Bitswipe - Juego de Futuros de Bitcoin e Inversión Virtual",
+        "description": "Bitswipe es el juego de Bitcoin para practicar Futuros de Bitcoin e Inversión Virtual. Domina el mercado con nuestra simulación sin riesgos.",
         "keywords": "Juego de Bitcoin, Futuros de Bitcoin, Inversión Virtual en Bitcoin, Simulación de Cripto, Lectura de Gráficos, Velas Japonesas, Práctica de Trading, Análisis Técnico, Apalancamiento, Posición Corta",
         "ogDescription": "El Juego de Bitcoin para practicar Futuros e Inversión Virtual. Domina los patrones de gráficos ahora.",
-        "ogImageAlt": "BitSwipe - Juego de Futuros de Bitcoin e Inversión Virtual"
+        "ogImageAlt": "Bitswipe - Juego de Futuros de Bitcoin e Inversión Virtual"
     },
     "Header": {
         "selected_rounds": "Rondas"
