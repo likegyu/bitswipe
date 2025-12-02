@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/navigation';
 import { ExternalLink, ChevronRight, Quote, Trophy, Gauge, Calendar, CheckCircle, TrendingUp } from 'lucide-react';
 
 export const SEOContent = () => {
@@ -161,13 +162,13 @@ export const SEOContent = () => {
                             </Card>
                         </div>
                         <div className="text-center">
-                            <a
+                            <Link
                                 href="/market"
                                 className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-gray-900 rounded-xl hover:bg-gray-800 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100"
                             >
                                 {t('MarketAnalysis.cta_button')}
                                 <ChevronRight className="w-5 h-5 ml-2" />
-                            </a>
+                            </Link>
                         </div>
                     </Section>
 
@@ -204,13 +205,13 @@ export const SEOContent = () => {
                             </Card>
                         </div>
                         <div className="text-center">
-                            <a
+                            <Link
                                 href="/ranking"
                                 className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-gray-900 rounded-xl hover:bg-gray-800 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100"
                             >
                                 {t('RankingSection.cta_button')}
                                 <ChevronRight className="w-5 h-5 ml-2" />
-                            </a>
+                            </Link>
                         </div>
                     </Section>
 
