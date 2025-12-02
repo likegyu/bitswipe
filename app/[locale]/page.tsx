@@ -33,6 +33,8 @@ export async function generateMetadata({
                 'ko': 'https://bitswipe.xyz/ko',
                 'es': 'https://bitswipe.xyz/es',
                 'ja': 'https://bitswipe.xyz/ja',
+                'x-default': 'https://bitswipe.xyz/ko'
+
             },
         },
         openGraph: {
