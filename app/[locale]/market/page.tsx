@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
             title: t('title'),
             description: t('ogDescription'),
             url: `https://www.bitswipe.xyz/${locale}/market`,
-            siteName: 'BitSwipe',
+            siteName: 'Bitswipe',
             images: [
                 {
                     url: '/og-image.png',
