@@ -84,8 +84,8 @@ export default async function TermsPage({
 
                     <Link href="/" className="absolute left-1/2 -translate-x-1/2">
                         <Image
-                            src="/icon.png"
-                            alt="BitSwipe"
+                            src="/bitswipe-icon.png"
+                            alt="BitSwipe Logo - Bitcoin Trading Game"
                             width={40}
                             height={40}
                             className="hover:opacity-80 transition-opacity cursor-pointer shadow-md"

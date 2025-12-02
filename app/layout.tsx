@@ -38,13 +38,19 @@ export const viewport = {
   viewportFit: 'cover',
 };
 
-export default function RootLayout({
+import { headers } from 'next/headers';
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Get locale from next-intl (set by middleware)
+  const headersList = await headers();
+  const locale = headersList.get('x-next-intl-locale') || 'en';
+
   return (
-    <html suppressHydrationWarning>
+    <html suppressHydrationWarning lang={locale}>
       <head>
 
         {/* Google Tag Manager */}

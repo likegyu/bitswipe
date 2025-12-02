@@ -98,8 +98,8 @@ export default async function MarketPage({ params }: { params: Promise<{ locale:
 
                     <Link href="/" className="absolute left-1/2 -translate-x-1/2">
                         <Image
-                            src="/icon.png"
-                            alt="BitSwipe"
+                            src="/bitswipe-icon.png"
+                            alt="BitSwipe Logo - Bitcoin Trading Game"
                             width={40}
                             height={40}
                             className="hover:opacity-80 transition-opacity cursor-pointer shadow-md"
@@ -130,6 +130,9 @@ export default async function MarketPage({ params }: { params: Promise<{ locale:
             <div className="max-w-4xl mx-auto px-4 pt-8 pb-12">
                 <div className="mb-8">
                     <div className="mb-12 text-center">
+                        <h1 className="text-3xl sm:text-4xl font-black text-gray-900 dark:text-white mb-6 tracking-tight">
+                            {t('title')}
+                        </h1>
                         <p className="text-gray-400 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed">
                             {t('description')}
                         </p>

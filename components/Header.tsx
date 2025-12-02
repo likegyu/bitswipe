@@ -34,8 +34,8 @@ export const Header = ({ onOpenSettings }: { onOpenSettings: () => void }) => {
             <div className="flex-shrink-0 mx-4">
                 <Link href="/" className="block">
                     <Image
-                        src="/icon.png"
-                        alt="BitSwipe"
+                        src="/bitswipe-icon.png"
+                        alt="BitSwipe Logo - Bitcoin Trading Game"
                         width={40}
                         height={40}
                         className="hover:opacity-80 transition-opacity cursor-pointer shadow-md"
