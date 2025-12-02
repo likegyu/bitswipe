@@ -1,10 +1,15 @@
+'use client';
+
 import React from 'react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import { ExternalLink, ChevronRight, Quote, Trophy, Gauge, Calendar, CheckCircle, TrendingUp } from 'lucide-react';
+import KakaoAdFit from '@/components/KakaoAd';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
 
 export const SEOContent = () => {
     const t = useTranslations('SEOContent');
+    const isMdUp = useMediaQuery();
 
     // --- Custom SVG Icons (Monochrome & Premium) ---
     const Icons = {
@@ -111,26 +116,23 @@ export const SEOContent = () => {
             {/* Main Container */}
             <div className="max-w-5xl mx-auto bg-white dark:bg-gray-800 rounded-3xl shadow-md overflow-hidden border border-gray-100 dark:border-gray-700">
 
-                {/* Kakao Ad - Top */}
-                <div className="w-full py-6 flex justify-center border-b border-gray-100 dark:border-gray-700">
-                    <div className="hidden sm:flex justify-center">
-                        <ins
-                            className="kakao_ad_area"
-                            style={{ display: 'none' }}
-                            data-ad-unit="DAN-92yroeiWlsAYpiqb"
-                            data-ad-width="728"
-                            data-ad-height="90"
+                {/* Kakao Ad - Top (반응형 적용) */}
+                <div className="w-full flex justify-center mt-6">
+                    {isMdUp ? (
+                        // PC 광고 (MD 이상)
+                        <KakaoAdFit
+                            unit="DAN-92yroeiWlsAYpiqb" // 👈 PC용 상단 광고 ID로 변경하세요
+                            width={728}
+                            height={90}
                         />
-                    </div>
-                    <div className="sm:hidden flex justify-center">
-                        <ins
-                            className="kakao_ad_area"
-                            style={{ display: 'none' }}
-                            data-ad-unit="DAN-Wm3BkuGJ9IQERMEc"
-                            data-ad-width="320"
-                            data-ad-height="50"
+                    ) : (
+                        // 모바일 광고 (MD 미만)
+                        <KakaoAdFit
+                            unit="DAN-UCjp6azBIluHbFOX" // 👈 모바일용 상단 광고 ID로 변경하세요
+                            width={320}
+                            height={100} // 모바일 표준 크기로 변경
                         />
-                    </div>
+                    )}
                 </div>
 
                 <div className="p-8 sm:p-12 lg:p-16">
@@ -796,7 +798,7 @@ export const SEOContent = () => {
                             </div>
 
                             <div>
-                                <div className="sticky top-8 bg-gray-50 dark:bg-gray-900 p-8 rounded-3xl">
+                                <div className="sticky top-8 bg-gray-50 dark:bg-gray-900 p-8 mb-6 rounded-3xl">
                                     <h3 className="font-bold text-gray-900 dark:text-white mb-6 text-xl">
                                         {t('Resources.title')}
                                     </h3>
@@ -824,7 +826,27 @@ export const SEOContent = () => {
                                         ))}
                                     </ul>
                                 </div>
+                                {/* Kakao Ad - Top (반응형 적용) */}
+                                <div className="w-full flex justify-center mt-6">
+                                    {isMdUp ? (
+                                        // PC 광고 (MD 이상)
+                                        <KakaoAdFit
+                                            unit="DAN-mCDqEg3Su132GGXw" // 👈 PC용 상단 광고 ID로 변경하세요
+                                            width={250}
+                                            height={250}
+                                        />
+                                    ) : (
+                                        // 모바일 광고 (MD 미만)
+                                        <KakaoAdFit
+                                            unit="DAN-HF9RjiuSIoqxQ4RD" // 👈 모바일용 상단 광고 ID로 변경하세요
+                                            width={320}
+                                            height={100} // 모바일 표준 크기로 변경
+                                        />
+                                    )}
+                                </div>
+
                             </div>
+
                         </div>
                     </Section>
 
@@ -837,27 +859,7 @@ export const SEOContent = () => {
 
                 </div>
 
-                {/* Kakao Ad - Bottom of SEO Content */}
-                <div className="w-full py-6 flex justify-center">
-                    <div className="hidden sm:flex justify-center">
-                        <ins
-                            className="kakao_ad_area"
-                            style={{ display: 'none' }}
-                            data-ad-unit="DAN-92yroeiWlsAYpiqb"
-                            data-ad-width="728"
-                            data-ad-height="90"
-                        />
-                    </div>
-                    <div className="sm:hidden flex justify-center">
-                        <ins
-                            className="kakao_ad_area"
-                            style={{ display: 'none' }}
-                            data-ad-unit="DAN-Wm3BkuGJ9IQERMEc"
-                            data-ad-width="320"
-                            data-ad-height="50"
-                        />
-                    </div>
-                </div>
+
             </div>
         </div>
     );

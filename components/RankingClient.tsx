@@ -9,6 +9,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from '@/i18n/navigation';
 import Image from 'next/image';
 import { Footer } from '@/components/Footer';
+import KakaoAdFit from '@/components/KakaoAd';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
 
 interface Ranking {
     id: string;
@@ -43,6 +45,7 @@ export function RankingClient() {
     const [loading, setLoading] = React.useState(true);
     const [expandedId, setExpandedId] = React.useState<string | null>(null);
     const [selectedHistory, setSelectedHistory] = React.useState<any[] | null>(null);
+    const isMdUp = useMediaQuery();
 
     React.useEffect(() => {
         fetchRankings();
@@ -140,26 +143,23 @@ export function RankingClient() {
                 </div>
             </header>
 
-            {/* Kakao Ad - Top */}
-            <div className="w-full py-6 bg-[var(--background)] flex justify-center border-b border-gray-200 dark:border-gray-800">
-                <div className="hidden sm:flex justify-center">
-                    <ins
-                        className="kakao_ad_area"
-                        style={{ display: 'none' }}
-                        data-ad-unit="DAN-92yroeiWlsAYpiqb"
-                        data-ad-width="728"
-                        data-ad-height="90"
+            {/* Kakao Ad - Top (반응형 적용) */}
+            <div className="w-full flex justify-center py-4">
+                {isMdUp ? (
+                    // PC 광고 (MD 이상)
+                    <KakaoAdFit
+                        unit="DAN-92yroeiWlsAYpiqb" // 👈 PC용 상단 광고 ID로 변경하세요
+                        width={728}
+                        height={90}
                     />
-                </div>
-                <div className="sm:hidden flex justify-center">
-                    <ins
-                        className="kakao_ad_area"
-                        style={{ display: 'none' }}
-                        data-ad-unit="DAN-Wm3BkuGJ9IQERMEc"
-                        data-ad-width="320"
-                        data-ad-height="50"
+                ) : (
+                    // 모바일 광고 (MD 미만)
+                    <KakaoAdFit
+                        unit="DAN-Wm3BkuGJ9IQERMEc" // 👈 모바일용 상단 광고 ID로 변경하세요
+                        width={320}
+                        height={50} // 모바일 표준 크기로 변경
                     />
-                </div>
+                )}
             </div>
 
             <div className="max-w-4xl mx-auto p-4">
@@ -354,30 +354,6 @@ export function RankingClient() {
                         ))}
                     </div>
                 )}
-            </div>
-
-            {/* Kakao Ad - Before Footer */}
-            <div className="max-w-4xl mx-auto px-4">
-                <div className="w-full py-6 flex justify-center">
-                    <div className="hidden sm:flex justify-center">
-                        <ins
-                            className="kakao_ad_area"
-                            style={{ display: 'none' }}
-                            data-ad-unit="DAN-92yroeiWlsAYpiqb"
-                            data-ad-width="728"
-                            data-ad-height="90"
-                        />
-                    </div>
-                    <div className="sm:hidden flex justify-center">
-                        <ins
-                            className="kakao_ad_area"
-                            style={{ display: 'none' }}
-                            data-ad-unit="DAN-Wm3BkuGJ9IQERMEc"
-                            data-ad-width="320"
-                            data-ad-height="50"
-                        />
-                    </div>
-                </div>
             </div>
 
             {selectedHistory && (
