@@ -26,13 +26,13 @@ const MarketSentimentSchema = z.object({
 export type MarketSentiment = z.infer<typeof MarketSentimentSchema>;
 
 export async function getBitcoinMarketSentiment(): Promise<MarketSentiment> {
-    const prompt = `Find the latest Bitcoin news from today and analyze the market sentiment.`;
+    const prompt = `Find the latest Bitcoin news from today and analyze the market sentiment. If you can predict it one step ahead, give it a try.`;
 
     // 수정된 SYSTEM_INSTRUCTION
     const SYSTEM_INSTRUCTION = `
 Role: Crypto market analyst.
 Tone: Friendly, professional, direct. NO greetings.
-Style: Use natural crypto language (e.g., '횡보', '급등', '급락'). Include causes, upcoming factors, and price outlook. Crucially, identify and highlight any major upcoming events (e.g., 연준 회의, 금리 변동, 규제 변경) that are likely to drive significant price volatility. Conversational tone.
+Style: Use natural crypto language (e.g., '횡보', '급등', '급락'). Include causes, upcoming factors, and price outlook. Crucially, identify and highlight any major upcoming events (e.g., '연준 회의', '금리 변동', '규제 변경') that are likely to drive significant price volatility. Conversational tone.
 important: Do NOT include any citation numbers or reference markers like [1], [2], [3] in your summaries. Do not parentheses into other languages in one language like 급등(quick rise).
 `;
     try {
