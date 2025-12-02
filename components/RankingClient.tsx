@@ -3,10 +3,12 @@
 import React from 'react';
 import { useTranslations } from 'next-intl';
 import { supabase } from '@/lib/supabaseClient';
-import { Trophy, TrendingUp, TrendingDown, Activity, ChevronDown, ChevronUp, Quote, ArrowLeft } from 'lucide-react';
+import { Trophy, TrendingUp, TrendingDown, Activity, ChevronDown, ChevronUp, Quote, ArrowLeft, Newspaper } from 'lucide-react';
 import { AnalysisModal } from '@/components/AnalysisModal';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from '@/i18n/navigation';
+import Image from 'next/image';
+import { Footer } from '@/components/Footer';
 
 interface Ranking {
     id: string;
@@ -88,17 +90,50 @@ export function RankingClient() {
 
     return (
         <div className="min-h-screen bg-[var(--background)] pb-20">
-            <div className="max-w-4xl mx-auto p-4">
-                <div className="flex items-center mb-6">
-                    <Link
-                        href="/"
-                        className="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors mb-6"
-                    >
-                        <ArrowLeft className="w-5 h-5 mr-2" />
-                        Back to Game
+            {/* Header */}
+            <header className="w-full bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 sticky top-0 z-50">
+                <div className="w-full max-w-md sm:max-w-4xl mx-auto flex items-center justify-between p-2 sm:p-4 relative">
+                    <div className="flex items-center gap-2 flex-1">
+                        <Link
+                            href="/"
+                            className="p-3 sm:p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-300 cursor-pointer"
+                        >
+                            <ArrowLeft size={24} />
+                        </Link>
+                    </div>
+
+                    <Link href="/" className="absolute left-1/2 -translate-x-1/2">
+                        <Image
+                            src="/icon.png"
+                            alt="BitSwipe"
+                            width={40}
+                            height={40}
+                            className="hover:opacity-80 transition-opacity cursor-pointer shadow-md"
+                        />
                     </Link>
-                    <h1 className="text-2xl font-bold ml-2">{t('title')}</h1>
+
+                    <div className="flex items-center gap-2 flex-1 justify-end">
+                        <Link
+                            href="/market"
+                            className="relative p-3 sm:p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-300 cursor-pointer"
+                        >
+                            <Newspaper size={24} />
+                            <span className="absolute top-2 right-2 sm:top-1 sm:right-1 flex h-3 w-3">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+                            </span>
+                        </Link>
+                        <Link
+                            href="/ranking"
+                            className="p-3 sm:p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-300 cursor-pointer"
+                        >
+                            <Trophy size={24} />
+                        </Link>
+                    </div>
                 </div>
+            </header>
+
+            <div className="max-w-4xl mx-auto p-4">
 
                 <div className="text-center mb-10 pt-6 relative word-break-keep-all">
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-32 bg-primary/20 blur-[50px] rounded-full pointer-events-none" />
@@ -298,6 +333,7 @@ export function RankingClient() {
                     onClose={() => setSelectedHistory(null)}
                 />
             )}
+            <Footer />
         </div>
     );
 }

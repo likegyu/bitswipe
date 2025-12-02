@@ -5,6 +5,7 @@ import { Settings, Trophy, Newspaper } from 'lucide-react';
 import { useGameStore } from '@/store/gameStore';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
+import Image from 'next/image';
 
 export const Header = ({ onOpenSettings }: { onOpenSettings: () => void }) => {
     const t = useTranslations('Header');
@@ -16,19 +17,34 @@ export const Header = ({ onOpenSettings }: { onOpenSettings: () => void }) => {
 
     return (
         <header className="w-full max-w-md sm:max-w-4xl flex items-center justify-between p-2 sm:p-4 z-50">
-            <div className="flex flex-col">
+            {/* Left: Stats */}
+            <div className="flex flex-col flex-1">
                 <div className="flex items-center gap-1 sm:gap-2">
                     <Trophy className={isProfit ? "text-success" : "text-error"} size={18} />
-                    <span className={`text-lg font-bold ${isProfit ? "text-success" : "text-error"}`}>
+                    <span className={`text-md font-bold ${isProfit ? "text-success" : "text-error"}`}>
                         {isProfit ? "+" : ""}{profitPercent}%
                     </span>
                 </div>
-                <span className="text-sm text-gray-400 font-medium">
+                <span className="text-xs text-gray-400 font-medium">
                     {t('selected_rounds')} {round}/{maxRounds}
                 </span>
             </div>
 
-            <div className="flex items-center gap-2">
+            {/* Center: Logo */}
+            <div className="flex-shrink-0 mx-4">
+                <Link href="/" className="block">
+                    <Image
+                        src="/icon.png"
+                        alt="BitSwipe"
+                        width={40}
+                        height={40}
+                        className="hover:opacity-80 transition-opacity cursor-pointer shadow-md"
+                    />
+                </Link>
+            </div>
+
+            {/* Right: Navigation */}
+            <div className="flex items-center gap-2 flex-1 justify-end">
                 <Link
                     href="/market"
                     className="relative p-3 sm:p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-300 cursor-pointer"

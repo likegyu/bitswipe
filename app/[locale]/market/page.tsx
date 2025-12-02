@@ -4,9 +4,11 @@ import { supabase } from '@/lib/supabaseClient';
 import { SentimentCalendar } from '@/components/SentimentCalendar';
 import { SentimentList } from '@/components/SentimentList';
 import { Link } from '@/i18n/navigation';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Trophy, Newspaper } from 'lucide-react';
 import { Metadata } from 'next';
 import { BreadcrumbJsonLd } from '@/components/BreadcrumbJsonLd';
+import Image from 'next/image';
+import { Footer } from '@/components/Footer';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
     const { locale } = await params;
@@ -82,15 +84,51 @@ export default async function MarketPage({ params }: { params: Promise<{ locale:
                     { name: 'Market', item: `https://bitswipe.xyz/${locale}/market` },
                 ]}
             />
+            {/* Header */}
+            <header className="w-full bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 sticky top-0 z-50">
+                <div className="w-full max-w-md sm:max-w-4xl mx-auto flex items-center justify-between p-2 sm:p-4 relative">
+                    <div className="flex items-center gap-2 flex-1">
+                        <Link
+                            href="/"
+                            className="p-3 sm:p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-300 cursor-pointer"
+                        >
+                            <ArrowLeft size={24} />
+                        </Link>
+                    </div>
+
+                    <Link href="/" className="absolute left-1/2 -translate-x-1/2">
+                        <Image
+                            src="/icon.png"
+                            alt="BitSwipe"
+                            width={40}
+                            height={40}
+                            className="hover:opacity-80 transition-opacity cursor-pointer shadow-md"
+                        />
+                    </Link>
+
+                    <div className="flex items-center gap-2 flex-1 justify-end">
+                        <Link
+                            href="/market"
+                            className="relative p-3 sm:p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-300 cursor-pointer"
+                        >
+                            <Newspaper size={24} />
+                            <span className="absolute top-2 right-2 sm:top-1 sm:right-1 flex h-3 w-3">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+                            </span>
+                        </Link>
+                        <Link
+                            href="/ranking"
+                            className="p-3 sm:p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-300 cursor-pointer"
+                        >
+                            <Trophy size={24} />
+                        </Link>
+                    </div>
+                </div>
+            </header>
+
             <div className="max-w-4xl mx-auto px-4 pt-8 pb-12">
                 <div className="mb-8">
-                    <Link
-                        href="/"
-                        className="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors mb-6"
-                    >
-                        <ArrowLeft className="w-5 h-5 mr-2" />
-                        Back to Game
-                    </Link>
                     <div className="mb-12 text-center">
                         <p className="text-gray-400 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed">
                             {t('description')}
@@ -102,6 +140,7 @@ export default async function MarketPage({ params }: { params: Promise<{ locale:
                     <SentimentList data={sentimentData} />
                 </div>
             </div>
+            <Footer />
         </div>
     );
 }
