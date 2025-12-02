@@ -17,18 +17,18 @@ export async function generateMetadata({
         description: t('description'),
         keywords: t('keywords').split(','),
         alternates: {
-            canonical: `https://bitswipe.xyz/${locale}/ranking`,
+            canonical: `https://www.bitswipe.xyz/${locale}/ranking`,
             languages: {
-                'en': 'https://bitswipe.xyz/en/ranking',
-                'ko': 'https://bitswipe.xyz/ko/ranking',
-                'es': 'https://bitswipe.xyz/es/ranking',
-                'ja': 'https://bitswipe.xyz/ja/ranking',
+                'en': 'https://www.bitswipe.xyz/en/ranking',
+                'ko': 'https://www.bitswipe.xyz/ko/ranking',
+                'es': 'https://www.bitswipe.xyz/es/ranking',
+                'ja': 'https://www.bitswipe.xyz/ja/ranking',
             },
         },
         openGraph: {
             title: t('title'),
             description: t('ogDescription'),
-            url: `https://bitswipe.xyz/${locale}/ranking`,
+            url: `https://www.bitswipe.xyz/${locale}/ranking`,
             siteName: 'BitSwipe',
             images: [
                 {
@@ -62,8 +62,8 @@ export default async function RankingPage({
         <>
             <BreadcrumbJsonLd
                 items={[
-                    { name: 'Home', item: `https://bitswipe.xyz/${locale}` },
-                    { name: 'Ranking', item: `https://bitswipe.xyz/${locale}/ranking` },
+                    { name: 'Home', item: `https://www.bitswipe.xyz/${locale}` },
+                    { name: 'Ranking', item: `https://www.bitswipe.xyz/${locale}/ranking` },
                 ]}
             />
             <RankingClient />
