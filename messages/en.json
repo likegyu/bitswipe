@@ -76,7 +76,7 @@
         "no_loss": "No Loss"
     },
     "RankingPage": {
-        "title": "Trader Ranking",
+        "title": "Bitswipe - Trader Ranking",
         "description": "Check the top traders on Bitswipe. See who has the highest returns and win rates. Compete for the top spot on the leaderboard.",
         "keywords": "Trader Ranking, Leaderboard, Top Traders, Trading Competition, Best Returns, Win Rate, Crypto Trading Game Ranking",
         "ogDescription": "Who are the top traders? Check the Bitswipe leaderboard and challenge the best.",
@@ -357,7 +357,7 @@
         "Disclaimer": "Disclaimer: Bitswipe is just a simulation game. No real money is involved, and making a profit here does not guarantee real investment returns. You are solely responsible for your investments."
     },
     "PrivacyPolicy": {
-        "title": "Privacy Policy",
+        "title": "Bitswipe - Privacy Policy",
         "description": "Learn how Bitswipe collects, uses, and protects your personal information. We value your privacy and data security.",
         "keywords": "Privacy Policy, Data Protection, User Privacy, Cookie Policy, Information Security, Bitswipe Privacy",
         "ogDescription": "Your privacy matters. See how Bitswipe protects your personal data.",
@@ -397,7 +397,7 @@
         }
     },
     "TermsOfService": {
-        "title": "Terms of Service",
+        "title": "Bitswipe - Terms of Service",
         "description": "Read the Terms of Service for Bitswipe. Understand the rules, user rights, and responsibilities for using our crypto trading simulation platform.",
         "keywords": "Terms of Service, User Agreement, Rules, Crypto Trading Game, Bitswipe Policy, User Rights, Usage Guidelines",
         "ogDescription": "Understand the rules and your rights on Bitswipe. Read our Terms of Service.",
@@ -448,7 +448,7 @@
         }
     },
     "MarketPage": {
-        "title": "Bitcoin Market Sentiment",
+        "title": "Bitswipe - Bitcoin Market Sentiment",
         "description": "Get daily Bitcoin market sentiment analysis powered by AI. Track bullish and bearish trends with our sentiment calendar and historical data.",
         "keywords": "Bitcoin Sentiment, Market Analysis, Crypto Trends, AI Trading Analysis, Bitcoin Forecast, Bullish vs Bearish, Market Mood",
         "ogDescription": "Daily AI-powered Bitcoin market sentiment analysis. Check today's market mood.",

@@ -85,10 +85,17 @@ export default async function TermsPage({
                     <Link href="/" className="absolute left-1/2 -translate-x-1/2">
                         <Image
                             src="/bitswipe-icon.png"
-                            alt="Bitswipe Logo - Bitcoin Trading Game"
+                            alt="Bitswipe"
                             width={40}
                             height={40}
-                            className="mix-blend-multiply hover:opacity-80 transition-opacity cursor-pointer shadow-md"
+                            className="block dark:hidden hover:opacity-80 transition-opacity cursor-pointer shadow-md"
+                        />
+                        <Image
+                            src="/bitswipe-icon-dark.png"
+                            alt="Bitswipe"
+                            width={40}
+                            height={40}
+                            className="hidden dark:block hover:opacity-80 transition-opacity cursor-pointer shadow-md"
                         />
                     </Link>
 

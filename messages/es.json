@@ -76,7 +76,7 @@
         "no_loss": "Sin Pérdidas"
     },
     "RankingPage": {
-        "title": "Ranking de Traders",
+        "title": "Bitswipe - Ranking de Traders",
         "description": "Consulte los mejores traders en Bitswipe. Vea quién tiene los mayores rendimientos y tasas de victoria. Compita por el primer lugar en la clasificación.",
         "keywords": "Ranking de Traders, Tabla de Clasificación, Mejores Traders, Competición de Trading, Mejores Rendimientos, Tasa de Victoria, Ranking de Juego de Trading Cripto",
         "ogDescription": "¿Quiénes son los mejores traders? Consulte la clasificación de Bitswipe y desafíe a los mejores.",
@@ -357,7 +357,7 @@
         "Disclaimer": "Descargo de responsabilidad: Bitswipe es solo un juego de simulación. No hay dinero real involucrado, y obtener ganancias aquí no garantiza retornos de inversión reales. Eres el único responsable de tus inversiones."
     },
     "PrivacyPolicy": {
-        "title": "Política de Privacidad",
+        "title": "Bitswipe - Política de Privacidad",
         "description": "Conozca cómo Bitswipe recopila, utiliza y protege su información personal. Valoramos su privacidad y la seguridad de sus datos.",
         "keywords": "Política de Privacidad, Protección de Datos, Privacidad del Usuario, Política de Cookies, Seguridad de la Información, Privacidad de Bitswipe",
         "ogDescription": "Su privacidad importa. Vea cómo Bitswipe protege sus datos personales.",
@@ -397,7 +397,7 @@
         }
     },
     "TermsOfService": {
-        "title": "Términos de Servicio",
+        "title": "Bitswipe - Términos de Servicio",
         "description": "Lea los Términos de Servicio de Bitswipe. Entienda las reglas, los derechos del usuario y las responsabilidades al usar nuestra plataforma de simulación de trading de criptomonedas.",
         "keywords": "Términos de Servicio, Acuerdo de Usuario, Reglas, Juego de Trading de Cripto, Política de Bitswipe, Derechos del Usuario, Guía de Uso",
         "ogDescription": "Entienda las reglas y sus derechos en Bitswipe. Lea nuestros Términos de Servicio.",
@@ -448,7 +448,7 @@
         }
     },
     "MarketPage": {
-        "title": "Sentimiento del Mercado de Bitcoin",
+        "title": "Bitswipe - Sentimiento del Mercado de Bitcoin",
         "description": "Obtenga análisis diario del sentimiento del mercado de Bitcoin impulsado por IA. Siga las tendencias alcistas y bajistas con nuestro calendario de sentimiento y datos históricos.",
         "keywords": "Sentimiento de Bitcoin, Análisis de Mercado, Tendencias Cripto, Análisis de Trading con IA, Pronóstico de Bitcoin, Alcista vs Bajista, Estado del Mercado",
         "ogDescription": "Análisis diario del sentimiento del mercado de Bitcoin por IA. Consulte el estado del mercado de hoy.",
