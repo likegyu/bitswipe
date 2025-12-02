@@ -9,12 +9,12 @@ export const SEOContent = () => {
     // --- Custom SVG Icons (Monochrome & Premium) ---
     const Icons = {
         Leverage: () => (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-6 h-6">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-6 h-6" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
         ),
         RSI: () => (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-6 h-6 text-gray-400">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-6 h-6 text-gray-400" aria-hidden="true">
                 {/* 메인 그래프: text-rose-500 (진한 핑크/레드) */}
                 <path className="text-rose-500" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 12h2l3-6 4 12 3-9h4" />
                 {/* 배경 눈금: 부모의 text-gray-400을 상속받음 */}
@@ -22,7 +22,7 @@ export const SEOContent = () => {
             </svg>
         ),
         MA: () => (
-            <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6">
+            <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6" aria-hidden="true">
                 {/* 메인: Indigo-600 */}
                 <path className="text-indigo-600" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 18l5-5 4 4 9-9" />
                 {/* 보조: Indigo-300 (투명도 조절 대신 색상을 연하게) */}
@@ -30,7 +30,7 @@ export const SEOContent = () => {
             </svg>
         ),
         BB: () => (
-            <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6">
+            <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6" aria-hidden="true">
                 {/* 밴드 영역 */}
                 <path
                     d="M3 12c0-3 5-6 9-6s9 3 9 6 c0 3 -5 6 -9 6s-9 -3 -9 -6"
@@ -46,25 +46,25 @@ export const SEOContent = () => {
             </svg>
         ),
         WinRate: () => (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-6 h-6">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-6 h-6" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12h-9v-9" />
             </svg>
         ),
         ProfitFactor: () => (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-6 h-6">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-6 h-6" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 6l3 12 4-5 4 5 7-15" />
             </svg>
         ),
         Target: () => (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-6 h-6">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-6 h-6" aria-hidden="true">
                 <circle cx="12" cy="12" r="10" strokeWidth={2} />
                 <circle cx="12" cy="12" r="6" strokeWidth={2} />
                 <circle cx="12" cy="12" r="2" strokeWidth={2} />
             </svg>
         ),
         Chart: () => (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-6 h-6">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-6 h-6" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 20V10M18 20V4M6 20v-4" />
             </svg>
         )

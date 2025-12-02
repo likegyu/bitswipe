@@ -26,10 +26,19 @@ export async function generateMetadata({
         },
         description: t('description'),
         keywords: t('keywords').split(','),
+        alternates: {
+            canonical: `https://bitswipe.xyz/${locale}`,
+            languages: {
+                'en': 'https://bitswipe.xyz/en',
+                'ko': 'https://bitswipe.xyz/ko',
+                'es': 'https://bitswipe.xyz/es',
+                'ja': 'https://bitswipe.xyz/ja',
+            },
+        },
         openGraph: {
             title: t('title'),
             description: t('ogDescription'),
-            url: 'https://bitswipe.xyz',
+            url: `https://bitswipe.xyz/${locale}`,
             siteName: t('title'),
             images: [
                 {
@@ -52,12 +61,25 @@ export async function generateMetadata({
     };
 }
 
-export default function Home() {
+import { FAQJsonLd } from '@/components/FAQJsonLd';
+import { HowToJsonLd } from '@/components/HowToJsonLd';
+import { SoftwareAppJsonLd } from '@/components/SoftwareAppJsonLd';
+
+export default async function Home({
+    params,
+}: {
+    params: Promise<{ locale: string }>;
+}) {
+    const { locale } = await params;
+
     return (
         <main>
             <Suspense fallback={null}>
                 <SharedResultModal />
             </Suspense>
+            <FAQJsonLd locale={locale} />
+            <HowToJsonLd locale={locale} />
+            <SoftwareAppJsonLd locale={locale} />
             <GameLayout />
             <SEOContent />
         </main>

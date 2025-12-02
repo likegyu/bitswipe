@@ -1,10 +1,10 @@
 {
     "HomePage": {
-        "title": "Bitswipe",
-        "description": "Bitswipe is a risk-free crypto trading simulation game. Practice reading candle charts, predict price flows, and sharpen your instincts with intuitive gameplay. Or, just play for fun!",
-        "keywords": "Bitcoin Trading, Crypto Simulation, Chart Reading, Candlestick Charts, Crypto Game, Trading Practice, Technical Analysis, Bitcoin Futures, Leverage, Short Position",
-        "ogDescription": "Master Bitcoin trading through a game. Learn chart patterns and build your trading intuition.",
-        "ogImageAlt": "Bitswipe - Bitcoin Trading Simulator"
+        "title": "BitSwipe - Bitcoin Futures Trading Game & Virtual Investment",
+        "description": "BitSwipe is the Bitcoin Game for practicing Bitcoin Futures and Virtual Investment. Master the market with our risk-free simulation.",
+        "keywords": "Bitcoin Game, Bitcoin Futures, Bitcoin Virtual Investment, Crypto Simulation, Chart Reading, Candlestick Charts, Trading Practice, Technical Analysis, Leverage, Short Position",
+        "ogDescription": "The Bitcoin Game to practice Futures and Virtual Investment. Master the chart patterns now.",
+        "ogImageAlt": "BitSwipe - Bitcoin Futures Trading Game & Virtual Investment"
     },
     "Header": {
         "selected_rounds": "Rounds"
@@ -77,6 +77,10 @@
     },
     "RankingPage": {
         "title": "Trader Ranking",
+        "description": "Check the top traders on Bitswipe. See who has the highest returns and win rates. Compete for the top spot on the leaderboard.",
+        "keywords": "Trader Ranking, Leaderboard, Top Traders, Trading Competition, Best Returns, Win Rate, Crypto Trading Game Ranking",
+        "ogDescription": "Who are the top traders? Check the Bitswipe leaderboard and challenge the best.",
+        "ogImageAlt": "Bitswipe Trader Rankings",
         "rank": "Rank",
         "trader": "Trader",
         "profit": "Profit",
@@ -131,7 +135,7 @@
         "Psychology": {
             "title": "How Bitswipe Helps You",
             "p1": "They say trading is 20% skill and 80% psychology. It's not usually the lack of chart knowledge that causes failure, but emotions like fear and greed.",
-            "p2_part1": "is a 'trading gym' where you can feel the tension of real trading without risking your money. Experience days of price action in just minutes and gain.",
+            "p2_part1": "is a Bitcoin Game and 'trading gym' where you can feel the tension of real trading without risking your money. Experience days of Bitcoin Futures price action in just minutes and gain.",
             "list1_bold": "Quick Intuition",
             "list1_text": "Practice making intuitive decisions so you don't hesitate and miss the timing.",
             "list2_bold": "Pattern Recognition",
@@ -142,14 +146,14 @@
         },
         "Mission": {
             "title": "Wake Up Your Trading Brain Every Morning",
-            "p1": "Complex chart analysis, checking news, and live trading. Bitswipe is the perfect place to wake up your brain and read the market flow every morning.",
+            "p1": "Complex chart analysis, checking news, and live trading. Bitswipe is the perfect Bitcoin Virtual Investment platform to wake up your brain and read the market flow every morning.",
             "p2_part1": "Just 5 minutes is enough.",
             "p2_data": "Real Bitcoin Historical Data",
             "p2_part2": "Tune your trading senses and check today's crypto news at a glance. The smartest routine to start your day, with Bitswipe."
         },
         "Basics": {
             "title": "Mastering the Basics",
-            "p1": "Before loading up on indicators, it's good to look at the basics of the chart. Here are three concepts you'll naturally pick up while playing Bitswipe.",
+            "p1": "Before loading up on indicators, it's good to look at the basics of the chart. Here are three concepts you'll naturally pick up while practicing Bitcoin Futures on Bitswipe.",
             "concept1_title": "Support & Resistance",
             "concept1_text": "Prices tend to bounce off the floor (Support) and fall from the ceiling (Resistance). Buying low and selling high is the most fundamental principle.",
             "concept2_title": "Follow the Trend",
@@ -249,7 +253,7 @@
         "FAQ": {
             "title": "Frequently Asked Questions",
             "q1_question": "Q1. Can I make real money?",
-            "q1_answer": "No. Bitswipe is 100% a simulation game. No real money is involved, and profits in the game are virtual. It's purely a tool for practice and fun.",
+            "q1_answer": "No. Bitswipe is 100% a Bitcoin Game simulation. No real money is involved, and profits in the game are virtual. It's purely a tool for Bitcoin Virtual Investment practice and fun.",
             "q2_question": "Q2. Will it help with real trading?",
             "q2_answer": "Yes, it helps develop your ability to read charts and make quick decisions. However, real trading has variables that don't exist in the game, like psychological pressure, fees, and slippage. So Bitswipe can't replace real trading completely.",
             "q3_question": "Q3. Is it more fun with high leverage?",
@@ -354,6 +358,10 @@
     },
     "PrivacyPolicy": {
         "title": "Privacy Policy",
+        "description": "Learn how Bitswipe collects, uses, and protects your personal information. We value your privacy and data security.",
+        "keywords": "Privacy Policy, Data Protection, User Privacy, Cookie Policy, Information Security, Bitswipe Privacy",
+        "ogDescription": "Your privacy matters. See how Bitswipe protects your personal data.",
+        "ogImageAlt": "Bitswipe Privacy Policy",
         "lastUpdated": "Last updated: 11/25/2025",
         "introP1": "Bitswipe (https://bitswipe.xyz) values your privacy. This policy explains what information we collect and how we use it.",
         "logFiles": {
@@ -390,6 +398,10 @@
     },
     "TermsOfService": {
         "title": "Terms of Service",
+        "description": "Read the Terms of Service for Bitswipe. Understand the rules, user rights, and responsibilities for using our crypto trading simulation platform.",
+        "keywords": "Terms of Service, User Agreement, Rules, Crypto Trading Game, Bitswipe Policy, User Rights, Usage Guidelines",
+        "ogDescription": "Understand the rules and your rights on Bitswipe. Read our Terms of Service.",
+        "ogImageAlt": "Bitswipe Terms of Service",
         "lastUpdated": "Last updated: 11/25/2025",
         "section1": {
             "title": "Acceptance of Terms",
@@ -437,7 +449,10 @@
     },
     "MarketPage": {
         "title": "Bitcoin Market Sentiment",
-        "description": "Check today's Bitcoin market sentiment analyzed.",
+        "description": "Get daily Bitcoin market sentiment analysis powered by AI. Track bullish and bearish trends with our sentiment calendar and historical data.",
+        "keywords": "Bitcoin Sentiment, Market Analysis, Crypto Trends, AI Trading Analysis, Bitcoin Forecast, Bullish vs Bearish, Market Mood",
+        "ogDescription": "Daily AI-powered Bitcoin market sentiment analysis. Check today's market mood.",
+        "ogImageAlt": "Bitswipe Bitcoin Market Sentiment",
         "calendar_title": "Market Sentiment Calendar",
         "calendar_desc": "Check the market sentiment for the last 4 weeks at a glance.",
         "history_title": "Past Sentiment History",

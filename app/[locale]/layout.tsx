@@ -7,6 +7,8 @@ export function generateStaticParams() {
     return routing.locales.map((locale) => ({ locale }));
 }
 
+import { JsonLd } from '@/components/JsonLd';
+
 export default async function LocaleLayout({
     children,
     params,
@@ -27,6 +29,7 @@ export default async function LocaleLayout({
 
     return (
         <NextIntlClientProvider messages={messages}>
+            <JsonLd />
             {children}
         </NextIntlClientProvider>
     );

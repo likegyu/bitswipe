@@ -1,10 +1,10 @@
 {
     "HomePage": {
-        "title": "Bitswipe",
-        "description": "Bitswipe es un juego de simulación de trading de criptomonedas sin riesgo. Practica la lectura de gráficos de velas, predice los movimientos de precios y agudiza tus instintos con un juego intuitivo. ¡O simplemente juega por diversión!",
-        "keywords": "Trading de Bitcoin, Simulación de Criptomonedas, Lectura de Gráficos, Velas Japonesas, Juego de Cripto, Práctica de Trading, Análisis Técnico, Futuros de Bitcoin, Apalancamiento, Posición Corta",
-        "ogDescription": "Domina el trading de Bitcoin jugando. Aprende patrones de gráficos y desarrolla tu intuición de trading.",
-        "ogImageAlt": "Bitswipe - Simulador de Trading de Bitcoin"
+        "title": "BitSwipe - Juego de Futuros de Bitcoin e Inversión Virtual",
+        "description": "BitSwipe es el juego de Bitcoin para practicar Futuros de Bitcoin e Inversión Virtual. Domina el mercado con nuestra simulación sin riesgos.",
+        "keywords": "Juego de Bitcoin, Futuros de Bitcoin, Inversión Virtual en Bitcoin, Simulación de Cripto, Lectura de Gráficos, Velas Japonesas, Práctica de Trading, Análisis Técnico, Apalancamiento, Posición Corta",
+        "ogDescription": "El Juego de Bitcoin para practicar Futuros e Inversión Virtual. Domina los patrones de gráficos ahora.",
+        "ogImageAlt": "BitSwipe - Juego de Futuros de Bitcoin e Inversión Virtual"
     },
     "Header": {
         "selected_rounds": "Rondas"
@@ -77,6 +77,10 @@
     },
     "RankingPage": {
         "title": "Ranking de Traders",
+        "description": "Consulte los mejores traders en Bitswipe. Vea quién tiene los mayores rendimientos y tasas de victoria. Compita por el primer lugar en la clasificación.",
+        "keywords": "Ranking de Traders, Tabla de Clasificación, Mejores Traders, Competición de Trading, Mejores Rendimientos, Tasa de Victoria, Ranking de Juego de Trading Cripto",
+        "ogDescription": "¿Quiénes son los mejores traders? Consulte la clasificación de Bitswipe y desafíe a los mejores.",
+        "ogImageAlt": "Rankings de Traders de Bitswipe",
         "rank": "Rango",
         "trader": "Trader",
         "profit": "Beneficio",
@@ -354,6 +358,10 @@
     },
     "PrivacyPolicy": {
         "title": "Política de Privacidad",
+        "description": "Conozca cómo Bitswipe recopila, utiliza y protege su información personal. Valoramos su privacidad y la seguridad de sus datos.",
+        "keywords": "Política de Privacidad, Protección de Datos, Privacidad del Usuario, Política de Cookies, Seguridad de la Información, Privacidad de Bitswipe",
+        "ogDescription": "Su privacidad importa. Vea cómo Bitswipe protege sus datos personales.",
+        "ogImageAlt": "Política de Privacidad de Bitswipe",
         "lastUpdated": "Última actualización: 11/25/2025",
         "introP1": "Bitswipe (https://bitswipe.xyz) valora tu privacidad. Esta política explica qué información recopilamos y cómo la usamos.",
         "logFiles": {
@@ -390,6 +398,10 @@
     },
     "TermsOfService": {
         "title": "Términos de Servicio",
+        "description": "Lea los Términos de Servicio de Bitswipe. Entienda las reglas, los derechos del usuario y las responsabilidades al usar nuestra plataforma de simulación de trading de criptomonedas.",
+        "keywords": "Términos de Servicio, Acuerdo de Usuario, Reglas, Juego de Trading de Cripto, Política de Bitswipe, Derechos del Usuario, Guía de Uso",
+        "ogDescription": "Entienda las reglas y sus derechos en Bitswipe. Lea nuestros Términos de Servicio.",
+        "ogImageAlt": "Términos de Servicio de Bitswipe",
         "lastUpdated": "Última actualización: 11/25/2025",
         "section1": {
             "title": "Aceptación de los Términos",
@@ -437,7 +449,10 @@
     },
     "MarketPage": {
         "title": "Sentimiento del Mercado de Bitcoin",
-        "description": "Consulta el sentimiento del mercado de Bitcoin de hoy analizado.",
+        "description": "Obtenga análisis diario del sentimiento del mercado de Bitcoin impulsado por IA. Siga las tendencias alcistas y bajistas con nuestro calendario de sentimiento y datos históricos.",
+        "keywords": "Sentimiento de Bitcoin, Análisis de Mercado, Tendencias Cripto, Análisis de Trading con IA, Pronóstico de Bitcoin, Alcista vs Bajista, Estado del Mercado",
+        "ogDescription": "Análisis diario del sentimiento del mercado de Bitcoin por IA. Consulte el estado del mercado de hoy.",
+        "ogImageAlt": "Sentimiento del Mercado de Bitcoin de Bitswipe",
         "calendar_title": "Calendario de Sentimiento del Mercado",
         "calendar_desc": "Consulta el sentimiento del mercado de las últimas 4 semanas de un vistazo.",
         "history_title": "Historial de Sentimiento",

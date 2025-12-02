@@ -6,6 +6,7 @@ import { SentimentList } from '@/components/SentimentList';
 import { Link } from '@/i18n/navigation';
 import { ArrowLeft } from 'lucide-react';
 import { Metadata } from 'next';
+import { BreadcrumbJsonLd } from '@/components/BreadcrumbJsonLd';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
     const { locale } = await params;
@@ -14,10 +15,19 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     return {
         title: t('title'),
         description: t('description'),
-        keywords: t('keywords') ? t('keywords').split(',') : [],
+        keywords: t('keywords').split(','),
+        alternates: {
+            canonical: `https://bitswipe.xyz/${locale}/market`,
+            languages: {
+                'en': 'https://bitswipe.xyz/en/market',
+                'ko': 'https://bitswipe.xyz/ko/market',
+                'es': 'https://bitswipe.xyz/es/market',
+                'ja': 'https://bitswipe.xyz/ja/market',
+            },
+        },
         openGraph: {
             title: t('title'),
-            description: t('ogDescription') || t('description'),
+            description: t('ogDescription'),
             url: `https://bitswipe.xyz/${locale}/market`,
             siteName: 'BitSwipe',
             images: [
@@ -25,7 +35,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
                     url: '/og-image.png',
                     width: 1200,
                     height: 630,
-                    alt: t('ogImageAlt') || t('title'),
+                    alt: t('ogImageAlt'),
                 },
             ],
             locale: locale,
@@ -34,7 +44,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         twitter: {
             card: 'summary_large_image',
             title: t('title'),
-            description: t('ogDescription') || t('description'),
+            description: t('ogDescription'),
             images: ['/og-image.png'],
             creator: '@bitswipe',
         },
@@ -46,7 +56,7 @@ export const dynamic = 'force-dynamic';
 
 export default async function MarketPage({ params }: { params: Promise<{ locale: string }> }) {
     const { locale } = await params;
-    const t = await getTranslations('MarketPage');
+    const t = await getTranslations({ locale, namespace: 'MarketPage' });
 
     // Fetch data from Supabase
     const { data: rawData, error } = await supabase
@@ -65,27 +75,32 @@ export default async function MarketPage({ params }: { params: Promise<{ locale:
     }));
 
     return (
-        <div className="min-h-screen bg-[var(--background)] pb-20 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto">
-                <div className="flex items-center mb-6 pt-6">
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 pb-20">
+            <BreadcrumbJsonLd
+                items={[
+                    { name: 'Home', item: `https://bitswipe.xyz/${locale}` },
+                    { name: 'Market', item: `https://bitswipe.xyz/${locale}/market` },
+                ]}
+            />
+            <div className="max-w-4xl mx-auto px-4 pt-8 pb-12">
+                <div className="mb-8">
                     <Link
                         href="/"
-                        className="p-2 -ml-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors cursor-pointer"
+                        className="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors mb-6"
                     >
-                        <ArrowLeft className="w-6 h-6 text-gray-900 dark:text-gray-100" />
+                        <ArrowLeft className="w-5 h-5 mr-2" />
+                        Back to Game
                     </Link>
-                    <h1 className="text-2xl font-bold ml-2 text-gray-900 dark:text-gray-100">{t('title')}</h1>
+                    <div className="mb-12 text-center">
+                        <p className="text-gray-400 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed">
+                            {t('description')}
+                        </p>
+                    </div>
+
+                    <SentimentCalendar data={sentimentData} />
+
+                    <SentimentList data={sentimentData} />
                 </div>
-
-                <div className="mb-12 text-center">
-                    <p className="text-gray-400 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed">
-                        {t('description')}
-                    </p>
-                </div>
-
-                <SentimentCalendar data={sentimentData} />
-
-                <SentimentList data={sentimentData} />
             </div>
         </div>
     );
