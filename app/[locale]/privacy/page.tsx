@@ -33,7 +33,7 @@ export async function generateMetadata({
         openGraph: {
             title: t('title'),
             description: t('ogDescription'),
-            url: `https://www.www.bitswipe.xyz/${locale}/privacy`,
+            url: `https://www.bitswipe.xyz/${locale}/privacy`,
             siteName: 'BitSwipe',
             images: [
                 {
