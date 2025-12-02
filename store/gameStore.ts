@@ -46,7 +46,7 @@ interface GameState {
     maxRounds: number;
     history: RoundResult[];
     settings: GameSettings;
-    status: 'IDLE' | 'PLAYING' | 'REVEALING' | 'RESULT' | 'AD' | 'FINISHED';
+    status: 'IDLE' | 'PLAYING' | 'REVEALING' | 'RESULT' | 'FINISHED';
     isGameStarted: boolean;
     isLoading: boolean;
     isRankingRegistered: boolean;
@@ -80,7 +80,6 @@ interface GameState {
     nextRound: () => void;
     resetGame: () => void;
     revealNextCandle: () => boolean; // Returns true if more candles to reveal
-    skipAd: () => void;
 }
 
 const generateChartData = (allCandles: CandleData[], timeframe: Timeframe): ChartState | null => {
@@ -444,20 +443,10 @@ export const useGameStore = create<GameState>((set, get) => ({
             newBackChart = generateChartData(allCandles, settings.timeframe);
         }
 
-        // Show Ad based on maxRounds (Reduced frequency)
-        let showAd = false;
-        if (maxRounds === 10) {
-            if (nextRoundNum === 50) showAd = true;
-        } else if (maxRounds === 25) {
-            if (nextRoundNum === 100 || nextRoundNum === 200) showAd = true;
-        } else if (maxRounds === 50) {
-            if (nextRoundNum === 150 || nextRoundNum === 300 || nextRoundNum === 450) showAd = true;
-        }
-
         set({
             frontChart: newFrontChart,
             backChart: newBackChart,
-            status: showAd ? 'AD' : 'PLAYING',
+            status: 'PLAYING',
             round: nextRoundNum,
         });
     },
@@ -555,9 +544,5 @@ export const useGameStore = create<GameState>((set, get) => ({
             frontChart: null,
             backChart: null,
         });
-    },
-
-    skipAd: () => {
-        set({ status: 'PLAYING' });
     }
 }));

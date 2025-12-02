@@ -90,6 +90,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           {children}
           <CookieConsent />
         </ThemeProvider>
+        {/* Kakao Ad Script - Must be before </body> */}
+        <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
       </body>
     </html>
   );

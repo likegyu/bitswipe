@@ -14,8 +14,6 @@ interface AnalysisModalProps {
 export const AnalysisModal = ({ history, onClose }: AnalysisModalProps) => {
 
     const t = useTranslations('AnalysisModal');
-    const [showAd, setShowAd] = React.useState(true);
-    const adInitialized = React.useRef(false);
 
     // Prevent background scrolling when modal is open
     React.useEffect(() => {
@@ -25,12 +23,7 @@ export const AnalysisModal = ({ history, onClose }: AnalysisModalProps) => {
         };
     }, []);
 
-    // AdSense initialization logic removed for custom banner
-    // React.useEffect(() => {
-    //     if (showAd && !adInitialized.current) {
-    //         // ...
-    //     }
-    // }, [showAd]);
+
 
     // Helper to calculate stats
     const calculateStats = (filterFn: (h: RoundResult) => boolean) => {
@@ -115,90 +108,48 @@ export const AnalysisModal = ({ history, onClose }: AnalysisModalProps) => {
                     <X size={20} />
                 </button>
 
-                {showAd ? (
-                    <div className="flex flex-col h-[70dvh]">
-                        <div className="flex-1 flex flex-col items-center justify-center mt-6 overflow-hidden min-h-[250px] m-3">
-                            <a
-                                href="https://gall.dcinside.com/mgallery/board/lists?id=chartanalysis"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="relative w-full h-full min-h-[250px] block group overflow-hidden rounded-xl"
-                            >
-                                {/* eslint-disable-next-line @next/next/no-img-element */}
-                                <img
-                                    src="/ad-banner-m.jpg"
-                                    alt="Chart Minor Gallery"
-                                    className="sm:hidden absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                                />
-                                {/* eslint-disable-next-line @next/next/no-img-element */}
-                                <img
-                                    src="/ad-banner.png"
-                                    alt="Chart Minor Gallery"
-                                    className="hidden sm:block absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                                />
-                                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
-                                    <span className="opacity-0 group-hover:opacity-100 bg-black/70 text-white px-4 py-2 rounded-full text-sm font-bold transition-opacity duration-300">
-                                        Visit Gallery
-                                    </span>
-                                </div>
-                            </a>
+                <>
+                    <div className="text-center mt-6 mb-6">
+                        <h2 className="text-2xl font-bold text-gray-800 dark:text-white">{t('trading_analysis')}</h2>
+                        <p className="text-sm text-gray-500 dark:text-gray-400">{t('your_behavior_patterns_in_different_market_conditions')}</p>
+                    </div>
+
+                    <div className="space-y-4 p-4">
+                        {/* RSI Section */}
+                        <div>
+                            <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-3 flex items-center gap-2">
+                                <Activity size={16} /> {t('rsi_context')}
+                            </h3>
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                                {rsiLow ? <StatCard title={t('oversold')} stats={rsiLow} icon={TrendingDown} color="bg-blue-500" /> : <div className="text-xs text-gray-400 dark:text-gray-500 p-4 text-center bg-gray-50 dark:bg-gray-800 rounded-xl">{t('no_trades_in_oversold')}</div>}
+                                {rsiMid ? <StatCard title={t('neutral')} stats={rsiMid} icon={Activity} color="bg-gray-500" /> : <div className="text-xs text-gray-400 dark:text-gray-500 p-4 text-center bg-gray-50 dark:bg-gray-800 rounded-xl">{t('no_trades_in_neutral')}</div>}
+                                {rsiHigh ? <StatCard title={t('overbought')} stats={rsiHigh} icon={TrendingUp} color="bg-purple-500" /> : <div className="text-xs text-gray-400 dark:text-gray-500 p-4 text-center bg-gray-50 dark:bg-gray-800 rounded-xl">{t('no_trades_in_overbought')}</div>}
+                            </div>
                         </div>
-                        <div className="mt-4 flex justify-center">
-                            <button
-                                onClick={() => setShowAd(false)}
-                                className="cursor-pointer w-[80%] mx-auto py-3 bg-primary text-white font-bold rounded-xl hover:bg-primary-hover transition-colors hover:scale-[1.02] active:scale-95"
-                            >
-                                {t('close_ad_view_analysis')}
-                            </button>
+
+                        {/* MA Section */}
+                        <div>
+                            <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-3 flex items-center gap-2">
+                                <TrendingUp size={16} /> {t('ma_trend')}
+                            </h3>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                {maUp ? <StatCard title={t('uptrend')} stats={maUp} icon={TrendingUp} color="bg-success" /> : <div className="text-xs text-gray-400 dark:text-gray-500 p-4 text-center bg-gray-50 dark:bg-gray-800 rounded-xl">{t('no_trades_in_uptrend')}</div>}
+                                {maDown ? <StatCard title={t('downtrend')} stats={maDown} icon={TrendingDown} color="bg-error" /> : <div className="text-xs text-gray-400 dark:text-gray-500 p-4 text-center bg-gray-50 dark:bg-gray-800 rounded-xl">{t('no_trades_in_downtrend')}</div>}
+                            </div>
                         </div>
-                        <div className="mt-2 text-center">
-                            <span className="text-xs font-medium text-gray-400 uppercase tracking-wider">Advertisement</span>
+
+                        {/* BB Section */}
+                        <div>
+                            <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-3 flex items-center gap-2">
+                                <BarChart2 size={16} /> {t('bollinger_bands')}
+                            </h3>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                {bbUpper ? <StatCard title={t('upper_band_touch')} stats={bbUpper} icon={TrendingUp} color="bg-orange-500" /> : <div className="text-xs text-gray-400 dark:text-gray-500 p-4 text-center bg-gray-50 dark:bg-gray-800 rounded-xl">{t('no_trades_at_upper_band')}</div>}
+                                {bbLower ? <StatCard title={t('lower_band_touch')} stats={bbLower} icon={TrendingDown} color="bg-cyan-500" /> : <div className="text-xs text-gray-400 dark:text-gray-500 p-4 text-center bg-gray-50 dark:bg-gray-800 rounded-xl">{t('no_trades_at_lower_band')}</div>}
+                            </div>
                         </div>
                     </div>
-                ) : (
-                    <>
-                        <div className="text-center mt-6 mb-6">
-                            <h2 className="text-2xl font-bold text-gray-800 dark:text-white">{t('trading_analysis')}</h2>
-                            <p className="text-sm text-gray-500 dark:text-gray-400">{t('your_behavior_patterns_in_different_market_conditions')}</p>
-                        </div>
-
-                        <div className="space-y-4 p-4">
-                            {/* RSI Section */}
-                            <div>
-                                <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-3 flex items-center gap-2">
-                                    <Activity size={16} /> {t('rsi_context')}
-                                </h3>
-                                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                                    {rsiLow ? <StatCard title={t('oversold')} stats={rsiLow} icon={TrendingDown} color="bg-blue-500" /> : <div className="text-xs text-gray-400 dark:text-gray-500 p-4 text-center bg-gray-50 dark:bg-gray-800 rounded-xl">{t('no_trades_in_oversold')}</div>}
-                                    {rsiMid ? <StatCard title={t('neutral')} stats={rsiMid} icon={Activity} color="bg-gray-500" /> : <div className="text-xs text-gray-400 dark:text-gray-500 p-4 text-center bg-gray-50 dark:bg-gray-800 rounded-xl">{t('no_trades_in_neutral')}</div>}
-                                    {rsiHigh ? <StatCard title={t('overbought')} stats={rsiHigh} icon={TrendingUp} color="bg-purple-500" /> : <div className="text-xs text-gray-400 dark:text-gray-500 p-4 text-center bg-gray-50 dark:bg-gray-800 rounded-xl">{t('no_trades_in_overbought')}</div>}
-                                </div>
-                            </div>
-
-                            {/* MA Section */}
-                            <div>
-                                <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-3 flex items-center gap-2">
-                                    <TrendingUp size={16} /> {t('ma_trend')}
-                                </h3>
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                    {maUp ? <StatCard title={t('uptrend')} stats={maUp} icon={TrendingUp} color="bg-success" /> : <div className="text-xs text-gray-400 dark:text-gray-500 p-4 text-center bg-gray-50 dark:bg-gray-800 rounded-xl">{t('no_trades_in_uptrend')}</div>}
-                                    {maDown ? <StatCard title={t('downtrend')} stats={maDown} icon={TrendingDown} color="bg-error" /> : <div className="text-xs text-gray-400 dark:text-gray-500 p-4 text-center bg-gray-50 dark:bg-gray-800 rounded-xl">{t('no_trades_in_downtrend')}</div>}
-                                </div>
-                            </div>
-
-                            {/* BB Section */}
-                            <div>
-                                <h3 className="text-sm font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-3 flex items-center gap-2">
-                                    <BarChart2 size={16} /> {t('bollinger_bands')}
-                                </h3>
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                    {bbUpper ? <StatCard title={t('upper_band_touch')} stats={bbUpper} icon={TrendingUp} color="bg-orange-500" /> : <div className="text-xs text-gray-400 dark:text-gray-500 p-4 text-center bg-gray-50 dark:bg-gray-800 rounded-xl">{t('no_trades_at_upper_band')}</div>}
-                                    {bbLower ? <StatCard title={t('lower_band_touch')} stats={bbLower} icon={TrendingDown} color="bg-cyan-500" /> : <div className="text-xs text-gray-400 dark:text-gray-500 p-4 text-center bg-gray-50 dark:bg-gray-800 rounded-xl">{t('no_trades_at_lower_band')}</div>}
-                                </div>
-                            </div>
-                        </div>
-                    </>
-                )}
+                </>
             </motion.div>
         </div>
     );

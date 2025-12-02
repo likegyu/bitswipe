@@ -9,6 +9,7 @@ import { Metadata } from 'next';
 import { BreadcrumbJsonLd } from '@/components/BreadcrumbJsonLd';
 import Image from 'next/image';
 import { Footer } from '@/components/Footer';
+import { ResponsiveKakaoAd } from '@/components/ResponsiveKakaoAd';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
     const { locale } = await params;
@@ -59,6 +60,7 @@ export const dynamic = 'force-dynamic';
 export default async function MarketPage({ params }: { params: Promise<{ locale: string }> }) {
     const { locale } = await params;
     const t = await getTranslations({ locale, namespace: 'MarketPage' });
+
 
     // Fetch data from Supabase
     const { data: rawData, error } = await supabase
@@ -134,6 +136,18 @@ export default async function MarketPage({ params }: { params: Promise<{ locale:
                 </div>
             </header>
 
+            {/* ✅ Kakao Ad - Top (반응형 적용) */}
+            <ResponsiveKakaoAd
+                // 상단 광고의 PC 설정
+                pcUnit="DAN-92yroeiWlsAYpiqb"
+                pcWidth={728}
+                pcHeight={90}
+                // 상단 광고의 모바일 설정
+                mobileUnit="DAN-Wm3BkuGJ9IQERMEc"
+                mobileWidth={320}
+                mobileHeight={50}
+            />
+
             <div className="max-w-4xl mx-auto px-4 pt-8 pb-12">
                 <div className="mb-8">
                     <div className="mb-12 text-center">
@@ -149,6 +163,7 @@ export default async function MarketPage({ params }: { params: Promise<{ locale:
 
                     <SentimentList data={sentimentData} />
                 </div>
+
             </div>
             <Footer />
         </div>

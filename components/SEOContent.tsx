@@ -110,6 +110,29 @@ export const SEOContent = () => {
         <div className="w-full py-16 px-4 bg-gray-50 dark:bg-gray-900 transition-colors duration-300 word-break-keep-all">
             {/* Main Container */}
             <div className="max-w-5xl mx-auto bg-white dark:bg-gray-800 rounded-3xl shadow-md overflow-hidden border border-gray-100 dark:border-gray-700">
+
+                {/* Kakao Ad - Top */}
+                <div className="w-full py-6 flex justify-center border-b border-gray-100 dark:border-gray-700">
+                    <div className="hidden sm:flex justify-center">
+                        <ins
+                            className="kakao_ad_area"
+                            style={{ display: 'none' }}
+                            data-ad-unit="DAN-92yroeiWlsAYpiqb"
+                            data-ad-width="728"
+                            data-ad-height="90"
+                        />
+                    </div>
+                    <div className="sm:hidden flex justify-center">
+                        <ins
+                            className="kakao_ad_area"
+                            style={{ display: 'none' }}
+                            data-ad-unit="DAN-Wm3BkuGJ9IQERMEc"
+                            data-ad-width="320"
+                            data-ad-height="50"
+                        />
+                    </div>
+                </div>
+
                 <div className="p-8 sm:p-12 lg:p-16">
 
                     {/* 1. Mission */}
@@ -812,6 +835,28 @@ export const SEOContent = () => {
                         </p>
                     </div>
 
+                </div>
+
+                {/* Kakao Ad - Bottom of SEO Content */}
+                <div className="w-full py-6 flex justify-center">
+                    <div className="hidden sm:flex justify-center">
+                        <ins
+                            className="kakao_ad_area"
+                            style={{ display: 'none' }}
+                            data-ad-unit="DAN-92yroeiWlsAYpiqb"
+                            data-ad-width="728"
+                            data-ad-height="90"
+                        />
+                    </div>
+                    <div className="sm:hidden flex justify-center">
+                        <ins
+                            className="kakao_ad_area"
+                            style={{ display: 'none' }}
+                            data-ad-unit="DAN-Wm3BkuGJ9IQERMEc"
+                            data-ad-width="320"
+                            data-ad-height="50"
+                        />
+                    </div>
                 </div>
             </div>
         </div>

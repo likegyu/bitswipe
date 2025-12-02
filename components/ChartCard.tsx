@@ -5,7 +5,7 @@ import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { TradingChart } from './TradingChart';
 import { useGameStore } from '@/store/gameStore';
 import { TimeframeSelector } from './TimeframeSelector';
-import { Ad } from './Ad';
+
 import { LoadingIndicator } from './LoadingIndicator';
 
 const variants: Variants = {
@@ -107,12 +107,7 @@ export const ChartCardBase = () => {
                                 willChange: 'transform, opacity'
                             }}
                         >
-                            {/* Ad Overlay - Only on front */}
-                            {card.type === 'front' && status === 'AD' && (
-                                <div className="absolute inset-0 z-50">
-                                    <Ad />
-                                </div>
-                            )}
+
 
                             {/* Interaction Layer - Only on Front Card */}
                             {card.type === 'front' && status === 'PLAYING' && !overlay && (

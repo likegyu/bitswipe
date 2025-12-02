@@ -7,7 +7,7 @@ import { ChartCard } from './ChartCard';
 import { Controls } from './Controls';
 import dynamic from 'next/dynamic';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Ad } from './Ad';
+
 import { TimeframeSelector } from './TimeframeSelector';
 import { Footer } from './Footer';
 import { RoundResultOverlay } from './RoundResultOverlay';
