@@ -1,10 +1,10 @@
 {
     "HomePage": {
-        "title": "BitSwipe - Bitcoin Futures Trading Game & Virtual Investment",
-        "description": "BitSwipe is the Bitcoin Game for practicing Bitcoin Futures and Virtual Investment. Master the market with our risk-free simulation.",
+        "title": "Bitswipe - Bitcoin Futures Trading Game & Virtual Investment",
+        "description": "Bitswipe is the Bitcoin Game for practicing Bitcoin Futures and Virtual Investment. Master the market with our risk-free simulation.",
         "keywords": "Bitcoin Game, Bitcoin Futures, Bitcoin Virtual Investment, Crypto Simulation, Chart Reading, Candlestick Charts, Trading Practice, Technical Analysis, Leverage, Short Position",
         "ogDescription": "The Bitcoin Game to practice Futures and Virtual Investment. Master the chart patterns now.",
-        "ogImageAlt": "BitSwipe - Bitcoin Futures Trading Game & Virtual Investment"
+        "ogImageAlt": "Bitswipe - Bitcoin Futures Trading Game & Virtual Investment"
     },
     "Header": {
         "selected_rounds": "Rounds"
