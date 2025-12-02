@@ -29,7 +29,7 @@ export async function generateMetadata({
             title: t('title'),
             description: t('ogDescription'),
             url: `https://www.bitswipe.xyz/${locale}/ranking`,
-            siteName: 'BitSwipe',
+            siteName: 'Bitswipe',
             images: [
                 {
                     url: '/og-image.png',
