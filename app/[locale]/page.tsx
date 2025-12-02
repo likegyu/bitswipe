@@ -27,13 +27,13 @@ export async function generateMetadata({
         description: t('description'),
         keywords: t('keywords').split(','),
         alternates: {
-            canonical: `https://www.bitswipe.xyz/${locale}`,
+            canonical: `https://bitswipe.xyz/${locale}`,
             languages: {
-                'en': 'https://www.bitswipe.xyz/en',
-                'ko': 'https://www.bitswipe.xyz/ko',
-                'es': 'https://www.bitswipe.xyz/es',
-                'ja': 'https://www.bitswipe.xyz/ja',
-                'x-default': 'https://www.bitswipe.xyz/en'
+                'en': 'https://bitswipe.xyz/en',
+                'ko': 'https://bitswipe.xyz/ko',
+                'es': 'https://bitswipe.xyz/es',
+                'ja': 'https://bitswipe.xyz/ja',
+                'x-default': 'https://bitswipe.xyz/en'
 
             },
         },

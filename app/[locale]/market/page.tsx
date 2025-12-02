@@ -19,18 +19,18 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         description: t('description'),
         keywords: t('keywords').split(','),
         alternates: {
-            canonical: `https://www.bitswipe.xyz/${locale}/market`,
+            canonical: `https://bitswipe.xyz/${locale}/market`,
             languages: {
-                'en': 'https://www.bitswipe.xyz/en/market',
-                'ko': 'https://www.bitswipe.xyz/ko/market',
-                'es': 'https://www.bitswipe.xyz/es/market',
-                'ja': 'https://www.bitswipe.xyz/ja/market',
+                'en': 'https://bitswipe.xyz/en/market',
+                'ko': 'https://bitswipe.xyz/ko/market',
+                'es': 'https://bitswipe.xyz/es/market',
+                'ja': 'https://bitswipe.xyz/ja/market',
             },
         },
         openGraph: {
             title: t('title'),
             description: t('ogDescription'),
-            url: `https://www.bitswipe.xyz/${locale}/market`,
+            url: `https://bitswipe.xyz/${locale}/market`,
             siteName: 'Bitswipe',
             images: [
                 {
@@ -80,8 +80,8 @@ export default async function MarketPage({ params }: { params: Promise<{ locale:
         <div className="min-h-screen bg-gray-50 dark:bg-gray-900 pb-20">
             <BreadcrumbJsonLd
                 items={[
-                    { name: 'Home', item: `https://www.bitswipe.xyz/${locale}` },
-                    { name: 'Market', item: `https://www.bitswipe.xyz/${locale}/market` },
+                    { name: 'Home', item: `https://bitswipe.xyz/${locale}` },
+                    { name: 'Market', item: `https://bitswipe.xyz/${locale}/market` },
                 ]}
             />
             {/* Header */}
@@ -99,7 +99,7 @@ export default async function MarketPage({ params }: { params: Promise<{ locale:
                     <Link href="/" className="absolute left-1/2 -translate-x-1/2">
                         <Image
                             src="/bitswipe-icon.png"
-                            alt="BitSwipe Logo - Bitcoin Trading Game"
+                            alt="Bitswipe Logo - Bitcoin Trading Game"
                             width={40}
                             height={40}
                             className="mix-blend-multiply hover:opacity-80 transition-opacity cursor-pointer shadow-md"

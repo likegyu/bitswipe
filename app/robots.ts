@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
             userAgent: '*',
             allow: '/',
         },
-        sitemap: 'https://www.bitswipe.xyz/sitemap.xml',
+        sitemap: 'https://bitswipe.xyz/sitemap.xml',
     }
 }

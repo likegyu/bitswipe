@@ -3,7 +3,7 @@ import { routing } from '@/i18n/routing';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const currentDate = new Date().toISOString();
-  const baseUrl = 'https://www.bitswipe.xyz';
+  const baseUrl = 'https://bitswipe.xyz';
 
   const pages = [
     { path: '', priority: 1, changeFrequency: 'weekly' as const },
