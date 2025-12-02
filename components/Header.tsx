@@ -35,7 +35,7 @@ export const Header = ({ onOpenSettings }: { onOpenSettings: () => void }) => {
                 <Link href="/" className="block">
                     <Image
                         src="/bitswipe-icon.png"
-                        alt="BitSwipe Logo - Bitcoin Trading Game"
+                        alt="Bitswipe Logo - Bitcoin Trading Game"
                         width={40}
                         height={40}
                         className="hover:opacity-80 transition-opacity cursor-pointer shadow-md"
