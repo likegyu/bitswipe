@@ -38,14 +38,14 @@ export const Header = ({ onOpenSettings }: { onOpenSettings: () => void }) => {
                         alt="Bitswipe"
                         width={40}
                         height={40}
-                        className="block dark:hidden hover:opacity-80 transition-opacity cursor-pointer shadow-md"
+                        className="block dark:hidden hover:opacity-80 transition-opacity cursor-pointer shadow-md rounded-[10%]"
                     />
                     <Image
                         src="/bitswipe-icon-dark.png"
                         alt="Bitswipe"
                         width={40}
                         height={40}
-                        className="hidden dark:block hover:opacity-80 transition-opacity cursor-pointer shadow-md"
+                        className="hidden dark:block hover:opacity-80 transition-opacity cursor-pointer shadow-md rounded-[10%]"
                     />
                 </Link>
             </div>

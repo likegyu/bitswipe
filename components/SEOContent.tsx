@@ -112,7 +112,7 @@ export const SEOContent = () => {
     );
 
     return (
-        <div className="w-full py-16 px-4 bg-gray-50 dark:bg-gray-900 transition-colors duration-300 word-break-keep-all">
+        <div className="w-full py-16 px-2 md:px-4 bg-gray-50 dark:bg-gray-900 transition-colors duration-300 word-break-keep-all">
             {/* Main Container */}
             <div className="max-w-5xl mx-auto bg-white dark:bg-gray-800 rounded-3xl shadow-md overflow-hidden border border-gray-100 dark:border-gray-700">
 
@@ -135,7 +135,7 @@ export const SEOContent = () => {
                     )}
                 </div>
 
-                <div className="p-8 sm:p-12 lg:p-16">
+                <div className="p-2 sm:p-8 md:p-12 lg:p-16">
 
                     {/* 1. Mission */}
                     <Section className="text-center">
