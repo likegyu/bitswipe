@@ -7,7 +7,7 @@ import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
 import Image from 'next/image';
 
-export const Header = ({ onOpenSettings }: { onOpenSettings: () => void }) => {
+export const Header = ({ onOpenSettings }: { onOpenSettings?: () => void }) => {
     const t = useTranslations('Header');
     const { balance, initialBalance, round, maxRounds } = useGameStore();
 
@@ -70,12 +70,14 @@ export const Header = ({ onOpenSettings }: { onOpenSettings: () => void }) => {
                     <Trophy size={24} />
                 </Link>
 
-                <button
-                    onClick={onOpenSettings}
-                    className="cursor-pointer p-2 sm:p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-300"
-                >
-                    <Settings size={24} />
-                </button>
+                {onOpenSettings && (
+                    <button
+                        onClick={onOpenSettings}
+                        className="cursor-pointer p-2 sm:p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-300"
+                    >
+                        <Settings size={24} />
+                    </button>
+                )}
             </div>
         </header>
     );

@@ -40,7 +40,6 @@ interface Ranking {
 export function RankingClient() {
     const t = useTranslations('RankingPage');
     const tSEO = useTranslations('SEOContent');
-    const tTimeframe = useTranslations('GameSetup');
     const [rankings, setRankings] = React.useState<Ranking[]>([]);
     const [loading, setLoading] = React.useState(true);
     const [expandedId, setExpandedId] = React.useState<string | null>(null);
@@ -86,9 +85,15 @@ export function RankingClient() {
         return <span className="font-bold text-gray-500 w-5 text-center">{index + 1}</span>;
     };
 
-    const getTimeframeLabel = (timeframe: string) => {
-        const key = `option_${timeframe}_label` as any;
-        return tTimeframe(key);
+    const formatTimeframe = (timeframe: string) => {
+        // Convert timeframe to English abbreviation (e.g., "1m", "1h", "1d")
+        const timeframeMap: { [key: string]: string } = {
+            '1m': '1m',
+            '5m': '5m',
+            '15m': '15m',
+            '1h': '1h',
+        };
+        return timeframeMap[timeframe] || timeframe;
     };
 
     return (
@@ -144,7 +149,7 @@ export function RankingClient() {
             </header>
 
             {/* Kakao Ad - Top (반응형 적용) */}
-            <div className="w-full flex justify-center py-4">
+            <div className="w-full flex justify-center">
                 {isMdUp ? (
                     // PC 광고 (MD 이상)
                     <KakaoAdFit
@@ -249,12 +254,12 @@ export function RankingClient() {
                                         </div>
                                         <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
                                             <span className="bg-gray-100 dark:bg-gray-800 px-2 py-0.5 rounded-full">
-                                                {ranking.rounds} {t('rounds')}
+                                                {ranking.rounds}R
                                             </span>
                                             {ranking.investment_style.timeframe && (
                                                 <>
                                                     <span>•</span>
-                                                    <span>{getTimeframeLabel(ranking.investment_style.timeframe)}</span>
+                                                    <span>{formatTimeframe(ranking.investment_style.timeframe)}</span>
                                                 </>
                                             )}
                                         </div>

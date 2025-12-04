@@ -31,7 +31,7 @@ export const ResponsiveKakaoAd = ({
 
     // 조건부 렌더링으로 광고 표시
     return (
-        <div className="w-full flex justify-center py-4">
+        <div className="w-full flex justify-center">
             <KakaoAdFit
                 unit={adConfig.unit}
                 width={adConfig.width}

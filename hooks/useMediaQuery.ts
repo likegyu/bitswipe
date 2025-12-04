@@ -1,14 +1,14 @@
 // useMediaQuery.ts
 import { useState, useEffect } from 'react';
 
-const MD_BREAKPOINT = 768;
+const LG_BREAKPOINT = 1024;
 
 export function useMediaQuery() {
     const [isMdUp, setIsMdUp] = useState(false);
 
     useEffect(() => {
         const checkScreenSize = () => {
-            setIsMdUp(window.innerWidth >= MD_BREAKPOINT);
+            setIsMdUp(window.innerWidth >= LG_BREAKPOINT);
         };
         checkScreenSize();
         window.addEventListener('resize', checkScreenSize);
