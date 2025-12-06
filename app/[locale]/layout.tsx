@@ -1,4 +1,5 @@
 import { NextIntlClientProvider } from 'next-intl';
+import { CookieConsent } from '@/components/CookieConsent';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
@@ -6,8 +7,6 @@ import { routing } from '@/i18n/routing';
 export function generateStaticParams() {
     return routing.locales.map((locale) => ({ locale }));
 }
-
-import { JsonLd } from '@/components/JsonLd';
 
 export default async function LocaleLayout({
     children,
@@ -29,8 +28,8 @@ export default async function LocaleLayout({
 
     return (
         <NextIntlClientProvider messages={messages}>
-            <JsonLd />
             {children}
+            <CookieConsent />
         </NextIntlClientProvider>
     );
 }

@@ -354,6 +354,15 @@
             "card2_text": "Analyze the trading styles of top rankers.",
             "cta_button": "Check Ranking"
         },
+        "FuturesSection": {
+            "title": "Binance Futures Guide",
+            "p1": "Interested in Bitcoin futures trading? We've got you covered from Binance signup to trading.",
+            "card1_title": "Signup to Trading",
+            "card1_text": "Step-by-step guide for Binance signup, USDT deposit, and futures trading.",
+            "card2_title": "Leverage & Risk Management",
+            "card2_text": "Easy explanations of TP/SL settings, order types, liquidation, and more.",
+            "cta_button": "View Futures Guide"
+        },
         "Disclaimer": "Disclaimer: Bitswipe is just a simulation game. No real money is involved, and making a profit here does not guarantee real investment returns. You are solely responsible for your investments."
     },
     "PrivacyPolicy": {
@@ -395,6 +404,10 @@
             "title": "Consent",
             "p1": "By using the Bitswipe website, you are deemed to agree to this Privacy Policy."
         }
+    },
+    "CookieConsent": {
+        "message": "We use cookies to enhance your experience and analyze our traffic. By continuing to visit this site you agree to our use of cookies.",
+        "accept": "Accept"
     },
     "TermsOfService": {
         "title": "Bitswipe - Terms of Service",
@@ -447,6 +460,22 @@
             "p1": "These terms are interpreted and governed by the laws of the United States."
         }
     },
+    "HowToJsonLd": {
+        "title": "How to Trade Bitcoin Futures on Binance",
+        "description": "A step-by-step guide from Binance signup to Bitcoin futures trading. A complete guide that even beginners can easily follow.",
+        "step1_title": "Sign Up for Binance",
+        "step1_text": "Register on the official Binance website using your email or phone number. Enter a referral code to get trading fee discounts.",
+        "step2_title": "Complete KYC Verification",
+        "step2_text": "Complete identity verification with your ID. Deposits, withdrawals, and trading are only available after verification.",
+        "step3_title": "Deposit USDT",
+        "step3_text": "Purchase USDT on an exchange, then transfer it to your Binance wallet address. Make sure to verify the network (TRC20 recommended).",
+        "step4_title": "Transfer to Futures Wallet",
+        "step4_text": "In the Binance app, use the 'Transfer' menu to move USDT from your spot wallet to your futures wallet.",
+        "step5_title": "Set Leverage and Margin Mode",
+        "step5_text": "Select the coin to trade (BTCUSDT) and set your leverage. Beginners should use 2-5x or less, and use Isolated margin mode.",
+        "step6_title": "Enter Position and Set TP/SL",
+        "step6_text": "Choose Long (expecting rise) or Short (expecting fall) direction and execute your order. Always set Stop Loss and Take Profit to manage risk."
+    },
     "MarketPage": {
         "title": "Bitswipe - Bitcoin Market Sentiment",
         "description": "Get daily Bitcoin market sentiment analysis powered by AI. Track bullish and bearish trends with our sentiment calendar and historical data.",
@@ -459,5 +488,192 @@
         "sentiment_positive": "Positive",
         "sentiment_negative": "Negative",
         "sentiment_neutral": "Neutral"
+    },
+    "FuturesPage": {
+        "title": "Bitswipe - Complete Binance Guide",
+        "description": "Complete guide to Binance futures trading. From signup to USDT deposit and opening positions - a detailed Bitcoin futures trading guide for beginners.",
+        "keywords": "Binance futures, Bitcoin futures, Binance signup, Binance tutorial, Bitcoin futures trading, USDT deposit, Binance deposit, futures trading guide, leverage trading, Bitcoin investment",
+        "ogDescription": "Complete Binance futures trading guide. Easy-to-follow Bitcoin futures trading methods for beginners.",
+        "ogImageAlt": "Bitswipe - Binance Futures Trading Guide",
+        "hero": {
+            "title": "Bitcoin Futures Made Easy",
+            "subtitle": "A Complete Binance Futures Trading Guide for Beginners (20% Lifetime Fee Discount)",
+            "description": "Get a lifetime 20% discount on trading fees. From signup to your first trade, we'll guide you step by step. Don't miss this opportunity!",
+            "cta": "Sign Up & Get 20% Fee Discount"
+        },
+        "toc": {
+            "title": "Table of Contents",
+            "signup": "1. Sign Up for Binance",
+            "deposit": "2. Deposit USDT",
+            "futures_intro": "3. What is Futures Trading?",
+            "transfer": "4. Transfer to Futures Wallet",
+            "open_position": "5. Opening a Position",
+            "order_types": "6. Understanding Order Types",
+            "tpsl": "7. Setting TP/SL",
+            "leverage": "8. Leverage & Risk Management",
+            "practice": "9. Practice with Bitswipe"
+        },
+        "signup": {
+            "title": "1. Sign Up for Binance",
+            "intro": "Binance is the world's largest cryptocurrency exchange. With high trading volume, orders are filled quickly, and you can trade various coins. To start futures trading, you first need a Binance account.",
+            "step1_title": "Register with Email",
+            "step1_text": "Go to the Binance website and click the 'Register' button at the top right. Enter your email address and password. If you enter a referral code, you can get trading fee discounts.",
+            "step2_title": "Email Verification",
+            "step2_text": "A verification code will be sent to your email. Check your inbox and enter the 6-digit verification code. Don't forget to check your spam folder too.",
+            "step3_title": "Identity Verification (KYC)",
+            "step3_text": "To trade futures, you need identity verification (KYC, Know Your Customer). Take a photo of your passport or ID and upload it. Approval usually completes within minutes to hours.",
+            "tip_title": "Tip",
+            "tip_text": "If Binance doesn't support your language, you can use your browser's translation feature for convenience.",
+            "discount_alert_title": "⚡️ 20% Lifetime Fee Discount Benefit",
+            "discount_alert_text": "This benefit is ONLY available by signing up via the referral link below. If you sign up directly, you won't get it, so grab it now!",
+            "cta": "Sign Up & Get 20% Fee Discount",
+            "image_placeholder_pc": "[PC Screenshot: Binance Signup Screen]",
+            "image_placeholder_mobile": "[Mobile Screenshot: Binance Signup Screen]"
+        },
+        "deposit": {
+            "title": "2. Deposit USDT",
+            "intro": "To trade futures on Binance, you need USDT (Tether). The easiest way is to purchase USDT from your local exchange (Coinbase, Kraken, etc.) and transfer it to Binance.",
+            "step1_title": "Buy USDT from Your Exchange",
+            "step1_text": "Go to your preferred crypto exchange and purchase USDT. You can buy USDT directly with fiat currency. The purchased USDT is stored in your exchange wallet.",
+            "step2_title": "Check Binance Deposit Address",
+            "step2_text": "In the Binance app or web, click the 'Add Funds' button under 'Assets' to enter the 'Deposit' menu. Select 'USDT' as the coin type, and for the Network, be sure to select 'TRC20 (Tron, TRX)'. TRC20 has the lowest fees. Then your deposit address will appear.",
+            "step3_title": "Withdraw from Your Exchange",
+            "step3_text": "In your exchange's 'Withdraw' menu, select USDT. Paste the exact address you copied from Binance into the withdrawal address field. Make sure the network is set to 'TRC20'. If the network is different, your coins could be lost forever.",
+            "step4_title": "Confirm Deposit",
+            "step4_text": "After completing the withdrawal, USDT usually arrives in your Binance wallet within 5-10 minutes. You can check it in Binance under 'Wallet' > 'Fiat and Spot'.",
+            "warning_title": "Warning",
+            "warning_text": "Selecting the wrong network (TRC20, ERC20, etc.) can result in permanent loss of your coins. Always double and triple check the address and network.",
+            "image_placeholder_pc": "[PC Screenshot: Binance Deposit Address Screen]",
+            "image_placeholder_mobile": "[Mobile Screenshot: Binance Deposit Address Screen]"
+        },
+        "futures_intro": {
+            "title": "3. What is Futures Trading?",
+            "intro": "Futures trading is different from Spot trading - you're not actually buying and selling coins. You're making contracts based on predictions of future price movements. This means you can profit when prices go down, not just up.",
+            "spot_vs_futures_title": "Spot vs Futures",
+            "spot_title": "Spot Trading",
+            "spot_text": "You buy and hold the actual Bitcoin. If the price goes up, you profit; if it goes down, you lose.",
+            "futures_title": "Futures Trading",
+            "futures_text": "You don't own the actual Bitcoin - you're betting on price movements. You can use leverage and profit even in bear markets.",
+            "long_short_title": "Long and Short",
+            "long_title": "Long Position",
+            "long_text": "Go Long when you think the price will rise. If the price actually rises, you profit.",
+            "short_title": "Short Position",
+            "short_text": "Go Short when you think the price will fall. If the price actually falls, you profit.",
+            "transfer_title": "Transfer to Futures Wallet",
+            "transfer_text": "USDT deposited to Binance is in your 'Spot Wallet'. To trade futures, you need to move it to your 'Futures Wallet'. Click 'Transfer' in the top menu and move the desired amount from Spot to USDT-M Futures.",
+            "image_placeholder_pc": "[PC Screenshot: Futures Trading Interface]",
+            "image_placeholder_mobile": "[Mobile Screenshot: Futures Trading Interface]"
+        },
+        "transfer": {
+            "title": "4. Transfer to Futures Wallet",
+            "intro": "When you deposit USDT to Binance, it first goes into your 'Spot Wallet'. To trade futures, you need to transfer these funds to your 'Futures Wallet'. This is an internal transfer with no fees and it's instant.",
+            "why_title": "Why do I need to transfer separately?",
+            "why_text": "Binance separates wallets by trading type (Spot/Futures/Margin). Due to the high risk of futures trading, the platform is designed to intentionally separate funds. That's why you need to transfer funds separately to trade futures.",
+            "step1_title": "Find the Transfer Menu",
+            "step1_text": "In the Binance app or web, go to 'Wallets' > 'Transfer' at the bottom right. Or find the 'Transfer' button in 'Wallets' > 'Overview' from the top menu.",
+            "step2_title": "Set From/To",
+            "step2_text": "Set 'From' as 'Spot Wallet' and 'To' as 'USDT-M Futures'. You can easily swap the direction by clicking the arrow button.",
+            "step3_title": "Enter Amount and Confirm",
+            "step3_text": "Enter the USDT amount to transfer. Click 'Max' to enter your full balance. For beginners, we recommend transferring only about 50% of your total funds.",
+            "step4_title": "Transfer Complete",
+            "step4_text": "Click 'Confirm' and the transfer completes instantly. Go to the futures trading screen and you'll see your USDT balance displayed at the bottom right.",
+            "tip_title": "Tip",
+            "tip_text": "Transferring from Futures Wallet back to Spot Wallet works the same way. After trading, moving your funds back to Spot Wallet can help you avoid big losses from accidentally opening positions.",
+            "image_placeholder_pc": "[PC Screenshot: Wallet Transfer Screen]",
+            "image_placeholder_mobile": "[Mobile Screenshot: Wallet Transfer Screen]"
+        },
+        "open_position": {
+            "title": "5. Opening a Position",
+            "intro": "Now let's actually start trading futures. The Binance futures screen might look complicated at first, but it's not hard once you know the basics.",
+            "step1_title": "Navigate to Futures",
+            "step1_text": "Click 'Derivatives' > 'USDT-M Futures' in the Binance top menu. BTCUSDT (Bitcoin/Tether) should be selected by default.",
+            "step2_title": "Set Leverage",
+            "step2_text": "The section showing '20x' or similar at the top left is the leverage setting. Start with low leverage (2x-5x) at first. Higher leverage means bigger profits, but also bigger losses.",
+            "step3_title": "Check Margin Mode",
+            "step3_text": "There are two modes: 'Cross' and 'Isolated'. Beginners should use 'Isolated' mode. In Isolated mode, only the margin allocated to that position is at risk.",
+            "step4_title": "Enter Your Order",
+            "step4_text": "Enter the amount you want to trade in the order panel on the right. 'Long' bets on price going up, 'Short' bets on price going down. Click the button you want to execute your order.",
+            "image_placeholder_pc": "[PC Screenshot: Position Opening Screen]",
+            "image_placeholder_mobile": "[Mobile Screenshot: Position Opening Screen]"
+        },
+        "order_types": {
+            "title": "6. Understanding Order Types",
+            "intro": "Binance offers several order types. Choosing the right order type for your situation helps you trade more efficiently.",
+            "market_title": "Market Order",
+            "market_text": "An order that executes immediately at the current market price. Use it when you want to enter a position quickly. The downside is you might get filled at a slightly worse price than expected (slippage).",
+            "market_when": "When to use?",
+            "market_when_text": "When you need to enter or exit quickly during rapid price movements, or when you need guaranteed execution.",
+            "limit_title": "Limit Order",
+            "limit_text": "An order where you specify your desired price. It only fills when the price reaches your specified level. You can buy or sell at exactly the price you want, but it won't fill if the price never reaches that level.",
+            "limit_when": "When to use?",
+            "limit_when_text": "When you want to enter near support or resistance levels, or when you want to trade at a better price.",
+            "stop_title": "Stop Limit / Stop Market",
+            "stop_text": "An order that automatically triggers when a specific price (trigger price) is reached. Commonly used for stop losses or breakout trades.",
+            "stop_when": "When to use?",
+            "stop_when_text": "When you want to automatically enter when price breaks a specific level, or when you want to set up stop loss orders in advance.",
+            "post_only_title": "Post Only",
+            "post_only_text": "A limit order option. When checked, your order is guaranteed to be a Maker order, saving on fees. If it would be immediately filled, the order is cancelled.",
+            "reduce_only_title": "Reduce Only",
+            "reduce_only_text": "When checked, the order only executes to reduce your existing position. Useful to prevent accidentally opening an opposite position.",
+            "image_placeholder_pc": "[PC Screenshot: Order Type Selection Screen]",
+            "image_placeholder_mobile": "[Mobile Screenshot: Order Type Selection Screen]"
+        },
+        "tpsl": {
+            "title": "7. Setting TP/SL",
+            "intro": "TP/SL stands for Take Profit and Stop Loss. When set in advance, your position automatically closes when the target price is reached. You don't have to watch the chart constantly, and it helps reduce emotional decisions - making it a really important feature.",
+            "tp_title": "Take Profit (TP)",
+            "tp_text": "This is where you decide 'I'll take my profit and exit here' while you're still in profit. For a Long position, set TP above the current price; for a Short position, set TP below the current price.",
+            "sl_title": "Stop Loss (SL)",
+            "sl_text": "This is where you decide 'I'll cut my losses here' when the trade is going against you. For a Long position, set SL below the current price; for a Short position, set SL above the current price.",
+            "how_to_title": "How to Set",
+            "how_to_step1": "When opening a position, check the 'TP/SL' checkbox in the order panel.",
+            "how_to_step2": "Enter your Take Profit (TP) price and Stop Loss (SL) price.",
+            "how_to_step3": "Execute your order and TP/SL will be automatically set.",
+            "how_to_after": "You can also add TP/SL to positions that are already open. In the 'Positions' tab at the bottom, click the TP/SL button next to your position.",
+            "tip_title": "Tip",
+            "tip_text": "It's good to set a risk-reward ratio of at least 1:2. For example, if your stop loss is 1%, aim for take profit of 2% or more. Even with just 50% win rate, you can profit long-term.",
+            "image_placeholder_pc": "[PC Screenshot: TP/SL Setting Screen]",
+            "image_placeholder_mobile": "[Mobile Screenshot: TP/SL Setting Screen]"
+        },
+        "leverage": {
+            "title": "8. Leverage & Risk Management",
+            "intro": "Leverage is the core and most dangerous part of futures trading. It allows you to trade large amounts with little capital, but if misused, you can lose everything in an instant.",
+            "what_is_title": "What is Leverage?",
+            "what_is_text": "Leverage means 'lever'. With 10x leverage, you can trade $1,000 worth with just $100. If the price goes up 1%, your profit is 10%, but if it goes down 1%, your loss is also 10%.",
+            "margin_title": "Margin",
+            "margin_text": "This is the collateral you put up for leverage trading. To trade $1,000 worth with 10x leverage, you need $100 in margin.",
+            "liquidation_title": "Liquidation",
+            "liquidation_text": "When losses exceed your margin, the exchange forcibly closes your position. This is called Liquidation. You lose all your margin, and in some cases, additional losses can occur.",
+            "example_title": "Example",
+            "example_text": "You take a Long position with 10x leverage and the price drops 10%? Your loss is 100% (10% × 10x), resulting in liquidation. With 100x leverage, even a 1% move against you means total liquidation.",
+            "tips_title": "Tips for Safe Trading",
+            "tip1": "Beginners should start with low leverage of 2x-5x or less.",
+            "tip2": "Never invest all your money at once. Only use money you can afford to lose.",
+            "tip3": "Always set a Stop Loss. You can exit before getting liquidated.",
+            "tip4": "Don't trade emotionally. Trying to recover losses by overtrading leads to bigger losses.",
+            "warning_title": "Warning",
+            "warning_text": "Futures trading carries a very high risk of losing your principal. Study enough before investing, and only trade with spare funds. Never borrow money to invest."
+        },
+        "practice": {
+            "title": "Practice with Bitswipe",
+            "intro": "Before putting in real money, why not practice first? Bitswipe is a trading simulation game that uses real Bitcoin price data.",
+            "benefit1_title": "Risk-Free Practice",
+            "benefit1_text": "No real money is involved, so you can freely test various strategies.",
+            "benefit2_title": "Real-World Experience",
+            "benefit2_text": "Using actual historical Bitcoin price data, you can experience situations similar to real trading.",
+            "benefit3_title": "Pattern Learning",
+            "benefit3_text": "By playing repeatedly, you naturally learn to recognize chart patterns.",
+            "benefit4_title": "Mental Training",
+            "benefit4_text": "Build the mental fortitude to stay calm through profit and loss swings.",
+            "cta": "Start Playing Bitswipe",
+            "outro": "There's no rush to go live. Practice enough, build confidence, and then challenge real trading. The market is always open."
+        },
+        "final_cta": {
+            "title": "Ready to Get Started?",
+            "description": "Get a lifetime 20% trading fee discount by signing up with the link below. Start futures trading now.",
+            "signup_button": "Sign Up & Get 20% Discount",
+            "practice_button": "Practice with Bitswipe First"
+        },
+        "disclaimer": "Disclaimer: This article is provided for educational purposes only. It is not investment advice, and cryptocurrency trading carries a risk of losing your principal. Make investment decisions based on your own judgment and responsibility."
     }
 }

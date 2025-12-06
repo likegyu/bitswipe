@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/ranking', priority: 0.8, changeFrequency: 'daily' as const },
     { path: '/privacy', priority: 0.5, changeFrequency: 'yearly' as const },
     { path: '/terms', priority: 0.5, changeFrequency: 'yearly' as const },
+    { path: '/futures', priority: 0.9, changeFrequency: 'yearly' as const },
   ];
 
   const sitemapEntries: MetadataRoute.Sitemap = [];

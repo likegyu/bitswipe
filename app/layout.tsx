@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { CookieConsent } from "@/components/CookieConsent";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
 const geistSans = Geist({
@@ -16,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://bitswipe.xyz'),
+  metadataBase: new URL('https://bitswipe.xyz/ko'),
   robots: {
     index: true,
     follow: true,
@@ -47,7 +46,7 @@ export default async function RootLayout({
 }>) {
   // Get locale from next-intl (set by middleware)
   const headersList = await headers();
-  const locale = headersList.get('x-next-intl-locale') || 'en';
+  const locale = headersList.get('x-next-intl-locale') || 'ko';
 
   return (
     <html suppressHydrationWarning lang={locale}>
@@ -88,7 +87,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           disableTransitionOnChange
         >
           {children}
-          <CookieConsent />
         </ThemeProvider>
         {/* Kakao Ad Script - Must be before </body> */}
         <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>

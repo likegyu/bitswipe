@@ -33,7 +33,7 @@ export async function generateMetadata({
                 'ko': 'https://bitswipe.xyz/ko',
                 'es': 'https://bitswipe.xyz/es',
                 'ja': 'https://bitswipe.xyz/ja',
-                'x-default': 'https://bitswipe.xyz/en'
+                'x-default': 'https://bitswipe.xyz/ko'
 
             },
         },
@@ -64,8 +64,6 @@ export async function generateMetadata({
 }
 
 import { FAQJsonLd } from '@/components/FAQJsonLd';
-import { HowToJsonLd } from '@/components/HowToJsonLd';
-import { SoftwareAppJsonLd } from '@/components/SoftwareAppJsonLd';
 
 export default async function Home({
     params,
@@ -80,8 +78,6 @@ export default async function Home({
                 <SharedResultModal />
             </Suspense>
             <FAQJsonLd locale={locale} />
-            <HowToJsonLd locale={locale} />
-            <SoftwareAppJsonLd locale={locale} />
             <GameLayout />
             <SEOContent />
         </main>

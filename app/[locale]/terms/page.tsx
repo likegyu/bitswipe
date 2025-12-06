@@ -26,6 +26,7 @@ export async function generateMetadata({
                 'ko': 'https://bitswipe.xyz/ko/terms',
                 'es': 'https://bitswipe.xyz/es/terms',
                 'ja': 'https://bitswipe.xyz/ja/terms',
+                'x-default': 'https://bitswipe.xyz/ko/terms'
             },
         },
         openGraph: {

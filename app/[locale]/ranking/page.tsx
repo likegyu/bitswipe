@@ -23,6 +23,7 @@ export async function generateMetadata({
                 'ko': 'https://bitswipe.xyz/ko/ranking',
                 'es': 'https://bitswipe.xyz/es/ranking',
                 'ja': 'https://bitswipe.xyz/ja/ranking',
+                'x-default': 'https://bitswipe.xyz/ko/ranking'
             },
         },
         openGraph: {

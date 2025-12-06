@@ -28,6 +28,7 @@ export async function generateMetadata({
                 'ko': 'https://bitswipe.xyz/ko/privacy',
                 'es': 'https://bitswipe.xyz/es/privacy',
                 'ja': 'https://bitswipe.xyz/ja/privacy',
+                'x-default': 'https://bitswipe.xyz/ko/privacy'
             },
         },
         openGraph: {

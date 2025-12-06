@@ -26,6 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
                 'ko': 'https://bitswipe.xyz/ko/market',
                 'es': 'https://bitswipe.xyz/es/market',
                 'ja': 'https://bitswipe.xyz/ja/market',
+                'x-default': 'https://bitswipe.xyz/ko/market'
             },
         },
         openGraph: {

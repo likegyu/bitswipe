@@ -354,6 +354,15 @@
             "card2_text": "Analiza los estilos de trading de los mejores.",
             "cta_button": "Ver Ranking"
         },
+        "FuturesSection": {
+            "title": "Guía de Futuros de Binance",
+            "p1": "¿Interesado en el trading de futuros de Bitcoin? Te cubrimos desde el registro en Binance hasta el trading.",
+            "card1_title": "Del Registro al Trading",
+            "card1_text": "Guía paso a paso para registro en Binance, depósito de USDT y trading de futuros.",
+            "card2_title": "Apalancamiento y Gestión de Riesgos",
+            "card2_text": "Explicaciones fáciles de configuración TP/SL, tipos de órdenes, liquidación y más.",
+            "cta_button": "Ver Guía de Futuros"
+        },
         "Disclaimer": "Descargo de responsabilidad: Bitswipe es solo un juego de simulación. No hay dinero real involucrado, y obtener ganancias aquí no garantiza retornos de inversión reales. Eres el único responsable de tus inversiones."
     },
     "PrivacyPolicy": {
@@ -395,6 +404,10 @@
             "title": "Consentimiento",
             "p1": "Al utilizar el sitio web de Bitswipe, se considera que aceptas esta Política de Privacidad."
         }
+    },
+    "CookieConsent": {
+        "message": "Utilizamos cookies para mejorar tu experiencia y analizar nuestro tráfico. Al continuar visitando este sitio, aceptas nuestro uso de cookies.",
+        "accept": "Aceptar"
     },
     "TermsOfService": {
         "title": "Bitswipe - Términos de Servicio",
@@ -447,6 +460,22 @@
             "p1": "Estos términos se interpretan y rigen por las leyes de los Estados Unidos."
         }
     },
+    "HowToJsonLd": {
+        "title": "Cómo Operar Futuros de Bitcoin en Binance",
+        "description": "Una guía paso a paso desde el registro en Binance hasta el trading de futuros de Bitcoin. Una guía completa que incluso los principiantes pueden seguir fácilmente.",
+        "step1_title": "Registrarse en Binance",
+        "step1_text": "Regístrese en el sitio web oficial de Binance usando su correo electrónico o número de teléfono. Ingrese un código de referido para obtener descuentos en las comisiones.",
+        "step2_title": "Completar la Verificación KYC",
+        "step2_text": "Complete la verificación de identidad con su documento de identidad. Los depósitos, retiros y operaciones solo están disponibles después de la verificación.",
+        "step3_title": "Depositar USDT",
+        "step3_text": "Compre USDT en un exchange, luego transfiéralo a su dirección de billetera Binance. Asegúrese de verificar la red (se recomienda TRC20).",
+        "step4_title": "Transferir a la Billetera de Futuros",
+        "step4_text": "En la app de Binance, use el menú 'Transferir' para mover USDT de su billetera spot a su billetera de futuros.",
+        "step5_title": "Configurar Apalancamiento y Modo de Margen",
+        "step5_text": "Seleccione la moneda a operar (BTCUSDT) y configure su apalancamiento. Los principiantes deben usar 2-5x o menos, y usar el modo de margen Aislado.",
+        "step6_title": "Abrir Posición y Configurar TP/SL",
+        "step6_text": "Elija la dirección Long (esperando subida) o Short (esperando bajada) y ejecute su orden. Siempre configure Stop Loss y Take Profit para gestionar el riesgo."
+    },
     "MarketPage": {
         "title": "Bitswipe - Sentimiento del Mercado de Bitcoin",
         "description": "Obtenga análisis diario del sentimiento del mercado de Bitcoin impulsado por IA. Siga las tendencias alcistas y bajistas con nuestro calendario de sentimiento y datos históricos.",
@@ -459,5 +488,192 @@
         "sentiment_positive": "Positivo",
         "sentiment_negative": "Negativo",
         "sentiment_neutral": "Neutral"
+    },
+    "FuturesPage": {
+        "title": "Bitswipe - Guía Completa de Binance",
+        "description": "Guía completa de trading de futuros en Binance. Desde el registro hasta el depósito de USDT y la apertura de posiciones, una guía detallada de trading de futuros de Bitcoin para principiantes.",
+        "keywords": "Futuros de Binance, Futuros de Bitcoin, Registro en Binance, Tutorial de Binance, Trading de futuros de Bitcoin, Depósito de USDT, Depósito en Binance, Guía de trading de futuros, Trading con apalancamiento, Inversión en Bitcoin",
+        "ogDescription": "Guía completa de trading de futuros en Binance. Métodos fáciles de seguir para trading de futuros de Bitcoin para principiantes.",
+        "ogImageAlt": "Bitswipe - Guía de Trading de Futuros en Binance",
+        "hero": {
+            "title": "Futuros de Bitcoin, Fácil",
+            "subtitle": "Guía Completa de Trading de Futuros en Binance para Principiantes (20% de Descuento en Comisiones de por Vida)",
+            "description": "Obtén un 20% de descuento en comisiones de trading de por vida. Desde el registro hasta tu primera operación, te guiamos paso a paso. ¡No pierdas esta oportunidad!",
+            "cta": "Regístrate y Obtén 20% de Descuento"
+        },
+        "toc": {
+            "title": "Tabla de Contenidos",
+            "signup": "1. Registrarse en Binance",
+            "deposit": "2. Depositar USDT",
+            "futures_intro": "3. ¿Qué es el Trading de Futuros?",
+            "transfer": "4. Transferir a Billetera de Futuros",
+            "open_position": "5. Abrir una Posición",
+            "order_types": "6. Entender los Tipos de Orden",
+            "tpsl": "7. Configurar TP/SL",
+            "leverage": "8. Apalancamiento y Gestión de Riesgos",
+            "practice": "9. Practica con Bitswipe"
+        },
+        "signup": {
+            "title": "1. Registrarse en Binance",
+            "intro": "Binance es el exchange de criptomonedas más grande del mundo. Con alto volumen de trading, las órdenes se ejecutan rápidamente y puedes operar con varias monedas. Para comenzar a operar futuros, primero necesitas una cuenta en Binance.",
+            "step1_title": "Registrarse con Email",
+            "step1_text": "Ve al sitio web de Binance y haz clic en el botón 'Registrarse' en la esquina superior derecha. Ingresa tu dirección de email y contraseña. Si ingresas un código de referido, puedes obtener descuentos en las comisiones de trading.",
+            "step2_title": "Verificación de Email",
+            "step2_text": "Se enviará un código de verificación a tu email. Revisa tu bandeja de entrada e ingresa el código de verificación de 6 dígitos. No olvides revisar la carpeta de spam.",
+            "step3_title": "Verificación de Identidad (KYC)",
+            "step3_text": "Para operar futuros, necesitas verificación de identidad (KYC, Know Your Customer). Toma una foto de tu pasaporte o identificación y súbela. La aprobación generalmente se completa en minutos a horas.",
+            "tip_title": "Consejo",
+            "tip_text": "Si Binance no está en tu idioma, puedes usar la función de traducción de tu navegador para mayor comodidad.",
+            "discount_alert_title": "⚡️ Beneficio de 20% de Descuento en Comisiones de por Vida",
+            "discount_alert_text": "Este beneficio SOLO está disponible registrándose a través del enlace de referencia a continuación. Si te registras directamente, no lo obtendrás, ¡así que aprovéchalo ahora!",
+            "cta": "Regístrate y Obtén 20% de Descuento",
+            "image_placeholder_pc": "[Captura de PC: Pantalla de Registro de Binance]",
+            "image_placeholder_mobile": "[Captura Móvil: Pantalla de Registro de Binance]"
+        },
+        "deposit": {
+            "title": "2. Depositar USDT",
+            "intro": "Para operar futuros en Binance, necesitas USDT (Tether). La forma más fácil es comprar USDT en tu exchange local (Coinbase, Kraken, etc.) y transferirlo a Binance.",
+            "step1_title": "Comprar USDT en tu Exchange",
+            "step1_text": "Ve a tu exchange de criptomonedas preferido y compra USDT. Puedes comprar USDT directamente con moneda fiat. El USDT comprado se almacena en la billetera de tu exchange.",
+            "step2_title": "Verificar Dirección de Depósito de Binance",
+            "step2_text": "En la aplicación o web de Binance, haga clic en el botón 'Add Funds' (Añadir fondos) en 'Assets' (Activos) para entrar en el menú 'Deposit' (Depósito). Seleccione 'USDT' como tipo de moneda y, para la red, asegúrese de seleccionar 'TRC20 (Tron, TRX)'. TRC20 tiene las tarifas más bajas. Entonces aparecerá su dirección de depósito.",
+            "step3_title": "Retirar desde tu Exchange",
+            "step3_text": "En el menú 'Retirar' de tu exchange, selecciona USDT. Pega la dirección exacta que copiaste de Binance en el campo de dirección de retiro. Asegúrate de que la red esté configurada como 'TRC20'. Si la red es diferente, tus monedas podrían perderse para siempre.",
+            "step4_title": "Confirmar Depósito",
+            "step4_text": "Después de completar el retiro, el USDT generalmente llega a tu billetera de Binance en 5-10 minutos. Puedes verificarlo en Binance en 'Billetera' > 'Fiat y Spot'.",
+            "warning_title": "Advertencia",
+            "warning_text": "Seleccionar la red incorrecta (TRC20, ERC20, etc.) puede resultar en la pérdida permanente de tus monedas. Siempre verifica dos y tres veces la dirección y la red.",
+            "image_placeholder_pc": "[Captura de PC: Pantalla de Dirección de Depósito de Binance]",
+            "image_placeholder_mobile": "[Captura Móvil: Pantalla de Dirección de Depósito de Binance]"
+        },
+        "futures_intro": {
+            "title": "3. ¿Qué es el Trading de Futuros?",
+            "intro": "El trading de futuros es diferente del trading Spot - no estás comprando y vendiendo monedas realmente. Estás haciendo contratos basados en predicciones de movimientos futuros de precios. Esto significa que puedes obtener ganancias cuando los precios bajan, no solo cuando suben.",
+            "spot_vs_futures_title": "Spot vs Futuros",
+            "spot_title": "Trading Spot",
+            "spot_text": "Compras y mantienes el Bitcoin real. Si el precio sube, ganas; si baja, pierdes.",
+            "futures_title": "Trading de Futuros",
+            "futures_text": "No posees el Bitcoin real, estás apostando a los movimientos de precio. Puedes usar apalancamiento y obtener ganancias incluso en mercados bajistas.",
+            "long_short_title": "Long y Short",
+            "long_title": "Posición Long",
+            "long_text": "Abre Long cuando creas que el precio subirá. Si el precio realmente sube, obtienes ganancias.",
+            "short_title": "Posición Short",
+            "short_text": "Abre Short cuando creas que el precio bajará. Si el precio realmente baja, obtienes ganancias.",
+            "transfer_title": "Transferir a Billetera de Futuros",
+            "transfer_text": "El USDT depositado en Binance está en tu 'Billetera Spot'. Para operar futuros, necesitas moverlo a tu 'Billetera de Futuros'. Haz clic en 'Transferir' en el menú superior y mueve la cantidad deseada de Spot a USDT-M Futuros.",
+            "image_placeholder_pc": "[Captura de PC: Interfaz de Trading de Futuros]",
+            "image_placeholder_mobile": "[Captura Móvil: Interfaz de Trading de Futuros]"
+        },
+        "transfer": {
+            "title": "4. Transferir a Billetera de Futuros",
+            "intro": "Cuando depositas USDT en Binance, primero va a tu 'Billetera Spot'. Para operar futuros, necesitas transferir estos fondos a tu 'Billetera de Futuros'. Esta es una transferencia interna sin comisiones y es instantánea.",
+            "why_title": "¿Por qué necesito transferir por separado?",
+            "why_text": "Binance separa las billeteras por tipo de trading (Spot/Futuros/Margen). Debido al alto riesgo del trading de futuros, la plataforma está diseñada para separar intencionalmente los fondos. Por eso necesitas transferir fondos por separado para operar futuros.",
+            "step1_title": "Encontrar el Menú de Transferencia",
+            "step1_text": "En la app o web de Binance, ve a 'Billeteras' > 'Transferir' en la parte inferior derecha. O encuentra el botón 'Transferir' en 'Billeteras' > 'Resumen' desde el menú superior.",
+            "step2_title": "Configurar Desde/Hacia",
+            "step2_text": "Configura 'Desde' como 'Billetera Spot' y 'Hacia' como 'USDT-M Futuros'. Puedes cambiar fácilmente la dirección haciendo clic en el botón de flecha.",
+            "step3_title": "Ingresar Monto y Confirmar",
+            "step3_text": "Ingresa la cantidad de USDT a transferir. Haz clic en 'Máx' para ingresar tu saldo completo. Para principiantes, recomendamos transferir solo alrededor del 50% de tus fondos totales.",
+            "step4_title": "Transferencia Completa",
+            "step4_text": "Haz clic en 'Confirmar' y la transferencia se completa instantáneamente. Ve a la pantalla de trading de futuros y verás tu saldo de USDT mostrado en la parte inferior derecha.",
+            "tip_title": "Consejo",
+            "tip_text": "Transferir de la Billetera de Futuros de vuelta a la Billetera Spot funciona de la misma manera. Después de operar, mover tus fondos de vuelta a la Billetera Spot puede ayudarte a evitar grandes pérdidas por abrir posiciones accidentalmente.",
+            "image_placeholder_pc": "[Captura de PC: Pantalla de Transferencia de Billetera]",
+            "image_placeholder_mobile": "[Captura Móvil: Pantalla de Transferencia de Billetera]"
+        },
+        "open_position": {
+            "title": "5. Abrir una Posición",
+            "intro": "Ahora comencemos a operar futuros de verdad. La pantalla de futuros de Binance puede parecer complicada al principio, pero no es difícil una vez que conoces los conceptos básicos.",
+            "step1_title": "Navegar a Futuros",
+            "step1_text": "Haz clic en 'Derivados' > 'Futuros USDT-M' en el menú superior de Binance. BTCUSDT (Bitcoin/Tether) debería estar seleccionado por defecto.",
+            "step2_title": "Configurar Apalancamiento",
+            "step2_text": "La sección que muestra '20x' o similar en la parte superior izquierda es la configuración de apalancamiento. Comienza con apalancamiento bajo (2x-5x) al principio. Mayor apalancamiento significa mayores ganancias, pero también mayores pérdidas.",
+            "step3_title": "Verificar Modo de Margen",
+            "step3_text": "Hay dos modos: 'Cruzado' y 'Aislado'. Los principiantes deberían usar modo 'Aislado'. En modo Aislado, solo el margen asignado a esa posición está en riesgo.",
+            "step4_title": "Ingresar tu Orden",
+            "step4_text": "Ingresa la cantidad que quieres operar en el panel de órdenes a la derecha. 'Long' apuesta a que el precio sube, 'Short' apuesta a que el precio baja. Haz clic en el botón que desees para ejecutar tu orden.",
+            "image_placeholder_pc": "[Captura de PC: Pantalla de Apertura de Posición]",
+            "image_placeholder_mobile": "[Captura Móvil: Pantalla de Apertura de Posición]"
+        },
+        "order_types": {
+            "title": "6. Entender los Tipos de Orden",
+            "intro": "Binance ofrece varios tipos de orden. Elegir el tipo de orden correcto para tu situación te ayuda a operar más eficientemente.",
+            "market_title": "Orden de Mercado",
+            "market_text": "Una orden que se ejecuta inmediatamente al precio de mercado actual. Úsala cuando quieras entrar en una posición rápidamente. La desventaja es que podrías obtener un precio ligeramente peor de lo esperado (deslizamiento).",
+            "market_when": "¿Cuándo usar?",
+            "market_when_text": "Cuando necesitas entrar o salir rápidamente durante movimientos de precio rápidos, o cuando necesitas ejecución garantizada.",
+            "limit_title": "Orden Límite",
+            "limit_text": "Una orden donde especificas tu precio deseado. Solo se ejecuta cuando el precio alcanza tu nivel especificado. Puedes comprar o vender exactamente al precio que quieres, pero no se ejecutará si el precio nunca alcanza ese nivel.",
+            "limit_when": "¿Cuándo usar?",
+            "limit_when_text": "Cuando quieres entrar cerca de niveles de soporte o resistencia, o cuando quieres operar a un mejor precio.",
+            "stop_title": "Stop Limit / Stop Market",
+            "stop_text": "Una orden que se activa automáticamente cuando se alcanza un precio específico (precio de activación). Comúnmente usada para stop losses o operaciones de ruptura.",
+            "stop_when": "¿Cuándo usar?",
+            "stop_when_text": "Cuando quieres entrar automáticamente cuando el precio rompe un nivel específico, o cuando quieres configurar órdenes de stop loss por adelantado.",
+            "post_only_title": "Solo Maker",
+            "post_only_text": "Una opción de orden límite. Cuando está marcada, tu orden está garantizada de ser una orden Maker, ahorrando en comisiones. Si se ejecutaría inmediatamente, la orden se cancela.",
+            "reduce_only_title": "Solo Reducir",
+            "reduce_only_text": "Cuando está marcada, la orden solo se ejecuta para reducir tu posición existente. Útil para prevenir abrir accidentalmente una posición opuesta.",
+            "image_placeholder_pc": "[Captura de PC: Pantalla de Selección de Tipo de Orden]",
+            "image_placeholder_mobile": "[Captura Móvil: Pantalla de Selección de Tipo de Orden]"
+        },
+        "tpsl": {
+            "title": "7. Configurar TP/SL",
+            "intro": "TP/SL significa Take Profit (Toma de Ganancias) y Stop Loss. Cuando se configura por adelantado, tu posición se cierra automáticamente cuando se alcanza el precio objetivo. No tienes que estar mirando el gráfico constantemente, y ayuda a reducir las decisiones emocionales, haciéndolo una característica realmente importante.",
+            "tp_title": "Take Profit (TP)",
+            "tp_text": "Aquí es donde decides 'Tomaré mis ganancias y saldré aquí' mientras todavía estás en ganancias. Para una posición Long, configura TP por encima del precio actual; para una posición Short, configura TP por debajo del precio actual.",
+            "sl_title": "Stop Loss (SL)",
+            "sl_text": "Aquí es donde decides 'Cortaré mis pérdidas aquí' cuando la operación va en tu contra. Para una posición Long, configura SL por debajo del precio actual; para una posición Short, configura SL por encima del precio actual.",
+            "how_to_title": "Cómo Configurar",
+            "how_to_step1": "Al abrir una posición, marca la casilla 'TP/SL' en el panel de órdenes.",
+            "how_to_step2": "Ingresa tu precio de Take Profit (TP) y tu precio de Stop Loss (SL).",
+            "how_to_step3": "Ejecuta tu orden y TP/SL se configurará automáticamente.",
+            "how_to_after": "También puedes agregar TP/SL a posiciones que ya están abiertas. En la pestaña 'Posiciones' en la parte inferior, haz clic en el botón TP/SL junto a tu posición.",
+            "tip_title": "Consejo",
+            "tip_text": "Es bueno configurar una relación riesgo-recompensa de al menos 1:2. Por ejemplo, si tu stop loss es 1%, apunta a un take profit de 2% o más. Incluso con solo 50% de tasa de acierto, puedes obtener ganancias a largo plazo.",
+            "image_placeholder_pc": "[Captura de PC: Pantalla de Configuración de TP/SL]",
+            "image_placeholder_mobile": "[Captura Móvil: Pantalla de Configuración de TP/SL]"
+        },
+        "leverage": {
+            "title": "8. Apalancamiento y Gestión de Riesgos",
+            "intro": "El apalancamiento es el núcleo y la parte más peligrosa del trading de futuros. Te permite operar grandes cantidades con poco capital, pero si se usa mal, puedes perder todo en un instante.",
+            "what_is_title": "¿Qué es el Apalancamiento?",
+            "what_is_text": "Apalancamiento significa 'palanca'. Con apalancamiento 10x, puedes operar $1,000 con solo $100. Si el precio sube 1%, tu ganancia es 10%, pero si baja 1%, tu pérdida también es 10%.",
+            "margin_title": "Margen",
+            "margin_text": "Este es el colateral que depositas para trading con apalancamiento. Para operar $1,000 con apalancamiento 10x, necesitas $100 en margen.",
+            "liquidation_title": "Liquidación",
+            "liquidation_text": "Cuando las pérdidas superan tu margen, el exchange cierra forzosamente tu posición. Esto se llama Liquidación. Pierdes todo tu margen, y en algunos casos, pueden ocurrir pérdidas adicionales.",
+            "example_title": "Ejemplo",
+            "example_text": "Tomas una posición Long con apalancamiento 10x y el precio cae 10%? Tu pérdida es 100% (10% × 10x), resultando en liquidación. Con apalancamiento 100x, incluso un movimiento de 1% en tu contra significa liquidación total.",
+            "tips_title": "Consejos para Trading Seguro",
+            "tip1": "Los principiantes deberían comenzar con apalancamiento bajo de 2x-5x o menos.",
+            "tip2": "Nunca inviertas todo tu dinero de una vez. Solo usa dinero que puedas permitirte perder.",
+            "tip3": "Siempre configura un Stop Loss. Puedes salir antes de ser liquidado.",
+            "tip4": "No operes emocionalmente. Intentar recuperar pérdidas con overtrading lleva a mayores pérdidas.",
+            "warning_title": "Advertencia",
+            "warning_text": "El trading de futuros conlleva un riesgo muy alto de perder tu capital. Estudia lo suficiente antes de invertir, y solo opera con fondos de sobra. Nunca pidas dinero prestado para invertir."
+        },
+        "practice": {
+            "title": "Practica con Bitswipe",
+            "intro": "Antes de poner dinero real, ¿por qué no practicar primero? Bitswipe es un juego de simulación de trading que usa datos de precio real de Bitcoin.",
+            "benefit1_title": "Práctica sin Riesgo",
+            "benefit1_text": "No hay dinero real involucrado, así que puedes probar libremente varias estrategias.",
+            "benefit2_title": "Experiencia del Mundo Real",
+            "benefit2_text": "Usando datos históricos reales de precio de Bitcoin, puedes experimentar situaciones similares al trading real.",
+            "benefit3_title": "Aprendizaje de Patrones",
+            "benefit3_text": "Jugando repetidamente, aprendes naturalmente a reconocer patrones de gráficos.",
+            "benefit4_title": "Entrenamiento Mental",
+            "benefit4_text": "Construye la fortaleza mental para mantenerte calmado a través de oscilaciones de ganancias y pérdidas.",
+            "cta": "Comenzar a Jugar Bitswipe",
+            "outro": "No hay prisa para ir en vivo. Practica lo suficiente, construye confianza, y luego desafía el trading real. El mercado siempre está abierto."
+        },
+        "final_cta": {
+            "title": "¿Listo para Comenzar?",
+            "description": "Obtén un 20% de descuento en comisiones de trading de por vida registrándote con el enlace a continuación. Comienza a operar futuros ahora.",
+            "signup_button": "Regístrate y Obtén 20% de Descuento",
+            "practice_button": "Practica con Bitswipe Primero"
+        },
+        "disclaimer": "Descargo de responsabilidad: Este artículo se proporciona solo con fines educativos. No es consejo de inversión, y el trading de criptomonedas conlleva un riesgo de perder tu capital. Toma decisiones de inversión basándote en tu propio juicio y responsabilidad."
     }
 }
