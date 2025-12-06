@@ -97,8 +97,9 @@ export function ImageCarousel({
                             src={images[currentIndex]}
                             alt={`${alt} - ${currentIndex + 1}`}
                             fill
-                            className="object-contain"
+                            className="object-contain select-none"
                             priority={currentIndex === 0}
+                            draggable={false}
                         />
                     </motion.div>
                 </AnimatePresence>
